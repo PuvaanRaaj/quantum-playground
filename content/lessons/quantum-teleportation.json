@@ -1,0 +1,144 @@
+{
+  "slug": "quantum-teleportation",
+  "title": "Quantum teleportation",
+  "category": "Quantum mechanics",
+  "subtitle": "Shared entanglement and two classical bits can transfer an unknown qubit state.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Quantum teleportation transfers a quantum state from one physical system to another using shared entanglement and classical communication.",
+  "why": "Shared entanglement and two classical bits can transfer an unknown qubit state.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Bell pair",
+      "definition": "A maximally entangled pair of qubits used as a shared resource."
+    },
+    {
+      "term": "Bell measurement",
+      "definition": "A joint measurement distinguishing four entangled basis states."
+    },
+    {
+      "term": "Pauli correction",
+      "definition": "A conditional X or Z operation that restores the intended output state."
+    },
+    {
+      "term": "Fidelity",
+      "definition": "A measure of agreement between an intended state and the actual output."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What is transferred and what is not",
+      "paragraphs": [
+        "Quantum teleportation transfers a quantum state from one physical system to another using shared entanglement and classical communication. It does not transport the original material particle through space or create an extra surviving copy of an unknown state. The protocol was introduced in 1993 by Charles Bennett, Gilles Brassard, Claude Crépeau, Richard Jozsa, Asher Peres and William Wootters. It is a useful example of how entanglement becomes an operational resource rather than merely an unusual correlation between distant measurements.",
+        "Alice has a qubit in an unknown state α|0⟩+β|1⟩. She and Bob also share a Bell pair prepared and distributed beforehand. Alice holds one half and Bob the other. The protocol uses Alice’s two local qubits in a joint operation and measurement, then sends two ordinary classical bits to Bob. Depending on those bits, Bob applies a correction. In the ideal protocol, his qubit then has the original unknown state. Alice does not need to learn α and β to accomplish the transfer."
+      ]
+    },
+    {
+      "title": "Why two bits are enough without describing the amplitudes",
+      "paragraphs": [
+        "A general qubit has continuously variable amplitude parameters, so two classical bits cannot be a complete numerical description of its state. Teleportation avoids that requirement because the shared entangled state participates in the transformation. Alice’s joint measurement has four possible outcomes. Each corresponds to Bob’s qubit being related to the desired state by one of four known Pauli operations. The two transmitted bits identify which relation occurred, allowing Bob to undo it. The continuous state information is not encoded in the classical message alone.",
+        "The algebra can be understood by rewriting the three-qubit initial state in Alice’s Bell basis. It becomes a sum of four equally weighted Bell outcomes, each multiplied by a corresponding transformed version of the input on Bob’s side. The transformations can be chosen as identity, X, Z and XZ, up to irrelevant global phases and labeling conventions. Since each result occurs with probability one quarter in the ideal protocol, the message does not reveal the input amplitudes to an eavesdropper who sees only those two bits."
+      ]
+    },
+    {
+      "title": "Why this cannot send an instant signal",
+      "paragraphs": [
+        "Before Bob receives the classical bits, he must average over Alice’s possible outcomes. His local state is maximally mixed and carries no accessible information about which correction to apply. He cannot infer the original state by looking only at that local ensemble. Receiving the classical message is therefore essential to usable reconstruction. Because that message travels through an ordinary channel, the protocol does not permit faster-than-light communication. Conditional descriptions of Bob’s state must not be confused with a controllable signal available to him before the message arrives.",
+        "Alice’s original qubit is consumed by the measurement process in the relevant sense: she no longer retains an independent copy of the unknown state after successful transfer. This is consistent with the no-cloning theorem. The shared entanglement is also consumed, so another unknown qubit requires another appropriate resource. If someone claims unlimited teleportation from a single Bell pair, ask where the replacement entanglement comes from. Resource accounting is part of the protocol, just as necessary as the final correction operation."
+      ]
+    },
+    {
+      "title": "A simple noise calculation rather than a full protocol simulation",
+      "paragraphs": [
+        "Suppose an otherwise ideal transfer is followed by a depolarizing channel that leaves the target state with weight 1−p and replaces it by the maximally mixed qubit with weight p. For a pure intended state, fidelity is then 1−p/2. At p=0.2, fidelity is 0.9. This is independent of the input direction because the chosen noise is symmetric. Fidelity here is the overlap of the output with the pure target, not the probability that every future measurement always matches a separately measured input.",
+        "The calculator shows this restricted post-transfer noise model. It does not simulate Bell measurements, distribute entanglement, implement corrections or characterize a real quantum network. Real experiments face losses, imperfect operations and limited measurement capabilities; evaluating a teleportation demonstration requires an appropriate benchmark and accounting for its assumptions. The model’s role is to illustrate how a clearly specified channel changes output quality after the ideal logic is understood. Keep three resources distinct: an unknown input, shared entanglement and a classical message. Their combination enables state transfer, while none of them alone supplies a machine for copying matter or communicating outside relativity’s causal limits."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "ρout=(1−p)|ψ⟩⟨ψ|+pI/2; F=1−p/2",
+    "symbols": [
+      {
+        "symbol": "p",
+        "meaning": "Depolarizing replacement weight."
+      },
+      {
+        "symbol": "F",
+        "meaning": "Overlap fidelity with a pure target state."
+      },
+      {
+        "symbol": "I/2",
+        "meaning": "Maximally mixed one-qubit state."
+      }
+    ],
+    "explanation": "Shared entanglement and two classical bits can transfer an unknown qubit state.",
+    "example": "For p=0.2, the specified output channel gives fidelity 0.9."
+  },
+  "insight": "The classical bits identify which correction Bob must apply.",
+  "misconceptions": [
+    {
+      "myth": "Shared entanglement makes the classical correction message unnecessary.",
+      "correction": "The classical bits identify which correction Bob must apply."
+    },
+    {
+      "myth": "Teleportation preserves an independent copy at Alice’s location.",
+      "correction": "The original unknown state and shared Bell resource are consumed by the ideal transfer protocol."
+    }
+  ],
+  "check": {
+    "question": "What must Bob receive before reconstructing the usable state?",
+    "options": [
+      "Two classical outcome bits",
+      "A second copy of the unknown state",
+      "Nothing after sharing entanglement"
+    ],
+    "answer": 0,
+    "explanation": "The classical bits identify which correction Bob must apply."
+  },
+  "sources": [
+    {
+      "title": "IBM: Teleportation",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/utility-scale-quantum-computing/teleportation"
+    },
+    {
+      "title": "IBM: Quantum teleportation module",
+      "url": "https://quantum.cloud.ibm.com/learning/en/modules/computer-science/quantum-teleportation"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Output fidelity after ideal teleportation",
+    "description": "Calculate fidelity after ideal teleportation followed by depolarizing replacement noise with weight p.",
+    "inputs": [
+      {
+        "key": "p",
+        "label": "Depolarizing weight",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "initial": 0.2,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Output fidelity",
+        "expression": [
+          "-",
+          1,
+          [
+            "/",
+            "p",
+            2
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Ideal teleportation followed by a specified depolarizing replacement channel. No actual protocol execution, resource distribution, losses or experimental certification."
+  }
+}

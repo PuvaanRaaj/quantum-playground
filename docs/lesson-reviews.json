@@ -280,5 +280,11 @@
     "sourceSha256": "1659b3432155a826dce98825ab174128194293e91b59e5e575ddf5131c0220b4",
     "reviewRecord": "batch-9.json",
     "status": "approved"
+  },
+  "quantum-teleportation": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "d23dc590dc4b09e9a27d80312fd7675994e3994418f6e9eeb1e9cef0e687ab62",
+    "reviewRecord": "batch-9.json",
+    "status": "approved"
   }
 }
