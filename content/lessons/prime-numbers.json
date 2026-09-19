@@ -1,0 +1,164 @@
+{
+  "slug": "prime-numbers",
+  "title": "Prime numbers",
+  "category": "Mathematics",
+  "subtitle": "A prime number is an integer greater than one whose only positive divisors are one and itself.",
+  "minutes": 16,
+  "level": "Go deeper",
+  "accent": "amber",
+  "intro": "A prime number is an integer greater than one whose only positive divisors are one and itself. Two, three, five, seven, and eleven are prime. Four is composite because it equals two times two. One is neither prime nor composite. Excluding one is not an arbitrary inconvenience: it keeps prime factorization meaningful, since inserting unlimited factors of one should not count as different factorizations.",
+  "why": "The contradiction comes from a new prime divisor, even if the constructed number is composite.",
+  "prerequisites": [
+    "Integer multiplication and division",
+    "Basic logical arguments"
+  ],
+  "terms": [
+    {
+      "term": "Prime",
+      "definition": "An integer greater than one with exactly two positive divisors: one and itself."
+    },
+    {
+      "term": "Composite",
+      "definition": "An integer greater than one that is not prime."
+    },
+    {
+      "term": "Divisor",
+      "definition": "An integer that divides another integer with no remainder."
+    },
+    {
+      "term": "Prime factorization",
+      "definition": "An expression of an integer greater than one as a product of primes."
+    },
+    {
+      "term": "Coprime",
+      "definition": "Two integers whose greatest common divisor is one."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Identify the indivisible building blocks",
+      "paragraphs": [
+        "A prime number is an integer greater than one whose only positive divisors are one and itself. Two, three, five, seven, and eleven are prime. Four is composite because it equals two times two. One is neither prime nor composite. Excluding one is not an arbitrary inconvenience: it keeps prime factorization meaningful, since inserting unlimited factors of one should not count as different factorizations.",
+        "Ancient Greek mathematics developed important systematic results about primes, preserved in Euclid’s Elements. Later work by Euler, Gauss, Riemann, and many others explored their distribution and connections to analysis. The subject contains both elementary proofs accessible with basic arithmetic and deep unresolved problems. Knowing a simple definition does not make every question about that definition easy."
+      ]
+    },
+    {
+      "title": "Why every integer has prime factors",
+      "paragraphs": [
+        "Take an integer n greater than one. If it is prime, it already has a prime factorization. If it is composite, write n = ab with both a and b between two and n − 1. Factor each smaller number in the same way. A strong-induction argument makes this precise: assume every smaller integer greater than one has a prime factorization, then combine the factorizations of a and b. This proves existence for every n.",
+        "Uniqueness needs another ingredient. Euclid’s lemma says that if a prime p divides ab, then p divides a or p divides b. One proof uses Bézout’s identity: if p does not divide a, their greatest common divisor is one, so integers r and s satisfy rp + sa = 1. Multiply by b. Both terms on the left are divisible by p when p divides ab, so p divides b. Repeatedly applying this lemma matches prime factors in any two proposed factorizations."
+      ]
+    },
+    {
+      "title": "Prove there cannot be a last prime",
+      "paragraphs": [
+        "Suppose, for contradiction, that a finite list p₁ through p_k contains all primes. Form N = p₁p₂…p_k + 1. This integer is greater than one, so it has a prime divisor. Yet dividing N by any listed prime leaves remainder one, because the product term is divisible by that prime. Therefore its prime divisor is not on the list, contradicting the assumption that the list was complete.",
+        "The argument does not claim N itself is always prime. It may be composite, but at least one of its prime factors must be new relative to the chosen list. For the list two, three, and five, N = 31 happens to be prime. Other lists can produce composite values. The logical contradiction depends on the existence of a new divisor, not on a formula that magically generates only primes."
+      ]
+    },
+    {
+      "title": "Test a specific candidate efficiently",
+      "paragraphs": [
+        "If a composite n equals ab with positive factors greater than one, at least one factor is at most √n. Otherwise both would exceed √n and their product would exceed n. Therefore trial division only needs to check possible prime divisors up to √n. To test 97, note that √97 is less than ten, so check two, three, five, and seven. None divides 97, establishing that it is prime.",
+        "For 91 the same range includes seven, and 91 = 7·13, so it is composite. Testing every integer through n − 1 would work but wastes effort. The sieve of Eratosthenes takes a different approach for finding many primes up to a bound: repeatedly mark multiples of known primes, leaving unmarked numbers prime. Its reasoning also relies on the existence of a small prime factor for each composite."
+      ]
+    },
+    {
+      "title": "Applications and unresolved questions",
+      "paragraphs": [
+        "Prime factorization underlies many arithmetic algorithms and some public-key cryptographic constructions. Practical security depends on carefully specified computational assumptions and parameters, not on the statement that factoring is impossible. Checking primality and factoring a large composite are different tasks with different known algorithms. A lesson-sized trial-division demonstration should not be mistaken for a secure cryptographic implementation.",
+        "The prime number theorem states that π(x), the count of primes up to x, satisfies π(x)/(x/ln x) → 1 as x → ∞. It suggests an approximate prime density near large x of 1/ln x. This is a statistical-scale statement, not an exact test for an individual number. Famous questions about prime pairs and additive representations require precise formulations and should not be declared solved by a finite search."
+      ]
+    },
+    {
+      "title": "What this numerical demonstration shows",
+      "paragraphs": [
+        "The calculator constructs 2·3·5·7·11 + 1 = 2311 and also varies an integer multiplier in 30m + 1. Every output in the second family leaves remainder one when divided by two, three, or five, but it can still have other factors. For m = 3 the result is 91, which is composite. This gives a concrete warning against confusing avoidance of a few small divisors with primality.",
+        "The displayed formulas illustrate the structure of Euclid’s argument without implementing a primality test or proving that every output is prime. The proof above handles an arbitrary finite list, whereas a bounded calculator can only show examples. Distinguishing those roles is essential when exploring number theory computationally."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "N = p₁p₂…p_k + 1",
+    "symbols": [
+      {
+        "symbol": "p₁,…,p_k",
+        "meaning": "Any finite list of primes"
+      },
+      {
+        "symbol": "N",
+        "meaning": "An integer not divisible by any prime in that list"
+      }
+    ],
+    "explanation": "Integer examples of product-plus-one reasoning; outputs are not labeled prime and no primality checker is implemented.",
+    "example": "For m=3, 30m+1=91=7·13, so avoiding 2,3,5 does not guarantee primality."
+  },
+  "insight": "The contradiction comes from a new prime divisor, even if the constructed number is composite.",
+  "misconceptions": [
+    {
+      "myth": "One is prime.",
+      "correction": "Primes are greater than one; excluding one preserves unique factorization conventions."
+    },
+    {
+      "myth": "Avoiding small prime divisors proves primality for any size.",
+      "correction": "All relevant divisors through the square root must be excluded, or another valid primality method used."
+    }
+  ],
+  "check": {
+    "question": "Does Euclid’s argument require product-plus-one to be prime?",
+    "options": [
+      "Yes",
+      "No, it only needs a prime factor outside the list",
+      "Only when the list contains two"
+    ],
+    "answer": 1,
+    "explanation": "The contradiction comes from a new prime divisor, even if the constructed number is composite."
+  },
+  "sources": [
+    {
+      "title": "Oscar Levin: Discrete Mathematics, an Open Introduction",
+      "url": "https://discrete.openmathbooks.org/dmoi3.html"
+    },
+    {
+      "title": "University of St Andrews: prime numbers",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Prime_numbers/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Prime numbers example",
+    "description": "For m=3, 30m+1=91=7·13, so avoiding 2,3,5 does not guarantee primality.",
+    "inputs": [
+      {
+        "key": "m",
+        "label": "Positive integer multiplier",
+        "unit": "",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "initial": 3
+      }
+    ],
+    "outputs": [
+      {
+        "label": "30m + 1",
+        "unit": "",
+        "expression": [
+          "+",
+          [
+            "*",
+            30,
+            "m"
+          ],
+          1
+        ]
+      },
+      {
+        "label": "Product 2·3·5·7·11 plus 1",
+        "unit": "",
+        "expression": 2311
+      }
+    ],
+    "assumptions": "Integer examples of product-plus-one reasoning; outputs are not labeled prime and no primality checker is implemented."
+  }
+}

@@ -53,5 +53,6 @@ import lesson49 from './lessons/law-large-numbers.json' with { type: 'json' };
 import lesson50 from './lessons/central-limit-theorem.json' with { type: 'json' };
 import lesson51 from './lessons/combinatorics.json' with { type: 'json' };
 import lesson52 from './lessons/mathematical-induction.json' with { type: 'json' };
-import lesson53 from './lessons/noether-symmetry.json' with { type: 'json' };
-export const additions: Topic[] = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, lesson10, lesson11, lesson12, lesson13, lesson14, lesson15, lesson16, lesson17, lesson18, lesson19, lesson20, lesson21, lesson22, lesson23, lesson24, lesson25, lesson26, lesson27, lesson28, lesson29, lesson30, lesson31, lesson32, lesson33, lesson34, lesson35, lesson36, lesson37, lesson38, lesson39, lesson40, lesson41, lesson42, lesson43, lesson44, lesson45, lesson46, lesson47, lesson48, lesson49, lesson50, lesson51, lesson52, lesson53] as unknown as Topic[];
+import lesson53 from './lessons/prime-numbers.json' with { type: 'json' };
+import lesson54 from './lessons/noether-symmetry.json' with { type: 'json' };
+export const additions: Topic[] = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, lesson10, lesson11, lesson12, lesson13, lesson14, lesson15, lesson16, lesson17, lesson18, lesson19, lesson20, lesson21, lesson22, lesson23, lesson24, lesson25, lesson26, lesson27, lesson28, lesson29, lesson30, lesson31, lesson32, lesson33, lesson34, lesson35, lesson36, lesson37, lesson38, lesson39, lesson40, lesson41, lesson42, lesson43, lesson44, lesson45, lesson46, lesson47, lesson48, lesson49, lesson50, lesson51, lesson52, lesson53, lesson54] as unknown as Topic[];
