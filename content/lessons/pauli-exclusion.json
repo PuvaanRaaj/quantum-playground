@@ -1,0 +1,144 @@
+{
+  "slug": "pauli-exclusion",
+  "title": "The Pauli exclusion principle",
+  "category": "Quantum mechanics",
+  "subtitle": "Identical fermions cannot occupy the same complete one-particle quantum state.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "An atom can contain many electrons.",
+  "why": "Identical fermions cannot occupy the same complete one-particle quantum state.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Fermion",
+      "definition": "An identical-particle species with antisymmetric exchange states in ordinary three-dimensional quantum theory."
+    },
+    {
+      "term": "Antisymmetry",
+      "definition": "Changing the sign of the joint wavefunction when two identical fermion labels are exchanged."
+    },
+    {
+      "term": "Spin orbital",
+      "definition": "A one-particle state including spatial and spin information."
+    },
+    {
+      "term": "Degeneracy pressure",
+      "definition": "Pressure associated with filling fermion states, present even at zero temperature."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why atomic electrons do not all settle into one state",
+      "paragraphs": [
+        "An atom can contain many electrons. If every electron simply occupied the same lowest one-particle state, the organization of atomic shells and the periodic table would be very different. Wolfgang Pauli proposed his exclusion principle in 1925 to account for observed atomic structure. In modern language, no two identical fermions occupy the same complete one-particle state. Electrons are fermions, and the state includes spin as well as spatial information. The principle is not a new electric repulsion added to Coulomb’s law. It is a restriction on allowed quantum states.",
+        "This distinction explains a familiar chemistry statement: a spatial orbital can contain two electrons with opposite spin labels. Those electrons do not occupy the same complete state because their spin states differ. Saying that exclusion permits two electrons in one state is therefore misleading unless the word state is being used loosely for only the spatial part. A complete specification must include all the relevant quantum labels. Conversely, opposite spin does not remove ordinary electrostatic interactions; the electrons still repel electrically even when exclusion allows the joint arrangement."
+      ]
+    },
+    {
+      "title": "How antisymmetry makes an identical state vanish",
+      "paragraphs": [
+        "For two noninteracting identical fermions assigned one-particle states a and b, construct a joint amplitude proportional to a(1)b(2)−b(1)a(2). The labels one and two are bookkeeping variables, not distinguishable serial numbers carried by the electrons. Exchanging them reverses the sign. If a and b are the same complete state, the two terms are identical and cancel everywhere. The resulting zero function cannot be normalized, so it does not describe a physical two-particle state. This is the simplest algebraic expression of exclusion.",
+        "The sign change alone is not directly observed by attaching a label to each electron and watching it move. Physical predictions come from the full joint state and its measurable correlations. When spatial wavefunctions overlap, antisymmetry affects those correlations and energies. It can favor separated positions for same-spin electrons without acting as a separate classical force. In interacting systems, individual orbital occupation language may be approximate, but the antisymmetry of the many-fermion state remains fundamental within the usual framework."
+      ]
+    },
+    {
+      "title": "Filling levels and building pressure",
+      "paragraphs": [
+        "Imagine a set of one-particle energy levels, each with an allowed spin degeneracy. At very low temperature, noninteracting fermions fill the lowest available states until the particles are accommodated. Adding more particles eventually requires higher-energy states. The energy at the top of the occupied distribution at zero temperature is called the Fermi energy. This organization explains why a degenerate electron gas can have substantial energy and pressure without ordinary thermal agitation. Compressing it reduces available spatial wavelengths and raises the occupied momentum scale.",
+        "For an ideal three-dimensional nonrelativistic electron gas, the Fermi energy is proportional to number density raised to the two-thirds power. If the density becomes eight times larger, the Fermi energy becomes four times larger. Starting from a reference value of five electronvolts, that scaling predicts twenty electronvolts. This is a model of filling many momentum states, not a claim that each electron receives the same energy. The occupied distribution includes lower energies as well; the Fermi energy marks its upper boundary at zero temperature."
+      ]
+    },
+    {
+      "title": "Scope of the principle and the calculator",
+      "paragraphs": [
+        "Exclusion applies to identical fermions, not to every pair of particles regardless of species. Two different particles can share the same spatial wavefunction without violating this specific rule. Bosons obey different exchange symmetry and can occupy a common state in large numbers. Composite particles can behave effectively as fermions or bosons depending on their total spin and the regime, although internal structure matters when composites overlap strongly. These qualifications are important when moving from isolated electrons to atoms, nuclei and condensed matter.",
+        "The calculator shows only the ideal density scaling of a reference Fermi energy. It fixes the reference energy at five electronvolts and varies density relative to its reference value. It does not calculate a real material’s band structure, electron interactions, relativistic corrections or stellar equilibrium. The positive density range keeps the fractional power well defined. Use it to distinguish degeneracy pressure from heat: increasing density changes the occupied momentum scale even when the temperature is held at zero in the model. The broader lesson is that the architecture of allowed states can determine macroscopic behavior, while a specific application still requires its own Hamiltonian and material assumptions."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "E_F/E_F₀=(n/n₀)^(2/3)",
+    "symbols": [
+      {
+        "symbol": "E_F",
+        "meaning": "Zero-temperature Fermi energy."
+      },
+      {
+        "symbol": "n/n₀",
+        "meaning": "Electron density relative to a reference density."
+      }
+    ],
+    "explanation": "Identical fermions cannot occupy the same complete one-particle quantum state.",
+    "example": "An eightfold density increase raises a 5 eV reference Fermi energy to 20 eV."
+  },
+  "insight": "The power 2/3 gives 8^(2/3)=4.",
+  "misconceptions": [
+    {
+      "myth": "Fermi energy is directly proportional to density in three dimensions.",
+      "correction": "The power 2/3 gives 8^(2/3)=4."
+    },
+    {
+      "myth": "Two opposite-spin electrons in one spatial orbital violate exclusion.",
+      "correction": "Their complete spin-orbital states differ, so that occupation is permitted."
+    }
+  ],
+  "check": {
+    "question": "An eightfold density increase changes this Fermi energy by what factor?",
+    "options": [
+      "Eight",
+      "Four",
+      "Two"
+    ],
+    "answer": 1,
+    "explanation": "The power 2/3 gives 8^(2/3)=4."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 4",
+      "url": "https://www.feynmanlectures.caltech.edu/III_04.html"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 19",
+      "url": "https://www.feynmanlectures.caltech.edu/III_19.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "The Pauli exclusion principle model",
+    "description": "Identical fermions cannot occupy the same complete one-particle quantum state.",
+    "inputs": [
+      {
+        "key": "ratio",
+        "label": "Density ratio",
+        "min": 0.1,
+        "max": 10,
+        "step": 0.1,
+        "initial": 8,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Fermi energy",
+        "expression": [
+          "*",
+          5,
+          [
+            "pow",
+            "ratio",
+            [
+              "/",
+              2,
+              3
+            ]
+          ]
+        ],
+        "unit": "eV"
+      }
+    ],
+    "assumptions": "Ideal three-dimensional noninteracting nonrelativistic electron gas at zero temperature; reference energy fixed at 5 eV. Not a real-material or stellar model."
+  }
+}

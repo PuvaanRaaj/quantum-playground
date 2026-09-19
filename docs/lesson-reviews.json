@@ -214,5 +214,11 @@
     "sourceSha256": "53183dc55df6eb40f0c7a4be95bea4103dd1b7147a0700e25a9b793645b04d60",
     "reviewRecord": "batch-5.json",
     "status": "approved"
+  },
+  "pauli-exclusion": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "0087872052033e0193da86e38a2c0ff26a02b714806581e8ac359c639cef9ffb",
+    "reviewRecord": "batch-6.json",
+    "status": "approved"
   }
 }
