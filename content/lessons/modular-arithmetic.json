@@ -1,0 +1,191 @@
+{
+  "slug": "modular-arithmetic",
+  "title": "Modular arithmetic",
+  "category": "Mathematics",
+  "subtitle": "Modular arithmetic compares integers by their remainders after division by a chosen positive modulus.",
+  "minutes": 16,
+  "level": "Go deeper",
+  "accent": "amber",
+  "intro": "Modular arithmetic compares integers by their remainders after division by a chosen positive modulus. We write a ≡ b mod m when m divides a − b. Thus seventeen and five are congruent modulo twelve because their difference is twelve. The statement does not say seventeen equals five as ordinary integers; it says they belong to the same equivalence class when full twelve-unit cycles are ignored.",
+  "why": "Bézout’s identity supplies an inverse exactly when a and the modulus are coprime.",
+  "prerequisites": [
+    "Integer multiplication and division",
+    "Basic logical arguments"
+  ],
+  "terms": [
+    {
+      "term": "Congruence",
+      "definition": "Equality of remainders modulo a positive integer."
+    },
+    {
+      "term": "Modulus",
+      "definition": "The positive integer defining which differences count as multiples."
+    },
+    {
+      "term": "Residue class",
+      "definition": "All integers congruent to one another for a chosen modulus."
+    },
+    {
+      "term": "Modular inverse",
+      "definition": "An integer b satisfying ab ≡ 1 modulo the modulus."
+    },
+    {
+      "term": "Greatest common divisor",
+      "definition": "The largest positive integer dividing both given integers."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Treat full cycles as equivalent",
+      "paragraphs": [
+        "Modular arithmetic compares integers by their remainders after division by a chosen positive modulus. We write a ≡ b mod m when m divides a − b. Thus seventeen and five are congruent modulo twelve because their difference is twelve. The statement does not say seventeen equals five as ordinary integers; it says they belong to the same equivalence class when full twelve-unit cycles are ignored.",
+        "Cyclic calculations appeared long before modern notation, including calendar and astronomical arithmetic. Gauss introduced influential systematic congruence notation in Disquisitiones Arithmeticae. The modern framework unifies clock calculations with number theory and algorithms. A clock is a useful picture, but modular arithmetic is about integer relationships, not specifically about time or circular physical motion."
+      ]
+    },
+    {
+      "title": "Derive the rules that survive reduction",
+      "paragraphs": [
+        "If a ≡ b mod m and c ≡ d mod m, then a − b and c − d are multiples of m. Their sum is also a multiple, so a + c ≡ b + d. For products, write ac − bd = a(c − d) + d(a − b), again a sum of multiples of m. Therefore multiplication also respects congruence. Subtraction and nonnegative integer powers follow from these same facts.",
+        "This lets us reduce large intermediate values without changing the final residue. For example, modulo seven, 20 ≡ 6 and 15 ≡ 1, so 20·15 ≡ 6·1 ≡ 6. Directly, 300 leaves remainder six when divided by seven. The reduced computation is easier but logically equivalent because congruence is preserved by multiplication."
+      ]
+    },
+    {
+      "title": "Division needs a condition",
+      "paragraphs": [
+        "Ordinary division cannot be copied into modular arithmetic without checking invertibility. A modular inverse of a is a number b such that ab ≡ 1 mod m. Such an inverse exists exactly when gcd(a,m) = 1. Bézout’s identity proves existence: if ra + sm = 1 for integers r and s, then ra ≡ 1 mod m, so r is an inverse residue.",
+        "Modulo seven, three has inverse five because 3·5 = 15 ≡ 1. Solving 3x ≡ 2 therefore gives x ≡ 5·2 ≡ 3 mod seven. Check: three times three is nine, which leaves remainder two. Modulo six, however, two has no inverse because every product 2b is even and cannot differ from one by a multiple of six."
+      ]
+    },
+    {
+      "title": "See how careless cancellation fails",
+      "paragraphs": [
+        "The congruence 2·1 ≡ 2·4 mod six is true: both sides leave remainder two. Cancelling the factor two would claim 1 ≡ 4 mod six, which is false. The common factor was not invertible. More generally, the equation ax ≡ b mod m has solutions only when gcd(a,m) divides b, and when solutions exist there can be several distinct residue classes modulo m.",
+        "For 2x ≡ 2 mod six, the valid residues are x = 1 and x = 4. Dividing the entire integer divisibility condition by two changes the modulus to three, giving x ≡ 1 mod three. That correctly describes both solutions modulo six. The change of modulus is exactly the information lost by naive cancellation."
+      ]
+    },
+    {
+      "title": "Compute powers and connect applications",
+      "paragraphs": [
+        "To calculate 3⁸ modulo seven, square repeatedly. First 3² = 9 ≡ 2. Then 3⁴ ≡ 2² = 4. Finally 3⁸ ≡ 4² = 16 ≡ 2. Repeated squaring uses only a logarithmic number of multiplications in the exponent’s size, with reduction at each step. This is one reason modular exponentiation is computationally practical even for large exponents.",
+        "Checksums, cyclic indexing, and cryptographic algorithms use modular operations, but their guarantees differ. A simple remainder checksum catches some errors and misses others; it is not a cryptographic authentication method. In programming languages, remainder behavior for negative operands may differ from the mathematical convention that chooses a residue from zero through m − 1. Test that convention before using a language operator to implement a mathematical formula."
+      ]
+    },
+    {
+      "title": "A bounded identity demonstration",
+      "paragraphs": [
+        "The calculator shows two integers a and a + km, whose difference is a multiple of m by construction. It displays the difference and the quotient of that difference by m, rather than pretending to implement an unsupported remainder operator. With a = 5, m = 12, and k = 3, the paired integer is 41, and both five and 41 belong to the same class modulo twelve.",
+        "All controls are integers and the modulus stays positive. The demonstration verifies an example of the defining relation, not a complete solver for congruences. Ask which operations preserve equivalence and which require an inverse. That question separates valid modular reasoning from manipulations that look familiar from real-number algebra but silently fail in a finite residue system."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "a ≡ b (mod m) ⇔ m divides a−b",
+    "symbols": [
+      {
+        "symbol": "a, b",
+        "meaning": "Integers being compared"
+      },
+      {
+        "symbol": "m",
+        "meaning": "Positive integer modulus"
+      }
+    ],
+    "explanation": "Integer construction of congruent values; m>0. It does not calculate arbitrary remainders or solve all modular equations.",
+    "example": "With a=5, m=12, k=3, the number a+km is 41, congruent to 5 modulo 12."
+  },
+  "insight": "Bézout’s identity supplies an inverse exactly when a and the modulus are coprime.",
+  "misconceptions": [
+    {
+      "myth": "Any nonzero factor can be cancelled.",
+      "correction": "Cancellation requires an invertible factor or an appropriate change of modulus."
+    },
+    {
+      "myth": "Congruent integers are equal as ordinary numbers.",
+      "correction": "Congruence means their difference is a multiple of the modulus."
+    }
+  ],
+  "check": {
+    "question": "When does a have an inverse modulo m?",
+    "options": [
+      "Whenever a is nonzero",
+      "When gcd(a,m)=1",
+      "Only when a=1"
+    ],
+    "answer": 1,
+    "explanation": "Bézout’s identity supplies an inverse exactly when a and the modulus are coprime."
+  },
+  "sources": [
+    {
+      "title": "Oscar Levin: Discrete Mathematics, an Open Introduction",
+      "url": "https://discrete.openmathbooks.org/dmoi3.html"
+    },
+    {
+      "title": "MIT: Mathematics for Computer Science",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Modular arithmetic example",
+    "description": "With a=5, m=12, k=3, the number a+km is 41, congruent to 5 modulo 12.",
+    "inputs": [
+      {
+        "key": "a",
+        "label": "Starting integer",
+        "unit": "",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "initial": 5
+      },
+      {
+        "key": "m",
+        "label": "Positive modulus",
+        "unit": "",
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "initial": 12
+      },
+      {
+        "key": "k",
+        "label": "Number of full cycles",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 1,
+        "initial": 3
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Congruent integer a + km",
+        "unit": "",
+        "expression": [
+          "+",
+          "a",
+          [
+            "*",
+            "k",
+            "m"
+          ]
+        ]
+      },
+      {
+        "label": "Difference from a",
+        "unit": "",
+        "expression": [
+          "*",
+          "k",
+          "m"
+        ]
+      },
+      {
+        "label": "Difference divided by modulus",
+        "unit": "",
+        "expression": "k"
+      }
+    ],
+    "assumptions": "Integer construction of congruent values; m>0. It does not calculate arbitrary remainders or solve all modular equations."
+  }
+}
