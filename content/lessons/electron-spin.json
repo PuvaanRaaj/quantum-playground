@@ -1,0 +1,159 @@
+{
+  "slug": "electron-spin",
+  "title": "Electron spin",
+  "category": "Quantum mechanics",
+  "subtitle": "An electron has intrinsic angular momentum with two outcomes along any selected axis.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Electron spin is an intrinsic form of angular momentum.",
+  "why": "An electron has intrinsic angular momentum with two outcomes along any selected axis.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Spin",
+      "definition": "Intrinsic quantum angular momentum, distinct from orbital motion."
+    },
+    {
+      "term": "Spin projection",
+      "definition": "The component measured along a chosen axis."
+    },
+    {
+      "term": "Stern–Gerlach separation",
+      "definition": "Deflection of magnetic moments by an inhomogeneous magnetic field."
+    },
+    {
+      "term": "Magnetic moment",
+      "definition": "The quantity coupling a particle’s magnetic behavior to a magnetic field."
+    }
+  ],
+  "sections": [
+    {
+      "title": "An intrinsic property rather than a rotating ball",
+      "paragraphs": [
+        "Electron spin is an intrinsic form of angular momentum. It is not explained by imagining the electron as a small charged sphere whose surface rotates. Samuel Goudsmit and George Uhlenbeck proposed electron spin in 1925 to account for important atomic patterns, following related earlier ideas. The Stern–Gerlach experiment had already shown discrete beam splitting for silver atoms in a magnetic field. Understanding that historical experiment fully involves the atom’s electronic structure, so it should not be described as a beam of free electrons directly photographed spinning around their own axes.",
+        "For an electron, the spin quantum number is one half. Measuring its component along any chosen axis yields either +ħ/2 or −ħ/2. These are discrete outcomes even though the apparatus axis can be varied continuously. The total spin magnitude associated with S² is √3 ħ/2, which differs from either measured component. This distinction parallels the difference between a vector’s magnitude and one component but belongs to quantum angular momentum algebra. One cannot simultaneously assign sharp values to all three components as though they were ordinary coordinates of a hidden classical arrow."
+      ]
+    },
+    {
+      "title": "Preparing and rotating the measurement axis",
+      "paragraphs": [
+        "Prepare electrons in the plus eigenstate of spin along Z. A repeat Z measurement gives plus with certainty in an ideal experiment. Measure instead along an axis tilted by angle θ and the plus probability becomes cos²(θ/2). At ninety degrees, both outcomes are equally likely. At one hundred eighty degrees, the plus label corresponds to the original minus direction, so plus probability is zero. The continuity lies in the probabilities as the axis changes, not in a continuum of possible measured component values.",
+        "For a sixty-degree tilt, the plus probability is three quarters and the minus probability one quarter. The average measured component is therefore (3/4)(ħ/2)+(1/4)(−ħ/2)=ħ/4. This average is neither one of the two individual outcomes nor a new allowed spin projection. It is the long-run mean of repeated measurements on identically prepared systems. Distinguishing outcomes from averages is important when reading a smooth spin graph: the plotted expectation can change continuously while every detection still falls into one of two channels."
+      ]
+    },
+    {
+      "title": "Magnetic interaction and energy splitting",
+      "paragraphs": [
+        "Spin gives the electron a magnetic moment. A uniform magnetic field can split the energies associated with different spin orientations and produce precession of suitable superpositions. An inhomogeneous field can also produce a force depending on the magnetic moment, which is the basis of Stern–Gerlach-type spatial separation for suitable particles or atoms. The sign of the electron’s charge and its magnetic moment means energy labels require care. Calling a spin state simply higher or lower without specifying the field and sign convention can reverse the physical interpretation.",
+        "The connection between spin and magnetic moment is quantified by a g factor. For an electron this is close to, but not exactly, two. The small difference is an important precision test of quantum electrodynamics. The introductory two-outcome model does not calculate that correction. Atomic spin interactions also combine with orbital angular momentum and nuclear spin, producing fine and hyperfine structure. These phenomena explain why spectroscopy contains more detail than a single principal-energy formula predicts. They build on spin as a quantum degree of freedom, not on a mechanically rotating surface."
+      ]
+    },
+    {
+      "title": "What the displayed average means",
+      "paragraphs": [
+        "The calculator varies the angle between a prepared spin direction and an ideal measurement axis. It reports the plus probability and the mean component in units of ħ. The latter is cos θ/2, while the probability is (1+cos θ)/2. These expressions are related but not interchangeable. At θ=π/2, the mean is zero because opposite outcomes cancel statistically; the electron has not lost its spin. The total spin quantum number remains one half.",
+        "The model assumes a pure prepared spin state and ignores orbital motion, field gradients, relaxation and detector efficiency. It is not a simulation of the original silver-atom apparatus or of a free-electron magnetic trajectory. Its purpose is to separate a quantum label, a discrete component outcome and an ensemble expectation. Spin is experimentally useful in magnetic resonance, atomic physics and quantum information, but those applications need additional dynamics. Start with the prediction at sixty degrees, then explain why the mean is ħ/4 even though no trial returns that value. That explanation captures the central statistical meaning of spin measurement."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(+)=cos²(θ/2); ⟨Sθ⟩=(ħ/2)cos θ",
+    "symbols": [
+      {
+        "symbol": "θ",
+        "meaning": "Angle between preparation and measurement axes."
+      },
+      {
+        "symbol": "ħ",
+        "meaning": "Reduced Planck constant."
+      },
+      {
+        "symbol": "⟨Sθ⟩",
+        "meaning": "Mean measured spin component."
+      }
+    ],
+    "explanation": "An electron has intrinsic angular momentum with two outcomes along any selected axis.",
+    "example": "At θ=π/3, P(+)=0.75 and the mean component is ħ/4."
+  },
+  "insight": "A zero mean is the average of equally likely +ħ/2 and −ħ/2 results.",
+  "misconceptions": [
+    {
+      "myth": "A zero mean spin component means every measurement returns zero.",
+      "correction": "A zero mean is the average of equally likely +ħ/2 and −ħ/2 results."
+    },
+    {
+      "myth": "Electron spin is the rotation of a tiny solid sphere.",
+      "correction": "Spin is intrinsic quantum angular momentum; the classical rotating-surface model is not its physical explanation."
+    }
+  ],
+  "check": {
+    "question": "At a ninety-degree measurement angle, a zero mean implies what?",
+    "options": [
+      "The electron has no spin",
+      "Opposite outcomes are equally probable",
+      "Every outcome is zero"
+    ],
+    "answer": 1,
+    "explanation": "A zero mean is the average of equally likely +ħ/2 and −ħ/2 results."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 6",
+      "url": "https://www.feynmanlectures.caltech.edu/III_06.html"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 12",
+      "url": "https://www.feynmanlectures.caltech.edu/III_12.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Electron spin model",
+    "description": "An electron has intrinsic angular momentum with two outcomes along any selected axis.",
+    "inputs": [
+      {
+        "key": "theta",
+        "label": "Axis angle",
+        "min": 0,
+        "max": 3.141592653589793,
+        "step": 0.05,
+        "initial": 1.0471975511965976,
+        "unit": "rad"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Plus probability",
+        "expression": [
+          "/",
+          [
+            "+",
+            1,
+            [
+              "cos",
+              "theta"
+            ]
+          ],
+          2
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Mean spin / ħ",
+        "expression": [
+          "/",
+          [
+            "cos",
+            "theta"
+          ],
+          2
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Ideal pure spin-1/2 preparation and projective measurement. No orbital motion, magnetic-field dynamics or g-factor corrections."
+  }
+}
