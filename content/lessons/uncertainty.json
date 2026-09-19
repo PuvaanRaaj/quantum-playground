@@ -1,0 +1,118 @@
+{
+  "slug": "uncertainty",
+  "title": "Uncertainty principle",
+  "category": "Quantum mechanics",
+  "subtitle": "A limit on which sharp properties a quantum state can possess together.",
+  "minutes": 13,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "The position–momentum uncertainty relation says that a quantum state cannot have arbitrarily narrow distributions of both position and momentum. It is a structural property of the theory, not merely a complaint about imperfect instruments.",
+  "why": "It explains why confining a particle changes its possible motion and why an atomic electron cannot be described as a stationary dot at one precise location.",
+  "prerequisites": [
+    "An average summarizes a distribution.",
+    "Standard deviation describes how widely outcomes are spread."
+  ],
+  "terms": [
+    {
+      "term": "Position",
+      "definition": "A coordinate specifying where a measurement detects a particle."
+    },
+    {
+      "term": "Momentum",
+      "definition": "A quantity related to motion; at nonrelativistic speeds, momentum is mass times velocity."
+    },
+    {
+      "term": "Standard deviation",
+      "definition": "The square root of the average squared distance from the mean; a measure of spread."
+    },
+    {
+      "term": "Wave packet",
+      "definition": "A localized wavefunction made by combining waves with different spatial frequencies."
+    },
+    {
+      "term": "ħ (h-bar)",
+      "definition": "Planck’s constant divided by 2π, about 1.055 × 10⁻³⁴ joule seconds."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What Heisenberg’s question was really about",
+      "paragraphs": [
+        "Classical mechanics encourages a simple picture: if you know an object’s exact location and momentum now, its equations determine the later motion. During the development of quantum mechanics, that familiar description stopped fitting the mathematical rules and experimental evidence. Werner Heisenberg explored the limits of simultaneously assigning quantities such as position and momentum in 1927. The precise standard-deviation relation commonly taught today was established in mathematical form by Earle Kennard, with broader operator relations developed by others. It is useful to separate the historical microscope thought experiment from the exact claim about the spreads in a prepared state.",
+        "Suppose a laboratory prepares many particles in the same quantum state. Measure the position of some, and independently measure the momentum of others. Each collection produces a distribution. The uncertainty relation places a lower bound on the product of their standard deviations. It is not a rule saying that you must measure both quantities on every individual particle, nor that the experimentalist forgot to calibrate something. Better calibration can remove extra technical noise, but it cannot produce a state whose intrinsic distributions violate the position–momentum bound within ordinary quantum mechanics."
+      ]
+    },
+    {
+      "title": "Why localization requires a mixture of wavelengths",
+      "paragraphs": [
+        "Consider a perfectly regular sine wave extending without end. Its spatial frequency is sharply specified, but nothing in it singles out one location. To build a localized bump, combine waves with different spatial frequencies. They reinforce near the center and cancel far away. A narrower bump requires a wider range of frequencies. This is a general Fourier relationship: similar tradeoffs appear between the duration of a sound and the sharpness of its frequency. Quantum mechanics connects that mathematical relationship to physical momentum through p = ħk, where k is the spatial angular frequency of the wave.",
+        "The analogy with sound is helpful but has limits. A sound waveform describes a physical pressure variation. A quantum wavefunction supplies probability amplitudes, from which position and momentum distributions are calculated. The familiar wave tradeoff becomes a constraint on the statistics of physical measurements. A position wavefunction and a momentum wavefunction describe the same quantum state in different representations. They are not two independent lists that you can choose arbitrarily. Changing the state to narrow one distribution changes what is possible for the other. This is why the uncertainty relation concerns preparation as well as measurement."
+      ]
+    },
+    {
+      "title": "Understanding the inequality rather than memorizing it",
+      "paragraphs": [
+        "The symbols Δx and Δp mean standard deviations, not the position and momentum themselves. A particle may have a very large average momentum with a small momentum spread. Likewise, shifting the center of a position distribution across the room does not change its width. The inequality says that the product of the widths cannot fall below ħ/2. It does not say that the product must always equal that value. Many states have a larger product. A specially prepared Gaussian state with suitable phase is an example that reaches the lower bound, making it useful for an introductory illustration.",
+        "For a numerical example, choose a position standard deviation of one nanometer, or 10⁻⁹ meters. The momentum standard deviation must then be at least about 5.27 × 10⁻²⁶ kilogram meters per second. For an electron, dividing by its mass gives a velocity spread of about 57,900 meters per second in the nonrelativistic approximation. This is a spread, not a mandatory average speed in one direction. Repeating the estimate for a much larger mass produces a much smaller velocity spread. The very small value of Planck’s constant helps explain why the constraint is usually unobtrusive for everyday objects."
+      ]
+    },
+    {
+      "title": "How to read the visualization honestly",
+      "paragraphs": [
+        "Use the width control to make the position distribution narrower and predict what happens to momentum before looking. In a minimum-uncertainty Gaussian illustration, the other distribution broadens in just the amount needed to keep the product fixed. That particular behavior comes from the chosen family of states. It is not proof that every quantum state is Gaussian or that every physical compression process preserves minimum uncertainty. A real trapping experiment involves forces, time evolution, interactions and measurement resolution. Those may increase either spread, introduce correlations, or create a very different shape from the clean curves shown here.",
+        "Confinement and diffraction provide practical settings in which the tradeoff matters, but a cartoon is not an experiment. Our model displays distributions and an analytic relation; it does not track an electron’s unknowable precise trajectory or simulate a measuring microscope. It also does not establish the stronger slogan “nothing can ever be known.” Some observables can be sharply specified together, and repeated experiments can determine a distribution extremely accurately. The achievement of the principle is its precision: it tells us which pair of quantities is constrained, how spread is defined, and exactly where the lower bound lies."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Δx · Δp ≥ ħ / 2",
+    "symbols": [
+      {
+        "symbol": "Δx",
+        "meaning": "Standard deviation of the position distribution."
+      },
+      {
+        "symbol": "Δp",
+        "meaning": "Standard deviation of the momentum distribution in the same direction."
+      },
+      {
+        "symbol": "ħ",
+        "meaning": "Reduced Planck constant, approximately 1.055 × 10⁻³⁴ J s."
+      }
+    ],
+    "explanation": "Position and momentum are connected by a Fourier transform and represented by noncommuting operators. Their distribution widths therefore obey this bound.",
+    "example": "If Δx = 1 × 10⁻⁹ m, then Δp ≥ 1.055 × 10⁻³⁴ / (2 × 10⁻⁹) ≈ 5.27 × 10⁻²⁶ kg m/s. Halving Δx doubles the minimum allowed Δp."
+  },
+  "insight": "Uncertainty is about the spread of outcomes in a state, not how confused the person doing the experiment feels.",
+  "misconceptions": [
+    {
+      "myth": "Better instruments can remove all quantum uncertainty.",
+      "correction": "They can reduce instrumental noise, but not the state-preparation bound."
+    },
+    {
+      "myth": "Position times momentum must equal ħ/2.",
+      "correction": "The relation uses standard deviations, and the product can be larger than its lower bound."
+    }
+  ],
+  "check": {
+    "question": "In a minimum-uncertainty Gaussian state, halving the position spread does what to the momentum spread?",
+    "options": [
+      "Halves it.",
+      "Doubles it.",
+      "Leaves it unchanged."
+    ],
+    "answer": 1,
+    "explanation": "For this family the product equals ħ/2. Reducing one factor by two requires increasing the other by two."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures: Wave and Particle Viewpoints",
+      "url": "https://www.feynmanlectures.caltech.edu/III_02.html"
+    },
+    {
+      "title": "Feynman Lectures: Amplitudes and Position",
+      "url": "https://www.feynmanlectures.caltech.edu/III_16.html"
+    }
+  ],
+  "visual": "uncertainty"
+}
