@@ -1,0 +1,192 @@
+{
+  "slug": "law-large-numbers",
+  "title": "Law of large numbers",
+  "category": "Mathematics",
+  "subtitle": "The law of large numbers describes how sample averages approach a population expectation under suitable assumptions.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "The law of large numbers describes how sample averages approach a population expectation under suitable assumptions. It does not say every long sequence looks perfectly balanced, nor does it require a random process to correct recent deviations. The average becomes stable because fluctuations tend to be small relative to the growing number of observations, not because later outcomes remember earlier ones.",
+  "why": "Independence leaves the next-trial probability unchanged; the law concerns averages over many trials.",
+  "prerequisites": [
+    "Fractions and probability",
+    "Sums and algebra"
+  ],
+  "terms": [
+    {
+      "term": "Sample mean",
+      "definition": "The arithmetic average of observed values."
+    },
+    {
+      "term": "Independent identically distributed",
+      "definition": "Variables that share a distribution and are mutually independent."
+    },
+    {
+      "term": "Convergence in probability",
+      "definition": "The probability of a fixed-size error tends to zero."
+    },
+    {
+      "term": "Almost sure convergence",
+      "definition": "Convergence except on a set of outcomes with probability zero."
+    },
+    {
+      "term": "Chebyshev inequality",
+      "definition": "A bound on deviation probability using variance."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What stabilizes with repetition",
+      "paragraphs": [
+        "The law of large numbers describes how sample averages approach a population expectation under suitable assumptions. It does not say every long sequence looks perfectly balanced, nor does it require a random process to correct recent deviations. The average becomes stable because fluctuations tend to be small relative to the growing number of observations, not because later outcomes remember earlier ones.",
+        "Jacob Bernoulli established an influential early form for repeated trials, published in Ars Conjectandi after his death. Later mathematicians developed weak and strong versions with broader assumptions. Their statements distinguish different meanings of convergence. This lesson proves a finite-variance weak form for independent identically distributed variables, a scope narrow enough to make the argument explicit without pretending it is the most general theorem."
+      ]
+    },
+    {
+      "title": "State the assumptions before the conclusion",
+      "paragraphs": [
+        "Let X₁, X₂, and so on be independent variables with the same mean μ and finite variance σ². Define the sample mean Mₙ = (X₁ + … + Xₙ)/n. Linearity gives E[Mₙ] = μ. Independence removes covariance terms, so Var(Mₙ) = nσ²/n² = σ²/n. The average’s standard deviation is therefore σ/√n.",
+        "This scaling explains diminishing returns: to halve the typical sampling error, multiply the sample size by four. Increasing from one hundred to two hundred observations improves precision, but does not halve the standard error. The relationship concerns repeated samples from the stipulated process. Collecting more correlated or systematically biased observations does not necessarily produce the same gain."
+      ]
+    },
+    {
+      "title": "Prove the weak form with an inequality",
+      "paragraphs": [
+        "For any random variable Y with finite variance and any positive ε, Chebyshev’s inequality gives P(|Y − E[Y]| ≥ ε) ≤ Var(Y)/ε². One way to see the bound is that the squared deviation is at least ε² whenever the deviation event occurs. Therefore its expectation must be at least ε² times that event’s probability. Rearranging produces the inequality.",
+        "Apply it to Mₙ. The result is P(|Mₙ − μ| ≥ ε) ≤ σ²/(nε²). For fixed ε, the right side tends to zero as n grows. This is convergence in probability, the weak law. The proof supplies a general upper bound; it does not promise the bound is tight or that every particular sample stays within the tolerance. If the bound exceeds one, the trivial probability bound one is better."
+      ]
+    },
+    {
+      "title": "A numerical coin example",
+      "paragraphs": [
+        "For independent fair-coin indicators, each X equals one for heads and zero for tails. The mean is 0.5 and variance is 0.25. With n = 1,000, the sample proportion’s standard error is √(0.25/1000), approximately 0.01581. Chebyshev bounds the probability of an error at least 0.1 by 0.25/(1000·0.01) = 0.025. Thus the theorem guarantees at least 97.5% probability of a proportion strictly within 0.1 of one half in this bound.",
+        "The actual binomial probability is much more concentrated than this conservative estimate. Chebyshev works with only mean and variance, discarding the distribution’s detailed shape. That generality costs sharpness. The calculator shows both standard error and the clipped Chebyshev upper bound, allowing you to distinguish a scale of typical fluctuation from a guaranteed upper limit on a specified tail event."
+      ]
+    },
+    {
+      "title": "Avoid the gambler’s fallacy",
+      "paragraphs": [
+        "After ten heads in a row from independent fair tosses, the next toss still has probability one half of heads. The law of large numbers does not make tails overdue. Future roughly balanced outcomes can reduce the proportional importance of the initial streak without erasing its absolute excess. For example, adding 990 exactly balanced outcomes to ten heads produces 505 heads in 1,000 tosses, already close to one half.",
+        "The sample proportion can approach one half while the absolute difference between heads and tails grows. These are different quantities. Typical count fluctuations scale like √n, while proportion fluctuations divide that by n and scale like 1/√n. Asking whether counts or proportions stabilize changes the answer."
+      ]
+    },
+    {
+      "title": "Boundaries and interpretation",
+      "paragraphs": [
+        "The strong law uses almost sure convergence, which is stronger than convergence in probability. A standard independent identically distributed strong law needs a finite absolute expectation, so finite variance is sufficient but not always necessary. Our elementary proof intentionally uses the stronger finite-variance assumption to obtain a transparent quantitative bound.",
+        "Dependence, changing distributions, and selection bias can invalidate the simple setup. Repeating a miscalibrated measurement may produce a very stable wrong average. The law addresses random variation around the modeled mean; it does not guarantee that mean equals the physical quantity you intended to measure. No single finite simulation establishes a limit theorem, although simulations can illustrate its consequences and reveal why proportional error behaves differently from individual observations."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(|Mₙ−μ|≥ε) ≤ min(1, σ²/(nε²))",
+    "symbols": [
+      {
+        "symbol": "Mₙ",
+        "meaning": "Mean of n independent identically distributed observations"
+      },
+      {
+        "symbol": "μ, σ²",
+        "meaning": "Common mean and finite variance"
+      },
+      {
+        "symbol": "ε",
+        "meaning": "Positive error threshold"
+      }
+    ],
+    "explanation": "Independent fair Bernoulli trials; probability bound is conservative and does not predict one exact sample path.",
+    "example": "For fair Bernoulli trials n=1000 and ε=0.1, the Chebyshev bound is 0.025."
+  },
+  "insight": "Independence leaves the next-trial probability unchanged; the law concerns averages over many trials.",
+  "misconceptions": [
+    {
+      "myth": "The process must compensate for a recent streak.",
+      "correction": "Independent future trials do not remember or correct earlier outcomes."
+    },
+    {
+      "myth": "More data removes every kind of error.",
+      "correction": "Systematic bias and dependence are not automatically cured by a larger sample."
+    }
+  ],
+  "check": {
+    "question": "After ten independent fair-coin heads, what is the next-head probability?",
+    "options": [
+      "Less than one half",
+      "One half",
+      "More than one half"
+    ],
+    "answer": 1,
+    "explanation": "Independence leaves the next-trial probability unchanged; the law concerns averages over many trials."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Law of large numbers example",
+    "description": "For fair Bernoulli trials n=1000 and ε=0.1, the Chebyshev bound is 0.025.",
+    "inputs": [
+      {
+        "key": "n",
+        "label": "Number of trials",
+        "unit": "",
+        "min": 10,
+        "max": 10000,
+        "step": 10,
+        "initial": 1000
+      },
+      {
+        "key": "epsilon",
+        "label": "Proportion-error threshold",
+        "unit": "",
+        "min": 0.01,
+        "max": 0.5,
+        "step": 0.01,
+        "initial": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Standard error",
+        "unit": "",
+        "expression": [
+          "sqrt",
+          [
+            "/",
+            0.25,
+            "n"
+          ]
+        ]
+      },
+      {
+        "label": "Chebyshev probability upper bound",
+        "unit": "",
+        "expression": [
+          "min",
+          1,
+          [
+            "/",
+            0.25,
+            [
+              "*",
+              "n",
+              [
+                "pow",
+                "epsilon",
+                2
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Independent fair Bernoulli trials; probability bound is conservative and does not predict one exact sample path."
+  }
+}
