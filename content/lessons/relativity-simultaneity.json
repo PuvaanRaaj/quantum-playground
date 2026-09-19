@@ -1,0 +1,170 @@
+{
+  "slug": "relativity-simultaneity",
+  "title": "Relativity of simultaneity",
+  "category": "Space & relativity",
+  "subtitle": "Observers in relative motion can disagree about whether distant events happen at the same time.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "blue",
+  "intro": "Before special relativity, time was commonly treated as one universal parameter shared by all observers.",
+  "why": "Observers in relative motion can disagree about whether distant events happen at the same time.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Event",
+      "definition": "A specified occurrence at one place and time."
+    },
+    {
+      "term": "Inertial frame",
+      "definition": "A coordinate system moving without acceleration in flat spacetime."
+    },
+    {
+      "term": "Synchronization",
+      "definition": "A convention and procedure for assigning coordinated readings to separated clocks."
+    },
+    {
+      "term": "Spacelike separation",
+      "definition": "Separation too large for a light signal to connect the two events in the available time."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What Einstein changed about time",
+      "paragraphs": [
+        "Before special relativity, time was commonly treated as one universal parameter shared by all observers. Einstein’s 1905 theory instead related measurements made by inertial observers through the invariance of the laws of physics and the speed of light. Lorentz and others had developed important mathematical precursors, but the new interpretation made synchronization and measurement central. The surprising result is not merely that light takes time to reach your eyes. Even after correcting for signal travel, observers in relative motion can assign different times to distant events.",
+        "A clock measures time locally, where it is situated. To assign a common time coordinate across a laboratory, separated clocks must be synchronized. Einstein synchronization sends light between clocks and uses equal outward and return travel times in an inertial frame. This produces a consistent coordinate system. Another inertial frame can perform the same procedure with its own stationary clocks. The resulting simultaneity assignments need not match those of the first frame, even though each observer correctly follows the same physical rules."
+      ]
+    },
+    {
+      "title": "Deriving the disagreement",
+      "paragraphs": [
+        "For motion along the x direction, the Lorentz time transformation gives Δt′=γ(Δt−vΔx/c²). Here γ=1/√(1−v²/c²), and the differences refer to the same pair of events. If the events are simultaneous in the unprimed frame, Δt=0. Their time separation in the moving frame becomes −γvΔx/c². Unless the velocity or spatial separation vanishes, the transformed difference is nonzero. The sign specifies which event has the smaller coordinate time under the chosen orientation; reversing the motion reverses that ordering.",
+        "Take two events separated by 300 meters along positive x and simultaneous in the laboratory. Let the other frame move at 0.6c in that direction, so γ=1.25. Then Δt′ is approximately −0.7505 microseconds. The negative sign means the event at larger laboratory x receives the earlier moving-frame time. This calculation is not an estimate of when a light signal reaches one observer’s eye. It compares assigned event times after a complete frame and synchronization procedure have been specified."
+      ]
+    },
+    {
+      "title": "Why causality is not lost",
+      "paragraphs": [
+        "Only spacelike-separated events can reverse temporal order between inertial frames. If one event can causally influence another by a signal moving at or below light speed, all future-oriented inertial frames agree on that causal order. The invariant spacetime interval distinguishes these cases. Events simultaneous at distinct positions have spacelike separation, so neither could have sent a light-speed-or-slower signal to produce the other at that same time. Reversing their coordinate order therefore does not make a cause follow its effect.",
+        "This restriction prevents an exaggerated reading of relativity as saying that every ordering is subjective. Coincident events remain coincident, causal relations remain consistent, and each ideal clock records an invariant proper time along its own path. What changes is how a frame divides distant events into sets labeled now. The difference resembles choosing different slices through spacetime, but the slicing analogy must retain the Lorentz geometry rather than treating time as another ordinary Euclidean distance."
+      ]
+    },
+    {
+      "title": "The model and useful measurement discipline",
+      "paragraphs": [
+        "The calculator assumes the two laboratory events are simultaneous and varies their separation and the moving frame’s signed velocity fraction. It returns the transformed time difference in microseconds. Speeds remain strictly below c, so γ is finite. The model uses flat spacetime, inertial frames and Einstein synchronization. It does not include gravity, acceleration, clock construction or optical image delays. The result should be read as a coordinate assignment, not a claim that one event physically moved backward through time.",
+        "To avoid common errors, label the frame in which a measurement is simultaneous before applying a formula. Measuring a moving rod’s endpoints at the same laboratory time is a different event pair from measuring them at the same rod-frame time. This distinction later explains length contraction and the twin paradox’s changing simultaneity assignments. Start with the two-event calculation, check that the difference vanishes at zero speed, and reverse the sign of the velocity. Seeing the sign reverse while the causal classification stays spacelike clarifies precisely what relativity changes and what it preserves. A negative coordinate-time difference for these spacelike events is therefore permitted without supplying any method of sending information into one’s own past."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Δt′=γ(Δt−vΔx/c²); γ=1/√(1−β²)",
+    "symbols": [
+      {
+        "symbol": "β",
+        "meaning": "v/c, signed relative speed fraction."
+      },
+      {
+        "symbol": "Δx",
+        "meaning": "Laboratory event separation."
+      },
+      {
+        "symbol": "Δt′",
+        "meaning": "Moving-frame time difference."
+      }
+    ],
+    "explanation": "Observers in relative motion can disagree about whether distant events happen at the same time.",
+    "example": "For simultaneous events 300 m apart and β=0.6, Δt′≈−0.7505 μs."
+  },
+  "insight": "Relativity preserves causal order for timelike and lightlike related events.",
+  "misconceptions": [
+    {
+      "myth": "Every event pair can reverse cause-and-effect order between inertial frames.",
+      "correction": "Relativity preserves causal order for timelike and lightlike related events."
+    },
+    {
+      "myth": "Relativity of simultaneity is only uncorrected light-travel delay.",
+      "correction": "It remains after observers assign synchronized coordinate times and account for signal propagation."
+    }
+  ],
+  "check": {
+    "question": "Can causal event order reverse between these inertial frames?",
+    "options": [
+      "No for events connected by light-speed-or-slower influence",
+      "Yes for every event pair",
+      "Only when a person ignores a clock"
+    ],
+    "answer": 0,
+    "explanation": "Relativity preserves causal order for timelike and lightlike related events."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume I, chapter 15",
+      "url": "https://www.feynmanlectures.caltech.edu/I_15.html"
+    },
+    {
+      "title": "Einstein Online: Defining now",
+      "url": "https://www.einstein-online.info/en/spotlight/now/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Relativity of simultaneity model",
+    "description": "Observers in relative motion can disagree about whether distant events happen at the same time.",
+    "inputs": [
+      {
+        "key": "beta",
+        "label": "Relative velocity / c",
+        "min": -0.95,
+        "max": 0.95,
+        "step": 0.05,
+        "initial": 0.6,
+        "unit": ""
+      },
+      {
+        "key": "distance",
+        "label": "Event separation",
+        "min": 0,
+        "max": 1000,
+        "step": 10,
+        "initial": 300,
+        "unit": "m"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Moving-frame time difference",
+        "expression": [
+          "/",
+          [
+            "*",
+            -1,
+            "beta",
+            "distance",
+            1000000
+          ],
+          [
+            "*",
+            299792458,
+            [
+              "sqrt",
+              [
+                "-",
+                1,
+                [
+                  "pow",
+                  "beta",
+                  2
+                ]
+              ]
+            ]
+          ]
+        ],
+        "unit": "μs"
+      }
+    ],
+    "assumptions": "Laboratory-simultaneous events in flat spacetime, inertial frames and Einstein synchronization. Coordinate time differences, not optical arrival delays."
+  }
+}
