@@ -19,10 +19,10 @@ if(progress.lessonCommits.some(e=>e.slug===slug))throw Error('Lesson already pub
 const dest=`content/lessons/${slug}.json`;
 if(existsSync(dest))throw Error('Lesson file already exists; investigate incomplete prior publish.');
 writeFileSync(dest,bytes);run('node',['scripts/register-lessons.mjs']);
-run('npm',['test']);run('npm',['run','typecheck']);
 const reviewPath='docs/lesson-reviews.json';const ledger=existsSync(reviewPath)?JSON.parse(readFileSync(reviewPath,'utf8')):{};
 ledger[slug]={reviewer:'gpt-6-astra',sourceSha256:hash,reviewRecord:approval.file,status:'approved'};
 writeFileSync(reviewPath,JSON.stringify(ledger,null,2)+'\n');
+run('npm',['test']);run('npm',['run','typecheck']);
 run('git',['add',dest,'content/additions.ts',reviewPath]);
 run('git',['diff','--cached','--check']);
 run('git',['commit','-m',`feat(lesson): publish ${slug}`,'--trailer','Risk-Level: low','--trailer','AI-Agent: Codex (exact author model ID unavailable)','--trailer','Reviewed-By: gpt-6-astra']);
