@@ -365,8 +365,66 @@
       "pushed": true,
       "reviewer": "gpt-6-astra",
       "sourceSha256": "2f06f3809dca8a0c06bf3ad94295a9aa9b48eaade59ff1d60d61ac1457d8712e"
+    },
+    {
+      "slug": "relativity-simultaneity",
+      "commit": "3d42951a1eba712b9801ddd1ba08dd8aff366e91",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "dcc0e0a427c202c40399415cc9f2753b2196208c69b75899e467471249c72493"
+    },
+    {
+      "slug": "length-contraction",
+      "commit": "ff78101c98844e131333526445c89b680b58b73c",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "82b59235cad3c5ff25035781bebbe3f27ac4385ce0196969b2192acd111d7a84"
+    },
+    {
+      "slug": "prime-numbers",
+      "commit": "016d87c527e6eed7ba15021cb5a38a77b3ab14cf",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "9192be5376b576ae16f8017cf8dca410448c4d5acc01206d78414de0678b726f"
+    },
+    {
+      "slug": "modular-arithmetic",
+      "commit": "fa2989f6e2e4351176bc4371b88bb4f896f7609b",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "1993b4f9dbaed79d8617672a93955d4e281427d5a8974bd13d0614a8aa9f6358"
+    },
+    {
+      "slug": "conservation-momentum",
+      "commit": "b9c1ee97792df0d2d876e7a3cda3231c0541c5dd",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "ba18e041c3e6d293743a661b1c592656a69907360fbe8ede62e37d5635bc3dbb"
+    },
+    {
+      "slug": "relativistic-momentum",
+      "commit": "08bb301fe9b2fd451dac3735f73a3b9139c08808",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "722680ee386c2b77166866b4dc854a40f5b2fe20dd390c70107c1eaf2db82f21"
+    },
+    {
+      "slug": "mass-energy",
+      "commit": "048d5f25d920848169443a0d51b52f5277118180",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "07868ee2d89dc0e85a9b63931f4031736949f2beaa1260fa5f7acd2adbe2642d"
+    },
+    {
+      "slug": "relativistic-doppler",
+      "commit": "5b604d9b3f6e25b0709bbe61c518606b36c623dc",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "b208688307a247e4476aae2ddfaa06d359e2f250e7f3d6dbb52b720bfec6ed18"
     }
   ],
   "infrastructure": "ready",
-  "note": "Do not infer Astra approval from tests. Each entry must include slug, reviewer, commit and pushed status."
+  "note": "User explicitly requested stop at 60 lessons. Resume toward100 only on a new user instruction.",
+  "stopAt": 60,
+  "status": "paused-at-user-request"
 }

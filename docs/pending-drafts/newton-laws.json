@@ -1,0 +1,195 @@
+{
+  "slug": "newton-laws",
+  "title": "Newton’s laws of motion",
+  "category": "Classical physics",
+  "subtitle": "Newton’s laws describe how forces relate to the motion of material bodies in classical mechanics.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "teal",
+  "intro": "Newton’s laws describe how forces relate to the motion of material bodies in classical mechanics. The first law says an object with no net force maintains constant velocity in an inertial frame. Rest is one possible constant velocity, not a uniquely natural state. An object does not need a continuing forward force merely to keep moving; everyday friction hides this fact by continually opposing motion.",
+  "why": "Zero net force means zero acceleration, so velocity remains constant rather than necessarily vanishing.",
+  "prerequisites": [
+    "Algebra and vectors",
+    "Basic derivatives"
+  ],
+  "terms": [
+    {
+      "term": "Inertial frame",
+      "definition": "A reference frame in which a free object moves with constant velocity."
+    },
+    {
+      "term": "Net force",
+      "definition": "The vector sum of all external forces on an object or chosen system."
+    },
+    {
+      "term": "Acceleration",
+      "definition": "The rate of change of velocity."
+    },
+    {
+      "term": "Mass",
+      "definition": "The inertial quantity relating force to acceleration in this model."
+    },
+    {
+      "term": "Interaction pair",
+      "definition": "Equal and opposite forces acting on different bodies in a Newtonian interaction."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Separate motion from changes in motion",
+      "paragraphs": [
+        "Newton’s laws describe how forces relate to the motion of material bodies in classical mechanics. The first law says an object with no net force maintains constant velocity in an inertial frame. Rest is one possible constant velocity, not a uniquely natural state. An object does not need a continuing forward force merely to keep moving; everyday friction hides this fact by continually opposing motion.",
+        "Isaac Newton presented his laws in the Principia in 1687, building on earlier work including Galileo’s investigations of motion. Their achievement was a systematic framework connecting terrestrial and celestial mechanics. The laws remain highly accurate in a large range of ordinary situations, but they are not exact universal replacements for relativity or quantum mechanics. Their domain should be stated before interpreting a calculation as a prediction."
+      ]
+    },
+    {
+      "title": "Read the second law as a vector relation",
+      "paragraphs": [
+        "For a constant-mass particle in an inertial frame, the second law is ΣF = ma. Acceleration points along the net force, not necessarily along the velocity. A moving object can therefore turn without speeding up if its acceleration is perpendicular to velocity. The units follow directly: one newton is one kilogram metre per second squared. Force is related to changing velocity rather than to velocity itself.",
+        "To use the equation, choose the object, draw every external force acting on it, select axes, and resolve the vector sum into components. Do not include a force simply because an object is moving in that direction. Gravity, normal contact, tension, friction, and applied pushes have identifiable interactions behind them. The normal force is not automatically equal to weight; its value follows from the motion and the other forces."
+      ]
+    },
+    {
+      "title": "Understand the third law without cancelling the wrong forces",
+      "paragraphs": [
+        "If body A exerts a force on body B, body B exerts an equal and opposite force on A in the Newtonian pair-interaction setting. The two forces act on different bodies, so they do not cancel when calculating the acceleration of either body alone. They cancel internally only after both bodies are included in one system’s total-force accounting.",
+        "A person walking pushes the ground backward, and the ground pushes the person forward through static friction. The forward force is not created by violating the equal-and-opposite rule. The person and Earth acquire opposite momentum changes, with Earth’s velocity change extremely small because its mass is enormous. For field-mediated interactions, a complete momentum account can require momentum carried by the field, so the simple instantaneous pair picture has limits."
+      ]
+    },
+    {
+      "title": "Derive a trajectory for constant force",
+      "paragraphs": [
+        "Assume a constant net force F acts along one axis on mass m. The acceleration is a = F/m. Integrating dv/dt = a gives v(t) = v₀ + at. Integrating dx/dt = v₀ + at gives x(t) = x₀ + v₀t + at²/2. The integration constants are the initial position and velocity. These formulas depend on constant acceleration; they cannot be applied unchanged to every force law.",
+        "Take a two-kilogram cart initially at rest, subject to a net force of six newtons for three seconds. Its acceleration is three metres per second squared, final velocity is nine metres per second, and displacement is 13.5 metres. If the six-newton push is opposed by two newtons of friction, the net force becomes four newtons and the acceleration is only two metres per second squared. Summing forces before dividing by mass prevents the common error of treating one applied force as the whole dynamics."
+      ]
+    },
+    {
+      "title": "Frames, constraints, and validity",
+      "paragraphs": [
+        "In an accelerating reference frame, objects may appear to accelerate without an ordinary interaction force. One can introduce inertial or fictitious forces to preserve a convenient equation form, but the frame choice must be explicit. A rotating frame adds effects such as centrifugal and Coriolis terms. The first law identifies the class of inertial frames in which the simple laws have their direct form.",
+        "Variable-mass systems need careful momentum-flow accounting. A rocket is not generally described by inserting a changing mass into a naive F = ma calculation and ignoring expelled material. Likewise, at speeds comparable to light, momentum is not simply mv. At atomic scales, a classical trajectory may not describe the measured system at all."
+      ]
+    },
+    {
+      "title": "What the demonstration assumes",
+      "paragraphs": [
+        "The calculator models a constant-mass particle initially at rest under a constant one-dimensional net force. It displays acceleration and the displacement after a chosen time. Negative force gives negative acceleration and displacement because the axis has a chosen positive direction; it does not imply negative mass or negative elapsed time.",
+        "The model omits friction unless its contribution has already been included in the entered net force. It also omits collisions, constraints, and relativistic effects. A smooth parabola on the graph follows algebraically from these assumptions. Comparing a real trajectory with it would test whether the assumptions approximate the experiment, rather than proving Newton’s framework from the visualization alone."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "ΣF = ma",
+    "symbols": [
+      {
+        "symbol": "ΣF",
+        "meaning": "Net external force"
+      },
+      {
+        "symbol": "m",
+        "meaning": "Constant positive mass"
+      },
+      {
+        "symbol": "a",
+        "meaning": "Acceleration in an inertial frame"
+      }
+    ],
+    "explanation": "Constant mass and constant one-dimensional net force in an inertial frame; initial velocity zero.",
+    "example": "A 2 kg cart under 6 N from rest travels 13.5 m in 3 s."
+  },
+  "insight": "Zero net force means zero acceleration, so velocity remains constant rather than necessarily vanishing.",
+  "misconceptions": [
+    {
+      "myth": "Motion requires a continuing net force.",
+      "correction": "Only a change in velocity requires net force in this model."
+    },
+    {
+      "myth": "Third-law forces cancel on one object.",
+      "correction": "The interaction pair acts on different objects."
+    }
+  ],
+  "check": {
+    "question": "What does zero net force imply in an inertial frame?",
+    "options": [
+      "Zero velocity",
+      "Constant velocity",
+      "Increasing speed"
+    ],
+    "answer": 1,
+    "explanation": "Zero net force means zero acceleration, so velocity remains constant rather than necessarily vanishing."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: University Physics Volume 1",
+      "url": "https://openstax.org/details/books/university-physics-volume-1"
+    },
+    {
+      "title": "MIT OpenCourseWare: Classical Mechanics",
+      "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Newton’s laws of motion model",
+    "description": "A 2 kg cart under 6 N from rest travels 13.5 m in 3 s.",
+    "inputs": [
+      {
+        "key": "force",
+        "label": "Net force",
+        "unit": "N",
+        "min": -10,
+        "max": 10,
+        "step": 0.1,
+        "initial": 6
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 10,
+        "step": 0.1,
+        "initial": 2
+      },
+      {
+        "key": "time",
+        "label": "Elapsed time",
+        "unit": "s",
+        "min": 0,
+        "max": 5,
+        "step": 0.1,
+        "initial": 3
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Acceleration",
+        "unit": "m/s²",
+        "expression": [
+          "/",
+          "force",
+          "mass"
+        ]
+      },
+      {
+        "label": "Displacement from rest",
+        "unit": "m",
+        "expression": [
+          "*",
+          0.5,
+          [
+            "/",
+            "force",
+            "mass"
+          ],
+          [
+            "pow",
+            "time",
+            2
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Constant mass and constant one-dimensional net force in an inertial frame; initial velocity zero."
+  }
+}

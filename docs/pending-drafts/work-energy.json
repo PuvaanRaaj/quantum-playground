@@ -1,0 +1,207 @@
+{
+  "slug": "work-energy",
+  "title": "Work and energy",
+  "category": "Classical physics",
+  "subtitle": "Mechanical work measures energy transferred by a force as its point of application moves.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "teal",
+  "intro": "Mechanical work measures energy transferred by a force as its point of application moves. For a constant force and straight displacement, W = F·d = Fd cos θ. Only the force component along the displacement contributes. A force can be large while doing zero work if the displacement is perpendicular, and a stationary object can experience forces without those forces doing mechanical work on it.",
+  "why": "The dot product selects force along displacement; perpendicular force contributes zero instantaneous work.",
+  "prerequisites": [
+    "Algebra and vectors",
+    "Basic derivatives"
+  ],
+  "terms": [
+    {
+      "term": "Work",
+      "definition": "The integral of force dotted with displacement."
+    },
+    {
+      "term": "Kinetic energy",
+      "definition": "For a classical particle, one half mass times speed squared."
+    },
+    {
+      "term": "Potential energy",
+      "definition": "Energy assigned to configuration for a conservative interaction."
+    },
+    {
+      "term": "Conservative force",
+      "definition": "A force whose work between two points is independent of path."
+    },
+    {
+      "term": "Power",
+      "definition": "The rate of energy transfer or work, measured in watts."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Measure transfer along a displacement",
+      "paragraphs": [
+        "Mechanical work measures energy transferred by a force as its point of application moves. For a constant force and straight displacement, W = F·d = Fd cos θ. Only the force component along the displacement contributes. A force can be large while doing zero work if the displacement is perpendicular, and a stationary object can experience forces without those forces doing mechanical work on it.",
+        "The modern energy framework developed through many nineteenth-century contributions, including Joule’s experiments connecting mechanical processes and heating. Earlier debates distinguished momentum-like and speed-squared quantities. Energy became a unifying accounting concept across mechanics, heat, electricity, and other phenomena. The historical development should not be compressed into a claim that one person invented every aspect of conservation."
+      ]
+    },
+    {
+      "title": "Derive the work–kinetic-energy theorem",
+      "paragraphs": [
+        "For a constant-mass particle, Newton’s second law gives F_net = m dv/dt. Along its motion, the infinitesimal work is dW = F_net·dr. Since dr/dt = v, the work rate is F_net·v = m(dv/dt)·v. The derivative of v·v is twice v·dv/dt, so this equals d[(1/2)m v²]/dt. Integrating gives W_net = K_final − K_initial.",
+        "The theorem concerns net work by all forces, not one selected force unless the others do no work. It also distinguishes speed from signed velocity: kinetic energy uses the squared magnitude and is nonnegative. Reversing direction at unchanged speed leaves kinetic energy unchanged, although momentum changes. A force perpendicular to velocity can therefore change direction without changing kinetic energy."
+      ]
+    },
+    {
+      "title": "Calculate a push and account for friction",
+      "paragraphs": [
+        "A five-kilogram crate starts at rest and is pulled horizontally with twenty newtons over four metres. If friction opposes motion with five newtons, the applied work is eighty joules and friction does minus twenty joules. Net work is sixty joules, so (1/2)·5·v² = 60. The final speed is √24, approximately 4.90 metres per second. Ignoring friction would incorrectly predict a larger speed.",
+        "If the pull instead makes an angle with the horizontal, only its horizontal component contributes to work for a horizontal displacement. The vertical component can still alter the normal force and therefore the friction magnitude. This is an example of why a zero direct work contribution does not mean a force is irrelevant to the overall dynamics."
+      ]
+    },
+    {
+      "title": "Introduce potential energy with a sign",
+      "paragraphs": [
+        "For a conservative force, define potential-energy change as ΔU = −W_conservative. Then the work–energy theorem becomes ΔK + ΔU = W_nonconservative. Near Earth’s surface with approximately constant downward gravity, raising a mass through height h increases gravitational potential energy by mgh. Gravity does negative work during the upward displacement, consistent with the sign convention.",
+        "For a spring obeying F = −kx, integrate the work needed to stretch it quasistatically from zero to x: U(x) − U(0) = ∫₀ˣ ks ds = (1/2)kx². The force grows during stretching, so using final force times total distance would overestimate the stored energy by a factor of two. Potential energy is defined up to an additive constant; only differences affect this force law."
+      ]
+    },
+    {
+      "title": "Power and system choice",
+      "paragraphs": [
+        "Power is dW/dt = F·v for a force acting on a moving particle. Delivering the same work in less time requires greater average power. One hundred joules delivered in five seconds corresponds to twenty watts. Power is not energy: the units differ by time, just as speed differs from distance. A high-power device need not consume more total energy if it operates for a sufficiently shorter interval.",
+        "Friction can reduce mechanical energy while total energy remains conserved when internal energy and the environment are included. Whether heating appears as an internal change or a transfer depends on the system boundary. A statement that energy was lost often means lost from a selected mechanical account, not destroyed. Identify where it went before invoking a violation of conservation."
+      ]
+    },
+    {
+      "title": "Limits and the constant-force calculator",
+      "paragraphs": [
+        "The calculator models a positive constant force acting along a positive displacement on a particle initially at rest. It computes work, final speed, and final kinetic energy. Positive mass prevents division by zero, and nonnegative force and distance keep the square-root argument physically meaningful for this setup. It does not attempt to model stopping after a negative-work interval, where the path and direction would need additional treatment.",
+        "The expression (1/2)mv² is the nonrelativistic kinetic energy. At high speeds a relativistic expression is required. Extended deformable bodies can also store energy internally, so particle-level work calculations may not capture every transfer. The simulation illustrates a precisely stated energy balance; it cannot by itself establish that a real experiment lacks friction, deformation, or unmodeled energy channels."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "W_net = ΔK, K = ½mv²",
+    "symbols": [
+      {
+        "symbol": "W_net",
+        "meaning": "Work by the total force"
+      },
+      {
+        "symbol": "K",
+        "meaning": "Nonrelativistic kinetic energy"
+      },
+      {
+        "symbol": "m",
+        "meaning": "Constant positive mass"
+      },
+      {
+        "symbol": "v",
+        "meaning": "Speed"
+      }
+    ],
+    "explanation": "Constant positive force aligned with displacement, constant mass, initial rest, and nonrelativistic motion.",
+    "example": "A net force of 10 N over 3 m does 30 J; a 2 kg object from rest reaches √30 ≈ 5.477 m/s."
+  },
+  "insight": "The dot product selects force along displacement; perpendicular force contributes zero instantaneous work.",
+  "misconceptions": [
+    {
+      "myth": "Any large force necessarily does large work.",
+      "correction": "Work also requires displacement with a component along the force."
+    },
+    {
+      "myth": "Friction destroys energy.",
+      "correction": "It converts mechanical energy into internal energy and other forms in a larger account."
+    }
+  ],
+  "check": {
+    "question": "Which force component performs work?",
+    "options": [
+      "The component along displacement",
+      "Every component equally",
+      "Only the perpendicular component"
+    ],
+    "answer": 0,
+    "explanation": "The dot product selects force along displacement; perpendicular force contributes zero instantaneous work."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: University Physics Volume 1",
+      "url": "https://openstax.org/details/books/university-physics-volume-1"
+    },
+    {
+      "title": "MIT OpenCourseWare: Classical Mechanics",
+      "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Work and energy model",
+    "description": "A net force of 10 N over 3 m does 30 J; a 2 kg object from rest reaches √30 ≈ 5.477 m/s.",
+    "inputs": [
+      {
+        "key": "distance",
+        "label": "Displacement along force",
+        "unit": "m",
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "initial": 3
+      },
+      {
+        "key": "force",
+        "label": "Constant net force",
+        "unit": "N",
+        "min": 0,
+        "max": 20,
+        "step": 0.1,
+        "initial": 10
+      },
+      {
+        "key": "mass",
+        "label": "Mass",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 10,
+        "step": 0.1,
+        "initial": 2
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Net work",
+        "unit": "J",
+        "expression": [
+          "*",
+          "force",
+          "distance"
+        ]
+      },
+      {
+        "label": "Final speed from rest",
+        "unit": "m/s",
+        "expression": [
+          "sqrt",
+          [
+            "/",
+            [
+              "*",
+              2,
+              "force",
+              "distance"
+            ],
+            "mass"
+          ]
+        ]
+      },
+      {
+        "label": "Final kinetic energy",
+        "unit": "J",
+        "expression": [
+          "*",
+          "force",
+          "distance"
+        ]
+      }
+    ],
+    "assumptions": "Constant positive force aligned with displacement, constant mass, initial rest, and nonrelativistic motion."
+  }
+}

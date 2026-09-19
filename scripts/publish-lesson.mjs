@@ -15,6 +15,7 @@ const reviews=readdirSync('work/reviews').filter(f=>f.endsWith('.json')).map(f=>
 const approval=reviews.find(r=>r.data.approved?.includes(slug)&&r.data.reviewedHashes?.[slug]===hash);
 if(!approval)throw Error('No Astra approval for these exact bytes.');
 const progressPath='docs/publication-progress.json';const progress=JSON.parse(readFileSync(progressPath,'utf8'));
+if(progress.stopAt && progress.lessonCommits.length>=progress.stopAt)throw Error('Publication stopped at the user-requested lesson limit. Resume only with user instruction.');
 if(progress.lessonCommits.some(e=>e.slug===slug))throw Error('Lesson already published; inspect before retrying.');
 const dest=`content/lessons/${slug}.json`;
 if(existsSync(dest))throw Error('Lesson file already exists; investigate incomplete prior publish.');
