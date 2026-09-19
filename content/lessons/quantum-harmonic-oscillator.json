@@ -1,0 +1,158 @@
+{
+  "slug": "quantum-harmonic-oscillator",
+  "title": "The quantum harmonic oscillator",
+  "category": "Quantum mechanics",
+  "subtitle": "A quadratic potential produces equally spaced energy levels with a nonzero ground energy.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Near a stable equilibrium, many smooth potentials can be approximated by a constant plus a quadratic term.",
+  "why": "A quadratic potential produces equally spaced energy levels with a nonzero ground energy.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Harmonic potential",
+      "definition": "Potential energy proportional to the square of displacement."
+    },
+    {
+      "term": "Angular frequency",
+      "definition": "Oscillation rate ω measured in radians per second."
+    },
+    {
+      "term": "Ground state",
+      "definition": "The lowest-energy state allowed by the Hamiltonian."
+    },
+    {
+      "term": "Zero-point energy",
+      "definition": "The nonzero lowest energy of this oscillator."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why one simple potential appears everywhere",
+      "paragraphs": [
+        "Near a stable equilibrium, many smooth potentials can be approximated by a constant plus a quadratic term. The linear term vanishes at equilibrium, and the positive curvature provides a restoring force. This is why harmonic oscillators appear in molecular vibrations, trapped particles and the modes of fields. Classical mechanics predicts sinusoidal motion with continuously variable energy. Quantum mechanics instead gives discrete stationary energy levels. Planck’s study of thermal radiation helped introduce quantized oscillator energy historically, while the later quantum formalism made the oscillator a systematic solvable model rather than an isolated assumption.",
+        "The ideal potential is V(x)=mω²x²/2. Here m is mass, x displacement from equilibrium and ω angular frequency. Specifying this potential and the kinetic-energy operator defines the Hamiltonian. The model extends the parabola to arbitrarily large displacements, which real physical systems generally do not. A molecular bond can eventually break; an electronic circuit can become nonlinear. The oscillator approximation is most reliable when the states explored remain near the stable minimum and other couplings do not dominate."
+      ]
+    },
+    {
+      "title": "Why the lowest energy is not zero",
+      "paragraphs": [
+        "A classical oscillator at rest exactly at its equilibrium has zero kinetic and potential energy under this chosen convention. A quantum state cannot simultaneously have zero position spread and zero momentum spread. Confining the state tightly near the bottom reduces typical potential energy but broadens momentum and increases kinetic energy. Spreading it widely has the opposite tradeoff. The ground state balances these contributions. Its probability density is Gaussian, and its energy is ħω/2. This is a property of the ideal Hamiltonian, not evidence that a particle follows a hidden sinusoidal trajectory with a tiny fixed amplitude.",
+        "A useful estimate takes a minimum-uncertainty Gaussian with position standard deviation σ. Its mean kinetic energy is ħ²/(8mσ²), and its mean potential energy is mω²σ²/2. Minimizing their sum over positive σ gives σ²=ħ/(2mω), and substituting back yields ħω/2. This reasoning illustrates the competition using a trial family that happens to include the exact ground state. It is more informative than merely announcing that quantum mechanics forbids stillness. The state is stationary even though position and momentum measurements each have nonzero spreads."
+      ]
+    },
+    {
+      "title": "A ladder of energies",
+      "paragraphs": [
+        "The exact levels are Eₙ=(n+1/2)ħω for nonnegative integers n. Adjacent levels differ by the same amount ħω. Introducing creation and annihilation operators is an efficient way to derive the ladder, though these names describe mathematical transformations between oscillator levels rather than the creation or destruction of a material particle in this single-particle problem. Applying the raising operator changes n to n+1; the lowering operator cannot take the ground state to a lower physical level. The normalized wavefunctions have increasing numbers of nodes.",
+        "Using ordinary frequency f instead of angular frequency gives ħω=hf. At f=1 terahertz, hf is about 4.136 millielectronvolts. The ground energy is about 2.068 millielectronvolts, and the first excited energy about 6.204 millielectronvolts. The spacing is their difference, 4.136 millielectronvolts. Doubling frequency doubles every energy in this ideal model. Changing mass while holding frequency fixed does not alter this formula, but it does alter spatial widths; in a real spring-like system, frequency itself often depends on mass."
+      ]
+    },
+    {
+      "title": "States, motion and the calculator",
+      "paragraphs": [
+        "An individual energy eigenstate has a time-independent probability density. Oscillating classical-looking expectation values can instead arise in suitable superpositions, especially coherent states. These states combine many energy levels with controlled phases and can follow the classical trajectory in their mean position while retaining quantum spreads. Thermal states are different again: they statistically populate energy levels according to temperature. It is therefore inaccurate to infer a particle’s position animation directly from its energy label without specifying the state.",
+        "The calculator varies frequency and reports the ground energy, the adjacent spacing and the first excited energy. These are analytic predictions, not a numerical time evolution or a model of thermal occupation. The frequency is positive throughout the range, and the output units explicitly convert Planck’s constant to millielectronvolt-terahertz units. The model excludes anharmonicity, damping and external driving. Its strongest lesson is the separation between equal level spacing, nonzero ground energy and stationary probability distributions. Each follows from the chosen quantum oscillator, but none licenses the claim that every real vibration has perfectly equal levels or that zero-point energy can be freely extracted as unlimited useful work."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Eₙ=(n+1/2)hf",
+    "symbols": [
+      {
+        "symbol": "n",
+        "meaning": "Nonnegative integer level index."
+      },
+      {
+        "symbol": "h",
+        "meaning": "Planck constant."
+      },
+      {
+        "symbol": "f",
+        "meaning": "Ordinary frequency."
+      }
+    ],
+    "explanation": "A quadratic potential produces equally spaced energy levels with a nonzero ground energy.",
+    "example": "At 1 THz, E₀≈2.068 meV and E₁≈6.204 meV."
+  },
+  "insight": "Every ideal oscillator energy is proportional to frequency.",
+  "misconceptions": [
+    {
+      "myth": "The ground energy is independent of oscillator frequency.",
+      "correction": "Every ideal oscillator energy is proportional to frequency."
+    },
+    {
+      "myth": "Zero-point energy means the ground-state density must oscillate in time.",
+      "correction": "An energy eigenstate has stationary probability density despite its nonzero energy."
+    }
+  ],
+  "check": {
+    "question": "Doubling frequency does what to the ground energy?",
+    "options": [
+      "Doubles it",
+      "Leaves it unchanged",
+      "Makes it zero"
+    ],
+    "answer": 0,
+    "explanation": "Every ideal oscillator energy is proportional to frequency."
+  },
+  "sources": [
+    {
+      "title": "MIT: Quantum harmonic oscillator lecture",
+      "url": "https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013/808334d09369e3a726f6f20d82315c20_MIT8_04S13_Lec08.pdf"
+    },
+    {
+      "title": "Feynman Lectures: Position-dependent amplitudes",
+      "url": "https://www.feynmanlectures.caltech.edu/III_16.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "The quantum harmonic oscillator model",
+    "description": "A quadratic potential produces equally spaced energy levels with a nonzero ground energy.",
+    "inputs": [
+      {
+        "key": "f",
+        "label": "Oscillator frequency",
+        "min": 0.1,
+        "max": 10,
+        "step": 0.1,
+        "initial": 1,
+        "unit": "THz"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Ground energy",
+        "expression": [
+          "*",
+          2.067833848,
+          "f"
+        ],
+        "unit": "meV"
+      },
+      {
+        "label": "Level spacing",
+        "expression": [
+          "*",
+          4.135667696,
+          "f"
+        ],
+        "unit": "meV"
+      },
+      {
+        "label": "First excited energy",
+        "expression": [
+          "*",
+          6.203501544,
+          "f"
+        ],
+        "unit": "meV"
+      }
+    ],
+    "assumptions": "Ideal isolated quadratic oscillator. No anharmonicity, dissociation, damping, temperature or extractable-work model."
+  }
+}

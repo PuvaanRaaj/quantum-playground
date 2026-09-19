@@ -166,5 +166,11 @@
     "sourceSha256": "5d716787863e88fb788facc5298fbb0f5db478a5c52e9ee9b348c7619b8871a6",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "quantum-harmonic-oscillator": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "8fb4fa29846790112d0cef15e504fadfbd3f2fd8218c44786cd48e3fa97fbbb0",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }
