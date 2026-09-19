@@ -1,0 +1,170 @@
+{
+  "slug": "eigenvalues",
+  "title": "Eigenvalues and eigenvectors",
+  "category": "Mathematics",
+  "subtitle": "Some directions retain their line under a linear transformation and are only scaled.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Some directions retain their line under a linear transformation and are only scaled.",
+  "why": "Eigenvectors separate coupled linear dynamics into independently scaled directions when an eigenbasis exists.",
+  "prerequisites": [
+    "Basic algebra",
+    "Coordinates and arithmetic"
+  ],
+  "terms": [
+    {
+      "term": "Eigenvector",
+      "definition": "A nonzero vector whose image is a scalar multiple of itself."
+    },
+    {
+      "term": "Eigenvalue",
+      "definition": "The scalar multiplying an eigenvector under the transformation."
+    },
+    {
+      "term": "Characteristic polynomial",
+      "definition": "The determinant det(A − λI), whose roots are eigenvalues."
+    },
+    {
+      "term": "Eigenspace",
+      "definition": "The zero vector together with all eigenvectors belonging to one eigenvalue."
+    },
+    {
+      "term": "Diagonalization",
+      "definition": "Expressing a matrix in a basis of independent eigenvectors, when available."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Directions a transformation preserves",
+      "paragraphs": [
+        "A general matrix can send an arrow into a different direction. An eigenvector is special: its output stays on the same line through the origin. The arrow may stretch, shrink, reverse, or become zero. If A sends v to λv, then v is an eigenvector and λ its eigenvalue. The vector must be nonzero, because zero satisfies this equation for every λ and would tell us nothing about the transformation.",
+        "The idea developed through problems involving rotations, quadratic forms, and vibration. Euler, Lagrange, Cauchy, and later mathematicians contributed to related spectral methods rather than one person inventing the entire modern subject at once. In mechanics, these directions describe motions that evolve without mixing with other independent patterns. In quantum mechanics, an observable’s eigenvalues describe possible measurement outcomes within the theory, with additional probabilistic structure."
+      ]
+    },
+    {
+      "title": "From a vector equation to a scalar condition",
+      "paragraphs": [
+        "Start with Av = λv and move the right side left: (A − λI)v = 0. We want a nonzero solution, so the matrix A − λI must fail to be invertible. For a finite square matrix this happens exactly when its determinant vanishes. Therefore solve det(A − λI) = 0 to find candidate eigenvalues. The identity matrix appears because multiplying v by λ is the same as applying λI.",
+        "After finding each candidate λ, substitute it back and solve the homogeneous system (A − λI)v = 0. This second step finds the directions. The determinant equation alone gives eigenvalues, not eigenvectors. Multiplying an eigenvector by any nonzero scalar produces another eigenvector for the same λ, so there is usually no unique preferred length unless we impose a normalization convention."
+      ]
+    },
+    {
+      "title": "Calculate a complete example",
+      "paragraphs": [
+        "Take A with rows (2, 1) and (1, 2). Its characteristic equation is (2 − λ)² − 1 = 0. Expanding gives λ² − 4λ + 3 = 0, which factors as (λ − 1)(λ − 3) = 0. The eigenvalues are therefore one and three. For λ = 3, the first equation is −x + y = 0, so vectors along (1, 1) work. For λ = 1, the equation is x + y = 0, giving direction (1, −1).",
+        "Verify directly: A(1, 1) = (3, 3), and A(1, −1) = (1, −1). The diagonal direction stretches threefold, while the other diagonal is unchanged. Now write (2, 0) = (1, 1) + (1, −1). Applying A gives 3(1, 1) + 1(1, −1) = (4, 2), agreeing with direct multiplication. Decomposing into eigenvectors converts a coupled transformation into separate scale factors."
+      ]
+    },
+    {
+      "title": "Repeated transformations become simpler",
+      "paragraphs": [
+        "If Av = λv, then A²v = A(λv) = λAv = λ²v, using linearity. Repeating the argument gives Aⁿv = λⁿv for nonnegative integer n. This explains why eigenvalues indicate growth or decay under repeated applications. A magnitude greater than one expands that component; a magnitude below one shrinks it; a negative eigenvalue also alternates direction with each step.",
+        "If a matrix has a full basis of independent eigenvectors, assemble them as the columns of P. Then AP = PD, where D lists their eigenvalues along its diagonal. Multiplying by P inverse gives A = PDP inverse. Consequently Aⁿ = PDⁿP inverse. This is diagonalization. The cancellations between adjacent P inverse and P factors explain the power formula rather than merely providing a recipe to memorize."
+      ]
+    },
+    {
+      "title": "What can go wrong with the simple picture",
+      "paragraphs": [
+        "Not every real matrix has real eigenvectors. A rotation through 90 degrees sends every nonzero real arrow to a perpendicular arrow, so no real line is preserved. Its eigenvalues exist over the complex numbers, where the geometry needs a broader interpretation. Even when eigenvalues are real, there might not be enough independent eigenvectors to form a basis. A shear with rows (1, 1) and (0, 1) has only one independent eigenvector direction.",
+        "Real symmetric matrices are particularly well behaved: they have real eigenvalues and an orthonormal eigenvector basis. This statement has hypotheses; transferring it to arbitrary matrices would be an error. The calculator considers the symmetric family with rows (a, b) and (b, a). Its fixed eigenvector directions are (1, 1) and (1, −1), with eigenvalues a + b and a − b. At b = 0 the eigenvalues coincide and every direction is an eigenvector. Numerical examples demonstrate this family but do not constitute a proof of the general spectral theorem."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Av = λv, v ≠ 0",
+    "symbols": [
+      {
+        "symbol": "A",
+        "meaning": "Square linear-transformation matrix"
+      },
+      {
+        "symbol": "v",
+        "meaning": "Nonzero eigenvector"
+      },
+      {
+        "symbol": "λ",
+        "meaning": "Eigenvalue scaling that vector"
+      }
+    ],
+    "explanation": "The equation defines an eigenpair for a general square matrix. The calculator specializes to real symmetric matrices [[a,b],[b,a]], whose eigenvalues are a+b and a−b.",
+    "example": "For rows (2, 1), (1, 2), eigenvalues are 3 and 1."
+  },
+  "insight": "Zero carries no preserved direction and satisfies A0 = λ0 regardless of λ.",
+  "misconceptions": [
+    {
+      "myth": "Every real matrix has real eigenvectors.",
+      "correction": "A quarter-turn rotation has no nonzero real eigenvector."
+    },
+    {
+      "myth": "Every matrix can be diagonalized.",
+      "correction": "Diagonalization requires a full basis of independent eigenvectors."
+    }
+  ],
+  "check": {
+    "question": "Why is the zero vector excluded from the eigenvector definition?",
+    "options": [
+      "It would satisfy the equation for every eigenvalue",
+      "Its length is one",
+      "Matrices cannot act on it"
+    ],
+    "answer": 0,
+    "explanation": "Zero carries no preserved direction and satisfies A0 = λ0 regardless of λ."
+  },
+  "sources": [
+    {
+      "title": "Georgia Tech: Interactive Linear Algebra",
+      "url": "https://textbooks.math.gatech.edu/ila/"
+    },
+    {
+      "title": "OpenStax: Calculus Volume 3",
+      "url": "https://openstax.org/details/books/calculus-volume-3"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Eigenvalues and eigenvectors example",
+    "description": "For rows (2, 1), (1, 2), eigenvalues are 3 and 1.",
+    "inputs": [
+      {
+        "key": "a",
+        "label": "Diagonal entry",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 2
+      },
+      {
+        "key": "b",
+        "label": "Off-diagonal entry",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 1
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Eigenvalue along (1, 1)",
+        "unit": "",
+        "expression": [
+          "+",
+          "a",
+          "b"
+        ]
+      },
+      {
+        "label": "Eigenvalue along (1, −1)",
+        "unit": "",
+        "expression": [
+          "-",
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "assumptions": "Restricted to real symmetric matrices [[a,b],[b,a]]; eigenvectors are known analytically."
+  }
+}
