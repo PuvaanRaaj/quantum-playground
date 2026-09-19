@@ -11,6 +11,7 @@ import {
   midpointSquareArea,
 } from "../lib/models";
 import InterferenceLab from "./interference-lab";
+import CalculatorModel from "./calculator-model";
 function Slider({
   label,
   value,
@@ -155,6 +156,8 @@ export default function TopicVisual({ topic }: { topic: Topic }) {
                         : 10,
   );
   const [y, setY] = useState(topic.visual === "pythagoras" ? 4 : 5);
+  if (topic.visual === "calculator" && topic.model)
+    return <CalculatorModel model={topic.model} />;
   if (topic.visual === "interference")
     return (
       <div className="legacy-lab">

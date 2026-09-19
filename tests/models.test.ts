@@ -9,9 +9,9 @@ import {
   bayes,
   midpointSquareArea,
 } from "../lib/models.ts";
-import { quantumTopics } from "../content/quantum.ts";
-import { relativityTopics } from "../content/relativity.ts";
-import { mathematicsTopics } from "../content/mathematics.ts";
+import { topics } from "../content/index.ts";
+import { validateModel } from "../lib/expression.ts";
+import { validateLesson } from "../lib/lesson-validation.ts";
 
 test("Relativistic clock models reproduce known cases and reject invalid observers", () => {
   assert.equal(lorentz(0), 1);
@@ -42,10 +42,14 @@ test("Bayes normalization and calculus convergence match analytic examples", () 
   assert.ok(error(40) > 0 && error(40) < error(4));
 });
 test("Every published lesson has substantial theory, vocabulary, a valid quiz, and references", () => {
-  const topics = [...quantumTopics, ...relativityTopics, ...mathematicsTopics];
-  assert.equal(topics.length, 12);
-  assert.equal(new Set(topics.map((t) => t.slug)).size, 12);
+  assert.ok(topics.length >= 12 && topics.length <= 100);
+  assert.equal(new Set(topics.map((t) => t.slug)).size, topics.length);
   for (const t of topics) {
+    validateLesson(t);
+    if (t.visual === "calculator") {
+      assert.ok(t.model);
+      validateModel(t.model);
+    }
     const words = t.sections
       .flatMap((s) => s.paragraphs)
       .join(" ")

@@ -1,0 +1,82 @@
+# Continue Quantum Playground expansion
+
+## User request and authorization
+
+Continue the work in this repository. The user requested:
+1. Remove AI-ish slogans and promotional filler. Example to remove: “For the curious, not just the physicists.” Use a simple learning website with plain headings. “Slugs” was interpreted as this wording, not removal of stable lesson URLs; preserve old URLs.
+2. Expand the existing 12 substantial lessons to exactly 100. Preserve theory-first explanations, terminology, history, derivations/physical reasoning, worked examples, misconceptions, quizzes, references, and relevant interactive models. Keep light/dark modes.
+3. Commit and push EACH lesson separately, not a batch. Existing twelve lessons are being reviewed/refined into their own files, plus 88 new lessons. Infrastructure may have separate commits. Never rewrite published history.
+4. The user explicitly requested **Astra** to check the lessons. Actual independent review with model `gpt-6-astra` is required; do not substitute self-review or infer approval from tests.
+5. Subagents are explicitly authorized. Continue executing; this handoff is not a request to stop.
+
+## Repository
+
+- Public GitHub: https://github.com/PuvaanRaaj/quantum-playground
+- Local checkout: ~/programming/quantum-playground
+- Branch: main. Inspect `git status` before editing; preserve ongoing changes.
+- Development preview: http://localhost:5173 (check the running server before starting another).
+- Node 24+, React/Vinext/Cloudflare-compatible server, Rust/WASM interference core.
+- Sites registration previously failed: Sites is not enabled for the workspace. No live hosted deployment. Deliver source and local preview; do not claim deployed hosting.
+- Optional AI tutor is interference-only and requires server credentials; it is not enabled. Do not expose keys or invent a live-provider test.
+
+## Current baseline and active changes
+
+Published baseline `0bf1996` contains 12 lessons, 58 glossary entries, 9,428 theory-section words, working topic models, and light/dark themes. Ten JS/WASM/API/content tests and build passed; browser flows were verified.
+
+Infrastructure removes slogans, simplifies the library, adds Classical physics, individual JSON lessons and a safe arithmetic-expression model renderer. Tests/typecheck/build passed; publishing individual reviewed lessons is next.
+
+Tracked lesson schema: `content/types.ts` (being extended with `calculator` visual and `model`).
+- New reviewed files go in `content/lessons/SLUG.json`.
+- `content/additions.ts` will import published JSON files.
+- `content/index.ts` temporarily merges original 12 arrays with additions, overriding by slug. After all 100 separate lesson commits, remove the three original aggregate files and simplify the index; update tests accordingly.
+- `lib/expression.ts` evaluates a restricted arithmetic AST, never eval/Function.
+- `node --experimental-strip-types scripts/publish-lesson.mjs SLUG` verifies exact Astra-approved bytes, runs tests/typecheck, commits just the lesson/import/review ledger, pushes, and updates docs/publication-progress.json. Inspect errors; do not blindly retry if it already committed/pushed.
+- `node --experimental-strip-types scripts/validate-drafts.mjs SLUG...` validates draft completeness and model domains.
+- The generic calculator UI is implemented in `components/calculator-model.tsx`, dispatched from `components/topic-visual.tsx`. Arithmetic evaluator, lesson validator and publishing helper are implemented. Typecheck, tests and build pass.
+
+## Working records (local, ignored)
+
+- `work/curriculum.json`: authoritative list of 88 new slugs across 4 categories.
+- `work/authoring-contract.md`: exact schema, depth requirements, model AST operations and limits.
+- `work/lesson-drafts/*.json`: writer drafts; NEVER publish until Astra-approved.
+- `work/reviews/*.json`: reviewer records with approved slugs and concrete findings.
+- `work/reviews/existing-corrected.json`: Astra approves all12 revised individual JSON files, with exact reviewed SHA256s. Original findings are fixed.
+
+These `work/` files are ignored and not available in a fresh clone. Before ending a session, export a sanitized copy of the curriculum/authoring contract and publication progress to tracked `docs/` files, and update this document. Do not publish unfinished drafts as lessons merely to preserve them.
+
+## Existing Astra findings to resolve
+
+1. `entanglement`: introductory definition must restrict nonfactorization criterion to a pure joint state; general mixed-state entanglement means not expressible as a probabilistic mixture of product states. Later glossary is already correct.
+2. `bayes`: before writing binary denominator with P(E | not H), require `0 < P(H) < 1`, retaining P(E)>0. Worked numbers are correct.
+
+Fix in the respective individual draft JSON, have Astra recheck, then publish its separate lesson commit.
+
+## Active agents at this checkpoint
+
+- `/root/quantum_lessons`: writes42 new Quantum mechanics + Space & relativity drafts, >=650 narrative words each. First `born-rule.json` and `quantum-superposition.json` exist, each reported740 words. Continues autonomously.
+- `/root/math_lessons`: writes46 Mathematics + Classical physics drafts under the same contract.
+- `/root/astra_review`: spawned explicitly as `gpt-6-astra`, high effort. Existing review complete; assign batches of arriving drafts for individual scientific review. Never treat an agent name as proof of model selection; explicitly set model when spawning replacement reviewers.
+
+Agents may still be writing. Inspect collaboration status and message them before duplicating their files. If no agents survive, resume with two writers and one independent Astra reviewer. Split ownership by slug. Root owns application infrastructure, publishing, and review tracking.
+
+## Required publication process
+
+For each of the100 lessons, including the original12:
+1. Produce/refine an individual JSON draft with substantive explanations; do not inflate word counts with boilerplate.
+2. Validate schema, minimum650 ORIGINAL words in theory sections, vocabulary, sources, quiz index, equations, finite calculator outputs across valid input ranges.
+3. Get an explicit Astra approval for this exact content. Address findings and re-review changed claims.
+4. Move/copy ONLY this approved lesson into `content/lessons/` and update its static import in `content/additions.ts`.
+5. Run relevant validation. Stage this lesson and its registration only. Commit a clear single-lesson message, then `git push origin main` and verify success before the next publication.
+6. Record slug, approval record, commit SHA and push success in a tracked publication ledger. Never squash these commits.
+
+Add workflow concurrency cancellation so100 sequential pushes do not waste runners on obsolete revisions. Do not claim each remote run passed unless checked. Final head must have green local tests/typecheck/build and inspect CI.
+
+## Verification and completion
+
+- `npm test`, `npm run typecheck`, `npm run build`; `npm run test:rust` if Rust changes.
+- Tests must cover ALL published lessons, not only the original arrays; final count exactly100 and unique slugs.
+- Independently test arithmetic evaluator arity/domain errors and known outputs. No arbitrary code execution.
+- Browser: library search/subject navigation at100, glossary, lesson reading-before-model, quizzes, model sliders, theme persistence, mobile overflow, legacy interference share URLs.
+- Preserve the original Rust/WASM interference behavior.
+- Final README accurate:100 lessons only once complete; note scope/limits of simulations, existing optional AI tutor, no live hosting.
+- Update task.md and tracked ledger as work progresses. Final response link GitHub and local preview, report completion honestly; if interrupted, state exact completed/reviewed/pushed counts and next action.

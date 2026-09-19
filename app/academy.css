@@ -1632,3 +1632,75 @@ body {
   letter-spacing: 0;
   color: var(--text-secondary);
 }
+.academy .nav-group summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    600 13px/1.5 Arial,
+    sans-serif;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px 12px;
+  list-style: none;
+}
+.academy .nav-group summary::after {
+  content: "+";
+  margin-left: auto;
+}
+.academy .nav-group[open] summary::after {
+  content: "−";
+}
+.academy .nav-group {
+  margin-top: 12px;
+}
+.academy .library-intro h1 {
+  font:
+    400 clamp(30px, 3vw, 43px) / 1.2 Georgia,
+    serif;
+  letter-spacing: -0.8px;
+  margin: 0 0 14px;
+}
+.academy .library-intro > p {
+  margin: 0;
+}
+.academy .catalog {
+  margin-top: 28px;
+}
+.academy .card-copy p {
+  min-height: 0;
+}
+.accent-teal {
+  --accent: #186c69;
+  --accent-soft: #e6f4f1;
+}
+[data-theme="dark"] .accent-teal {
+  --accent: #87d5ca;
+  --accent-soft: #213e3d;
+}
+.dot-3 {
+  background: #298e85;
+}
+.model-reset {
+  align-self: start;
+  justify-self: start;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  font-size: 13px !important;
+}
+.calculator-model .model-toolbar {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.calculator-model .model-controls {
+  display: block;
+}
+.calculator-model .model-slider {
+  margin-bottom: 24px;
+}
+.calculator-model .model-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}

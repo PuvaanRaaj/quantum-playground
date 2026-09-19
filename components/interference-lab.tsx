@@ -345,8 +345,7 @@ export default function InterferenceLab() {
             </p>
             <h3>Explore interference.</h3>
             <p>
-              Make a prediction. Change one thing. Let the universe surprise
-              you.
+              Adjust the phase and coherence, then compare detector counts.
             </p>
           </div>
           <button className="secondary share" onClick={share}>
@@ -491,7 +490,7 @@ export default function InterferenceLab() {
           <aside className="learning">
             <div className="lesson-header">
               <BookOpen size={18} />
-              <span>FIELD NOTES</span>
+              <span>GUIDED EXPERIMENTS</span>
               <span className="step-count">0{lesson + 1} / 04</span>
             </div>
             <div className="steps" aria-label="Guided experiments">
@@ -634,7 +633,7 @@ export default function InterferenceLab() {
               <Sparkles size={21} />
             </span>
             <div>
-              <h2>A little help with the big questions.</h2>
+              <h2>Interference tutor</h2>
               <p>
                 {ai
                   ? "Ask the AI tutor to compare experiments. Its calculations come from the simulator."
@@ -718,7 +717,7 @@ export default function InterferenceLab() {
         </section>
         <footer>
           <span>
-            <Atom size={16} /> Curiosity first. Equations when you’re ready.
+            <Atom size={16} /> Quantum interference model
           </span>
           <a
             href="https://github.com/PuvaanRaaj/quantum-playground#ai-tutor"

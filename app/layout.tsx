@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./academy.css";
 export const metadata: Metadata = {
-  title: "Quantum Playground — a field guide to big ideas",
+  title: "Quantum Playground — Physics and Mathematics",
   description:
     "Learn quantum mechanics, relativity and mathematics through substantial explanations, clear vocabulary, worked examples and interactive experiments.",
   icons: { icon: "/favicon.svg" },

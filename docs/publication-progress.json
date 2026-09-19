@@ -1,0 +1,7 @@
+{
+  "target": 100,
+  "baselineLessons": 12,
+  "lessonCommits": [],
+  "infrastructure": "in progress; not yet committed",
+  "note": "Do not infer Astra approval from tests. Each entry must include slug, reviewer, commit and pushed status."
+}

@@ -1,5 +1,8 @@
 name: Verify the lab
 on: [push, pull_request]
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:

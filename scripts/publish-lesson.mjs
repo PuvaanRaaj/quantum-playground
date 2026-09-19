@@ -1,0 +1,33 @@
+// Root-owned release helper: one explicitly Astra-reviewed lesson, one commit, one push.
+import {readFileSync,writeFileSync,copyFileSync,readdirSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+import {validateLesson} from '../lib/lesson-validation.ts';
+const [slug]=process.argv.slice(2);
+if(!slug||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))throw Error('Provide one lesson slug.');
+function run(command,args,capture=false){const r=spawnSync(command,args,{encoding:'utf8',stdio:capture?'pipe':'inherit'});if(r.status!==0)throw Error(`${command} failed; stop and inspect before retrying.`);return capture?r.stdout.trim():'';}
+if(run('git',['diff','--cached','--name-only'],true))throw Error('Unrelated staged work exists.');
+const path=`work/lesson-drafts/${slug}.json`;
+const bytes=readFileSync(path);const lesson=JSON.parse(bytes.toString());validateLesson(lesson);
+if(lesson.slug!==slug)throw Error('Slug mismatch.');
+const hash=createHash('sha256').update(bytes).digest('hex');
+const reviews=readdirSync('work/reviews').filter(f=>f.endsWith('.json')).map(f=>({file:f,data:JSON.parse(readFileSync('work/reviews/'+f,'utf8'))}));
+const approval=reviews.find(r=>r.data.approved?.includes(slug)&&r.data.reviewedHashes?.[slug]===hash);
+if(!approval)throw Error('No Astra approval for these exact bytes.');
+const progressPath='docs/publication-progress.json';const progress=JSON.parse(readFileSync(progressPath,'utf8'));
+if(progress.lessonCommits.some(e=>e.slug===slug))throw Error('Lesson already published; inspect before retrying.');
+const dest=`content/lessons/${slug}.json`;
+if(existsSync(dest))throw Error('Lesson file already exists; investigate incomplete prior publish.');
+copyFileSync(path,dest);run('node',['scripts/register-lessons.mjs']);
+run('npm',['test']);run('npm',['run','typecheck']);
+const reviewPath='docs/lesson-reviews.json';const ledger=existsSync(reviewPath)?JSON.parse(readFileSync(reviewPath,'utf8')):{};
+ledger[slug]={reviewer:'gpt-6-astra',sourceSha256:hash,reviewRecord:approval.file,status:'approved'};
+writeFileSync(reviewPath,JSON.stringify(ledger,null,2)+'\n');
+run('git',['add',dest,'content/additions.ts',reviewPath]);
+run('git',['diff','--cached','--check']);
+run('git',['commit','-m',`feat(lesson): publish ${slug}`,'--trailer','Risk-Level: low','--trailer','AI-Agent: Codex (exact author model ID unavailable)','--trailer','Reviewed-By: gpt-6-astra']);
+const commit=run('git',['rev-parse','HEAD'],true);
+run('git',['push','origin','main']);
+progress.lessonCommits.push({slug,commit,pushed:true,reviewer:'gpt-6-astra',sourceSha256:hash});
+progress.infrastructure='ready';writeFileSync(progressPath,JSON.stringify(progress,null,2)+'\n');
+console.log(JSON.stringify({slug,commit,pushed:true,total:progress.lessonCommits.length}));
