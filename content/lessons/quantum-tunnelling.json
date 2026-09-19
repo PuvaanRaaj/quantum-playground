@@ -1,0 +1,160 @@
+{
+  "slug": "quantum-tunnelling",
+  "title": "Quantum tunnelling",
+  "category": "Quantum mechanics",
+  "subtitle": "A quantum wavefunction can extend through a finite classically forbidden barrier.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Classically, a particle with total energy below a barrier’s potential cannot pass through that region while conserving energy.",
+  "why": "A quantum wavefunction can extend through a finite classically forbidden barrier.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Barrier",
+      "definition": "A region where the potential energy exceeds the incident particle’s energy."
+    },
+    {
+      "term": "Transmission",
+      "definition": "The fraction of incident probability current emerging beyond a barrier."
+    },
+    {
+      "term": "Evanescent region",
+      "definition": "A region where the stationary wavefunction decays rather than oscillates."
+    },
+    {
+      "term": "WKB approximation",
+      "definition": "An approximation relating transmission to an integral through a forbidden region."
+    }
+  ],
+  "sections": [
+    {
+      "title": "The classical obstacle and the quantum question",
+      "paragraphs": [
+        "Classically, a particle with total energy below a barrier’s potential cannot pass through that region while conserving energy. Its kinetic energy would have to become negative. Quantum mechanics asks a different question: what wavefunction satisfies the Schrödinger equation across all regions, and what probability current emerges on the far side? A finite barrier generally permits a nonzero transmitted component even below its height. Early explanations of alpha decay by George Gamow and independently Ronald Gurney and Edward Condon showed why this effect mattered for real nuclei rather than only for abstract wave equations.",
+        "Tunnelling does not mean a particle temporarily borrows an arbitrary amount of energy. In a stationary scattering model, incident and transmitted components have the same total energy. Inside the forbidden region, the wavefunction takes a decaying form rather than the oscillatory form associated with a freely propagating particle. The classical kinetic-energy picture does not supply a trajectory there. Replacing the calculation with a story about a brief energy violation often creates more confusion than it resolves, especially when the barrier remains unchanged throughout the experiment."
+      ]
+    },
+    {
+      "title": "Why width has such a strong effect",
+      "paragraphs": [
+        "For a constant barrier with height V greater than energy E, the decay coefficient is κ=√(2m(V−E))/ħ. The wavefunction’s decaying component varies like exp(−κx). Probability involves a squared magnitude, leading to an approximate transmission factor exp(−2κL) for width L in an opaque-barrier regime. This estimate captures the dominant exponential dependence. The complete rectangular-barrier result also depends on matching the wavefunction and its derivative at both boundaries, which supplies additional factors. Thin barriers and energies near the barrier top need that more exact treatment.",
+        "A larger mass increases κ, as does a greater energy gap between the barrier and particle. A greater width multiplies the decay distance. These dependences explain why tunnelling is readily relevant for electrons across nanometer-scale structures but negligible for an ordinary thrown ball crossing a wall in an analogous model. The comparison does not require declaring large objects exempt from quantum mechanics. Their parameters, environmental interactions and collective structure make the simple coherent transmission picture inappropriate or overwhelmingly suppressed."
+      ]
+    },
+    {
+      "title": "A numerical estimate with explicit units",
+      "paragraphs": [
+        "For an electron, κ is approximately 5.12 per nanometer times the square root of the barrier gap measured in electronvolts. With a one-electronvolt gap and a width of one nanometer, the exponential estimate is exp(−10.24), about 0.0000357. Reducing the width to half a nanometer changes it to exp(−5.12), about 0.00598. Halving the width therefore increases this estimate by roughly a factor of 167. The result is not merely twice as large because width appears in an exponent.",
+        "This extreme distance sensitivity underlies the usefulness of tunnelling currents for studying surfaces. It also explains why small changes in a device geometry can have large consequences. However, a current requires more than a single-particle transmission estimate: one must consider available states, occupation probabilities, applied voltage and the actual potential. Likewise, alpha decay involves a nuclear potential and a charged-particle barrier, not an electron encountering the rectangular barrier used here. The exponential intuition transfers, while the detailed formula and numerical constants must be adapted to the physical system."
+      ]
+    },
+    {
+      "title": "Interpreting the calculator conservatively",
+      "paragraphs": [
+        "The calculator takes electron barrier width and a positive barrier gap. It returns the leading exponential factor, explicitly labeled as an approximation. The chosen ranges avoid a negative square root and keep the values finite. This factor lies between zero and one, but it is not an exact transmission coefficient across every allowed control setting. Near transparent conditions, boundary-matching factors and the approximation’s regime become important. A smooth curve should not make an approximation look more authoritative than its derivation permits.",
+        "Nothing in the display measures how long a particle spends inside a barrier or establishes faster-than-light travel. Tunnelling-time questions require an operational definition and a more careful wave-packet treatment. The model also omits environmental noise, many-particle interactions and changing barriers. Its practical learning goal is narrower: identify why classically forbidden does not mean a wavefunction must vanish, and calculate how mass, gap and width suppress the leading transmission factor. When explaining a result, state the approximation before quoting its number. That habit preserves the useful engineering intuition without confusing a simplified formula with a complete account of a real tunnelling experiment."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "T ≈ exp(−2κL); κ=√(2m(V−E))/ħ",
+    "symbols": [
+      {
+        "symbol": "T",
+        "meaning": "Leading exponential transmission estimate."
+      },
+      {
+        "symbol": "L",
+        "meaning": "Barrier width."
+      },
+      {
+        "symbol": "V−E",
+        "meaning": "Positive barrier-energy gap."
+      },
+      {
+        "symbol": "κ",
+        "meaning": "Decay coefficient."
+      }
+    ],
+    "explanation": "A quantum wavefunction can extend through a finite classically forbidden barrier.",
+    "example": "For an electron with gap 1 eV and width 1 nm, T≈exp(−10.24)≈3.57×10⁻⁵."
+  },
+  "insight": "The exponent doubles, so exp(−2κ·2L) equals the square of exp(−2κL).",
+  "misconceptions": [
+    {
+      "myth": "A tunnelling particle must violate energy conservation.",
+      "correction": "Stationary tunnelling conserves total energy; the forbidden-region wavefunction is evanescent rather than a classical trajectory."
+    },
+    {
+      "myth": "The exponential estimate is an exact transmission formula for every finite barrier.",
+      "correction": "Boundary matching and approximation validity matter; the displayed expression is only the leading opaque-barrier factor."
+    }
+  ],
+  "check": {
+    "question": "What does doubling barrier width do to this approximate T?",
+    "options": [
+      "Doubles T",
+      "Squares T",
+      "Leaves T unchanged"
+    ],
+    "answer": 1,
+    "explanation": "The exponent doubles, so exp(−2κ·2L) equals the square of exp(−2κL)."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 16",
+      "url": "https://www.feynmanlectures.caltech.edu/III_16.html"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 9",
+      "url": "https://www.feynmanlectures.caltech.edu/III_09.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Quantum tunnelling model",
+    "description": "A quantum wavefunction can extend through a finite classically forbidden barrier.",
+    "inputs": [
+      {
+        "key": "width",
+        "label": "Barrier width",
+        "min": 0.1,
+        "max": 3,
+        "step": 0.05,
+        "initial": 1,
+        "unit": "nm"
+      },
+      {
+        "key": "gap",
+        "label": "Barrier gap",
+        "min": 0.1,
+        "max": 5,
+        "step": 0.1,
+        "initial": 1,
+        "unit": "eV"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Exponential transmission estimate",
+        "expression": [
+          "exp",
+          [
+            "*",
+            -10.24,
+            "width",
+            [
+              "sqrt",
+              "gap"
+            ]
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Electron mass and a constant positive barrier gap. Leading opaque-barrier exponential only; not exact rectangular-barrier matching or a device-current model."
+  }
+}

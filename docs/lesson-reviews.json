@@ -160,5 +160,11 @@
     "sourceSha256": "d5391b153560d2d63e0e6c4426f025804518060ddcbced92954fe7a3383f75a6",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "quantum-tunnelling": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "5d716787863e88fb788facc5298fbb0f5db478a5c52e9ee9b348c7619b8871a6",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }
