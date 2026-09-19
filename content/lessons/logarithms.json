@@ -1,0 +1,163 @@
+{
+  "slug": "logarithms",
+  "title": "Logarithms",
+  "category": "Mathematics",
+  "subtitle": "A logarithm answers a question about exponentiation.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A logarithm answers a question about exponentiation. Since 2³ = 8, log₂ 8 = 3. The output is the exponent needed to reach eight from base two. For real logarithms, the input must be positive and the base must be positive and different from one. Zero and negative numbers are not hidden difficult cases of the same real-valued function; they are outside its domain.",
+  "why": "Logarithms isolate unknown exponents and turn multiplicative relationships into additive ones.",
+  "prerequisites": [
+    "Basic algebra",
+    "Multiplication and fractions"
+  ],
+  "terms": [
+    {
+      "term": "Logarithm",
+      "definition": "The exponent needed to obtain a positive number from a chosen base."
+    },
+    {
+      "term": "Base",
+      "definition": "The positive number being exponentiated, unequal to one."
+    },
+    {
+      "term": "Natural logarithm",
+      "definition": "The logarithm with base e, written ln."
+    },
+    {
+      "term": "Exponential",
+      "definition": "A function in which an input appears as an exponent."
+    },
+    {
+      "term": "Logarithmic scale",
+      "definition": "A scale where equal distances correspond to equal multiplicative ratios."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Ask for the exponent",
+      "paragraphs": [
+        "A logarithm answers a question about exponentiation. Since 2³ = 8, log₂ 8 = 3. The output is the exponent needed to reach eight from base two. For real logarithms, the input must be positive and the base must be positive and different from one. Zero and negative numbers are not hidden difficult cases of the same real-valued function; they are outside its domain.",
+        "John Napier published an influential system of logarithms in the early seventeenth century, and Henry Briggs developed common logarithms suited to decimal calculation. Their tables transformed multiplication and division into addition and subtraction before electronic computation. Modern logarithms remain useful for a different reason: multiplicative processes and enormous ranges are common in science, whether or not arithmetic itself is difficult."
+      ]
+    },
+    {
+      "title": "Derive the algebraic rules",
+      "paragraphs": [
+        "Let x = bᵘ and y = bᵛ for a valid base b. Then xy = b^(u+v), so log_b(xy) = u + v = log_b x + log_b y. Similarly x/y = b^(u−v), giving the subtraction rule. Raising x to a real power r yields b^(ru), so log_b(xʳ) = r log_b x when x is positive. These statements are consequences of exponent laws, not separate numerical coincidences.",
+        "There is no corresponding rule turning log(x + y) into log x + log y. For example, log₁₀(10 + 10) = log₁₀20, approximately 1.301, while log₁₀10 + log₁₀10 = 2. The right side corresponds to the logarithm of the product 100. Confusing a sum with a product changes the problem. Checking a simple numerical case is a useful way to detect such an invalid proposed identity."
+      ]
+    },
+    {
+      "title": "Why the natural base appears",
+      "paragraphs": [
+        "The number e is the base for which the exponential function has derivative equal to itself. Its logarithm ln is the inverse function of eˣ. By differentiating e^(ln x) = x with the chain rule, we obtain e^(ln x) times the derivative of ln x equals one. Since e^(ln x) = x, the derivative is 1/x for x > 0. This simple derivative is why natural logarithms appear throughout calculus.",
+        "Integrating 1/t from t = 1 to t = x provides another definition of ln x for positive x. The integral is negative when x lies between zero and one because the integration direction reverses. This does not conflict with the input restriction: the logarithm’s output may be negative even though its input must be positive. For instance, ln(1/e) = −1 because e to the power −1 equals 1/e."
+      ]
+    },
+    {
+      "title": "Solve a growth problem",
+      "paragraphs": [
+        "Suppose a fictional culture doubles every three hours under an ideal constant-growth model. Starting with 100 units, its size after t hours is N(t) = 100·2^(t/3). When does it reach 700 units? Divide by 100 to get seven = 2^(t/3). Taking logarithms gives ln 7 = (t/3) ln 2. Therefore t = 3 ln 7 / ln 2, approximately 8.42 hours. The logarithm isolates the unknown exponent.",
+        "The same reasoning gives the change-of-base formula log_b x = ln x / ln b. The denominator is nonzero because b cannot equal one. A doubling time is meaningful only while the assumed exponential growth remains applicable. Real cultures eventually encounter resource limitations; solving the equation accurately does not establish that the model remains physically accurate indefinitely."
+      ]
+    },
+    {
+      "title": "Scales, dimensions, and interpretation",
+      "paragraphs": [
+        "On a base-ten logarithmic axis, values one, ten, one hundred, and one thousand are equally spaced. Each step represents multiplication by ten rather than addition of a fixed amount. A straight line on a semilog plot can indicate exponential behavior, while a straight line on a log-log plot can indicate a power law over the observed range. Such patterns are clues to models, not automatic proof of a mechanism.",
+        "A logarithm should formally act on a dimensionless ratio. Writing ln of a length without specifying a reference length hides a units problem: changing metres to centimetres would change the number inside it. In physical formulas, expressions such as ln(L/L₀) make the reference explicit. The calculator uses a positive dimensionless input and compares natural and base-ten logarithms. Both rise slowly, cross zero at input one, and tend downward without bound as the input approaches zero from above. The bounded controls avoid zero itself, where neither output is finite."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "log_b x = ln x / ln b",
+    "symbols": [
+      {
+        "symbol": "b",
+        "meaning": "Positive base unequal to one"
+      },
+      {
+        "symbol": "x",
+        "meaning": "Positive dimensionless input"
+      },
+      {
+        "symbol": "ln",
+        "meaning": "Natural logarithm with base e"
+      }
+    ],
+    "explanation": "Real logarithms of a positive dimensionless input; zero and negative inputs are excluded.",
+    "example": "log₂8 = ln 8 / ln 2 = 3."
+  },
+  "insight": "Products become sums under a logarithm because exponentiation turns sums of exponents into products.",
+  "misconceptions": [
+    {
+      "myth": "The logarithm of a sum is the sum of logarithms.",
+      "correction": "The addition identity applies to products, not sums."
+    },
+    {
+      "myth": "A negative logarithm requires a negative input.",
+      "correction": "Positive inputs below one have negative natural logarithms."
+    }
+  ],
+  "check": {
+    "question": "Which rule is valid for positive x and y?",
+    "options": [
+      "ln(xy) = ln x + ln y",
+      "ln(x+y) = ln x + ln y",
+      "ln x is positive for every positive x"
+    ],
+    "answer": 0,
+    "explanation": "Products become sums under a logarithm because exponentiation turns sums of exponents into products."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Precalculus 2e",
+      "url": "https://openstax.org/details/books/precalculus-2e"
+    },
+    {
+      "title": "University of St Andrews: John Napier",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Napier/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Logarithms calculation",
+    "description": "Compare natural and base-ten logarithms: at input 8 they are approximately 2.07944 and 0.90309.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Positive dimensionless input",
+        "unit": "",
+        "min": 0.01,
+        "max": 100,
+        "step": 0.01,
+        "initial": 8
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Natural logarithm",
+        "unit": "",
+        "expression": [
+          "log",
+          "x"
+        ]
+      },
+      {
+        "label": "Base-ten logarithm",
+        "unit": "",
+        "expression": [
+          "/",
+          [
+            "log",
+            "x"
+          ],
+          2.302585092994046
+        ]
+      }
+    ],
+    "assumptions": "Real logarithms of a positive dimensionless input; zero and negative inputs are excluded."
+  }
+}

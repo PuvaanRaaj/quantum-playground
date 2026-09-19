@@ -94,5 +94,11 @@
     "sourceSha256": "0dc91da789686611e5c17035c4f641d61f60d7b6476f6a272482efd6c2db5e36",
     "reviewRecord": "batch-3.json",
     "status": "approved"
+  },
+  "logarithms": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "f7bc60b47d9d643b40595b7eaf776a28da252aa50d05a51b775dc24f28487b14",
+    "reviewRecord": "batch-3.json",
+    "status": "approved"
   }
 }
