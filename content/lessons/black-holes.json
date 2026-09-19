@@ -1,0 +1,136 @@
+{
+  "slug": "black-holes",
+  "title": "Black holes",
+  "category": "Space & relativity",
+  "subtitle": "A boundary in spacetime—not a cosmic vacuum cleaner.",
+  "minutes": 12,
+  "level": "Build intuition",
+  "accent": "blue",
+  "visual": "blackhole",
+  "intro": "A black hole is a region of spacetime from which no future-directed light signal can escape to faraway observers. Its boundary is the event horizon. This definition is about which events can communicate with which other events, rather than about a dark material surface. General relativity predicts such regions, and astronomical observations provide strong evidence for objects with their expected properties.",
+  "why": "Black holes connect the geometry of relativity with questions about stars, information, quantum theory, and what counts as scientific evidence when an object cannot emit light directly.",
+  "prerequisites": [
+    "General relativity introduces spacetime and geodesics.",
+    "Mass measures how much matter-energy an object contains; radius measures a size."
+  ],
+  "terms": [
+    {
+      "term": "Event horizon",
+      "definition": "The causal boundary separating events that can send signals to faraway observers from events that cannot."
+    },
+    {
+      "term": "Schwarzschild radius",
+      "definition": "The horizon radius 2GM/c² for an ideal nonrotating, uncharged black hole."
+    },
+    {
+      "term": "Accretion disk",
+      "definition": "Hot orbiting material outside a compact object that loses energy and can spiral inward."
+    },
+    {
+      "term": "Tidal force",
+      "definition": "A difference in gravitational acceleration across an extended object, capable of stretching or compressing it."
+    }
+  ],
+  "sections": [
+    {
+      "title": "From Einstein’s equations to collapsed stars",
+      "paragraphs": [
+        "Einstein supplied general relativity, but the story of black holes was a collective discovery. Karl Schwarzschild found an exact spherical vacuum solution in 1916. Later work on stellar structure, collapse, and the global geometry of spacetime established the physical meaning of black holes. Einstein himself was not the enthusiastic discoverer of the modern astrophysical picture; admiring his theory does not require assigning every consequence of it to him personally.",
+        "A massive star can resist compression while pressure supports it against gravity. When the relevant support becomes insufficient, some stellar cores collapse into black holes. Other remnants become neutron stars or white dwarfs, depending on their histories and masses. Supermassive black holes in galactic centers require an additional growth story involving early seeds, accretion, and mergers. Their detailed formation history is an active research problem, not a single settled recipe."
+      ]
+    },
+    {
+      "title": "Why light cannot escape",
+      "paragraphs": [
+        "A familiar introduction says that escape velocity exceeds light speed. This gives the correct Schwarzschild radius when used as a heuristic, but it is not the full relativistic explanation. Light does not struggle uphill, become tired, and fall back because its local speed decreases. Every local freely falling observer still measures light moving at c. The issue is the arrangement of possible future paths in spacetime.",
+        "Inside an ideal black-hole horizon, future-directed light paths cannot reach the distant exterior. Pointing a rocket outward does not restore an escape route. Thinking of the horizon as a one-way causal boundary is more reliable than thinking of an especially sticky surface. The horizon need not be a place of large local curvature for a sufficiently massive black hole, although surviving the full journey is a different matter."
+      ]
+    },
+    {
+      "title": "Size is not the same as mass",
+      "paragraphs": [
+        "For the simple Schwarzschild model, the radius grows linearly with mass. One solar mass corresponds to roughly 2.95 kilometers of horizon radius. Ten solar masses therefore gives about 29.5 kilometers. A million solar masses gives about 2.95 million kilometers. These are radii, so diameters are twice as large. The calculation does not tell you that all the matter sits uniformly distributed in a sphere of that size.",
+        "Imagine replacing the Sun with a black hole of exactly the same mass, without imparting a disturbance to Earth. Far outside it, the gravitational influence would remain approximately the same, so Earth would not suddenly be sucked inward. Losing sunlight would be catastrophic for entirely different reasons. This thought experiment separates compactness from mass: compressing an object changes what happens nearby without multiplying its distant gravitational influence."
+      ]
+    },
+    {
+      "title": "What would different observers report?",
+      "paragraphs": [
+        "An infalling clock emits signals toward a distant observer. Those signals become increasingly delayed and redshifted near the horizon, and their received intensity fades. The distant observer’s usual coordinate description assigns an ever-later time to crossing. The falling observer can cross in a finite amount of their own proper time. These statements use different measurements and are not a contradiction.",
+        "Tidal effects depend on the black hole’s mass and your location. Across a human-sized object at the horizon, they can be far stronger for a small black hole than for a supermassive one. A smaller horizon puts you closer to a concentrated mass in a way that produces a steeper gravitational gradient. Nevertheless, radiation from surrounding matter can be dangerous, and classical interior predictions eventually reach regimes where our theories are incomplete."
+      ]
+    },
+    {
+      "title": "How we investigate something dark",
+      "paragraphs": [
+        "Astronomers infer compact masses from the orbits of nearby stars and gas. Hot accreting material can radiate before crossing the horizon. Gravitational waves carry information about merging compact objects and the remnant’s oscillations. Horizon-scale radio images show emission surrounding a dark central region shaped by light propagation. None of these methods is simply taking a photograph of a solid black surface.",
+        "The value of multiple methods is that they constrain different aspects of the same physical picture. Orbital measurements establish mass within a region; waveforms probe strong gravitational dynamics; images test surrounding emission and geometry. Each has models and uncertainties. A bright ring can be larger than the event horizon because bent light changes its apparent size, so the ring’s angular radius must not be casually equated with the physical horizon radius."
+      ]
+    },
+    {
+      "title": "What the model cannot settle",
+      "paragraphs": [
+        "The classical singularity indicates a failure of the spacetime description under extreme conditions; it is not an experimentally photographed infinitely dense bead. Hawking radiation is a theoretical quantum effect with deep consequences, but radiation from astrophysical black holes has not been directly detected. Questions about information and quantum gravity remain research topics rather than features a simple animation can answer.",
+        "Use the mass control to test the proportionality of horizon size. Double the mass and predict the radius before looking. The graphic is a size illustration for an uncharged, nonrotating black hole, not a numerical collapse simulation, a view inside the horizon, or a ray-traced telescope image. Real rotating black holes require a different spacetime model. Learning exactly what a visualization leaves out is part of learning to use it scientifically."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "rs = 2GM/c² ≈ 2.95 km × (M/M☉)",
+    "symbols": [
+      {
+        "symbol": "rs",
+        "meaning": "Schwarzschild horizon radius."
+      },
+      {
+        "symbol": "G",
+        "meaning": "Newton’s gravitational constant."
+      },
+      {
+        "symbol": "M",
+        "meaning": "Black-hole mass."
+      },
+      {
+        "symbol": "M☉",
+        "meaning": "One solar mass, approximately 1.99 × 10³⁰ kilograms."
+      }
+    ],
+    "explanation": "For a nonrotating, uncharged black hole, horizon radius is directly proportional to mass. This relation does not specify an internal material density profile.",
+    "example": "At ten solar masses, rs ≈ 29.5 kilometers. Doubling the mass to twenty solar masses doubles rs to about 59 kilometers."
+  },
+  "insight": "An event horizon is a limit on causal communication; darkness is a consequence, not the definition.",
+  "misconceptions": [
+    {
+      "myth": "Black holes pull harder than anything with the same mass at the same large distance.",
+      "correction": "Their exceptional nearby effects come from compactness. The distant gravitational field primarily depends on mass and other relevant properties."
+    },
+    {
+      "myth": "The glowing ring is the event horizon.",
+      "correction": "It is light from surrounding matter, distorted by spacetime. Its apparent size is not the horizon radius."
+    }
+  ],
+  "check": {
+    "question": "In the Schwarzschild model, what happens to horizon radius when mass triples?",
+    "options": [
+      "It triples",
+      "It increases ninefold",
+      "It remains fixed"
+    ],
+    "answer": 0,
+    "explanation": "The formula is linear in mass: rs = 2GM/c²."
+  },
+  "sources": [
+    {
+      "title": "NASA: what are black holes?",
+      "url": "https://www.nasa.gov/universe/what-are-black-holes/"
+    },
+    {
+      "title": "NASA: ten questions about black holes",
+      "url": "https://science.nasa.gov/universe/10-questions-you-might-have-about-black-holes/"
+    },
+    {
+      "title": "NASA: how do we know there are black holes?",
+      "url": "https://science.nasa.gov/mission/webb/science-overview/science-explainers/how-do-we-know-there-are-black-holes/"
+    }
+  ]
+}

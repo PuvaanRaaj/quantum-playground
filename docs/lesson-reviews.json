@@ -10,5 +10,11 @@
     "sourceSha256": "cbf5e6efab2c9d8bced923f37499d730c0d04c59605796eab1fc04f327e284a9",
     "reviewRecord": "existing-corrected.json",
     "status": "approved"
+  },
+  "black-holes": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "b7f2ef0a889220e0293efa29788a216236b402f18f1771ada370a760e68bfb89",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
   }
 }
