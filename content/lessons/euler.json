@@ -1,0 +1,142 @@
+{
+  "slug": "euler",
+  "title": "Euler’s formula",
+  "category": "Mathematics",
+  "subtitle": "How an imaginary exponent becomes a real rotation.",
+  "minutes": 14,
+  "level": "Go deeper",
+  "accent": "amber",
+  "intro": "Euler’s formula, e^(iθ) = cos θ + i sin θ, connects exponential functions to circular motion. Its famous special case is e^(iπ) + 1 = 0. The formula is beautiful because it makes several branches of mathematics speak the same language. To understand it, we first need to understand what a complex number represents and what exponentiation means when the exponent is not an ordinary counting number.",
+  "why": "Complex numbers describe phase in quantum amplitudes, oscillations in electrical circuits, and frequency components in sound. This formula makes changing phase behave like moving a point around a circle.",
+  "prerequisites": [
+    "Squares and basic algebra",
+    "Sine and cosine as coordinates on a circle",
+    "Helpful: the idea of an infinite convergent sum"
+  ],
+  "terms": [
+    {
+      "term": "Imaginary unit i",
+      "definition": "A number defined by i² = −1; it extends the real number system."
+    },
+    {
+      "term": "Complex number",
+      "definition": "A number a + ib, represented by the point (a, b) in a plane."
+    },
+    {
+      "term": "Modulus",
+      "definition": "The distance √(a² + b²) of a complex number from the origin."
+    },
+    {
+      "term": "Radian",
+      "definition": "An angle measure equal to arc length divided by circle radius; one full turn is 2π radians."
+    },
+    {
+      "term": "Power series",
+      "definition": "An infinite sum of powers with specified coefficients; its use requires convergence."
+    },
+    {
+      "term": "Factorial n!",
+      "definition": "The product 1 × 2 × … × n, with 0! defined as 1."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Make room for a new direction",
+      "paragraphs": [
+        "On the real number line, squaring any number gives a nonnegative result, so x² = −1 has no real solution. Introduce i with i² = −1 and allow numbers a + ib. This does not make ordinary arithmetic disappear. Addition works component by component, and multiplication uses distributivity together with the rule i² = −1. The word imaginary is a historical label, not a verdict that these numbers are useless or fictitious.",
+        "Represent a + ib as a point with horizontal coordinate a and vertical coordinate b. Multiply it by i: i(a + ib) = −b + ia. The point (a, b) becomes (−b, a), a counterclockwise quarter turn. Multiplying by i twice makes a half turn, so i² = −1 now has a geometric interpretation. Negative multiplication reverses direction; imaginary multiplication adds the possibility of rotation."
+      ]
+    },
+    {
+      "title": "What Euler connected",
+      "paragraphs": [
+        "Leonhard Euler’s name is attached to the connection between exponentials and trigonometric functions. The surrounding ideas emerged through a broader development of complex numbers, series, and trigonometry. It is more helpful to see the formula as a bridge between these established structures than as a mysterious coincidence involving five famous constants.",
+        "For real inputs, exponential growth changes magnitude. For a purely imaginary input iθ, the complex exponential has magnitude one and changes direction. A general exponent a + ib combines the two behaviors: e^(a + ib) = e^a(cos b + i sin b). The real part of the exponent scales the distance from the origin; the imaginary part sets the angle. This is why complex exponentials can model both oscillation and decay."
+      ]
+    },
+    {
+      "title": "A derivation with an explicit foundation",
+      "paragraphs": [
+        "We take the power-series definition exp(z) = 1 + z + z²/2! + z³/3! + … for complex z, together with the usual sine and cosine series in radians. These are standard analytic constructions. For any fixed z, the ratio of successive absolute term sizes is |z|/(n + 1), which tends to zero. Thus the exponential series converges absolutely for every complex input. Absolute convergence permits the separation into odd and even terms used below.",
+        "Step 1: substitute z = iθ, with θ real. Step 2: use the repeating powers i, −1, −i, 1 to simplify. The even-power terms become 1 − θ²/2! + θ⁴/4! − … . The odd-power terms become i times [θ − θ³/3! + θ⁵/5! − …]. Step 3: recognize the first bracket as cos θ and the second as sin θ. Therefore e^(iθ) = cos θ + i sin θ.",
+        "This derivation relies on the established series representations of sine and cosine, not merely on a few matching terms. Proving those representations from their geometric definitions is an additional calculus result. Infinite expressions demand that care: similar-looking initial terms do not guarantee equal functions. Here the complete convergent series supply the equality for every real θ."
+      ]
+    },
+    {
+      "title": "Recover the famous identity",
+      "paragraphs": [
+        "Set θ = π, which is a half turn. On the unit circle, the horizontal coordinate is −1 and the vertical coordinate is 0. Euler’s formula therefore gives e^(iπ) = −1 + i·0 = −1. Move the −1 to the other side to get e^(iπ) + 1 = 0. The identity is one particular angle in a formula describing every angle.",
+        "As a more general worked example, choose θ = π/3, or 60 degrees. Then e^(iπ/3) = 1/2 + i√3/2. Its squared modulus is 1/4 + 3/4 = 1, so it lies on the unit circle. Multiplying it by itself adds the two angles, giving e^(2iπ/3) = −1/2 + i√3/2. You can confirm that result with ordinary algebra using i² = −1."
+      ]
+    },
+    {
+      "title": "Why physics keeps using it",
+      "paragraphs": [
+        "Think of a rotating pointer and watch its horizontal shadow. The pointer rotates steadily, while the shadow oscillates as a cosine. A complex exponential keeps both perpendicular components together, which makes adding and transforming oscillations convenient. In quantum mechanics a state amplitude can carry a complex phase; relative phases help determine interference when amplitudes combine. Probabilities come from squared magnitudes, not from reading the imaginary coordinate as a probability.",
+        "The circular picture is an interpretation of the formula, not a physical claim that every quantum state is a literal spinning object. Likewise, a single global phase does not change ordinary measurement probabilities, while relative phase between components can matter. In the visualization, follow the point and its projections, then predict the result after a quarter, half, or full turn before moving the control."
+      ]
+    },
+    {
+      "title": "Keep the units and the logic straight",
+      "paragraphs": [
+        "The exponent in this formula uses radians. Entering 180 as though it means half a turn produces the wrong answer unless you convert degrees to radians first. The formula is periodic for real θ: adding 2π changes the angle by a full rotation and leaves the point unchanged. None of this implies that every complex exponential has magnitude one; a nonzero real part in the exponent changes the magnitude.",
+        "A rotating display gives intuition and numerical checks. It cannot establish an identity at infinitely many angles by drawing enough frames. Keep three layers separate: arithmetic defines the number system, analysis justifies the convergent series, and geometry helps interpret the result. Together they turn the famous equation from something to admire into something you can actually use."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "e^(iθ) = cos θ + i sin θ",
+    "symbols": [
+      {
+        "symbol": "e",
+        "meaning": "The base of the natural exponential, approximately 2.71828"
+      },
+      {
+        "symbol": "i",
+        "meaning": "The imaginary unit with i² = −1"
+      },
+      {
+        "symbol": "θ",
+        "meaning": "A real angle measured in radians"
+      }
+    ],
+    "explanation": "A purely imaginary exponential gives the complex point on the unit circle at angle θ.",
+    "example": "At θ = π/2, cosine is 0 and sine is 1, so e^(iπ/2) = i."
+  },
+  "insight": "Complex exponentials package rotation and oscillation into one algebraic object.",
+  "misconceptions": [
+    {
+      "myth": "Imaginary numbers cannot describe real phenomena.",
+      "correction": "They are a consistent mathematical language for components, rotations, and phase; predictions remain testable."
+    },
+    {
+      "myth": "The animated circle proves the formula.",
+      "correction": "The visualization illustrates it; a proof needs justified mathematical steps such as the convergent-series argument."
+    }
+  ],
+  "check": {
+    "question": "Where does e^(iπ) sit on the complex plane?",
+    "options": [
+      "At i, one quarter turn",
+      "At −1, one half turn",
+      "At 1, no turn"
+    ],
+    "answer": 1,
+    "explanation": "π radians is a half turn. cos π = −1 and sin π = 0."
+  },
+  "sources": [
+    {
+      "title": "MIT OpenCourseWare: power series and Euler’s formula",
+      "url": "https://ocw.mit.edu/courses/res-18-005-highlights-of-calculus-spring-2010/ae6e5ed1d5d607fce5bcd59fd2c589a5_MITRES18_05S10_Power_Series_Eulers_Formula.pdf"
+    },
+    {
+      "title": "Jeremy Orloff: Euler’s formula",
+      "url": "https://math.libretexts.org/Bookshelves/Analysis/Complex_Variables_with_Applications_%28Orloff%29/01%3A_Complex_Algebra_and_the_Complex_Plane/1.06%3A_Euler%27s_Formula"
+    },
+    {
+      "title": "AudioLabs: the complex exponential function",
+      "url": "https://www.audiolabs-erlangen.de/resources/MIR/FMP/C2/C2_ExponentialFunction.html"
+    }
+  ],
+  "visual": "euler"
+}
