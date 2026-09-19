@@ -1,5 +1,5 @@
 // Root-owned release helper: one explicitly Astra-reviewed lesson, one commit, one push.
-import {readFileSync,writeFileSync,copyFileSync,readdirSync,existsSync} from 'node:fs';
+import {readFileSync,writeFileSync,readdirSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {validateLesson} from '../lib/lesson-validation.ts';
@@ -18,7 +18,7 @@ const progressPath='docs/publication-progress.json';const progress=JSON.parse(re
 if(progress.lessonCommits.some(e=>e.slug===slug))throw Error('Lesson already published; inspect before retrying.');
 const dest=`content/lessons/${slug}.json`;
 if(existsSync(dest))throw Error('Lesson file already exists; investigate incomplete prior publish.');
-copyFileSync(path,dest);run('node',['scripts/register-lessons.mjs']);
+writeFileSync(dest,bytes);run('node',['scripts/register-lessons.mjs']);
 run('npm',['test']);run('npm',['run','typecheck']);
 const reviewPath='docs/lesson-reviews.json';const ledger=existsSync(reviewPath)?JSON.parse(readFileSync(reviewPath,'utf8')):{};
 ledger[slug]={reviewer:'gpt-6-astra',sourceSha256:hash,reviewRecord:approval.file,status:'approved'};
