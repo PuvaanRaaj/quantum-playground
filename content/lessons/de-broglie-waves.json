@@ -1,0 +1,147 @@
+{
+  "slug": "de-broglie-waves",
+  "title": "De Broglie matter waves",
+  "category": "Quantum mechanics",
+  "subtitle": "A particle’s momentum determines the spatial wavelength of its quantum amplitude.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Light displays interference, yet it also transfers energy in discrete interactions.",
+  "why": "A particle’s momentum determines the spatial wavelength of its quantum amplitude.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Matter wave",
+      "definition": "The wave-like amplitude description associated with a material particle."
+    },
+    {
+      "term": "Momentum",
+      "definition": "The motion quantity p; nonrelativistically, mass times velocity."
+    },
+    {
+      "term": "Wavelength",
+      "definition": "Distance over which the phase repeats by one full cycle."
+    },
+    {
+      "term": "Diffraction",
+      "definition": "Redistribution of wave intensity caused by geometry and interference."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Extending the wave idea to matter",
+      "paragraphs": [
+        "Light displays interference, yet it also transfers energy in discrete interactions. Louis de Broglie proposed that material particles such as electrons should likewise have a wave description, with wavelength λ=h/p. His work in the 1920s helped motivate wave mechanics. Electron diffraction experiments by Davisson and Germer, and independently by George Paget Thomson, provided experimental support for the predicted relationship. The important claim was quantitative: the observed scattering patterns agreed with a wavelength determined by electron momentum, rather than merely showing that electrons sometimes behaved in an unfamiliar way.",
+        "A matter wave is not a claim that an electron is a small water ripple made from some ordinary fluid. In quantum mechanics, the wavefunction carries probability amplitudes. Its spatial phase can interfere, while a detector records localized events. The wavelength describes phase variation associated with momentum. A perfectly definite momentum corresponds to an extended plane wave, which is not localized at one position. A localized particle preparation instead uses a wave packet with a range of momenta and therefore a range of wavelengths."
+      ]
+    },
+    {
+      "title": "Relating wavelength to kinetic energy",
+      "paragraphs": [
+        "At nonrelativistic speeds, kinetic energy K equals p²/(2m). Combining this with λ=h/p gives λ=h/√(2mK). Increasing kinetic energy by a factor of four doubles momentum and halves wavelength. The inverse-square-root behavior differs from the photon relation λ=hc/E because a massive particle’s kinetic energy and momentum are related differently. Using the photon formula for an electron would therefore produce the wrong answer even though both systems share a relation between wavelength and momentum.",
+        "An electron accelerated through a potential difference V gains kinetic energy eV if it starts nearly at rest and other losses are negligible. In convenient units, its nonrelativistic wavelength is about 1.227 nanometers divided by the square root of the accelerating voltage measured in volts. At 100 volts, the wavelength is about 0.1227 nanometers. At 400 volts, it is about 0.06135 nanometers. These lengths are comparable to atomic spacings, which makes electron diffraction from crystals a practical probe of structure."
+      ]
+    },
+    {
+      "title": "How a crystal supplies a measurable pattern",
+      "paragraphs": [
+        "A crystal contains a repeating spatial arrangement. Waves scattered from different planes can reinforce or cancel depending on their path differences. In a simplified Bragg description, constructive conditions satisfy 2d sin θ=nλ, where d is the plane spacing and n an integer order. Changing the electron momentum changes λ and therefore shifts the angles where reinforcement occurs. This links the matter-wave hypothesis to a measurement involving accelerating voltage, known crystal geometry and detector positions.",
+        "A diffraction pattern alone still requires careful interpretation. Real crystals have complex scattering amplitudes, finite thickness, defects and multiple-scattering effects. Electron microscopy and diffraction use detailed models and calibration rather than only the elementary Bragg equation. The introductory argument establishes why wavelength is a useful property of electron motion and why controllable momentum changes matter. It does not imply that every detector spot can be understood as an electron following one ordinary path through a single pair of atomic planes."
+      ]
+    },
+    {
+      "title": "Mass, localization and practical limits",
+      "paragraphs": [
+        "The same de Broglie relation associates shorter wavelengths with larger momentum. A macroscopic object moving at an everyday speed has an extremely tiny wavelength because its mass and momentum are large compared with atomic scales. Observing interference additionally requires coherent preparation, suitable geometry and sufficient isolation from environmental information. Saying that a baseball has a de Broglie wavelength therefore does not mean a tabletop experiment can easily display a baseball diffraction pattern. The magnitude and coherence conditions both matter.",
+        "The calculator uses electrons with kinetic energies from one to one thousand electronvolts and the nonrelativistic formula. This range keeps the electron speed well below the speed of light for an introductory estimate, although precision applications still use relativistic corrections. The model returns wavelength and does not propagate a packet, calculate crystal intensities or simulate an electron microscope. Its graph should fall as the inverse square root of energy. Check the 100-to-400-electronvolt comparison and explain why doubling energy does not halve wavelength. That distinction connects a familiar kinetic-energy law with the quantum phase relation, making the new concept calculable rather than a vague statement that everything is somehow both a particle and a wave."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "λ=h/p=h/√(2mK)",
+    "symbols": [
+      {
+        "symbol": "λ",
+        "meaning": "Matter wavelength."
+      },
+      {
+        "symbol": "p",
+        "meaning": "Momentum."
+      },
+      {
+        "symbol": "K",
+        "meaning": "Nonrelativistic kinetic energy."
+      },
+      {
+        "symbol": "m",
+        "meaning": "Electron mass in this calculator."
+      }
+    ],
+    "explanation": "A particle’s momentum determines the spatial wavelength of its quantum amplitude.",
+    "example": "At 100 eV, λ≈0.1227 nm; at 400 eV, λ≈0.06135 nm."
+  },
+  "insight": "Momentum grows as the square root of kinetic energy, so wavelength falls by a factor of two.",
+  "misconceptions": [
+    {
+      "myth": "Electron wavelength is inversely proportional to kinetic energy.",
+      "correction": "The nonrelativistic relation is λ proportional to 1/√K, so quadrupling kinetic energy halves wavelength."
+    },
+    {
+      "myth": "A matter wave is a classical material ripple inside an electron.",
+      "correction": "The wavefunction represents quantum amplitudes; its wavelength describes phase variation associated with momentum."
+    }
+  ],
+  "check": {
+    "question": "Multiplying kinetic energy by four does what to wavelength?",
+    "options": [
+      "Halves it",
+      "Quarters it",
+      "Doubles it"
+    ],
+    "answer": 0,
+    "explanation": "Momentum grows as the square root of kinetic energy, so wavelength falls by a factor of two."
+  },
+  "sources": [
+    {
+      "title": "de Broglie: Nobel lecture",
+      "url": "https://www.nobelprize.org/uploads/2016/04/broglie-lecture.pdf"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 2",
+      "url": "https://www.feynmanlectures.caltech.edu/III_02.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "De Broglie matter waves model",
+    "description": "A particle’s momentum determines the spatial wavelength of its quantum amplitude.",
+    "inputs": [
+      {
+        "key": "energy",
+        "label": "Electron kinetic energy",
+        "min": 1,
+        "max": 1000,
+        "step": 1,
+        "initial": 100,
+        "unit": "eV"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Matter wavelength",
+        "expression": [
+          "/",
+          1.226425,
+          [
+            "sqrt",
+            "energy"
+          ]
+        ],
+        "unit": "nm"
+      }
+    ],
+    "assumptions": "Nonrelativistic free-electron wavelength, positive kinetic energy. No wave-packet propagation, crystal intensities or environmental decoherence."
+  }
+}

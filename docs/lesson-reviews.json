@@ -274,5 +274,11 @@
     "sourceSha256": "ca616ba9e981ff10a1a7915ffda680f302cb1b5b016fbb7bbb096c2b175311cb",
     "reviewRecord": "batch-8.json",
     "status": "approved"
+  },
+  "de-broglie-waves": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "1659b3432155a826dce98825ab174128194293e91b59e5e575ddf5131c0220b4",
+    "reviewRecord": "batch-9.json",
+    "status": "approved"
   }
 }
