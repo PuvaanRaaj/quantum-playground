@@ -118,5 +118,11 @@
     "sourceSha256": "cc04bbbedc3894f4bed5557497c55cbe28612c80a1dcff2a2186ef739bc09a0a",
     "reviewRecord": "batch-3.json",
     "status": "approved"
+  },
+  "born-rule": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "03172939e725c551c1bf826087cee4c2535ec6f9a9a15511c0af5a288e705966",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }
