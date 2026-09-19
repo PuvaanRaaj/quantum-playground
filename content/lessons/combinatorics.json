@@ -1,0 +1,189 @@
+{
+  "slug": "combinatorics",
+  "title": "Combinatorics",
+  "category": "Mathematics",
+  "subtitle": "Combinatorics studies finite or discrete structures and how they can be counted or organized.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Combinatorics studies finite or discrete structures and how they can be counted or organized. Many probability calculations depend on it: before dividing favorable outcomes by total outcomes, you must know which outcomes are distinct and whether they are equally likely. A correct numerical formula applied to the wrong notion of an outcome still gives the wrong answer.",
+  "why": "Each unordered group is counted 3! times among the 8·7·6 ordered selections.",
+  "prerequisites": [
+    "Algebra and finite sums",
+    "Basic probability or logical implication"
+  ],
+  "terms": [
+    {
+      "term": "Permutation",
+      "definition": "An ordered arrangement of selected objects."
+    },
+    {
+      "term": "Combination",
+      "definition": "An unordered selection of objects."
+    },
+    {
+      "term": "Factorial",
+      "definition": "The product of positive integers through n, with 0! = 1."
+    },
+    {
+      "term": "Product rule",
+      "definition": "Multiply choice counts for successive stages when each stage has the stated number of options."
+    },
+    {
+      "term": "Sum rule",
+      "definition": "Add counts of disjoint alternatives."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Count possibilities without listing them all",
+      "paragraphs": [
+        "Combinatorics studies finite or discrete structures and how they can be counted or organized. Many probability calculations depend on it: before dividing favorable outcomes by total outcomes, you must know which outcomes are distinct and whether they are equally likely. A correct numerical formula applied to the wrong notion of an outcome still gives the wrong answer.",
+        "Counting methods have long histories across mathematical traditions. Pascal’s triangle bears a European name but related coefficient arrays were known earlier in other traditions. The development of probability in the seventeenth century gave systematic counting problems renewed importance. Modern combinatorics extends far beyond elementary selection formulas to graphs, designs, algorithms, and structures whose counts are difficult to compute."
+      ]
+    },
+    {
+      "title": "Begin with addition and multiplication",
+      "paragraphs": [
+        "Suppose a badge has one of three colors and one of four shapes. Every color can pair with every shape, so there are three times four equals twelve possible badges. This is the product rule: for each first-stage option, count the available second-stage options. If different first choices permit different numbers of second choices, add those separate counts instead of multiplying by an unjustified constant.",
+        "The sum rule applies to disjoint alternatives. If a code is either one of five letter codes or one of seven number codes, with no overlap, there are twelve choices. If alternatives overlap, simple addition double-counts the shared items. For two sets, inclusion-exclusion corrects this: |A union B| = |A| + |B| − |A intersection B|. Each shared element was counted twice and should remain once."
+      ]
+    },
+    {
+      "title": "Derive permutations and combinations",
+      "paragraphs": [
+        "To arrange all n distinct objects in a row, choose the first in n ways, the next in n − 1 ways, and continue until only one remains. Multiplying gives n!. To arrange only k distinct objects without replacement, stop after k choices, obtaining n!/(n − k)!. The order matters: choosing Alice then Ben is different from choosing Ben then Alice if the positions have different roles.",
+        "For an unordered group of k objects, each selected group appears k! times among those ordered arrangements. Divide by k! to obtain C(n,k) = n!/[k!(n − k)!]. The formula assumes 0 ≤ k ≤ n and distinct available objects. It does not directly count selections with repetition, indistinguishable objects, or constraints such as forbidding certain pairs. Those changes require a new counting argument."
+      ]
+    },
+    {
+      "title": "Work several interpretations of one scenario",
+      "paragraphs": [
+        "From eight volunteers, choose three committee members. Since the committee has no roles, the count is C(8,3) = 8·7·6/(3·2·1) = 56. If instead you choose a chair, secretary, and treasurer, the roles make order relevant, giving 8·7·6 = 336. The factor six between these answers is the number of ways to assign three roles to a fixed group of three people.",
+        "Now suppose two particular volunteers cannot serve together. Committees containing both are formed by choosing the third member from the remaining six, so there are six forbidden groups. Subtracting from 56 gives fifty allowed committees. This subtraction works because the forbidden condition specifies one well-defined subset, and each forbidden committee is counted once. More complicated overlapping restrictions may need inclusion-exclusion rather than independent subtraction."
+      ]
+    },
+    {
+      "title": "Connect counting to algebra",
+      "paragraphs": [
+        "The coefficient of xᵏ in (1 + x)ⁿ is C(n,k), because each of the n factors contributes either one or x. To produce xᵏ, choose exactly k factors to contribute x. This is a combinatorial proof of the binomial coefficients’ role, not just an algebraic pattern noticed in the first few expansions. Setting x = 1 shows that the sum of all C(n,k) equals 2ⁿ, the number of subsets of an n-element set.",
+        "Pascal’s identity C(n,k) = C(n − 1,k) + C(n − 1,k − 1) follows by focusing on one particular object. A k-element selection either excludes it, leaving k choices from the other n − 1 objects, or includes it, leaving k − 1 choices. The alternatives are disjoint and exhaustive, so their counts add."
+      ]
+    },
+    {
+      "title": "Check assumptions in the calculator",
+      "paragraphs": [
+        "The calculator fixes a pool of twelve distinct objects and varies the selected count k as an integer. It compares unordered combinations with ordered arrangements. Both agree at k = 0 because there is one empty selection and one empty arrangement, explaining the convention 0! = 1. At k = 12 there is only one full subset, but twelve factorial arrangements.",
+        "Large factorials can exceed floating-point ranges, and integer counts can lose exact representation long before overflow. The bounded pool keeps this example manageable. In probability applications, do not assume every counted structure is equally likely merely because you can list it. A random procedure that generates outcomes unevenly requires weighted probabilities, even when the combinatorial count itself is completely correct."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "C(n,k) = n!/[k!(n−k)!]",
+    "symbols": [
+      {
+        "symbol": "n",
+        "meaning": "Number of distinct available objects"
+      },
+      {
+        "symbol": "k",
+        "meaning": "Number chosen without replacement"
+      },
+      {
+        "symbol": "!",
+        "meaning": "Factorial"
+      }
+    ],
+    "explanation": "Twelve distinct objects, no replacement, integer selection count; finite counts illustrate formulas, not their proof.",
+    "example": "From twelve objects, choosing three gives 220 groups or 1320 ordered arrangements."
+  },
+  "insight": "Each unordered group is counted 3! times among the 8·7·6 ordered selections.",
+  "misconceptions": [
+    {
+      "myth": "Order never matters in selection questions.",
+      "correction": "Roles or positions make order relevant and change the count."
+    },
+    {
+      "myth": "Every counted outcome must be equally probable.",
+      "correction": "Equal probability depends on the random procedure, not the counting formula."
+    }
+  ],
+  "check": {
+    "question": "How many unordered groups of three can be chosen from eight distinct objects?",
+    "options": [
+      "336",
+      "56",
+      "24"
+    ],
+    "answer": 1,
+    "explanation": "Each unordered group is counted 3! times among the 8·7·6 ordered selections."
+  },
+  "sources": [
+    {
+      "title": "Oscar Levin: Discrete Mathematics, an Open Introduction",
+      "url": "https://discrete.openmathbooks.org/dmoi3.html"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Combinatorics example",
+    "description": "From twelve objects, choosing three gives 220 groups or 1320 ordered arrangements.",
+    "inputs": [
+      {
+        "key": "k",
+        "label": "Objects chosen",
+        "unit": "",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "initial": 3
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Unordered combinations",
+        "unit": "",
+        "expression": [
+          "/",
+          479001600,
+          [
+            "*",
+            [
+              "factorial",
+              "k"
+            ],
+            [
+              "factorial",
+              [
+                "-",
+                12,
+                "k"
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Ordered arrangements",
+        "unit": "",
+        "expression": [
+          "/",
+          479001600,
+          [
+            "factorial",
+            [
+              "-",
+              12,
+              "k"
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Twelve distinct objects, no replacement, integer selection count; finite counts illustrate formulas, not their proof."
+  }
+}
