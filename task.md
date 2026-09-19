@@ -1,5 +1,13 @@
 # Continue Quantum Playground expansion
 
+## Latest checkpoint — 36 / 100 individually published
+
+Infrastructure is committed as `742eaf8`. All original12 plus24 new lessons are published and pushed individually. `docs/publication-progress.json` contains the exact36 commit SHAs and `docs/lesson-reviews.json` contains Astra approval hashes. Last published lesson: electron-spin (`490d280`). Sixty-four lessons remain. Always recompute the count from these files and Git; this paragraph is a checkpoint, not a live counter.
+
+All drafts through reviewer batch5 are published. Next drafts pauli-exclusion and bosons-fermions are undergoing Astra batch6. Writers continue their42/46 assignments; don't duplicate active work. Next steps: collect reviewer results, address any findings with the owning author, publish exact-hash-approved drafts with the helper, then continue to100. The local preview's generic calculator was browser-verified with vectors (3,4→5 and10,4→10.7703).
+
+`docs/` contains the curriculum and authoring contract needed by a fresh clone. Unpublished drafts and detailed review reports remain in ignored `work/` on this machine. On a different machine, write the remaining slugs after subtracting `content/lessons/*.json`; do not assume local unpublished drafts were pushed.
+
 ## User request and authorization
 
 Continue the work in this repository. The user requested:
@@ -44,16 +52,16 @@ Tracked lesson schema: `content/types.ts` (being extended with `calculator` visu
 
 These `work/` files are ignored and not available in a fresh clone. Before ending a session, export a sanitized copy of the curriculum/authoring contract and publication progress to tracked `docs/` files, and update this document. Do not publish unfinished drafts as lessons merely to preserve them.
 
-## Existing Astra findings to resolve
+## Resolved existing Astra findings
 
 1. `entanglement`: introductory definition must restrict nonfactorization criterion to a pure joint state; general mixed-state entanglement means not expressible as a probabilistic mixture of product states. Later glossary is already correct.
 2. `bayes`: before writing binary denominator with P(E | not H), require `0 < P(H) < 1`, retaining P(E)>0. Worked numbers are correct.
 
-Fix in the respective individual draft JSON, have Astra recheck, then publish its separate lesson commit.
+Both findings were fixed in individual JSON drafts, rechecked by Astra, and published in their separate lesson commits.
 
 ## Active agents at this checkpoint
 
-- `/root/quantum_lessons`: writes42 new Quantum mechanics + Space & relativity drafts, >=650 narrative words each. First `born-rule.json` and `quantum-superposition.json` exist, each reported740 words. Continues autonomously.
+- `/root/quantum_lessons`: writes42 new Quantum mechanics + Space & relativity drafts, >=650 narrative words each. Continuing autonomously. Inspect draft files and reports for latest completed batches.
 - `/root/math_lessons`: writes46 Mathematics + Classical physics drafts under the same contract.
 - `/root/astra_review`: spawned explicitly as `gpt-6-astra`, high effort. Existing review complete; assign batches of arriving drafts for individual scientific review. Never treat an agent name as proof of model selection; explicitly set model when spawning replacement reviewers.
 

@@ -1,7 +1,260 @@
 {
   "target": 100,
   "baselineLessons": 12,
-  "lessonCommits": [],
-  "infrastructure": "in progress; not yet committed",
+  "lessonCommits": [
+    {
+      "slug": "special-relativity",
+      "commit": "4033a1dae1a06289a048731b26cd9839664407b3",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "ff3fd0228711faf8bbc7c0030e8f4cd17610382b5a4651009cd337221ff0a35a"
+    },
+    {
+      "slug": "general-relativity",
+      "commit": "a3d91d3d3d5ed00bc5f9599bff3e923f8dbe3044",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "cbf5e6efab2c9d8bced923f37499d730c0d04c59605796eab1fc04f327e284a9"
+    },
+    {
+      "slug": "black-holes",
+      "commit": "089ae19de38d556674899d5324f73b38a26252c5",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "b7f2ef0a889220e0293efa29788a216236b402f18f1771ada370a760e68bfb89"
+    },
+    {
+      "slug": "expanding-universe",
+      "commit": "6012445beada0b68259ce57b513f0d81206741f1",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "1b928c2034c1565255a246b18716f1772c61a91c936870ae5cf120feebffe4bd"
+    },
+    {
+      "slug": "interference",
+      "commit": "997299016474f1dab2f1d18a354f01492341977e",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "636760a94dbc7eeeb0b3894f4bbb26d234f59e2c1a40710c32200bda23325d0d"
+    },
+    {
+      "slug": "uncertainty",
+      "commit": "aaa6dde9b9f4e525237b51117b5695f4036612a6",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "912e895187a45a96ce7e548fbb137f4d068a3b2afdc0744354665f185cde7632"
+    },
+    {
+      "slug": "entanglement",
+      "commit": "8a454e9c46002fdf555a5f798c7483f433775972",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "69c85d84971d196ffbddd555ae47613e44936668bcd806766ef13b8577c83ea5"
+    },
+    {
+      "slug": "schrodinger",
+      "commit": "3dfbb8b46b9c469114d3f78b7b72e425b708cffd",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "5e39b1529542036ed980357d4853d1316f439e6910c60cdb19811239c410b52a"
+    },
+    {
+      "slug": "pythagoras",
+      "commit": "d8e9b349f1dce1deaef5600d49b29bb336fb4b11",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "54117f74ae2b5d4ab9844867571e5b53c38fddadc0bcc6b97f571af9181b3353"
+    },
+    {
+      "slug": "calculus",
+      "commit": "53659479090ac14027469a5cde1d0a20b2c98464",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "0a970138f72b0081c101f1c06c06ede81e666f1d0c993f920a5da23e73234a35"
+    },
+    {
+      "slug": "euler",
+      "commit": "90a16f52931c14da6c56bceb64332c10b51e59f9",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "47de9b77dac2760c1f46dfd7362a85ef24894c393231b4f8635d3ee632e1697b"
+    },
+    {
+      "slug": "bayes",
+      "commit": "b8d63386af6d9359bf1b90a3bb58f21f86059f71",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "97e8bf222dfefd8e01d6357f5cdb78ea075ef4c70c4b7a16809b2e71573e9dc2"
+    },
+    {
+      "slug": "vectors",
+      "commit": "a26ed171ff734072ed78913d7fd7ad6957f20cac",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "f09008bf211d73a1434740f20e7c36876ad2672e3b062328be65d5c8fa3d08ec"
+    },
+    {
+      "slug": "matrices",
+      "commit": "d66ddb03002395e4c19267914ae605fe09e30d62",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "7d3f1e40a8a4b521b795a49f688736efae08627430d31aba8c9b77d4ce4b233b"
+    },
+    {
+      "slug": "eigenvalues",
+      "commit": "18cd1022599cfdfb5dff13b809279327d8f367ab",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "658d0cad2323ed6e8fb5197cfebc50124a1fa04c61104dc9f2982fac3abab22b"
+    },
+    {
+      "slug": "trigonometry",
+      "commit": "e031c15ea4d623ec89812629888afc350a14e933",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "0dc91da789686611e5c17035c4f641d61f60d7b6476f6a272482efd6c2db5e36"
+    },
+    {
+      "slug": "logarithms",
+      "commit": "3472c7c5841e7e599e9a6ada2820edcf87d87798",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "f7bc60b47d9d643b40595b7eaf776a28da252aa50d05a51b775dc24f28487b14"
+    },
+    {
+      "slug": "limits-continuity",
+      "commit": "47caf926dbca5b91acc09afc6561a205bd4446b3",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "1dec8738e0b991113fca14154e43d149416a6d3abba6b459ec665217df464bd8"
+    },
+    {
+      "slug": "taylor-series",
+      "commit": "d7fbb3e4f95fd965eb67578134103c420dc8d231",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "8cf1f9470b792690fb035d2ac4b6ebf5094aa1632329856442b4897384c4e9cc"
+    },
+    {
+      "slug": "differential-equations",
+      "commit": "5520750a90abdbe357a240d2c08d722d2aeb0c06",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "cc04bbbedc3894f4bed5557497c55cbe28612c80a1dcff2a2186ef739bc09a0a"
+    },
+    {
+      "slug": "born-rule",
+      "commit": "a6975c53d9f8a5ac6b9a26aae358518163ffa318",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "03172939e725c551c1bf826087cee4c2535ec6f9a9a15511c0af5a288e705966"
+    },
+    {
+      "slug": "quantum-superposition",
+      "commit": "25ed0e33ebf38665f8e7011154ed2a5cb3588176",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "11da47cc8320c93aae77fc4dc8bbd895aec9fad1a64974ba51305a2a5d6059ad"
+    },
+    {
+      "slug": "complex-amplitudes",
+      "commit": "a3d45c4ee5e160907f62fd9ae727bd32c3a030cf",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "f3d4552c62b3523fb362424a21c32ce9e3053c4497a5f460433b9b00c90ca25f"
+    },
+    {
+      "slug": "qubits-bloch-sphere",
+      "commit": "6e6cc7685d46cf60ee10229b288c45d0f60c108f",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "3bdee1ed558141e5650ba6bdb96823d588cf271bc396c69e81dcf87fb11f7da8"
+    },
+    {
+      "slug": "quantum-measurement",
+      "commit": "6ea4b5ce96e4235d75bb95238ca6c96a3ffa445b",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "356bc40f47b8194093be262a24d8e696595aa64d0c2214d944e8b1bafe9e5944"
+    },
+    {
+      "slug": "decoherence",
+      "commit": "8b875a6372f119ca0a417176e3ab5db1541c2066",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "ba59734448354779545c8df806096f208939686db01b70dc2d24ca186232ae53"
+    },
+    {
+      "slug": "density-matrices",
+      "commit": "8284ab18afb7e573df77d1eae14b9ad7366824b6",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "d5391b153560d2d63e0e6c4426f025804518060ddcbced92954fe7a3383f75a6"
+    },
+    {
+      "slug": "quantum-tunnelling",
+      "commit": "fd35b2e04060822bedc2fbc489f2940a42cd8338",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "5d716787863e88fb788facc5298fbb0f5db478a5c52e9ee9b348c7619b8871a6"
+    },
+    {
+      "slug": "quantum-harmonic-oscillator",
+      "commit": "f42aca1a087ee2a923f33671cd1d3d26eb3eaf13",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "8fb4fa29846790112d0cef15e504fadfbd3f2fd8218c44786cd48e3fa97fbbb0"
+    },
+    {
+      "slug": "hydrogen-atom",
+      "commit": "bbb291c4771fc8d9fbe746a132930f1c803f42df",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "02ffdc089b03c996ef8fa099cb5219c6f5dbfb52cabf801eaa8d5c6a96ea7bb3"
+    },
+    {
+      "slug": "complex-arithmetic",
+      "commit": "edc52d9b5ccef1ae2c1f124dbdfd05d5155fe77b",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "b2baf141eda8a6915a02fec167582f0c62ddfb2e560d6cf598d326e8a82d0eea"
+    },
+    {
+      "slug": "fourier-series",
+      "commit": "16ec6aa790979db475e044d6327cdb662e9a4397",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "ca078d3e98b11251e8e4dda9b3582cbaf9c9106c8001b386704fbb84d7c805c3"
+    },
+    {
+      "slug": "probability-distributions",
+      "commit": "ef6d70be0436c15ae150fa5e27ea47175bcd2989",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "078962285f444c0020dc533112bfaa8cf5ab2fa1db5498e98f6a568f68777852"
+    },
+    {
+      "slug": "normal-distribution",
+      "commit": "4ddcfc50ddf04353e51cfdce2dadf7f8ef525b89",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "46166c28f328739a217483189b50cf90d672a38b3d49d95b034e0304069a50ce"
+    },
+    {
+      "slug": "atomic-spectra",
+      "commit": "4a8df0d73ae5326eee537dd023c7563c3a94aae6",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "039eeda2d1815a67b74da7f311c4cfb4a6925880f025de9aab6b02da11fffa20"
+    },
+    {
+      "slug": "electron-spin",
+      "commit": "490d280cd9273d43168385b037e9382b84e5532a",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "53183dc55df6eb40f0c7a4be95bea4103dd1b7147a0700e25a9b793645b04d60"
+    }
+  ],
+  "infrastructure": "ready",
   "note": "Do not infer Astra approval from tests. Each entry must include slug, reviewer, commit and pushed status."
 }
