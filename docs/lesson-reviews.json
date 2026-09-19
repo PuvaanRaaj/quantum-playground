@@ -34,5 +34,11 @@
     "sourceSha256": "912e895187a45a96ce7e548fbb137f4d068a3b2afdc0744354665f185cde7632",
     "reviewRecord": "existing-corrected.json",
     "status": "approved"
+  },
+  "entanglement": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "69c85d84971d196ffbddd555ae47613e44936668bcd806766ef13b8577c83ea5",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
   }
 }
