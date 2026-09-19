@@ -1,0 +1,180 @@
+{
+  "slug": "relativistic-doppler",
+  "title": "The relativistic Doppler effect",
+  "category": "Space & relativity",
+  "subtitle": "Relative motion changes observed light frequency through propagation and time dilation.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "blue",
+  "intro": "The pitch of a moving siren changes because successive sound wavefronts reach a listener at different intervals.",
+  "why": "Relative motion changes observed light frequency through propagation and time dilation.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Rest frequency",
+      "definition": "Frequency measured in the source’s own rest frame."
+    },
+    {
+      "term": "Observed frequency",
+      "definition": "Frequency measured by the receiving observer."
+    },
+    {
+      "term": "Redshift",
+      "definition": "A shift toward longer wavelength and lower frequency."
+    },
+    {
+      "term": "Longitudinal motion",
+      "definition": "Motion directly along the line between source and receiver."
+    }
+  ],
+  "sections": [
+    {
+      "title": "From a familiar sound effect to light",
+      "paragraphs": [
+        "The pitch of a moving siren changes because successive sound wavefronts reach a listener at different intervals. Light also exhibits a Doppler effect, but its speed is the same for every inertial observer in vacuum. The calculation must include relativistic clock relations rather than borrowing the sound formula unchanged. Christian Doppler introduced the underlying frequency-shift idea in the nineteenth century; special relativity supplied the consistent light formula. The result is crucial for interpreting spectra from moving sources and for understanding relativistic communication.",
+        "For a source receding directly from an observer at speed v, the frequency ratio is √((1−β)/(1+β)), where β=v/c. Positive β here means recession. Negative β means approach and produces a blueshift. Defining the sign convention first prevents a common error in which the correct formula is applied with the opposite motion sign. The formula concerns relative motion in flat spacetime and a specified emission-reception geometry, not every redshift observed in astronomy."
+      ]
+    },
+    {
+      "title": "Why two factors enter",
+      "paragraphs": [
+        "Successive emissions are separated by the source’s proper period. In the observer’s frame, time dilation makes that interval longer by γ. During the interval, a receding source also moves farther away, increasing the travel distance of the next wavefront. The observed period therefore gains another factor 1+β. Taking the inverse gives the frequency ratio 1/[γ(1+β)], which simplifies to √((1−β)/(1+β)). This derivation identifies the separate clock and propagation contributions.",
+        "At low speed, expand the result to first order in β: the frequency ratio is approximately 1−β. That resembles the familiar small-velocity Doppler shift. At large fractions of c, higher-order terms matter. For β=0.6, the exact ratio is √(0.4/1.6)=0.5. A source emitting 600 terahertz is observed at 300 terahertz in the ideal longitudinal arrangement. A first-order estimate would give 240 terahertz and would be substantially wrong at that speed."
+      ]
+    },
+    {
+      "title": "Frequency and wavelength tell the same story",
+      "paragraphs": [
+        "Because the vacuum speed of light is c=fλ, a lower frequency corresponds to a longer wavelength. The wavelength ratio is the reciprocal of the frequency ratio. At β=0.6 recession, a 500-nanometer rest-frame line is observed at 1000 nanometers. Define redshift z=(λobserved−λrest)/λrest. In this case z=1. The number z is dimensionless and is not itself a velocity. Converting it to velocity requires choosing an appropriate physical model for the origin of the shift.",
+        "For a source approaching at β=−0.6, the frequency doubles and the wavelength halves. This symmetry provides a useful numerical check. The transverse Doppler effect involves a different geometry and reveals time dilation without the same longitudinal propagation factor. Angles also transform between frames through aberration, so a statement that a source moves sideways must say in which frame the angle is measured. The single longitudinal formula should not be used as though it included all angular configurations."
+      ]
+    },
+    {
+      "title": "Astronomical interpretation and model limits",
+      "paragraphs": [
+        "Spectral lines can shift through relative motion, gravitational effects or cosmological expansion. These mechanisms can coexist. A distant galaxy’s cosmological redshift is not generally converted into a recession velocity by applying the special-relativistic longitudinal formula alone. An expanding-universe model relates scale factor, distance and time differently. Likewise, light climbing out of a gravitational field can redshift even when source and receiver are stationary in suitable coordinates. A measured shift is evidence to interpret, not a label that automatically identifies its cause.",
+        "The calculator varies signed line-of-sight speed below c and computes the frequency ratio and observed wavelength for a supplied rest wavelength. It assumes inertial motion, vacuum propagation and flat spacetime. It omits transverse geometry, acceleration, gravity and expansion. Check the zero-speed limit and the reciprocal results at ±0.6c. These tests connect the calculation to its physical assumptions. The learning goal is to understand why a frequency ratio involves both motion during propagation and the source clock’s relation to the observer, while retaining enough caution to avoid treating all astronomical redshifts as identical experiments. A spectral identification also requires knowing the rest-frame line: one observed wavelength alone can correspond to different transitions from different species. Comparing several recognizable lines helps separate the common shift from the pattern intrinsic to the source. That is an inference step beyond calculating the shift of an already identified line."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "fobs/frest=√((1−β)/(1+β))",
+    "symbols": [
+      {
+        "symbol": "β",
+        "meaning": "Signed recession speed divided by c."
+      },
+      {
+        "symbol": "fobs,frest",
+        "meaning": "Observed and source-rest frequencies."
+      }
+    ],
+    "explanation": "Relative motion changes observed light frequency through propagation and time dilation.",
+    "example": "At β=0.6, frequency halves and a 500 nm line is observed at 1000 nm."
+  },
+  "insight": "The ratio is √(0.4/1.6)=1/2.",
+  "misconceptions": [
+    {
+      "myth": "The first-order 1−β frequency approximation stays exact at 0.6c.",
+      "correction": "The ratio is √(0.4/1.6)=1/2."
+    },
+    {
+      "myth": "Every astronomical redshift is solely a special-relativistic Doppler shift.",
+      "correction": "Gravity and cosmological expansion can also shift wavelengths and require their own models."
+    }
+  ],
+  "check": {
+    "question": "At recession speed 0.6c, the observed frequency is what fraction of rest frequency?",
+    "options": [
+      "1/2",
+      "0.4",
+      "2"
+    ],
+    "answer": 0,
+    "explanation": "The ratio is √(0.4/1.6)=1/2."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume I, chapter 15",
+      "url": "https://www.feynmanlectures.caltech.edu/I_15.html"
+    },
+    {
+      "title": "Feynman Lectures, volume I, chapter 17",
+      "url": "https://www.feynmanlectures.caltech.edu/I_17.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "The relativistic Doppler effect model",
+    "description": "Relative motion changes observed light frequency through propagation and time dilation.",
+    "inputs": [
+      {
+        "key": "beta",
+        "label": "Recession speed / c",
+        "min": -0.95,
+        "max": 0.95,
+        "step": 0.05,
+        "initial": 0.6,
+        "unit": ""
+      },
+      {
+        "key": "lambda",
+        "label": "Rest wavelength",
+        "min": 100,
+        "max": 1000,
+        "step": 10,
+        "initial": 500,
+        "unit": "nm"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Frequency ratio",
+        "expression": [
+          "sqrt",
+          [
+            "/",
+            [
+              "-",
+              1,
+              "beta"
+            ],
+            [
+              "+",
+              1,
+              "beta"
+            ]
+          ]
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Observed wavelength",
+        "expression": [
+          "*",
+          "lambda",
+          [
+            "sqrt",
+            [
+              "/",
+              [
+                "+",
+                1,
+                "beta"
+              ],
+              [
+                "-",
+                1,
+                "beta"
+              ]
+            ]
+          ]
+        ],
+        "unit": "nm"
+      }
+    ],
+    "assumptions": "Longitudinal inertial relative motion in flat spacetime; positive β means recession. No gravity, expansion, transverse angles or acceleration."
+  }
+}

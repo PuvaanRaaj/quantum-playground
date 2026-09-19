@@ -352,5 +352,11 @@
     "sourceSha256": "07868ee2d89dc0e85a9b63931f4031736949f2beaa1260fa5f7acd2adbe2642d",
     "reviewRecord": "batch-15.json",
     "status": "approved"
+  },
+  "relativistic-doppler": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "b208688307a247e4476aae2ddfaa06d359e2f250e7f3d6dbb52b720bfec6ed18",
+    "reviewRecord": "batch-14.json",
+    "status": "approved"
   }
 }
