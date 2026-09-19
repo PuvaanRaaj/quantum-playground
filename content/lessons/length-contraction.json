@@ -1,0 +1,180 @@
+{
+  "slug": "length-contraction",
+  "title": "Length contraction",
+  "category": "Space & relativity",
+  "subtitle": "A moving object’s length is measured using simultaneous endpoint positions in the observer’s frame.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "blue",
+  "intro": "Measuring a stationary desk is straightforward because its endpoints stay in the same places.",
+  "why": "A moving object’s length is measured using simultaneous endpoint positions in the observer’s frame.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Proper length",
+      "definition": "Length measured in the object’s rest frame."
+    },
+    {
+      "term": "Coordinate length",
+      "definition": "Endpoint separation measured simultaneously in a specified frame."
+    },
+    {
+      "term": "Lorentz factor",
+      "definition": "The factor γ=1/√(1−v²/c²)."
+    },
+    {
+      "term": "Longitudinal direction",
+      "definition": "The direction parallel to relative motion."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Length requires a timing rule",
+      "paragraphs": [
+        "Measuring a stationary desk is straightforward because its endpoints stay in the same places. Measuring a fast-moving rod requires recording both endpoint positions at the same time in the chosen frame. Otherwise the rod travels between the two records and the result depends on the delay. Special relativity adds that simultaneity itself depends on the inertial frame. Length contraction follows from applying those measurement rules consistently. Einstein’s framework reinterpreted related formulas developed in earlier work by Lorentz and FitzGerald without requiring a preferred stationary medium for light.",
+        "The proper length L₀ is measured where the object rests. An observer seeing it move parallel to its length measures L=L₀/γ. At zero relative speed the lengths agree. At speed 0.6c, γ=1.25, so a 100-meter proper length is measured as 80 meters. This is a statement about a specified pair of simultaneous endpoint events in the observer’s coordinate system. It is not automatically the shape appearing in a camera image, which combines photons emitted at different times."
+      ]
+    },
+    {
+      "title": "Why the reciprocal factor appears",
+      "paragraphs": [
+        "Use the Lorentz spatial transformation Δx′=γ(Δx−vΔt), choosing the primed frame as the rod’s rest frame. For simultaneous laboratory endpoint records, Δt=0. The rest-frame separation of those endpoints is L₀, so L₀=γL and L=L₀/γ. The transformed endpoint events are not simultaneous in the rod frame, but because the rod is stationary there, their spatial separation is still its rest length. That argument uses the physical property of a resting rod rather than silently imposing simultaneous times in both frames.",
+        "A common incorrect derivation sets both Δt and Δt′ to zero while comparing separated endpoints. Except for special trivial cases, the Lorentz transformation forbids that. The error treats two distinct event pairs as one. Keeping track of the events resolves the apparent contradiction. Length contraction is therefore closely linked to relativity of simultaneity, not an isolated rule added to time dilation. The same transformation consistently predicts both when the measurements are defined correctly."
+      ]
+    },
+    {
+      "title": "Reciprocity and physical stresses",
+      "paragraphs": [
+        "Two inertial observers can each measure the other’s moving ruler as shorter. This does not mean either ruler has permanently damaged material or an absolute hidden shrinkage. Each measurement uses simultaneity in a different frame. Comparing the rulers after bringing them together at rest is a new physical situation involving acceleration and possibly stresses. The final rest lengths depend on what physically happened during that process, not simply on substituting a speed into the coordinate formula.",
+        "Real objects cannot be accelerated as perfectly rigid bodies with instantaneous communication between all their parts. How forces are applied affects strain. Scenarios involving accelerating spaceships connected by a string therefore require more than saying moving objects contract. The elementary formula concerns a rod in uniform motion after its rest configuration is specified. Transverse dimensions are unchanged by a Lorentz boost along the rod’s longitudinal direction in the ideal coordinate treatment, although photographs can show additional apparent rotations or distortions due to light-travel timing."
+      ]
+    },
+    {
+      "title": "A bounded calculator and a concrete check",
+      "paragraphs": [
+        "The model varies proper length and speed fraction from zero to 0.99. It reports simultaneous-frame length and γ. At 0.8c, γ is five thirds, so a 100-meter rod is measured as 60 meters. At 0.99c, the factor √(1−β²) is about 0.141, giving roughly 14.1 meters. The object never reaches light speed in this model; the endpoint β=1 is excluded because a massive object has no inertial rest-frame transformation at that speed.",
+        "This calculator does not model acceleration, mechanical compression, finite signal delays inside matter or photographic appearance. It is a coordinate-geometry demonstration in flat spacetime. Its useful exercise is to state which length is proper, which observer records simultaneous endpoints, and why changing that timing convention changes the event pair. If those details are clear, the formula becomes a compact consequence of spacetime measurement. If they are omitted, even a correct numerical answer can encourage the wrong picture of a ruler being visibly crushed by motion through an absolute background. For each numerical comparison, write down the two endpoint events first. That bookkeeping distinguishes a measurable geometric relation from an unsupported claim about the material’s internal state."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "L=L₀√(1−β²)",
+    "symbols": [
+      {
+        "symbol": "L₀",
+        "meaning": "Proper length."
+      },
+      {
+        "symbol": "L",
+        "meaning": "Simultaneous endpoint separation in the moving-object observer frame."
+      },
+      {
+        "symbol": "β",
+        "meaning": "Speed divided by c."
+      }
+    ],
+    "explanation": "A moving object’s length is measured using simultaneous endpoint positions in the observer’s frame.",
+    "example": "At β=0.8, a 100 m proper length is measured as 60 m."
+  },
+  "insight": "Length uses simultaneous endpoint positions in the frame performing that measurement.",
+  "misconceptions": [
+    {
+      "myth": "Arbitrary endpoint record times give the moving object’s length.",
+      "correction": "Length uses simultaneous endpoint positions in the frame performing that measurement."
+    },
+    {
+      "myth": "Length contraction directly specifies a camera photograph.",
+      "correction": "A photograph combines delayed light from different emission times; coordinate length uses simultaneous endpoint events."
+    }
+  ],
+  "check": {
+    "question": "Which timing condition defines the moving rod’s measured length?",
+    "options": [
+      "Endpoints recorded simultaneously in the measuring frame",
+      "Endpoints recorded at any two times",
+      "Both frames must agree on simultaneous separated events"
+    ],
+    "answer": 0,
+    "explanation": "Length uses simultaneous endpoint positions in the frame performing that measurement."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume I, chapter 15",
+      "url": "https://www.feynmanlectures.caltech.edu/I_15.html"
+    },
+    {
+      "title": "Einstein Online: Relativity of space and time",
+      "url": "https://www.einstein-online.info/en/relativity_space_time/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Length contraction model",
+    "description": "A moving object’s length is measured using simultaneous endpoint positions in the observer’s frame.",
+    "inputs": [
+      {
+        "key": "beta",
+        "label": "Speed / c",
+        "min": 0,
+        "max": 0.99,
+        "step": 0.01,
+        "initial": 0.8,
+        "unit": ""
+      },
+      {
+        "key": "length",
+        "label": "Proper length",
+        "min": 1,
+        "max": 200,
+        "step": 1,
+        "initial": 100,
+        "unit": "m"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Measured length",
+        "expression": [
+          "*",
+          "length",
+          [
+            "sqrt",
+            [
+              "-",
+              1,
+              [
+                "pow",
+                "beta",
+                2
+              ]
+            ]
+          ]
+        ],
+        "unit": "m"
+      },
+      {
+        "label": "Lorentz factor",
+        "expression": [
+          "/",
+          1,
+          [
+            "sqrt",
+            [
+              "-",
+              1,
+              [
+                "pow",
+                "beta",
+                2
+              ]
+            ]
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Uniform motion along the rod, simultaneous endpoints in the observer frame, flat spacetime. Not acceleration, physical strain or camera appearance."
+  }
+}
