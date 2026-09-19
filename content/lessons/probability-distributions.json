@@ -1,0 +1,185 @@
+{
+  "slug": "probability-distributions",
+  "title": "Probability distributions",
+  "category": "Mathematics",
+  "subtitle": "A probability distribution specifies how probability is allocated across the possible values of a random variable.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A probability distribution specifies how probability is allocated across the possible values of a random variable. The random variable is not the physical randomness itself; it is a numerical description of an outcome. A die experiment might produce a face, while X records its number of spots. The distribution tells us the probability of each recorded value and therefore supports questions about events involving several values.",
+  "why": "A density is integrated over an interval to obtain probability and can have inverse units.",
+  "prerequisites": [
+    "Algebra and functions",
+    "Basic integrals or probability"
+  ],
+  "terms": [
+    {
+      "term": "Random variable",
+      "definition": "A numerical function of a random outcome."
+    },
+    {
+      "term": "Probability mass function",
+      "definition": "A rule assigning probabilities to discrete values."
+    },
+    {
+      "term": "Probability density",
+      "definition": "A nonnegative function whose integral over an interval gives probability."
+    },
+    {
+      "term": "Cumulative distribution",
+      "definition": "The function F(x) = P(X ≤ x)."
+    },
+    {
+      "term": "Support",
+      "definition": "The values or region where the distribution can place probability."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Describe uncertainty over possible values",
+      "paragraphs": [
+        "A probability distribution specifies how probability is allocated across the possible values of a random variable. The random variable is not the physical randomness itself; it is a numerical description of an outcome. A die experiment might produce a face, while X records its number of spots. The distribution tells us the probability of each recorded value and therefore supports questions about events involving several values.",
+        "Probability developed from counting problems and games of chance, with Pascal, Fermat, Bernoulli, and later Laplace among important contributors. In the twentieth century, Kolmogorov provided an axiomatic framework that clarified the mathematical foundations. Different distribution families arose from different mechanisms. Choosing a distribution is therefore a modeling decision rather than selecting a visually familiar curve."
+      ]
+    },
+    {
+      "title": "Discrete probabilities are counted",
+      "paragraphs": [
+        "For a fair six-sided die, P(X = k) = 1/6 for integers k from one through six, and zero elsewhere. Probabilities are nonnegative and sum to one. The probability of an even value is the sum over two, four, and six, giving one half. These outcomes are mutually exclusive, so adding them does not double-count any trial.",
+        "For a loaded die, the six weights can differ while still summing to one. Knowing only that the average roll is 3.5 does not establish fairness: different distributions can share the same mean. A distribution contains more information than one summary statistic. It also matters which variable is being described; the sum of two fair dice is not uniformly distributed, because some sums arise from more ordered pairs than others."
+      ]
+    },
+    {
+      "title": "Continuous probabilities are integrated",
+      "paragraphs": [
+        "For a continuous uniform variable on [0, L] with L positive, the density is 1/L inside the interval and zero outside. The probability of a subinterval [a, b] lying inside is its width times that density: (b − a)/L. Normalization follows because integrating over the entire interval gives L·(1/L) = 1. A density’s height is not itself a probability.",
+        "If L = 0.2 metres, the uniform density is five per metre, which exceeds one without violating any probability rule. Integrating it over a 0.02-metre interval gives probability 0.1. Units explain the distinction: a density over length has inverse-length units, while probability is dimensionless. The probability of one exact point is zero in this continuous model, although some point must be realized when an observation occurs."
+      ]
+    },
+    {
+      "title": "A common cumulative language",
+      "paragraphs": [
+        "The cumulative distribution function F(x) = P(X ≤ x) works for both discrete and continuous variables. It never decreases, approaches zero far to the left, and approaches one far to the right. For the uniform model, F(x) is zero below zero, x/L between zero and L, and one above L. The probability of a < X ≤ b is F(b) − F(a).",
+        "For a discrete variable the cumulative function has jumps, and each jump size is the probability mass at that value. For a smooth continuous distribution, differentiating F recovers the density. Not all probability distributions fit neatly into a purely discrete or purely smooth category: mixtures can combine point masses and continuous parts. The cumulative representation still applies without forcing an inappropriate density everywhere."
+      ]
+    },
+    {
+      "title": "Work an observation model",
+      "paragraphs": [
+        "Imagine a shuttle arrives exactly every twelve minutes and a passenger’s arrival time is uniformly distributed across that schedule cycle, independently of the shuttle. The waiting time is then uniform from zero to twelve minutes. The probability of waiting at most three minutes is 3/12 = 0.25. The probability of waiting between four and nine minutes is 5/12, approximately 0.4167. The mean wait is six minutes by symmetry or direct integration.",
+        "The uniform assumption deserves scrutiny. If passengers check the timetable and time their arrival, or if shuttle gaps vary, the distribution changes. Randomly arriving passengers tend to encounter longer irregular gaps more often, an effect the fixed-period model excludes. A clean formula is useful only when its sampling story matches the actual process."
+      ]
+    },
+    {
+      "title": "Reading the calculator without confusing objects",
+      "paragraphs": [
+        "The calculator uses a uniform distribution on [0, L]. It computes the cumulative probability at x by clipping x/L to the range zero through one, so the output remains valid even outside the support. It also gives the interval density 1/L as a separate quantity. That second value describes the density inside the support rather than claiming that the density remains nonzero outside it.",
+        "A histogram from a finite sample will fluctuate around a theoretical distribution. More observations can reveal systematic mismatches, but no finite histogram uniquely determines the underlying law. Distinguish the data, the fitted distribution, and the mechanism proposed to explain it. Probabilities answer questions conditional on that model; they do not certify that every hidden assumption about independence, selection, or measurement has been satisfied."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "F(x) = P(X ≤ x)",
+    "symbols": [
+      {
+        "symbol": "X",
+        "meaning": "Random variable being modeled"
+      },
+      {
+        "symbol": "x",
+        "meaning": "Numerical threshold"
+      },
+      {
+        "symbol": "F",
+        "meaning": "Cumulative distribution function"
+      }
+    ],
+    "explanation": "Uniform distribution on [0,L] with L positive; density output applies only within that support.",
+    "example": "For uniform waiting on [0,12] minutes, P(X≤3)=0.25."
+  },
+  "insight": "A density is integrated over an interval to obtain probability and can have inverse units.",
+  "misconceptions": [
+    {
+      "myth": "Density height equals point probability.",
+      "correction": "A continuous density is not a point probability; interval integrals give probabilities."
+    },
+    {
+      "myth": "A mean uniquely specifies a distribution.",
+      "correction": "Many different distributions share the same mean."
+    }
+  ],
+  "check": {
+    "question": "Can a continuous probability density exceed one?",
+    "options": [
+      "Yes, while interval probabilities remain at most one",
+      "No",
+      "Only with negative probabilities"
+    ],
+    "answer": 0,
+    "explanation": "A density is integrated over an interval to obtain probability and can have inverse units."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Probability distributions example",
+    "description": "For uniform waiting on [0,12] minutes, P(X≤3)=0.25.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Waiting threshold",
+        "unit": "min",
+        "min": -2,
+        "max": 20,
+        "step": 0.1,
+        "initial": 3
+      },
+      {
+        "key": "length",
+        "label": "Uniform interval length",
+        "unit": "min",
+        "min": 1,
+        "max": 20,
+        "step": 0.1,
+        "initial": 12
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Cumulative probability",
+        "unit": "",
+        "expression": [
+          "min",
+          1,
+          [
+            "max",
+            0,
+            [
+              "/",
+              "x",
+              "length"
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Density inside support",
+        "unit": "min⁻¹",
+        "expression": [
+          "/",
+          1,
+          "length"
+        ]
+      }
+    ],
+    "assumptions": "Uniform distribution on [0,L] with L positive; density output applies only within that support."
+  }
+}
