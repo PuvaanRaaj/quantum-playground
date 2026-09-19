@@ -1,0 +1,147 @@
+{
+  "slug": "complex-amplitudes",
+  "title": "Complex probability amplitudes",
+  "category": "Quantum mechanics",
+  "subtitle": "Complex numbers retain the phase information that determines interference.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "An ordinary probability is a nonnegative real number.",
+  "why": "Complex numbers retain the phase information that determines interference.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Complex number",
+      "definition": "A number a + ib with two real components and i² = −1."
+    },
+    {
+      "term": "Conjugate",
+      "definition": "The number a − ib corresponding to a + ib."
+    },
+    {
+      "term": "Magnitude",
+      "definition": "The length √(a²+b²) of a complex number’s arrow representation."
+    },
+    {
+      "term": "Relative phase",
+      "definition": "The angular difference between complex amplitudes."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why probabilities need extra mathematical structure",
+      "paragraphs": [
+        "An ordinary probability is a nonnegative real number. If two mutually exclusive recorded alternatives lead to an event, their probabilities add. Quantum experiments require another operation when alternatives remain coherent: add amplitudes first, and then take the squared magnitude. Complex numbers provide enough structure to describe both the size and phase of each contribution. This structure was central to the quantum mechanics developed by Born, Heisenberg, Schrödinger and Dirac. It is not an arbitrary decoration added because the subject is difficult. Removing phase information prevents the theory from predicting which outcomes interfere constructively and which are suppressed.",
+        "The word imaginary describes a mathematical component, not a claim that an event exists only in the imagination. We represent a complex number a + ib by a point or arrow with horizontal coordinate a and vertical coordinate b. The axes are a mathematical plane, generally not physical directions in the laboratory. Multiplication by i rotates the arrow by ninety degrees in that plane. Multiplication by a complex number of magnitude one rotates without stretching. These operations make it convenient to describe phase accumulation during quantum evolution."
+      ]
+    },
+    {
+      "title": "Calculating the cross term",
+      "paragraphs": [
+        "Let two route contributions be A and B. The outcome probability is |A+B|². Expanding with complex conjugates gives |A|² + |B|² + A*B + AB*, where the star means conjugation. The last two terms combine into twice the real part of A*B. This is the interference term. It can be positive, negative, or zero depending on relative phase. The total expression remains nonnegative because it is the squared length of a sum. A negative interference contribution is therefore not a negative probability. It reduces the probability relative to the sum of the separate route contributions.",
+        "As a concrete example, let both magnitudes be one half. If A = 1/2 and B = 1/2, their sum is one and its squared magnitude is one. If B = −1/2 instead, their sum and the resulting probability are zero. If B = i/2, the squared magnitude is one quarter plus one quarter, or one half. The separate squared magnitudes were identical in all three cases. Only their relative orientation changed. This is exactly the information lost if you replace amplitudes by probabilities too early in the calculation."
+      ]
+    },
+    {
+      "title": "Normalization and what an amplitude refers to",
+      "paragraphs": [
+        "An amplitude must be associated with a specified state component or complete experimental alternative. It is easy to invent two large contributions whose squared sum exceeds one if you forget the beam splitters or normalization factors that connect them to the full experiment. In a balanced two-path interferometer, contributions of magnitude one half to a particular output include the splitting and recombination factors. Another output carries the complementary probability. Conservation of total probability is checked across all possible outcomes, not by demanding that each intermediate contribution separately account for the whole particle.",
+        "Overall phase and relative phase behave differently. Multiply every amplitude by the same factor e to the iθ and every outcome probability remains unchanged. All arrows rotate together, so their relative geometry is preserved. Rotate only one coherent component and a later recombination can reveal the difference. This distinction also explains why an energy eigenstate can acquire a changing overall phase without a changing position distribution. When multiple energy components evolve at different rates, their relative phases can alter the distribution. The meaningful quantity depends on the entire preparation and measurement arrangement."
+      ]
+    },
+    {
+      "title": "Using the two-arrow model",
+      "paragraphs": [
+        "The calculator fixes both contribution magnitudes at one half and varies their relative angle. Its output is the probability at one ideal interferometer port. The expression contains a cosine because the projection of one arrow onto the other determines the cross term. At an angle of sixty degrees the cosine is one half, giving probability three quarters. At one hundred eighty degrees the arrows cancel. These are exact predictions of this small mathematical model; finite detector counts would still fluctuate around them except at the ideal endpoints.",
+        "The model omits losses, path distinguishability, dispersion and environmental entanglement. It shows complex arithmetic rather than measuring an actual quantum device. Classical electromagnetic waves also use complex amplitudes, so using complex numbers alone does not establish that a system is quantum. What matters is how states, measurements and individual outcomes are connected. For a useful self-check, draw the two arrows at a right angle and add their coordinates before squaring. If you obtain a complex probability, you squared the number rather than taking its magnitude squared. This small algebraic distinction carries much of the predictive content of interference."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P = |(1 + eⁱφ)/2|² = (1 + cos φ)/2",
+    "symbols": [
+      {
+        "symbol": "φ",
+        "meaning": "Relative phase in radians."
+      },
+      {
+        "symbol": "i",
+        "meaning": "Imaginary unit."
+      },
+      {
+        "symbol": "P",
+        "meaning": "Probability at one balanced output."
+      }
+    ],
+    "explanation": "Complex numbers retain the phase information that determines interference.",
+    "example": "At φ = π/3, P = (1+0.5)/2 = 0.75."
+  },
+  "insight": "Magnitude squared means multiplication by the conjugate: (1+i)(1−i)=2.",
+  "misconceptions": [
+    {
+      "myth": "Taking an amplitude’s ordinary square gives its probability.",
+      "correction": "Probability uses the amplitude times its complex conjugate, which is its magnitude squared."
+    },
+    {
+      "myth": "A negative interference term is a negative probability.",
+      "correction": "It changes the nonnegative squared magnitude of the total amplitude."
+    }
+  ],
+  "check": {
+    "question": "What is |1+i|²?",
+    "options": [
+      "2",
+      "2i",
+      "0"
+    ],
+    "answer": 0,
+    "explanation": "Magnitude squared means multiplication by the conjugate: (1+i)(1−i)=2."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures: Probability Amplitudes",
+      "url": "https://www.feynmanlectures.caltech.edu/III_03.html"
+    },
+    {
+      "title": "Feynman Lectures: Time Dependence",
+      "url": "https://www.feynmanlectures.caltech.edu/III_07.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Complex probability amplitudes model",
+    "description": "Complex numbers retain the phase information that determines interference.",
+    "inputs": [
+      {
+        "key": "phi",
+        "label": "Relative phase",
+        "min": 0,
+        "max": 6.283185307179586,
+        "step": 0.05,
+        "initial": 1.0471975511965976,
+        "unit": "rad"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Output probability",
+        "expression": [
+          "/",
+          [
+            "+",
+            1,
+            [
+              "cos",
+              "phi"
+            ]
+          ],
+          2
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Two equal coherent route amplitudes of magnitude 1/2 at one lossless balanced output. No spatial wave propagation is simulated."
+  }
+}

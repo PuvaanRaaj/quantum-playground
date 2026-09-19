@@ -130,5 +130,11 @@
     "sourceSha256": "11da47cc8320c93aae77fc4dc8bbd895aec9fad1a64974ba51305a2a5d6059ad",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "complex-amplitudes": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "f3d4552c62b3523fb362424a21c32ce9e3053c4497a5f460433b9b00c90ca25f",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }
