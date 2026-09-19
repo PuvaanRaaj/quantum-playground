@@ -1,0 +1,149 @@
+{
+  "slug": "mass-energy",
+  "title": "Mass and energy",
+  "category": "Space & relativity",
+  "subtitle": "A system\u2019s rest mass measures its total energy in its center-of-momentum frame.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "blue",
+  "intro": "Einstein\u2019s relation E\u2080=mc\u00b2 connects invariant mass with rest energy.",
+  "why": "A system\u2019s rest mass measures its total energy in its center-of-momentum frame.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Rest energy",
+      "definition": "Energy mc\u00b2 associated with invariant mass."
+    },
+    {
+      "term": "Binding energy",
+      "definition": "Energy required to separate a bound system into specified constituents."
+    },
+    {
+      "term": "Mass defect",
+      "definition": "The mass difference corresponding to released or binding energy."
+    },
+    {
+      "term": "Closed system",
+      "definition": "A system whose boundary is chosen to include all relevant energy transfers."
+    }
+  ],
+  "sections": [
+    {
+      "title": "The meaning of the famous equation",
+      "paragraphs": [
+        "Einstein\u2019s relation E\u2080=mc\u00b2 connects invariant mass with rest energy. The subscript zero matters: the total energy of a moving massive object is \u03b3mc\u00b2, not simply mc\u00b2. The 1905 insight showed that changes in a body\u2019s energy content imply changes in its inertia. This applies beyond nuclear reactions. Heating a closed container, compressing a spring or storing electromagnetic energy can change the total rest mass of the complete system, although the differences are often too small for everyday scales to notice.",
+        "Mass should not be imagined as a substance that occasionally turns into a wholly unrelated substance called energy. Energy is a conserved physical quantity with many contributions, and mass characterizes the total energy of a system in its center-of-momentum frame. The mass of a composite system need not equal the sum of the isolated rest masses of its parts. Internal kinetic energy, interactions and retained radiation can contribute. The chosen system boundary is essential to making a correct statement about any change."
+      ]
+    },
+    {
+      "title": "Binding explains why a composite can weigh less",
+      "paragraphs": [
+        "Suppose particles come together into a bound state and release energy that escapes. The final bound system has lower rest energy than the separated particles, so its mass is lower by the escaped energy divided by c\u00b2. The missing mass is not missing from conservation accounting: the outgoing radiation or other products carry the energy and momentum. Reversing the process requires supplying the binding energy to separate the constituents. This is why a stable bound nucleus can have less mass than its separated nucleons.",
+        "If the emitted radiation is instead trapped inside an otherwise closed container, the container-plus-contents retains that energy. Its total mass need not decrease by the same amount as the bound subsystem alone. Statements such as mass was converted to energy can be useful shorthand, but they often hide this distinction. Always name the system whose mass is being compared and say whether energy crossed its boundary. That discipline resolves many apparent paradoxes about reactions, hot objects and boxes full of light."
+      ]
+    },
+    {
+      "title": "A numerical conversion",
+      "paragraphs": [
+        "The speed of light is exactly 299,792,458 meters per second in SI units. One milligram is 10\u207b\u2076 kilograms. Multiplying by c\u00b2 gives about 8.99\u00d710\u00b9\u2070 joules, or 89.9 gigajoules. This is the energy equivalent of that mass difference, not a claim that any ordinary milligram can be fully converted into usable energy by an available process. Practical reactions release a fraction determined by the initial and final states, and converting released energy into useful work has further constraints.",
+        "If a reaction releases one megajoule from a system at rest with appropriate overall momentum accounting, the corresponding mass decrease is about 1.11\u00d710\u207b\u00b9\u00b9 kilograms. This is approximately eleven nanograms. The same equation covers small chemical and larger nuclear binding changes, even though the fractions of participating rest energy are very different. Nuclear energy is not governed by a separate mass-energy law. Its larger practical yield reflects differences in binding-energy scales and available transformations."
+      ]
+    },
+    {
+      "title": "Massless constituents can form a massive system",
+      "paragraphs": [
+        "Two equal-energy photons moving in opposite directions have zero net momentum but positive total energy. The pair therefore has a nonzero invariant mass as a combined system, even though each photon individually has zero rest mass. Two photons moving in the same direction have a different total four-momentum and zero combined invariant mass in the ideal case. This demonstrates why system mass cannot be obtained by adding constituent rest masses without accounting for momentum and energy.",
+        "The calculator converts a specified mass difference in milligrams into joules and gigajoules. It does not choose a reaction, establish feasibility, model efficiency or calculate an explosive effect. It assumes the input already represents the relevant system\u2019s invariant mass difference. The positive range makes the displayed quantity an energy release magnitude; reversing a process would require the same energy input under ideal reversible accounting. Use the one-milligram example to check units, then explain where the energy goes in an actual physical process. The value of the equation lies in precise conservation bookkeeping, not in treating every object as an automatically accessible reservoir of its entire rest energy. Momentum balance also limits how a proposed process can distribute its products. An isolated object initially at rest cannot simply emit one photon and disappear, because the photon would carry nonzero momentum while the initial total momentum was zero. Multiple products or a recoiling remainder can satisfy both energy and momentum conservation."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "\u0394E=\u0394mc\u00b2",
+    "symbols": [
+      {
+        "symbol": "\u0394m",
+        "meaning": "Invariant mass difference."
+      },
+      {
+        "symbol": "c",
+        "meaning": "299,792,458 m/s."
+      },
+      {
+        "symbol": "\u0394E",
+        "meaning": "Corresponding energy difference."
+      }
+    ],
+    "explanation": "A system\u2019s rest mass measures its total energy in its center-of-momentum frame.",
+    "example": "A mass difference of 1 mg corresponds to approximately 8.99\u00d710\u00b9\u2070 J = 89.9 GJ."
+  },
+  "insight": "The equation relates quantities; available processes determine what energy can actually be released.",
+  "misconceptions": [
+    {
+      "myth": "The equation alone guarantees complete practical conversion of any object\u2019s rest energy.",
+      "correction": "The equation relates quantities; available processes determine what energy can actually be released."
+    },
+    {
+      "myth": "A system\u2019s mass always equals the sum of constituent rest masses.",
+      "correction": "Internal energy and momentum affect the combined invariant mass."
+    }
+  ],
+  "check": {
+    "question": "Does E=mc\u00b2 imply every object can readily release all its rest energy?",
+    "options": [
+      "No; a physical process and energy accounting are required",
+      "Yes without conditions",
+      "Only if it is cold"
+    ],
+    "answer": 0,
+    "explanation": "The equation relates quantities; available processes determine what energy can actually be released."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume I, chapter 16",
+      "url": "https://www.feynmanlectures.caltech.edu/I_16.html"
+    },
+    {
+      "title": "Feynman Lectures, volume I, chapter 17",
+      "url": "https://www.feynmanlectures.caltech.edu/I_17.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Mass and energy model",
+    "description": "A system\u2019s rest mass measures its total energy in its center-of-momentum frame.",
+    "inputs": [
+      {
+        "key": "mass",
+        "label": "Mass difference",
+        "min": 0.01,
+        "max": 10,
+        "step": 0.01,
+        "initial": 1,
+        "unit": "mg"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Energy equivalent in joules",
+        "expression": [
+          "*",
+          "mass",
+          89875517873.68176
+        ],
+        "unit": "J"
+      },
+      {
+        "label": "Energy equivalent in gigajoules",
+        "expression": [
+          "*",
+          "mass",
+          89.87551787368176
+        ],
+        "unit": "GJ"
+      }
+    ],
+    "assumptions": "Conversion of an already specified invariant mass difference. No reaction feasibility, release fraction, efficiency or device model."
+  }
+}
