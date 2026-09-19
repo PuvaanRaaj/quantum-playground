@@ -2,748 +2,680 @@
 import { useEffect, useState } from "react";
 import {
   Atom,
+  ArrowLeft,
   ArrowRight,
-  Play,
-  RotateCcw,
-  Share2,
   BookOpen,
-  Sparkles,
-  ChevronDown,
+  ChevronRight,
+  CircleHelp,
   ExternalLink,
+  FlaskConical,
+  Menu,
+  Moon,
+  Search,
+  Sparkles,
+  Sun,
+  X,
 } from "lucide-react";
-import { lessons, sample, simulate, type Experiment } from "../lib/physics";
-
-type Counts = ReturnType<typeof sample>;
-type Entry = {
-  role: "user" | "assistant";
-  text: string;
-  actions?: Experiment[];
-};
-const initial: Experiment = { phase: 0, visibility: 1, recombine: true };
-const percent = (n: number) => `${(n * 100).toFixed(1)}%`;
-
-function Apparatus({
-  experiment,
-  p0,
-  running,
-}: {
-  experiment: Experiment;
-  p0: number;
-  running: boolean;
-}) {
+import { topics } from "../content";
+import type { Topic } from "../content/types";
+import TopicVisual from "../components/topic-visual";
+const categories = [
+  "All subjects",
+  "Space & relativity",
+  "Quantum mechanics",
+  "Mathematics",
+] as const;
+function OrbitalArt({ variant = "blue" }: { variant?: string }) {
   return (
     <svg
-      className={`apparatus ${running ? "running" : ""}`}
-      viewBox="0 0 760 320"
-      role="img"
-      aria-label={`Two-path experiment at ${experiment.phase} degrees. Detector zero probability ${percent(p0)}.`}
+      className={`orbital-art ${variant}`}
+      viewBox="0 0 540 340"
+      aria-hidden="true"
     >
       <defs>
-        <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r=".7" fill="#293342" />
-        </pattern>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" />
-        </filter>
+        <radialGradient id={`orb-${variant}`}>
+          <stop stopColor="currentColor" stopOpacity=".22" />
+          <stop offset="1" stopColor="currentColor" stopOpacity="0" />
+        </radialGradient>
       </defs>
-      <rect width="760" height="320" fill="url(#grid)" />
-      <path
-        d="M70 160H190L325 65H440L565 160H668M190 160L325 255H440L565 160L668 255"
-        className="track"
-      />
-      <path d="M70 160H190L325 65H440L565 160H668" className="beam beam-a" />
-      <path
-        d="M190 160L325 255H440L565 160L668 255"
-        className="beam beam-b"
-        style={{ opacity: 0.3 + experiment.visibility * 0.7 }}
-      />
-      <circle cx="70" cy="160" r="18" className="source" />
-      <circle cx="70" cy="160" r="5" fill="#c9ff85" />
-      <text x="70" y="207" textAnchor="middle" className="svg-label">
-        SOURCE
-      </text>
-      <rect x="174" y="140" width="32" height="40" rx="5" className="gate" />
-      <text x="190" y="166" textAnchor="middle" className="gate-label">
-        H
-      </text>
-      <rect
-        x="348"
-        y="44"
-        width="69"
-        height="42"
-        rx="7"
-        className="phase-gate"
-      />
-      <text x="382" y="70" textAnchor="middle" className="phase-label">
-        {experiment.phase}°
-      </text>
-      <text x="382" y="25" textAnchor="middle" className="svg-label">
-        PHASE SHIFT
-      </text>
-      <text x="382" y="292" textAnchor="middle" className="svg-label">
-        REFERENCE PATH
-      </text>
-      <rect
-        x="549"
-        y="140"
-        width="32"
-        height="40"
-        rx="5"
-        className={experiment.recombine ? "gate" : "gate removed"}
-      />
-      <text x="565" y="166" textAnchor="middle" className="gate-label">
-        {experiment.recombine ? "H" : "—"}
-      </text>
-      <text x="565" y="119" textAnchor="middle" className="svg-label">
-        {experiment.recombine ? "RECOMBINE" : "BYPASS"}
-      </text>
-      {[160, 255].map((y, i) => (
-        <g key={y}>
-          <rect
-            x="658"
-            y={y - 23}
-            width="70"
-            height="46"
-            rx="8"
-            className={`detector d${i}`}
-          />
-          <text
-            x="693"
-            y={y + 5}
-            textAnchor="middle"
-            className="detector-label"
-          >
-            D{i}
-          </text>
-        </g>
+      <circle cx="285" cy="170" r="160" fill={`url(#orb-${variant})`} />
+      {Array.from({ length: 9 }, (_, i) => (
+        <ellipse
+          key={i}
+          cx="285"
+          cy="170"
+          rx={60 + i * 13}
+          ry={23 + i * 8}
+          transform={`rotate(${i * 13 - 52} 285 170)`}
+          fill="none"
+          stroke="currentColor"
+          opacity={0.18 + i * 0.05}
+          strokeWidth="1"
+        />
       ))}
-      <circle className="particle particle-a" r="4" fill="#c9ff85">
-        <animateMotion
-          dur="2.8s"
-          repeatCount="indefinite"
-          path="M70 160H190L325 65H440L565 160H658"
-        />
-      </circle>
-      <circle className="particle particle-b" r="4" fill="#a699ff">
-        <animateMotion
-          dur="2.8s"
-          repeatCount="indefinite"
-          path="M70 160H190L325 255H440L565 160L658 255"
-        />
-      </circle>
+      <circle cx="285" cy="170" r="22" fill="currentColor" opacity=".95" />
+      <circle cx="406" cy="110" r="5" fill="currentColor" />
+      <circle cx="182" cy="244" r="3" fill="currentColor" />
+      <path
+        d="M55 170H110M460 170H510M285 15V45M285 295V325"
+        stroke="currentColor"
+        opacity=".3"
+      />
     </svg>
   );
 }
-function Fringe({ experiment }: { experiment: Experiment }) {
-  const points = Array.from(
-    { length: 121 },
-    (_, i) =>
-      `${30 + i * 4.5},${135 - simulate({ ...experiment, phase: i * 3 }).p0 * 110}`,
-  ).join(" ");
-  const result = simulate(experiment);
-  return (
-    <svg
-      viewBox="0 0 600 173"
-      role="img"
-      aria-label="Probability of detector zero across a full phase cycle"
-      className="fringe"
-    >
-      <path d="M30 25V135H570M30 80H570" className="chart-grid" />
-      <polyline
-        points={points}
-        fill="none"
-        stroke="#bcfa79"
-        strokeWidth="2.5"
-      />
-      <path
-        d={`M${30 + experiment.phase * 1.5} 25V135`}
-        stroke="#71805f"
-        strokeDasharray="4 5"
-      />
-      <circle
-        cx={30 + experiment.phase * 1.5}
-        cy={135 - result.p0 * 110}
-        r="5"
-        fill="#bcfa79"
-      />
-      {[0, 90, 180, 270, 360].map((x) => (
-        <text key={x} x={30 + x * 1.5} y="162" textAnchor="middle">
-          {x}°
-        </text>
-      ))}
-      <text x="24" y="28" textAnchor="end">
-        1
-      </text>
-      <text x="24" y="139" textAnchor="end">
-        0
-      </text>
-    </svg>
-  );
-}
-export default function Page() {
-  const [experiment, setExperiment] = useState<Experiment>(initial);
-  const [lesson, setLesson] = useState(0);
-  const [counts, setCounts] = useState<Counts | null>(null);
-  const [prediction, setPrediction] = useState("");
-  const [reveal, setReveal] = useState(false);
-  const [notice, setNotice] = useState("");
-  const [engine, setEngine] = useState<
-    ((p: number, v: number, r: number) => number) | null
-  >(null);
-  const [engineStatus, setEngineStatus] = useState("Loading physics engine");
-  const [ai, setAi] = useState(false);
-  const [token, setToken] = useState("");
-  const [question, setQuestion] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [entries, setEntries] = useState<Entry[]>([]);
+export default function Academy() {
+  const [slug, setSlug] = useState<string | null>(null),
+    [search, setSearch] = useState(""),
+    [category, setCategory] = useState<string>("All subjects"),
+    [theme, setTheme] = useState("light"),
+    [mobileNav, setMobileNav] = useState(false),
+    [labOpen, setLabOpen] = useState(false),
+    [answer, setAnswer] = useState<number | null>(null),
+    [glossary, setGlossary] = useState(false);
   useEffect(() => {
-    let active = true;
-    fetch("/quantum_core.wasm")
-      .then((r) => {
-        if (!r.ok) throw Error();
-        return r.arrayBuffer();
-      })
-      .then((b) => WebAssembly.compile(b))
-      .then((m) => WebAssembly.instantiate(m))
-      .then((instance) => {
-        if (active) {
-          setEngine(
-            () =>
-              instance.exports.probability_zero as (
-                p: number,
-                v: number,
-                r: number,
-              ) => number,
-          );
-          setEngineStatus("Rust / WebAssembly");
-        }
-      })
-      .catch(() => {
-        if (active) setEngineStatus("JavaScript reference engine");
-      });
-    fetch("/api/status")
-      .then((r) => r.json())
-      .then((d) => {
-        if (active) setAi((d as { enabled?: boolean }).enabled === true);
-      })
-      .catch(() => {});
-    const query = new URLSearchParams(window.location.search);
-    const phase = Number(query.get("phase") ?? 0),
-      visibility = Number(query.get("visibility") ?? 1);
-    if (
-      Number.isFinite(phase) &&
-      phase >= 0 &&
-      phase <= 360 &&
-      Number.isFinite(visibility) &&
-      visibility >= 0 &&
-      visibility <= 1
-    )
-      setExperiment({
-        phase,
-        visibility,
-        recombine: query.get("recombine") !== "0",
-      });
-    return () => {
-      active = false;
+    const sync = () => {
+      const q = new URLSearchParams(location.search);
+      const legacyExperiment = q.has("phase") && !q.has("topic");
+      setSlug(q.get("topic") ?? (legacyExperiment ? "interference" : null));
+      setLabOpen(q.get("lab") === "1" || legacyExperiment);
+      setGlossary(false);
+      setAnswer(null);
     };
+    sync();
+    window.addEventListener("popstate", sync);
+    setTheme(document.documentElement.dataset.theme || "light");
+    return () => window.removeEventListener("popstate", sync);
   }, []);
-  const exact = simulate(experiment);
-  const p0 = engine
-    ? engine(
-        (experiment.phase * Math.PI) / 180,
-        experiment.visibility,
-        Number(experiment.recombine),
-      )
-    : exact.p0;
-  function change(patch: Partial<Experiment>) {
-    setExperiment((e) => ({ ...e, ...patch }));
-    setCounts(null);
-    setReveal(false);
-    setNotice("");
+  const topic = topics.find((t) => t.slug === slug);
+  const visible = topics.filter(
+    (t) =>
+      (category === "All subjects" || t.category === category) &&
+      `${t.title} ${t.subtitle} ${t.terms.map((x) => x.term).join(" ")}`
+        .toLowerCase()
+        .includes(search.toLowerCase()),
+  );
+  const allTerms = topics
+    .flatMap((t) =>
+      t.terms.map((term) => ({ ...term, topic: t.title, slug: t.slug })),
+    )
+    .filter((t) =>
+      `${t.term} ${t.definition}`.toLowerCase().includes(search.toLowerCase()),
+    );
+  function navigate(next: string | null) {
+    setSlug(next);
+    setLabOpen(false);
+    setAnswer(null);
+    setGlossary(false);
+    setMobileNav(false);
+    const url = new URL(location.href);
+    url.search = next ? new URLSearchParams({ topic: next }).toString() : "";
+    url.hash = "";
+    history.pushState({}, "", url);
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
-  function chooseLesson(index: number) {
-    setLesson(index);
-    const l = lessons[index];
-    setExperiment({
-      phase: l.phase,
-      visibility: l.visibility,
-      recombine: l.recombine,
-    });
-    setCounts(null);
-    setReveal(false);
-    setPrediction("");
-  }
-  function run() {
-    setCounts(sample(p0, 1000));
-    setReveal(true);
-  }
-  async function share() {
-    const url = new URL(window.location.href);
-    url.search = new URLSearchParams({
-      phase: String(experiment.phase),
-      visibility: String(experiment.visibility),
-      recombine: experiment.recombine ? "1" : "0",
-    }).toString();
+  function toggleTheme() {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
     try {
-      await navigator.clipboard.writeText(url.toString());
-      setNotice("Experiment link copied.");
-    } catch {
-      setNotice(url.toString());
-    }
+      localStorage.setItem("quantum-theme", next);
+    } catch {}
   }
-  async function ask(event: React.FormEvent) {
-    event.preventDefault();
-    if (!question.trim() || busy) return;
-    const text = question.trim();
-    setEntries((e) => [...e, { role: "user", text }]);
-    setQuestion("");
-    setBusy(true);
-    try {
-      const response = await fetch("/api/tutor", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ question: text, experiment }),
-      });
-      const data = (await response.json()) as {
-        error?: string;
-        text: string;
-        experiments: Experiment[];
-      };
-      if (!response.ok)
-        throw Error(data.error || "The tutor could not respond.");
-      setEntries((e) => [
-        ...e,
-        { role: "assistant", text: data.text, actions: data.experiments },
-      ]);
-    } catch (error) {
-      setEntries((e) => [
-        ...e,
-        {
-          role: "assistant",
-          text:
-            error instanceof Error
-              ? error.message
-              : "The tutor could not respond.",
-        },
-      ]);
-    } finally {
-      setBusy(false);
-    }
+  function openLab() {
+    setLabOpen(true);
+    requestAnimationFrame(() =>
+      document.getElementById("experiment")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+      }),
+    );
+  }
+  function showGlossary() {
+    navigate(null);
+    setGlossary(true);
+    setSearch("");
   }
   return (
-    <>
-      <header className="topbar">
-        <a className="brand" href="/">
-          <span className="brand-symbol">
+    <div className="academy">
+      <header className="academy-header">
+        <button
+          className="nav-mobile icon-plain"
+          aria-label={mobileNav ? "Close subjects" : "Open subjects"}
+          onClick={() => setMobileNav(!mobileNav)}
+        >
+          {mobileNav ? <X size={21} /> : <Menu size={21} />}
+        </button>
+        <button className="academy-brand" onClick={() => navigate(null)}>
+          <span className="brand-mark">
             <Atom size={24} />
           </span>
-          quantum<span className="brand-light">playground</span>
-        </a>
-        <span className="edition">A THOUGHT EXPERIMENT LAB</span>
-        <a
-          className="github"
-          href="https://github.com/PuvaanRaaj/quantum-playground"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Source <ExternalLink size={14} />
-        </a>
-      </header>
-      <main>
-        <div className="intro">
-          <div>
-            <p className="eyebrow">
-              EXPERIMENT 01 <span>/</span> QUANTUM INTERFERENCE
-            </p>
-            <h1>Possibility has a phase.</h1>
-            <p>
-              Make a prediction. Change one thing. Let the universe surprise
-              you.
-            </p>
-          </div>
-          <button className="secondary share" onClick={share}>
-            <Share2 size={16} /> Share experiment
+          <span>
+            quantum<span className="brand-sub">playground</span>
+          </span>
+        </button>
+        <span className="header-divider" />
+        <span className="header-caption">A FIELD GUIDE TO BIG IDEAS</span>
+        <nav className="header-links">
+          <button
+            className={!topic && !glossary ? "active" : ""}
+            onClick={() => {
+              navigate(null);
+              setSearch("");
+            }}
+          >
+            Library
           </button>
-        </div>
-        {notice && (
-          <p className="notice" role="status">
-            {notice}
-          </p>
-        )}
-        <div className="workspace">
-          <section className="lab" aria-label="Quantum experiment">
-            <div className="panel-heading">
-              <span className="section-label">THE EXPERIMENT</span>
-              <span className="engine">{engineStatus}</span>
+          <button className={glossary ? "active" : ""} onClick={showGlossary}>
+            Glossary
+          </button>
+          <a
+            href="https://github.com/PuvaanRaaj/quantum-playground"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Source on GitHub"
+          >
+            <ExternalLink size={17} />
+          </a>
+        </nav>
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+        >
+          {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+          <span>{theme === "light" ? "Dark" : "Light"}</span>
+        </button>
+      </header>
+      <div className="academy-shell">
+        <aside className={`library-sidebar ${mobileNav ? "is-open" : ""}`}>
+          <p className="label-caps">YOUR EXPLORATION</p>
+          <button
+            className={`sidebar-home ${!topic && !glossary ? "selected" : ""}`}
+            onClick={() => {
+              navigate(null);
+              setSearch("");
+            }}
+          >
+            <BookOpen size={17} /> The library <span>{topics.length}</span>
+          </button>
+          {categories.slice(1).map((group, gi) => (
+            <div className="nav-group" key={group}>
+              <h2>
+                <span className={`category-dot dot-${gi}`} />
+                {group}
+              </h2>
+              {topics
+                .filter((t) => t.category === group)
+                .map((t) => (
+                  <button
+                    key={t.slug}
+                    className={topic?.slug === t.slug ? "selected" : ""}
+                    onClick={() => navigate(t.slug)}
+                    aria-current={topic?.slug === t.slug ? "page" : undefined}
+                  >
+                    {t.title}
+                    <ChevronRight size={13} />
+                  </button>
+                ))}
             </div>
-            <Apparatus
-              experiment={experiment}
-              p0={p0}
-              running={counts !== null}
-            />
-            <div className="diagram-caption">
-              <span>
-                <i className="key green" />
-                phase path
-              </span>
-              <span>
-                <i className="key violet" />
-                reference path
-              </span>
-              <span>Paths are schematic, not particle trajectories.</span>
-            </div>
-            <div className="controls">
-              <div className="phase-control">
-                <div className="control-label">
-                  <label htmlFor="phase">
-                    Relative phase <span>φ</span>
-                  </label>
-                  <output htmlFor="phase">{experiment.phase}°</output>
+          ))}
+          <button className="sidebar-glossary" onClick={showGlossary}>
+            <CircleHelp size={16} /> Words worth knowing
+          </button>
+          <div className="sidebar-note">
+            <Sparkles size={18} />
+            <p>You don’t have to know the maths to start asking questions.</p>
+          </div>
+        </aside>
+        <main className="academy-main">
+          {topic ? (
+            <>
+              <div className="breadcrumbs">
+                <button onClick={() => navigate(null)}>Library</button>
+                <ChevronRight size={13} />
+                <span>{topic.category}</span>
+              </div>
+              <article className={`lesson accent-${topic.accent}`}>
+                <header className="lesson-title">
+                  <div className="lesson-kicker">
+                    <span className="label-caps">{topic.category}</span>
+                    <span>
+                      {topic.level} · {topic.minutes} min read
+                    </span>
+                  </div>
+                  <h1>{topic.title}</h1>
+                  <p className="lesson-subtitle">{topic.subtitle}</p>
+                  <div className="lesson-actions">
+                    <a href="#understand">
+                      <BookOpen size={16} /> Understand the idea
+                    </a>
+                    <button onClick={openLab}>
+                      <FlaskConical size={16} /> Jump to the experiment
+                    </button>
+                  </div>
+                </header>
+                <div className="lesson-layout">
+                  <div className="lesson-prose">
+                    <section id="understand" className="opening-explanation">
+                      <p className="lead-paragraph">{topic.intro}</p>
+                      <div className="why-it-matters">
+                        <span className="label-caps">
+                          WHY THIS CHANGED THINGS
+                        </span>
+                        <p>{topic.why}</p>
+                      </div>
+                      <p className="prerequisites">
+                        <strong>A little preparation:</strong>{" "}
+                        {topic.prerequisites.join(" · ")}
+                      </p>
+                    </section>
+                    <section id="vocabulary" className="vocabulary-section">
+                      <span className="section-number">01 / THE LANGUAGE</span>
+                      <h2>First, what do these words mean?</h2>
+                      <p>
+                        Keep these ideas in mind as you read. You can return to
+                        this section whenever a term feels unfamiliar.
+                      </p>
+                      <dl className="term-grid">
+                        {topic.terms.map((t) => (
+                          <div key={t.term}>
+                            <dt>{t.term}</dt>
+                            <dd>{t.definition}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </section>
+                    <section id="theory">
+                      <span className="section-number">
+                        02 / THE IDEA, STEP BY STEP
+                      </span>
+                      {topic.sections.map((s, i) => (
+                        <section
+                          className="theory-section"
+                          key={s.title}
+                          id={`part-${i}`}
+                        >
+                          <h2>{s.title}</h2>
+                          {s.paragraphs.map((p, j) => (
+                            <p key={j}>{p}</p>
+                          ))}
+                        </section>
+                      ))}
+                    </section>
+                    <aside className="key-insight">
+                      <Sparkles size={22} />
+                      <div>
+                        <span className="label-caps">
+                          THE IDEA TO TAKE WITH YOU
+                        </span>
+                        <p>{topic.insight}</p>
+                      </div>
+                    </aside>
+                    <section id="mathematics" className="equation-section">
+                      <span className="section-number">
+                        03 / CONNECT IT TO THE MATHS
+                      </span>
+                      <h2>Read the equation like a sentence.</h2>
+                      <div className="equation-display">
+                        {topic.equation.expression}
+                      </div>
+                      <dl className="symbol-list">
+                        {topic.equation.symbols.map((s) => (
+                          <div key={s.symbol}>
+                            <dt>{s.symbol}</dt>
+                            <dd>{s.meaning}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                      <p>{topic.equation.explanation}</p>
+                      <div className="worked-example">
+                        <span className="label-caps">A WORKED EXAMPLE</span>
+                        <p>{topic.equation.example}</p>
+                      </div>
+                    </section>
+                    <section id="misconceptions">
+                      <span className="section-number">
+                        04 / CLEAR UP THE CONFUSION
+                      </span>
+                      <h2>Easy things to get wrong.</h2>
+                      {topic.misconceptions.map((m) => (
+                        <div className="misconception" key={m.myth}>
+                          <h3>{m.myth}</h3>
+                          <p>{m.correction}</p>
+                        </div>
+                      ))}
+                    </section>
+                    <section id="check" className="knowledge-check">
+                      <span className="label-caps">PAUSE & THINK</span>
+                      <h2>{topic.check.question}</h2>
+                      <fieldset>
+                        <legend className="sr-only">Choose your answer</legend>
+                        {topic.check.options.map((option, i) => (
+                          <label
+                            className={answer === i ? "chosen" : ""}
+                            key={option}
+                          >
+                            <input
+                              type="radio"
+                              name={`check-${topic.slug}`}
+                              checked={answer === i}
+                              onChange={() => setAnswer(i)}
+                            />
+                            <span>{option}</span>
+                          </label>
+                        ))}
+                      </fieldset>
+                      {answer !== null && (
+                        <div role="status" className="check-feedback">
+                          <strong>
+                            {answer === topic.check.answer
+                              ? "That’s right."
+                              : "Let’s reason it through."}
+                          </strong>
+                          <p>{topic.check.explanation}</p>
+                        </div>
+                      )}
+                    </section>
+                  </div>
+                  <aside className="lesson-toc">
+                    <span className="label-caps">IN THIS LESSON</span>
+                    <a href="#understand">The big idea</a>
+                    <a href="#vocabulary">Words to know</a>
+                    <a href="#theory">The theory explained</a>
+                    <a href="#mathematics">The equation & example</a>
+                    <a href="#misconceptions">Common misconceptions</a>
+                    <a href="#check">Check your intuition</a>
+                    <button onClick={openLab}>
+                      <FlaskConical size={15} /> Interactive experiment
+                    </button>
+                    <a href="#sources">Read further</a>
+                    <p>
+                      A foundation to build on, not a replacement for a full
+                      course.
+                    </p>
+                  </aside>
                 </div>
-                <input
-                  id="phase"
-                  type="range"
-                  min="0"
-                  max="360"
-                  value={experiment.phase}
-                  onChange={(e) => change({ phase: Number(e.target.value) })}
-                />
-                <div className="range-labels">
-                  <span>0</span>
-                  <span>π</span>
-                  <span>2π</span>
-                </div>
-                <div className="presets">
-                  {[0, 90, 180, 270].map((p) => (
+                <section id="experiment" className="lesson-experiment">
+                  <div>
+                    <span className="section-number">
+                      05 / MAKE THE IDEA MOVE
+                    </span>
+                    <h2>Now, explore it for yourself.</h2>
+                    <p>
+                      You have the context. Change a parameter and connect what
+                      you see to what you just learned.
+                    </p>
+                  </div>
+                  {!labOpen ? (
                     <button
-                      key={p}
-                      aria-pressed={experiment.phase === p}
-                      onClick={() => change({ phase: p })}
+                      className="academy-primary"
+                      onClick={() => setLabOpen(true)}
                     >
-                      {p}°
+                      <FlaskConical size={18} /> Open interactive experiment{" "}
+                      <ArrowRight size={16} />
+                    </button>
+                  ) : (
+                    <TopicVisual key={topic.slug} topic={topic} />
+                  )}
+                </section>
+                <section id="sources" className="lesson-sources">
+                  <span className="label-caps">
+                    KEEP FOLLOWING YOUR CURIOSITY
+                  </span>
+                  <h2>Sources & further reading</h2>
+                  <p>
+                    Original explanations for this guide, with references for
+                    deeper study. Illustrations demonstrate stated models;
+                    mathematical proofs and experimental evidence play different
+                    roles.
+                  </p>
+                  {topic.sources.map((s) => (
+                    <a
+                      key={s.url}
+                      href={s.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {s.title}
+                      <ExternalLink size={15} />
+                    </a>
+                  ))}
+                </section>
+                <div className="lesson-bottom-nav">
+                  <button onClick={() => navigate(null)}>
+                    <ArrowLeft size={16} /> Back to the library
+                  </button>
+                  <button
+                    onClick={() =>
+                      navigate(
+                        topics[(topics.indexOf(topic) + 1) % topics.length]
+                          .slug,
+                      )
+                    }
+                  >
+                    Explore{" "}
+                    {topics[(topics.indexOf(topic) + 1) % topics.length].title}
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </article>
+            </>
+          ) : glossary ? (
+            <section className="glossary-page">
+              <p className="label-caps">THE LANGUAGE OF DISCOVERY</p>
+              <h1>Words worth knowing.</h1>
+              <p>
+                Definitions in plain language, linked to the ideas that give
+                them meaning.
+              </p>
+              <label className="library-search">
+                <Search size={18} />
+                <input
+                  aria-label="Search glossary"
+                  placeholder="Find a term: spacetime, amplitude, derivative…"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </label>
+              <div className="glossary-grid">
+                {allTerms.map((term, i) => (
+                  <article key={`${term.slug}-${i}`}>
+                    <h2>{term.term}</h2>
+                    <p>{term.definition}</p>
+                    <button onClick={() => navigate(term.slug)}>
+                      {term.topic}
+                      <ArrowRight size={14} />
+                    </button>
+                  </article>
+                ))}
+              </div>
+              {!allTerms.length && (
+                <p role="status">No matching terms. Try another word.</p>
+              )}
+            </section>
+          ) : (
+            <>
+              <section className="library-intro">
+                <span className="label-caps">
+                  FOR THE CURIOUS, NOT JUST THE PHYSICISTS
+                </span>
+                <h1>
+                  The universe is strange.
+                  <br />
+                  <em>Let’s understand it.</em>
+                </h1>
+                <p>
+                  Meet the ideas that changed how we see reality. Learn the
+                  language, follow the reasoning, then experiment with the
+                  mathematics yourself.
+                </p>
+                <div className="library-stats">
+                  <span>
+                    <BookOpen size={16} /> {topics.length} in-depth lessons
+                  </span>
+                  <span>
+                    <FlaskConical size={16} /> {topics.length} interactive
+                    explorations
+                  </span>
+                  <span>Start with curiosity. Build the maths.</span>
+                </div>
+              </section>
+              <section className="featured-lesson">
+                <div className="featured-copy">
+                  <span className="label-caps">A GOOD PLACE TO WONDER</span>
+                  <h2>
+                    What did Einstein
+                    <br />
+                    actually discover?
+                  </h2>
+                  <p>
+                    Gravity isn’t simply an invisible pull. Learn how matter,
+                    motion, space, and time fit together in general
+                    relativity—and where the familiar rubber-sheet picture falls
+                    short.
+                  </p>
+                  <button
+                    className="academy-primary"
+                    onClick={() => navigate("general-relativity")}
+                  >
+                    Understand general relativity
+                    <ArrowRight size={17} />
+                  </button>
+                  <span className="featured-note">
+                    Theory first. Vocabulary included. Experiment after.
+                  </span>
+                </div>
+                <OrbitalArt />
+              </section>
+              <section className="catalog">
+                <div className="catalog-heading">
+                  <div>
+                    <span className="label-caps">FOLLOW A THREAD</span>
+                    <h2>Big ideas, made approachable.</h2>
+                  </div>
+                  <label className="library-search">
+                    <Search size={17} />
+                    <input
+                      aria-label="Search lessons"
+                      placeholder="Search ideas or terms…"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                  </label>
+                </div>
+                <div
+                  className="category-filters"
+                  aria-label="Filter by subject"
+                >
+                  {categories.map((c) => (
+                    <button
+                      key={c}
+                      aria-pressed={category === c}
+                      onClick={() => setCategory(c)}
+                    >
+                      {c}
                     </button>
                   ))}
                 </div>
-              </div>
-              <div className="coherence-control">
-                <div className="control-label">
-                  <label htmlFor="visibility">Remaining coherence</label>
-                  <output htmlFor="visibility">
-                    {Math.round(experiment.visibility * 100)}%
-                  </output>
+                <div className="topic-grid">
+                  {visible.map((t, i) => (
+                    <button
+                      className={`topic-card accent-${t.accent}`}
+                      key={t.slug}
+                      onClick={() => navigate(t.slug)}
+                    >
+                      <div className="card-art">
+                        <span className="card-formula">
+                          {t.visual === "gravity"
+                            ? "Gμν + Λgμν = κTμν"
+                            : t.visual === "relativity"
+                              ? "E = mc²"
+                              : t.visual === "blackhole"
+                                ? "rₛ = 2GM/c²"
+                                : t.visual === "expansion"
+                                  ? "v = H₀d"
+                                  : t.visual === "interference"
+                                    ? "ψ₁ + ψ₂"
+                                    : t.visual === "uncertainty"
+                                      ? "Δx Δp ≥ ℏ/2"
+                                      : t.visual === "entanglement"
+                                        ? "|Ψ⁻⟩"
+                                        : t.visual === "schrodinger"
+                                          ? "iℏ ∂ψ/∂t = Ĥψ"
+                                          : t.visual === "pythagoras"
+                                            ? "a² + b² = c²"
+                                            : t.visual === "calculus"
+                                              ? "∫ f(x) dx"
+                                              : t.visual === "euler"
+                                                ? "eⁱπ + 1 = 0"
+                                                : "P(A|B)"}
+                        </span>
+                        <span className="card-number">
+                          {String(topics.indexOf(t) + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <div className="card-copy">
+                        <span className="card-category">{t.category}</span>
+                        <h3>{t.title}</h3>
+                        <p>{t.subtitle}</p>
+                        <div className="card-bottom">
+                          <span>
+                            {t.minutes} min · {t.level}
+                          </span>
+                          <ArrowRight size={17} />
+                        </div>
+                      </div>
+                    </button>
+                  ))}
                 </div>
-                <input
-                  id="visibility"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={Math.round(experiment.visibility * 100)}
-                  onChange={(e) =>
-                    change({ visibility: Number(e.target.value) / 100 })
-                  }
-                />
-                <p className="hint">
-                  Lower it to model interaction with an environment.
-                </p>
-                <label className="toggle">
-                  <input
-                    type="checkbox"
-                    checked={experiment.recombine}
-                    onChange={(e) => change({ recombine: e.target.checked })}
-                  />
-                  <span>Recombine the paths</span>
-                  <span className="toggle-state">
-                    {experiment.recombine ? "ON" : "OFF"}
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div className="results">
-              <div className="results-heading">
-                <h2>Where will it land?</h2>
-                <span>EXACT MODEL PROBABILITIES</span>
-              </div>
-              <div className="detector-results">
-                {[p0, 1 - p0].map((p, i) => (
-                  <div className={`detector-result result-${i}`} key={i}>
-                    <div>
-                      <span>Detector {i}</span>
-                      <strong>{percent(p)}</strong>
-                    </div>
-                    <div className="bar">
-                      <span style={{ width: percent(p) }} />
-                    </div>
-                    <p>
-                      {counts
-                        ? `${i === 0 ? counts.zero : counts.one} of ${counts.shots.toLocaleString()} simulated measurements`
-                        : "Run an experiment to collect measurements"}
-                    </p>
+                {!visible.length && (
+                  <div className="empty-results">
+                    <p>No lessons match that search.</p>
+                    <button
+                      onClick={() => {
+                        setCategory("All subjects");
+                        setSearch("");
+                      }}
+                    >
+                      Show all lessons
+                    </button>
                   </div>
-                ))}
-              </div>
-              <div className="run-row">
-                <button className="primary" onClick={run}>
-                  <Play size={16} fill="currentColor" />
-                  Run 1,000 measurements
-                </button>
-                <button
-                  className="icon-button"
-                  aria-label="Reset experiment"
-                  onClick={() => {
-                    chooseLesson(0);
-                    setNotice("Experiment reset.");
-                  }}
-                >
-                  <RotateCcw size={17} />
-                </button>
-                <span>Each run samples fresh outcomes.</span>
-              </div>
-            </div>
-          </section>
-          <aside className="learning">
-            <div className="lesson-header">
-              <BookOpen size={18} />
-              <span>FIELD NOTES</span>
-              <span className="step-count">0{lesson + 1} / 04</span>
-            </div>
-            <div className="steps" aria-label="Guided experiments">
-              {lessons.map((l, i) => (
-                <button
-                  key={l.title}
-                  aria-label={`Lesson ${i + 1}: ${l.title}`}
-                  aria-pressed={lesson === i}
-                  onClick={() => chooseLesson(i)}
-                />
-              ))}
-            </div>
-            <h2>{lessons[lesson].title}</h2>
-            <p className="lesson-question">{lessons[lesson].question}</p>
-            <fieldset className="prediction">
-              <legend>YOUR PREDICTION</legend>
-              {["Mostly detector 0", "An even split", "Mostly detector 1"].map(
-                (p) => (
-                  <label key={p} className={prediction === p ? "selected" : ""}>
-                    <input
-                      type="radio"
-                      name="prediction"
-                      value={p}
-                      checked={prediction === p}
-                      onChange={() => setPrediction(p)}
-                    />
-                    {p}
-                  </label>
-                ),
-              )}
-            </fieldset>
-            <button className="lesson-run" onClick={run}>
-              {prediction ? "Test my prediction" : "Try the experiment"}
-              <ArrowRight size={16} />
-            </button>
-            {reveal && (
-              <div className="explanation" role="status">
-                <strong>What the model says</strong>
-                <p>
-                  {experiment.phase === lessons[lesson].phase &&
-                  experiment.visibility === lessons[lesson].visibility &&
-                  experiment.recombine === lessons[lesson].recombine
-                    ? lessons[lesson].explanation
-                    : `At your current settings, detector 0 has probability ${percent(p0)} and detector 1 has probability ${percent(1 - p0)}. ${!experiment.recombine ? "With no recombination, phase does not change path populations." : experiment.visibility === 0 ? "Full dephasing removes all phase dependence." : "Recombination converts relative phase into an observable difference in the output probabilities."}`}
-                </p>
-                {prediction && (
-                  <p>
-                    You predicted: {prediction.toLowerCase()}. Compare it with
-                    the probabilities and sampled counts.
-                  </p>
                 )}
-              </div>
-            )}
-            <button
-              className="next-lesson"
-              onClick={() => chooseLesson((lesson + 1) % lessons.length)}
-            >
-              {lesson === 3 ? "Start again" : "Next experiment"}
-              <ArrowRight size={15} />
-            </button>
-            <div className="small-note">
-              A classical simulation of quantum predictions. No quantum hardware
-              required.
-            </div>
-          </aside>
-        </div>
-        <div className="lower-grid">
-          <section className="curve-panel">
-            <div className="panel-heading">
-              <h2>The interference fingerprint</h2>
-              <span className="section-label">P(D0) vs. PHASE</span>
-            </div>
-            <Fringe experiment={experiment} />
-            <p className="hint">
-              Move the phase slider. The dot follows your experiment; the curve
-              shows every possible phase.
-            </p>
-          </section>
-          <section className="math-panel">
-            <details>
-              <summary>
+              </section>
+              <section className="learning-promise">
                 <span>
-                  <span className="math-symbol">ψ</span> Show me the maths
+                  <BookOpen size={23} />
                 </span>
-                <ChevronDown size={18} />
-              </summary>
-              <div className="math-content">
-                <p>
-                  Begin in |0⟩. The first Hadamard creates equal path
-                  amplitudes. A phase gate rotates the second amplitude.
-                </p>
-                <code>|ψ⟩ = (|0⟩ + eⁱᶲ|1⟩) / √2</code>
-                <p>For full coherence and recombination:</p>
-                <code>
-                  a₀ = (1 + eⁱᶲ) / 2<br />
-                  a₁ = (1 − eⁱᶲ) / 2
-                </code>
-                <p>
-                  Probabilities are squared magnitudes. With remaining coherence
-                  v, the density-matrix model gives:
-                </p>
-                <code>
-                  P(0) = (1 + v cos φ) / 2<br />
-                  P(1) = 1 − P(0)
-                </code>
-                <p>
-                  At v &lt; 1, the state is mixed; the pure-state formula above
-                  no longer describes the whole state. Without the final
-                  Hadamard, both probabilities are ½.
-                </p>
-                <a
-                  href="https://quantum.cloud.ibm.com/learning/en/modules/quantum-mechanics/superposition-with-qiskit"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Explore the physics at IBM Quantum ↗
-                </a>
-              </div>
-            </details>
-            <div className="math-preview">
-              <span>H</span>
-              <i>→</i>
-              <span>P(φ)</span>
-              <i>→</i>
-              <span>dephase</span>
-              <i>→</i>
-              <span>{experiment.recombine ? "H" : "I"}</span>
-              <i>→</i>
-              <span>measure</span>
-            </div>
-            <p className="hint">
-              The equation and experiment describe the same thing. Explore at
-              your own pace.
-            </p>
-          </section>
-        </div>
-        <section className="tutor">
-          <div className="tutor-intro">
-            <span className="tutor-icon">
-              <Sparkles size={21} />
-            </span>
-            <div>
-              <h2>A little help with the big questions.</h2>
-              <p>
-                {ai
-                  ? "Ask the AI tutor to compare experiments. Its calculations come from the simulator."
-                  : "The guided experiments work without AI. Connect a server-side model to explore your own questions."}
-              </p>
-            </div>
-            <span className="tutor-badge">
-              {ai ? "AI TUTOR AVAILABLE" : "GUIDED MODE"}
-            </span>
-          </div>
-          {ai ? (
-            <>
-              <label className="access-label">
-                Tutor access code
-                <input
-                  type="password"
-                  autoComplete="off"
-                  value={token}
-                  onChange={(e) => setToken(e.target.value)}
-                  placeholder="Provided by the host"
-                />
-              </label>
-              <div className="conversation" aria-live="polite">
-                {entries.map((e, i) => (
-                  <div className={`message ${e.role}`} key={i}>
-                    <strong>{e.role === "user" ? "You" : "Lab tutor"}</strong>
-                    <p>{e.text}</p>
-                    {e.actions?.map((a, j) => (
-                      <button
-                        className="secondary"
-                        key={j}
-                        onClick={() => change(a)}
-                      >
-                        Try {a.phase}° · {Math.round(a.visibility * 100)}%
-                        coherence · recombiner {a.recombine ? "on" : "off"}
-                      </button>
-                    ))}
-                  </div>
-                ))}
-              </div>
-              <form onSubmit={ask}>
-                <label htmlFor="question" className="sr-only">
-                  Ask the tutor
-                </label>
-                <input
-                  id="question"
-                  value={question}
-                  maxLength={2000}
-                  onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="Why does adding a second path make one detector go dark?"
-                />
-                <button
-                  className="primary"
-                  disabled={busy || !question.trim() || !token}
-                >
-                  {busy ? "Investigating…" : "Ask the lab"}
-                  <ArrowRight size={16} />
+                <div>
+                  <h2>Understanding takes more than a pretty animation.</h2>
+                  <p>
+                    Every lesson starts with the problem people were trying to
+                    solve. You’ll meet the vocabulary, follow a derivation or
+                    physical argument, work through an example, and learn what
+                    the model leaves out.
+                  </p>
+                </div>
+                <button onClick={showGlossary}>
+                  Explore the glossary
+                  <ArrowRight size={17} />
                 </button>
-              </form>
-              <p className="hint">
-                Each question includes the current settings. Sent to OpenAI by
-                the host; AI explanations can be mistaken.
-              </p>
+              </section>
             </>
-          ) : (
-            <div className="guided-prompts">
-              <button onClick={() => chooseLesson(1)}>
-                Can phase change the outcome?
-                <ArrowRight size={15} />
-              </button>
-              <button onClick={() => chooseLesson(2)}>
-                What does “observing” really do?
-                <ArrowRight size={15} />
-              </button>
-              <button onClick={() => chooseLesson(3)}>
-                Where is the phase hiding?
-                <ArrowRight size={15} />
-              </button>
-            </div>
           )}
-        </section>
-        <footer>
-          <span>
-            <Atom size={16} /> Curiosity first. Equations when you’re ready.
-          </span>
-          <a
-            href="https://github.com/PuvaanRaaj/quantum-playground#ai-tutor"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Build your own lab ↗
-          </a>
-        </footer>
-      </main>
-    </>
+          <footer className="academy-footer">
+            <span>
+              <Atom size={17} /> Quantum Playground
+            </span>
+            <p>Physics asks what nature does. Mathematics asks what follows.</p>
+            <button onClick={toggleTheme}>
+              {theme === "light" ? <Moon size={15} /> : <Sun size={15} />}{" "}
+              {theme === "light" ? "Dark" : "Light"} mode
+            </button>
+          </footer>
+        </main>
+      </div>
+    </div>
   );
 }

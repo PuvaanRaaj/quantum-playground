@@ -2,18 +2,30 @@
 
 **A thought experiment lab for curious people.** Predict what will happen, change the experiment, then connect the result to the mathematics.
 
-The first lab explores quantum interference: two paths, a relative phase, environmental dephasing, and an optional recombiner. No physics background or API key required.
+The library introduces twelve famous ideas across quantum mechanics, relativity, astronomy, and mathematics. Every lesson teaches the theory **before** showing its interactive model. This is a curated foundation, not an encyclopedia of every theory or a promise of complete mastery.
 
-## What works
+## Learn before experimenting
 
-- Interactive two-path schematic with phase and coherence controls.
-- Rust/WebAssembly calculation engine with an independently checked TypeScript reference.
-- Exact detector probabilities, 1,000-shot simulated measurements, and a phase-sweep curve.
-- Four guided experiments, predictions, and explanations.
-- Expandable mathematical derivation and links to learning resources.
-- Shareable experiment settings in the URL.
-- Optional AI tutor that calls a validated simulation tool and offers experiments to apply.
-- Responsive layout, keyboard controls, and reduced-motion support.
+Each lesson includes substantial original explanations (650+ words in the theory sections alone), historical context, plain-language terminology, prerequisite ideas, an equation with every symbol explained, a worked example, misconceptions, a comprehension check, model assumptions, and further reading.
+
+| Subject            | Lessons                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| Space & relativity | Special relativity, general relativity, black holes, the expanding universe        |
+| Quantum mechanics  | Interference, uncertainty, entanglement & Bell’s theorem, the Schrödinger equation |
+| Mathematics        | Pythagoras, calculus, Euler’s formula, Bayes’ theorem                              |
+
+The reading library includes subject navigation, lesson search, a searchable cross-lesson glossary, direct lesson URLs (`?topic=general-relativity`), browser back/forward navigation, and a persistent light/dark preference. The default theme is light. Experiments are opened explicitly after the explanation, with a shortcut for returning readers.
+
+## Interactive models
+
+- Relativistic light-clock geometry and the Lorentz factor.
+- Gravitational clock rates in the Schwarzschild exterior; black-hole horizon sizes.
+- Comoving galaxy separations as a function of scale factor.
+- The original Rust/WebAssembly interference lab, including phase, coherence, random measurements, and optional AI tutoring.
+- Gaussian position/momentum uncertainty, singlet spin correlations, and infinite-well probability densities.
+- Right-triangle geometry, midpoint integration, the complex unit circle, and Bayesian updating for a fictional factory sensor.
+
+Every model states what it assumes and what it does not establish. The mathematical lessons include arguments or derivations; an animation is not presented as proof. The relativity and astronomy visualizations are bounded educational models, not general numerical physics solvers.
 
 ## Run locally
 
@@ -59,7 +71,7 @@ Scientific references:
 
 ## AI tutor
 
-The optional server integration uses the OpenAI Responses API with function calling. It is **disabled unless all three server variables are set**:
+The optional interference-lab server integration uses the OpenAI Responses API with function calling. It remains scoped to the interference experiment; other lessons use authored explanations and deterministic models. It is **disabled unless all three server variables are set**:
 
 | Variable             | Purpose                                                                    |
 | -------------------- | -------------------------------------------------------------------------- |
@@ -94,7 +106,7 @@ npm run typecheck
 npm run build
 ```
 
-Tests cover known outcomes, normalization, dephasing, input rejection, WASM/reference parity across 1,210 parameter combinations, deterministic sampling, and the tutor's authorization and tool-call protocol with a mocked provider. CI rebuilds WASM before verification. A successful mocked tutor test does not establish live provider access.
+Tests cover known outcomes, normalization, dephasing, input rejection, WASM/reference parity across 1,210 parameter combinations, deterministic sampling, relativistic clock limits, Gaussian uncertainty, singlet correlations, Bayesian updating, integral convergence, lesson completeness, and the tutor's authorization and tool-call protocol with a mocked provider. CI rebuilds WASM before verification. A successful mocked tutor test does not establish live provider access.
 
 ## Hosting
 
@@ -113,7 +125,7 @@ Configure runtime secrets on that Worker to enable AI; leave them absent for gui
 
 ## Scope
 
-This release is a complete single-experiment learning slice. Entanglement/Bell tests, relativity/spacetime diagrams, and Lean-checked proofs are possible future labs, not implemented features.
+The twelve lessons provide a substantial beginner foundation. The entanglement visualization shows singlet correlations; it does not perform a full CHSH experiment. The GR visualization calculates one Schwarzschild clock-rate relation, not arbitrary spacetime curvature. Lean-checked proofs, actual quantum hardware, and cosmological parameter fitting are not implemented. The AI tutor is still limited to interference.
 
 ## License
 
