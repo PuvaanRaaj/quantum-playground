@@ -76,5 +76,11 @@
     "sourceSha256": "f09008bf211d73a1434740f20e7c36876ad2672e3b062328be65d5c8fa3d08ec",
     "reviewRecord": "batch-3.json",
     "status": "approved"
+  },
+  "matrices": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "7d3f1e40a8a4b521b795a49f688736efae08627430d31aba8c9b77d4ce4b233b",
+    "reviewRecord": "batch-3.json",
+    "status": "approved"
   }
 }

@@ -1,0 +1,175 @@
+{
+  "slug": "matrices",
+  "title": "Matrices",
+  "category": "Mathematics",
+  "subtitle": "A matrix can encode a linear transformation and the coupled equations it produces.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A matrix can encode a linear transformation and the coupled equations it produces.",
+  "why": "Matrices provide one reusable language for coupled equations, geometric transformations, and numerical models.",
+  "prerequisites": [
+    "Basic algebra",
+    "Coordinates and arithmetic"
+  ],
+  "terms": [
+    {
+      "term": "Matrix",
+      "definition": "A rectangular array of numbers with specified row and column order."
+    },
+    {
+      "term": "Linear transformation",
+      "definition": "A map preserving vector addition and scalar multiplication."
+    },
+    {
+      "term": "Identity matrix",
+      "definition": "The square matrix that leaves every input vector unchanged."
+    },
+    {
+      "term": "Inverse",
+      "definition": "A transformation that undoes another transformation when it exists."
+    },
+    {
+      "term": "Determinant",
+      "definition": "For a square matrix, a scalar describing signed volume scaling."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Arrays that describe operations",
+      "paragraphs": [
+        "A matrix is more than a convenient table when it represents an operation on vectors. For a two-dimensional input, each column tells you where one basis direction goes. If the first column is (2, 0), the horizontal unit vector becomes twice as long. If the second column is (0, 3), the vertical unit vector becomes three times as long. Every other output follows by combining those two transformed directions.",
+        "Systems of simultaneous equations were studied long before modern matrix notation. Arthur Cayley developed matrix algebra as a systematic subject in the nineteenth century, while Sylvester introduced the term matrix. Determinants have an earlier history. These developments separated a reusable algebra of transformations from the details of any single system of equations, which is why the same operations appear in mechanics, statistics, and graphics."
+      ]
+    },
+    {
+      "title": "Derive matrix multiplication by a vector",
+      "paragraphs": [
+        "Write an input as x times the first basis vector plus y times the second. A linear map must preserve that sum and those scalar multiples. If its columns are (a, c) and (b, d), the output is x(a, c) + y(b, d), or (ax + by, cx + dy). This is the reason for the row-by-column rule; the arrangement is not an arbitrary convention imposed without geometric meaning.",
+        "Linearity is a strong condition. The map T must satisfy T(u + v) = T(u) + T(v) and T(su) = sT(u). It therefore sends zero to zero. A plain two-by-two matrix can rotate, stretch, reflect, shear, or collapse a plane, but it cannot translate every point by a fixed nonzero offset. Graphics programs handle translations using augmented coordinates or separate addition, which should not be confused with ordinary linear maps of the original plane."
+      ]
+    },
+    {
+      "title": "Composition explains the order",
+      "paragraphs": [
+        "Suppose A first stretches horizontal distances by two, and B then swaps horizontal and vertical coordinates. The combined operation is BA because A acts on the input first: B(Ax). Applied to (1, 0), this sequence produces (0, 2). Reversing the sequence gives A(B(1, 0)) = A(0, 1) = (0, 1). The outputs differ, so matrix multiplication generally does not commute.",
+        "The jth column of BA can be found by applying B to the jth column of A. That column represents what A does to a basis vector, followed by what B does to the result. Expanding these column operations gives the familiar formula in which each entry is a row-column dot product. Matrix shapes must match: the number of columns in B must equal the number of rows in A for this composition to be defined."
+      ]
+    },
+    {
+      "title": "Solve a concrete coupled system",
+      "paragraphs": [
+        "Consider the equations 2x + y = 7 and x + 3y = 11. Subtract twice the second equation from the first to obtain −5y = −15, hence y = 3. Substitute back to find x = 2. In matrix language, A has rows (2, 1) and (1, 3), the unknown vector is (x, y), and the output vector is (7, 11). Solving means recovering an input from a known output.",
+        "For a two-by-two matrix, the determinant is ad − bc. Here it is 2·3 − 1·1 = 5, which is nonzero. The inverse is (1/5) times the matrix with rows (3, −1) and (−1, 2). Multiplying that inverse by (7, 11) yields ((21 − 11)/5, (−7 + 22)/5) = (2, 3). The inverse formula follows by multiplying the two matrices and checking that the diagonal entries become one and the off-diagonal entries zero."
+      ]
+    },
+    {
+      "title": "Area, collapse, and numerical limits",
+      "paragraphs": [
+        "Geometrically, the absolute determinant gives the area of the parallelogram formed by the transformed unit directions. A negative determinant reverses orientation. A zero determinant means those directions become dependent, so the plane collapses onto a line or point. Then distinct inputs can share an output, and no inverse can recover every input uniquely. This explains the algebraic division by the determinant in the inverse formula.",
+        "A determinant close to zero can indicate sensitivity, but its raw size alone is not a complete numerical condition measure because overall scaling also changes it. In computation, solving a linear system directly is often preferable to explicitly forming an inverse. The calculator demonstrates a simple shear with output (x + sy, y). It preserves area because its determinant is one, even though angles and individual vector lengths generally change. That bounded example illustrates one transformation family rather than the behavior of every possible matrix."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "[[1, s], [0, 1]] (x, y) = (x + sy, y)",
+    "symbols": [
+      {
+        "symbol": "s",
+        "meaning": "Shear factor"
+      },
+      {
+        "symbol": "x, y",
+        "meaning": "Input coordinates in the original basis"
+      }
+    ],
+    "explanation": "A linear shear in an orthonormal two-dimensional coordinate system; no translation.",
+    "example": "A shear s = 2 maps (1, 3) to (7, 3)."
+  },
+  "insight": "A nonzero determinant means no direction is collapsed and the transformation has an inverse.",
+  "misconceptions": [
+    {
+      "myth": "Matrix multiplication commutes.",
+      "correction": "Changing transformation order generally changes the result."
+    },
+    {
+      "myth": "Every square matrix has an inverse.",
+      "correction": "A square matrix is invertible exactly when its determinant is nonzero."
+    }
+  ],
+  "check": {
+    "question": "Can every square matrix be inverted?",
+    "options": [
+      "Yes",
+      "Only if its determinant is nonzero",
+      "Only if all entries are positive"
+    ],
+    "answer": 1,
+    "explanation": "A nonzero determinant means no direction is collapsed and the transformation has an inverse."
+  },
+  "sources": [
+    {
+      "title": "Georgia Tech: Interactive Linear Algebra",
+      "url": "https://textbooks.math.gatech.edu/ila/"
+    },
+    {
+      "title": "OpenStax: Calculus Volume 3",
+      "url": "https://openstax.org/details/books/calculus-volume-3"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Matrices example",
+    "description": "A shear s = 2 maps (1, 3) to (7, 3).",
+    "inputs": [
+      {
+        "key": "s",
+        "label": "Shear factor",
+        "unit": "",
+        "min": -3,
+        "max": 3,
+        "step": 0.1,
+        "initial": 2
+      },
+      {
+        "key": "x",
+        "label": "Horizontal input",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 1
+      },
+      {
+        "key": "y",
+        "label": "Vertical input",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 3
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Horizontal output",
+        "unit": "",
+        "expression": [
+          "+",
+          "x",
+          [
+            "*",
+            "s",
+            "y"
+          ]
+        ]
+      },
+      {
+        "label": "Vertical output",
+        "unit": "",
+        "expression": "y"
+      }
+    ],
+    "assumptions": "A linear shear in an orthonormal two-dimensional coordinate system; no translation."
+  }
+}
