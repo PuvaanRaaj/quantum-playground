@@ -323,6 +323,48 @@
       "pushed": true,
       "reviewer": "gpt-6-astra",
       "sourceSha256": "ca616ba9e981ff10a1a7915ffda680f302cb1b5b016fbb7bbb096c2b175311cb"
+    },
+    {
+      "slug": "de-broglie-waves",
+      "commit": "25f2baef53051ea2b6c91a5f36a10c9c7fbeaa7d",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "1659b3432155a826dce98825ab174128194293e91b59e5e575ddf5131c0220b4"
+    },
+    {
+      "slug": "quantum-teleportation",
+      "commit": "d3bb6f868df3743f6493d1113f5776b8117a403e",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "d23dc590dc4b09e9a27d80312fd7675994e3994418f6e9eeb1e9cef0e687ab62"
+    },
+    {
+      "slug": "quantum-cryptography",
+      "commit": "818b06fce84ba732e8b3b0ded0ce8c39f0fa6284",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "b6ff62e5e6213367301bf1d437793039aaa88fefb63b54abbaf88973044407e3"
+    },
+    {
+      "slug": "noether-symmetry",
+      "commit": "33c9c5f1bf87d8af35ab8269a92700bc4aa829a8",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "06b4461dc3a09c8b2f8b937e1b6138099a0592cf1a0908760277270dccd7db4a"
+    },
+    {
+      "slug": "rabi-oscillations",
+      "commit": "fe625cde9818a00123a04534aee2859d258484d0",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "5fa5f47267a2b88090a46dbd400b511c6d964404db1a4699a076e55b595f8599"
+    },
+    {
+      "slug": "quantum-zeno-effect",
+      "commit": "aef21df2b4f842c9b20bd83abe41d2d23ea357a6",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "2f06f3809dca8a0c06bf3ad94295a9aa9b48eaade59ff1d60d61ac1457d8712e"
     }
   ],
   "infrastructure": "ready",
