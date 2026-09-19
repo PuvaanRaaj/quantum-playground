@@ -1,0 +1,179 @@
+{
+  "slug": "qubits-bloch-sphere",
+  "title": "Qubits and the Bloch sphere",
+  "category": "Quantum mechanics",
+  "subtitle": "A sphere represents the pure states of one two-level quantum system.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "A qubit is not necessarily a tiny computer chip.",
+  "why": "A sphere represents the pure states of one two-level quantum system.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Qubit",
+      "definition": "A system whose state space has two complex dimensions."
+    },
+    {
+      "term": "Bloch vector",
+      "definition": "A three-component real vector representing a one-qubit density matrix."
+    },
+    {
+      "term": "Polar angle",
+      "definition": "The angle θ measured from the sphere’s positive vertical axis."
+    },
+    {
+      "term": "Azimuth",
+      "definition": "The angle φ around the sphere’s equator."
+    }
+  ],
+  "sections": [
+    {
+      "title": "A geometric description of a two-level system",
+      "paragraphs": [
+        "A qubit is not necessarily a tiny computer chip. It is a quantum system for which two reference states describe the relevant degrees of freedom. Examples include two atomic levels or a spin component’s two outcomes. The Bloch sphere provides a geometric representation of these states, associated with Felix Bloch’s work on spin dynamics. The geometry is especially useful because a pair of complex amplitudes initially seems to require four real numbers. Normalization removes one degree of freedom, and the unobservable global phase removes another. Two remaining angles can therefore describe any pure single-qubit state.",
+        "Choose reference states zero and one. The north pole represents zero and the south pole represents one. States around the equator give equal zero–one probabilities but differ in relative phase. Points between the equator and a pole give unequal probabilities. The sphere is a space of possible quantum states, not a physical map showing where the particle is located. Moving a point around this sphere means changing its state. The particle can remain in the same laboratory trap throughout a sequence of such transformations."
+      ]
+    },
+    {
+      "title": "Why the half-angle appears",
+      "paragraphs": [
+        "A normalized pure state can be written cos(θ/2)|0⟩ + eⁱφ sin(θ/2)|1⟩. Squaring the coefficient magnitudes gives probabilities cos²(θ/2) and sin²(θ/2). The trigonometric identity that their sum is one automatically enforces normalization. At θ = 0, only zero remains. At θ = π, only one remains. At θ = π/2, both probabilities are one half. The half-angle is part of the relation between spinor states and ordinary three-dimensional rotation geometry; it should not be replaced with θ just because that looks more familiar.",
+        "For θ = π/3, cos²(π/6) equals three quarters, while sin²(π/6) equals one quarter. Changing φ does not change those particular measurement probabilities. It changes the state’s orientation around the vertical axis and therefore affects measurements along other axes. This is why a picture of only the zero–one probabilities is incomplete. It gives the vertical coordinate but discards the azimuth. Two states with identical vertical coordinates may produce opposite outcomes in another basis. Geometry keeps track of information that a single probability bar cannot display."
+      ]
+    },
+    {
+      "title": "Axes correspond to different measurements",
+      "paragraphs": [
+        "The Bloch vector of a pure state is (sin θ cos φ, sin θ sin φ, cos θ). Its components give expectation values for measurements of the Pauli X, Y and Z operators. Each such measurement returns plus or minus one, while the component is the average over repeated preparations. A component of 0.6 does not mean that a particular detector returns 0.6. It means the plus result has probability 0.8 and the minus result probability 0.2, because the average is 0.8 minus 0.2. This connects the continuous vector with discrete outcomes.",
+        "Opposite points on the sphere represent orthogonal states that can be perfectly distinguished by a suitable measurement. Points ninety degrees apart on the sphere do not represent orthogonal state vectors in Hilbert space. For example, the north pole and a point on the equator give fifty-fifty overlap probabilities. The two geometries use different notions of angle. Keeping that distinction prevents errors when interpreting a rotation diagram. A unitary operation on one qubit corresponds to a rotation of its Bloch vector, while an overall phase leaves the point unchanged."
+      ]
+    },
+    {
+      "title": "Inside the sphere and beyond one qubit",
+      "paragraphs": [
+        "Pure states sit on the surface. Mixed states occupy the interior, where the vector has length less than one. The center describes equal probabilities for either outcome along every measurement axis. It is not one special pure superposition with an unknown angle. An equal classical mixture of opposite pure states reaches the center because their Bloch vectors average to zero. A subsystem entangled with another system can also have this mixed local description even when their joint state is pure. The interior therefore summarizes local predictions without identifying one unique preparation history.",
+        "The calculator varies the polar and azimuthal angles and reports selected probabilities for an ideal pure qubit. It does not represent a general two-qubit state: entanglement requires a larger state space that cannot be drawn as one ordinary Bloch sphere. Nor is it a hardware calibration model; real control pulses introduce noise and may leak outside the chosen two levels. Use the model to compare Z and X measurement probabilities while holding θ fixed and changing φ. Seeing one probability stay fixed while the other changes reveals why phase belongs in a complete state description."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(Z+) = (1 + cos θ)/2; P(X+) = (1 + sin θ cos φ)/2",
+    "symbols": [
+      {
+        "symbol": "θ",
+        "meaning": "Polar angle, from 0 to π."
+      },
+      {
+        "symbol": "φ",
+        "meaning": "Azimuthal angle."
+      },
+      {
+        "symbol": "Z+, X+",
+        "meaning": "Plus outcomes for the selected measurement axes."
+      }
+    ],
+    "explanation": "A sphere represents the pure states of one two-level quantum system.",
+    "example": "At θ=π/3 and φ=0, P(Z+)=0.75 and P(X+)≈0.933."
+  },
+  "insight": "Z-basis probabilities depend only on the polar angle.",
+  "misconceptions": [
+    {
+      "myth": "Changing the azimuth leaves every measurement probability unchanged.",
+      "correction": "It preserves Z-basis probabilities but can change X- and Y-basis probabilities."
+    },
+    {
+      "myth": "One Bloch sphere describes an arbitrary pair of entangled qubits.",
+      "correction": "A single sphere describes one qubit; general joint states require a larger state space."
+    }
+  ],
+  "check": {
+    "question": "Changing only azimuth leaves which probability unchanged?",
+    "options": [
+      "Z-basis probability",
+      "Every possible measurement probability",
+      "No probability"
+    ],
+    "answer": 0,
+    "explanation": "Z-basis probabilities depend only on the polar angle."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures: Spin One-Half",
+      "url": "https://www.feynmanlectures.caltech.edu/III_06.html"
+    },
+    {
+      "title": "Feynman Lectures: More Two-State Systems",
+      "url": "https://www.feynmanlectures.caltech.edu/III_11.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Qubits and the Bloch sphere model",
+    "description": "A sphere represents the pure states of one two-level quantum system.",
+    "inputs": [
+      {
+        "key": "theta",
+        "label": "Polar angle",
+        "min": 0,
+        "max": 3.141592653589793,
+        "step": 0.05,
+        "initial": 1.0471975511965976,
+        "unit": "rad"
+      },
+      {
+        "key": "phi",
+        "label": "Azimuth",
+        "min": 0,
+        "max": 6.283185307179586,
+        "step": 0.05,
+        "initial": 0,
+        "unit": "rad"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Z plus probability",
+        "expression": [
+          "/",
+          [
+            "+",
+            1,
+            [
+              "cos",
+              "theta"
+            ]
+          ],
+          2
+        ],
+        "unit": ""
+      },
+      {
+        "label": "X plus probability",
+        "expression": [
+          "/",
+          [
+            "+",
+            1,
+            [
+              "*",
+              [
+                "sin",
+                "theta"
+              ],
+              [
+                "cos",
+                "phi"
+              ]
+            ]
+          ],
+          2
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "One pure ideal qubit; no mixed states, leakage, noise or multi-qubit entanglement."
+  }
+}
