@@ -1,0 +1,143 @@
+{
+  "slug": "quantum-superposition",
+  "title": "Quantum superposition",
+  "category": "Quantum mechanics",
+  "subtitle": "A coherent sum of states can behave differently from a random mixture.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Superposition means that states can be combined linearly to make other allowed states, with appropriate normalization.",
+  "why": "A coherent sum of states can behave differently from a random mixture.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "State",
+      "definition": "A mathematical description used to predict outcomes for a prepared quantum system."
+    },
+    {
+      "term": "Superposition",
+      "definition": "A linear combination of states with complex amplitude coefficients."
+    },
+    {
+      "term": "Relative phase",
+      "definition": "The phase difference between coefficients, which can affect interference."
+    },
+    {
+      "term": "Mixture",
+      "definition": "A statistical state describing alternatives without coherent amplitude addition between them."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why addition entered quantum theory",
+      "paragraphs": [
+        "Superposition means that states can be combined linearly to make other allowed states, with appropriate normalization. The mathematical structure emerged as wave mechanics and matrix mechanics were developed by Schrödinger, Heisenberg, Born and their contemporaries. Classical waves also superpose: two vibrations can add to produce a larger displacement or cancel. Quantum mechanics uses the addition of probability amplitudes, followed by a different step that converts amplitudes to probabilities. This makes the wave analogy useful without identifying a quantum state with a literal ripple of material spread across a table.",
+        "Consider two distinguishable reference states called zero and one. A qubit can be prepared in a state proportional to their sum. A measurement that distinguishes zero from one then gives one definite outcome on each trial. The superposition does not mean a detector must display both digits simultaneously. It describes the preparation and the probabilities for any measurement we might perform. A single outcome provides limited information about that preparation, so establishing coherent behavior requires repeated preparations and carefully selected measurements rather than a photograph of one allegedly undecided particle."
+      ]
+    },
+    {
+      "title": "A mixture that looks identical until the next operation",
+      "paragraphs": [
+        "Prepare one ensemble in the state (|0⟩ + |1⟩)/√2. Prepare another by randomly choosing zero or one with equal probability and discarding the choice record. Measuring both ensembles directly in the zero–one basis produces the same fifty-fifty statistics. That one test cannot distinguish them. Now apply an operation that recombines the two reference states, such as a Hadamard gate, before measuring. For the coherent superposition, the amplitudes combine so zero becomes certain. For the random mixture, the statistics remain fifty-fifty. The difference lies in coherence that the first measurement did not access.",
+        "You can derive the result from the gate’s action. It takes zero to (zero plus one)/√2, and one to (zero minus one)/√2. Apply these rules to the two components of the initial coherent state and add. The one contributions cancel while the zero contributions reinforce. For the mixture, apply the gate separately to each randomly selected input and average their probabilities. There is no relative phase between separate entries of a classical probability list, so their amplitudes cannot be added as though they formed one pure state. This operational distinction is more precise than saying that quantum objects are simply mysterious."
+      ]
+    },
+    {
+      "title": "The role of phase and the choice of basis",
+      "paragraphs": [
+        "Changing the plus sign to a minus sign gives another equal-weight superposition. Direct measurement still yields fifty-fifty results, but the same recombination now makes one certain. More generally a relative phase φ produces a recombined probability (1 + cos φ)/2 for zero, using the convention in this example. At φ = π/2 the probability is one half. At φ = π it is zero. A global phase multiplying the whole state has no observable effect, because it rotates every coefficient together and leaves all relative phases unchanged.",
+        "Superposition is always stated relative to reference states. A state that is a superposition of zero and one is itself one definite vector in the space of states. In a basis containing that vector, it has just one nonzero coefficient. This does not make coherence arbitrary or experiments subjective. Once the preparation, operations and measurement are specified, predictions are unambiguous. The basis tells us how a mathematical description relates to the question the apparatus asks. Confusing a change of descriptive basis with a physical operation is a common source of unnecessary contradictions."
+      ]
+    },
+    {
+      "title": "Physical preparation and the model boundary",
+      "paragraphs": [
+        "Real coherent superpositions can be prepared using controlled electromagnetic pulses, optical beam splitters and other interactions. Maintaining them requires preventing uncontrolled information about the alternatives from spreading into the environment. If a path becomes correlated with an unobserved environmental record, interference available from the system alone can diminish. This is decoherence, and it is not the same as deliberately choosing a different measurement basis. Nor does it require a person to read the record. The relevant issue is how the physical system interacts with other degrees of freedom.",
+        "The calculator describes an ideal equal-weight qubit with an adjustable relative phase followed by a fixed recombination. It does not simulate a macroscopic cat, the construction of a physical gate, or the time taken for environmental noise to act. It also cannot demonstrate quantum advantage by itself: ordinary software calculates these two probabilities easily. Its purpose is to let you compare a coherent phase-dependent prediction with the phase-independent half-and-half mixture. Predict the result at zero, a quarter cycle and a half cycle, then connect each prediction to constructive or destructive amplitude addition rather than to a particle making a conscious decision."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(0 after recombination) = (1 + cos φ)/2",
+    "symbols": [
+      {
+        "symbol": "φ",
+        "meaning": "Relative phase in radians."
+      },
+      {
+        "symbol": "P",
+        "meaning": "Probability after an ideal Hadamard recombination."
+      }
+    ],
+    "explanation": "Compute the output probability of a coherent equal-weight qubit.",
+    "example": "At φ = π/3, cos φ = 1/2 and P(0) = 3/4."
+  },
+  "insight": "A suitable recombination reveals relative-phase coherence that direct basis measurement misses.",
+  "misconceptions": [
+    {
+      "myth": "A superposition and a random mixture always give the same predictions.",
+      "correction": "A suitable recombination reveals coherence and distinguishes them."
+    },
+    {
+      "myth": "A global phase changes observable probabilities.",
+      "correction": "Rotating all amplitudes together preserves relative phase and every probability."
+    }
+  ],
+  "check": {
+    "question": "Which test distinguishes the coherent plus state from an equal zero–one mixture?",
+    "options": [
+      "Only measuring zero or one directly",
+      "Recombining the amplitudes before measurement",
+      "Counting the number of basis labels"
+    ],
+    "answer": 1,
+    "explanation": "A suitable recombination reveals relative-phase coherence that direct basis measurement misses."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures: Spin One-Half",
+      "url": "https://www.feynmanlectures.caltech.edu/III_06.html"
+    },
+    {
+      "title": "Feynman Lectures: The Hamiltonian Matrix",
+      "url": "https://www.feynmanlectures.caltech.edu/III_08.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Recombining a superposition",
+    "description": "Compute the output probability of a coherent equal-weight qubit.",
+    "inputs": [
+      {
+        "key": "phase",
+        "label": "Relative phase",
+        "unit": "rad",
+        "min": 0,
+        "max": 6.283185307179586,
+        "step": 0.05,
+        "initial": 1.0471975511965976
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Probability zero",
+        "unit": "",
+        "expression": [
+          "/",
+          [
+            "+",
+            1,
+            [
+              "cos",
+              "phase"
+            ]
+          ],
+          2
+        ]
+      }
+    ],
+    "assumptions": "Ideal pure qubit, equal initial magnitudes and noiseless Hadamard recombination. This is not a model of macroscopic measurement."
+  }
+}
