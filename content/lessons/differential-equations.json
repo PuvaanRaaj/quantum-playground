@@ -1,0 +1,202 @@
+{
+  "slug": "differential-equations",
+  "title": "Differential equations",
+  "category": "Mathematics",
+  "subtitle": "A differential equation describes how an unknown function changes instead of directly listing its values.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A differential equation describes how an unknown function changes instead of directly listing its values. If the rate of loss of a quantity is proportional to the amount remaining, the equation is dy/dt = −ky, with k positive. The unknown is the whole function y(t). Many functions might satisfy a less restrictive equation, so we usually need an initial condition such as y(0) = y₀ to identify a particular evolution.",
+  "why": "Differential equations connect local laws of change to complete trajectories and time-dependent predictions.",
+  "prerequisites": [
+    "Functions and algebra",
+    "Basic differentiation"
+  ],
+  "terms": [
+    {
+      "term": "Differential equation",
+      "definition": "An equation relating an unknown function to one or more of its derivatives."
+    },
+    {
+      "term": "Initial condition",
+      "definition": "A specified value of the solution at a starting input."
+    },
+    {
+      "term": "Order",
+      "definition": "The highest derivative order appearing in the equation."
+    },
+    {
+      "term": "Equilibrium",
+      "definition": "A constant solution at which the rate of change vanishes."
+    },
+    {
+      "term": "Numerical solution",
+      "definition": "An approximation calculated by finite computational steps."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Specify a rule for change",
+      "paragraphs": [
+        "A differential equation describes how an unknown function changes instead of directly listing its values. If the rate of loss of a quantity is proportional to the amount remaining, the equation is dy/dt = −ky, with k positive. The unknown is the whole function y(t). Many functions might satisfy a less restrictive equation, so we usually need an initial condition such as y(0) = y₀ to identify a particular evolution.",
+        "Differential equations developed alongside seventeenth-century calculus and mechanics, with major contributions from Newton, Leibniz, the Bernoulli family, Euler, and many others. They provided a way to turn local physical laws into predictions over time. Newton’s second law, for example, relates position’s second derivative to force. Solving the resulting equation connects a force law and initial motion to a trajectory."
+      ]
+    },
+    {
+      "title": "Solve a separable equation",
+      "paragraphs": [
+        "For dy/dt = −ky with nonzero y, divide by y and integrate: ∫dy/y = −k∫dt. This yields ln|y| = −kt + C. Exponentiating gives y = Ae^(−kt), with a signed constant A. Applying y(0) = y₀ sets A = y₀. The zero solution, temporarily excluded when dividing by y, also satisfies the original equation and is included by choosing y₀ = 0.",
+        "Always verify a proposed solution in the original equation. Differentiating y₀e^(−kt) gives −ky₀e^(−kt), exactly −ky, and evaluating at zero gives y₀. This check confirms both the differential equation and the initial condition. Merely producing an expression that looks like an exponential would not be enough, especially when a separation step has divided by something that could vanish."
+      ]
+    },
+    {
+      "title": "A numerical example with units",
+      "paragraphs": [
+        "Consider a fictional reservoir holding 80 litres of a well-mixed substance whose amount decreases at a fractional rate of 0.2 per hour, with no incoming supply. The model gives y(t) = 80e^(−0.2t) litres. At five hours, y = 80/e, approximately 29.43 litres. The rate at that moment is −0.2 times 29.43, approximately −5.89 litres per hour. The amount and its rate carry different units.",
+        "The time to halve the amount satisfies y/y₀ = 1/2 = e^(−kt). Taking logarithms gives t_half = ln 2/k, approximately 3.47 hours for k = 0.2 per hour. This time does not depend on the starting amount under the proportional-loss assumption. A constant absolute loss rate would instead produce a straight-line decrease and a starting-amount-dependent halving time."
+      ]
+    },
+    {
+      "title": "Approximate when exact formulas are unavailable",
+      "paragraphs": [
+        "Euler’s numerical method estimates y at the next time using y_next = y_current + Δt f(t, y_current). It follows the current tangent over a short step. For our decay example with a one-hour step, it predicts 80 + 1·(−16) = 64 litres after one hour. The exact value is about 65.50 litres. The discrepancy comes from the rate changing during the step, while Euler’s method holds its starting value fixed.",
+        "Smaller steps generally reduce error for a stable, sufficiently regular problem, but that is not an unconditional guarantee for every equation or numerical method. For decay, an excessively large Euler step can even produce negative amounts that the exact positive solution never reaches. Numerical stability and accuracy are distinct issues: a method can avoid explosive artifacts and still have a significant quantitative error."
+      ]
+    },
+    {
+      "title": "Existence, uniqueness, and modeling choices",
+      "paragraphs": [
+        "A differential equation plus an initial value does not always guarantee exactly one solution. Appropriate regularity conditions on f, including a local Lipschitz condition in the dependent variable, provide familiar uniqueness results. Without such conditions, solutions may branch. Some equations also develop singular behavior in finite time. These possibilities are mathematical features that a plotting tool may hide if it simply returns one computed curve.",
+        "The equation itself must come from assumptions. Proportional decay assumes the fractional loss rate remains constant; it excludes replenishment, saturation, changing temperature, and feedback unless those effects are added. Fitting one exponential to a short data segment does not establish the mechanism. The calculator evaluates the exact proportional-decay solution with nonnegative time, positive rate, and nonnegative initial amount. It therefore stays finite and nonnegative across its controls.",
+        "More complicated systems use several coupled equations, while partial differential equations describe changes with respect to both space and time. The organizing idea remains the same: state a local rule, specify enough initial or boundary information, determine a solution, then check whether it satisfies both the mathematical conditions and the physical situation. A computed trajectory is the consequence of that model, not independent evidence that nature follows the assumed rule."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "dy/dt = −ky ⇒ y(t) = y₀e^(−kt)",
+    "symbols": [
+      {
+        "symbol": "y",
+        "meaning": "Time-dependent amount"
+      },
+      {
+        "symbol": "t",
+        "meaning": "Elapsed time"
+      },
+      {
+        "symbol": "k",
+        "meaning": "Positive fractional decay rate"
+      },
+      {
+        "symbol": "y₀",
+        "meaning": "Initial amount at time zero"
+      }
+    ],
+    "explanation": "Exact solution of constant-rate proportional decay; no input, feedback, or changing rate.",
+    "example": "With y₀ = 80 L, k = 0.2 h⁻¹, and t = 5 h, y ≈ 29.43 L."
+  },
+  "insight": "The differential equation specifies the rate rule; the initial condition selects the particular solution.",
+  "misconceptions": [
+    {
+      "myth": "An equation alone always determines a unique trajectory.",
+      "correction": "Initial or boundary information and appropriate regularity conditions are also needed."
+    },
+    {
+      "myth": "Smaller-looking numerical steps guarantee correctness.",
+      "correction": "A numerical method still requires error and stability checks, and the physical model may be wrong."
+    }
+  ],
+  "check": {
+    "question": "What selects one exponential decay curve from the family?",
+    "options": [
+      "An initial amount",
+      "A graph color",
+      "The derivative notation alone"
+    ],
+    "answer": 0,
+    "explanation": "The differential equation specifies the rate rule; the initial condition selects the particular solution."
+  },
+  "sources": [
+    {
+      "title": "Jiří Lebl: Notes on Diffy Qs",
+      "url": "https://www.jirka.org/diffyqs/"
+    },
+    {
+      "title": "OpenStax: Calculus Volume 2",
+      "url": "https://openstax.org/details/books/calculus-volume-2"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Differential equations example",
+    "description": "With y₀ = 80 L, k = 0.2 h⁻¹, and t = 5 h, y ≈ 29.43 L.",
+    "inputs": [
+      {
+        "key": "t",
+        "label": "Elapsed time",
+        "unit": "h",
+        "min": 0,
+        "max": 20,
+        "step": 0.1,
+        "initial": 5
+      },
+      {
+        "key": "k",
+        "label": "Fractional decay rate",
+        "unit": "h⁻¹",
+        "min": 0.01,
+        "max": 1,
+        "step": 0.01,
+        "initial": 0.2
+      },
+      {
+        "key": "initial",
+        "label": "Initial amount",
+        "unit": "L",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "initial": 80
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Remaining amount",
+        "unit": "L",
+        "expression": [
+          "*",
+          "initial",
+          [
+            "exp",
+            [
+              "*",
+              -1,
+              "k",
+              "t"
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Instantaneous rate",
+        "unit": "L/h",
+        "expression": [
+          "*",
+          -1,
+          "k",
+          "initial",
+          [
+            "exp",
+            [
+              "*",
+              -1,
+              "k",
+              "t"
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Exact solution of constant-rate proportional decay; no input, feedback, or changing rate."
+  }
+}

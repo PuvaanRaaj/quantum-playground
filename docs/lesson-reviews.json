@@ -112,5 +112,11 @@
     "sourceSha256": "8cf1f9470b792690fb035d2ac4b6ebf5094aa1632329856442b4897384c4e9cc",
     "reviewRecord": "batch-3.json",
     "status": "approved"
+  },
+  "differential-equations": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "cc04bbbedc3894f4bed5557497c55cbe28612c80a1dcff2a2186ef739bc09a0a",
+    "reviewRecord": "batch-3.json",
+    "status": "approved"
   }
 }
