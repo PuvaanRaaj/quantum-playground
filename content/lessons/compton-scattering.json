@@ -1,0 +1,200 @@
+{
+  "slug": "compton-scattering",
+  "title": "Compton scattering",
+  "category": "Quantum mechanics",
+  "subtitle": "A photon can lose energy while transferring momentum to an electron.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Arthur Compton studied X-rays scattered from matter and found that part of the scattered radiation had a longer wavelength, with a shift depending on scattering angle.",
+  "why": "A photon can lose energy while transferring momentum to an electron.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Scattering angle",
+      "definition": "The angle between incoming and outgoing photon directions."
+    },
+    {
+      "term": "Compton wavelength",
+      "definition": "The length h/(mc) associated with a particle of mass m."
+    },
+    {
+      "term": "Recoil",
+      "definition": "Motion acquired by a target when momentum is transferred."
+    },
+    {
+      "term": "Rest energy",
+      "definition": "The energy mc² associated with a particle’s rest mass."
+    }
+  ],
+  "sections": [
+    {
+      "title": "A wavelength shift that required particle recoil",
+      "paragraphs": [
+        "Arthur Compton studied X-rays scattered from matter and found that part of the scattered radiation had a longer wavelength, with a shift depending on scattering angle. Treating the interaction as a collision between a photon and an electron explains the change using conservation of energy and momentum. Peter Debye independently developed related reasoning. The effect supplied important evidence that electromagnetic radiation carries momentum in discrete interactions. It complemented, rather than replaced, the photoelectric evidence and the wave phenomena that quantum theory must also explain.",
+        "The simplest calculation assumes an initially stationary, effectively free electron. A photon enters with energy E and momentum magnitude E/c. After scattering, its direction changes and its energy becomes E′. The electron recoils with the remaining momentum and kinetic energy. Since the electron has mass, the relativistic relation between its total energy and momentum is required for a general derivation. A photon cannot simply turn through an arbitrary angle while retaining both its original energy and satisfying momentum conservation with a recoiling initially stationary electron."
+      ]
+    },
+    {
+      "title": "Deriving the observable relation",
+      "paragraphs": [
+        "Conservation gives the electron’s final momentum as the vector difference between the incoming and outgoing photon momenta. Squaring this vector introduces the cosine of the scattering angle. Combining that expression with the electron’s relativistic energy relation and the total energy balance eliminates the unobserved recoil variables. The result can be written E′=E/[1+(E/mc²)(1−cos θ)]. Equivalently, the wavelength change is Δλ=(h/mc)(1−cos θ). The algebra links a geometric angle to a directly measurable spectral shift.",
+        "For an electron, h/(mc) is about 2.426 picometers. Forward scattering at θ=0 gives zero wavelength shift in this ideal limit. A right-angle scattering gives a shift of 2.426 picometers. Backscattering at θ=π gives the maximum shift, about 4.852 picometers. The wavelength shift at a fixed angle is independent of the incident wavelength within the assumptions, but the fractional energy loss is not. That distinction matters when comparing visible light with X-rays or gamma rays."
+      ]
+    },
+    {
+      "title": "A worked photon-energy example",
+      "paragraphs": [
+        "Take an incident photon energy of 100 kiloelectronvolts and electron rest energy approximately 511 kiloelectronvolts. At ninety degrees, the denominator is 1+100/511, about 1.196. The scattered photon energy is therefore about 83.63 kiloelectronvolts. The electron gains about 16.37 kiloelectronvolts of kinetic energy. Those values sum to the incident photon energy when the initial and final electron rest energies are canceled from the energy balance. The energy is redistributed, not destroyed by scattering.",
+        "At much lower photon energy than the electron rest energy, the fractional change becomes small and classical Thomson-scattering behavior is a useful limit for some purposes. At higher energies, recoil is more significant. The formula predicts the scattered energy conditional on a chosen angle; it does not tell you how probable that angle is. Computing an angular distribution requires a scattering cross section, including polarization and quantum-electrodynamic details. A plot of energy against angle should therefore not be mistaken for a histogram of how frequently scattering directions occur."
+      ]
+    },
+    {
+      "title": "What an ideal free-electron model omits",
+      "paragraphs": [
+        "Electrons in ordinary matter are bound and have momentum distributions. Binding effects, collective scattering and detector resolution can modify what an actual spectrum looks like. The free stationary-electron approximation is useful when the energy and momentum transfer make binding comparatively unimportant. Multiple scattering can also produce a more complicated outgoing spectrum than one collision. If the electron is initially moving, energy can even transfer from the electron to the photon in inverse Compton scattering. That is a different initial condition from the calculator here.",
+        "The model varies incident photon energy and angle and reports the outgoing energy and electron kinetic-energy gain. Positive incident energies and the nonnegative factor 1−cos θ ensure the denominator never vanishes. The model does not calculate scattering rates, material attenuation or detector counts. It illustrates a conservation-law consequence under specified initial conditions. Check the forward limit, the right-angle example and the backscattering limit before interpreting intermediate values. Understanding which quantities are conserved, and which depend on the frame in which the electron initially rests, makes the effect a useful bridge between quantum photons and special relativity."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "E′=E/[1+(E/511 keV)(1−cos θ)]",
+    "symbols": [
+      {
+        "symbol": "E,E′",
+        "meaning": "Incoming and outgoing photon energies."
+      },
+      {
+        "symbol": "θ",
+        "meaning": "Photon scattering angle."
+      },
+      {
+        "symbol": "511 keV",
+        "meaning": "Approximate electron rest energy."
+      }
+    ],
+    "explanation": "A photon can lose energy while transferring momentum to an electron.",
+    "example": "For E=100 keV and θ=π/2, E′≈83.63 keV and recoil kinetic energy≈16.37 keV."
+  },
+  "insight": "At θ=0, 1−cosθ=0, so E′=E.",
+  "misconceptions": [
+    {
+      "myth": "Forward scattering necessarily removes all photon energy.",
+      "correction": "At θ=0, 1−cosθ=0, so E′=E."
+    },
+    {
+      "myth": "The energy-angle curve tells how often each scattering angle occurs.",
+      "correction": "It gives the outgoing energy conditional on angle; an angular cross section is needed for rates."
+    }
+  ],
+  "check": {
+    "question": "At zero scattering angle, what energy shift occurs in this model?",
+    "options": [
+      "Zero",
+      "The photon loses all its energy",
+      "The energy doubles"
+    ],
+    "answer": 0,
+    "explanation": "At θ=0, 1−cosθ=0, so E′=E."
+  },
+  "sources": [
+    {
+      "title": "Compton: Nobel lecture",
+      "url": "https://www.nobelprize.org/uploads/2018/06/compton-lecture.pdf"
+    },
+    {
+      "title": "Nobel Prize: Compton biography",
+      "url": "https://www.nobelprize.org/prizes/physics/1927/compton/biographical/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Compton scattering model",
+    "description": "A photon can lose energy while transferring momentum to an electron.",
+    "inputs": [
+      {
+        "key": "energy",
+        "label": "Incident photon energy",
+        "min": 1,
+        "max": 1000,
+        "step": 1,
+        "initial": 100,
+        "unit": "keV"
+      },
+      {
+        "key": "theta",
+        "label": "Scattering angle",
+        "min": 0,
+        "max": 3.141592653589793,
+        "step": 0.05,
+        "initial": 1.5707963267948966,
+        "unit": "rad"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Scattered photon energy",
+        "expression": [
+          "/",
+          "energy",
+          [
+            "+",
+            1,
+            [
+              "*",
+              [
+                "/",
+                "energy",
+                511
+              ],
+              [
+                "-",
+                1,
+                [
+                  "cos",
+                  "theta"
+                ]
+              ]
+            ]
+          ]
+        ],
+        "unit": "keV"
+      },
+      {
+        "label": "Electron kinetic-energy gain",
+        "expression": [
+          "-",
+          "energy",
+          [
+            "/",
+            "energy",
+            [
+              "+",
+              1,
+              [
+                "*",
+                [
+                  "/",
+                  "energy",
+                  511
+                ],
+                [
+                  "-",
+                  1,
+                  [
+                    "cos",
+                    "theta"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "unit": "keV"
+      }
+    ],
+    "assumptions": "One photon scattering from a free electron initially at rest. No binding, initial thermal motion, multiple scattering, polarization or cross-section calculation."
+  }
+}

@@ -244,5 +244,11 @@
     "sourceSha256": "33a38d0899a9242e271e743f260b98d85b2db8ebc7713a20f7eb3838e97d799a",
     "reviewRecord": "batch-7.json",
     "status": "approved"
+  },
+  "compton-scattering": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "d93812a569ea5cfeb7b7fe3c51e574e45fc763f760c34e18855fc1c2c4192d45",
+    "reviewRecord": "batch-7.json",
+    "status": "approved"
   }
 }
