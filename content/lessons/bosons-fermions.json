@@ -1,0 +1,159 @@
+{
+  "slug": "bosons-fermions",
+  "title": "Bosons and fermions",
+  "category": "Quantum mechanics",
+  "subtitle": "Exchange symmetry changes how identical quantum particles occupy states.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Two coins can be practically indistinguishable while still having separate classical identities and trajectories.",
+  "why": "Exchange symmetry changes how identical quantum particles occupy states.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Boson",
+      "definition": "A particle species with symmetric exchange states in the standard three-dimensional setting."
+    },
+    {
+      "term": "Fermion",
+      "definition": "A particle species with antisymmetric exchange states."
+    },
+    {
+      "term": "Occupation number",
+      "definition": "The number of particles assigned to a one-particle mode."
+    },
+    {
+      "term": "Chemical potential",
+      "definition": "A thermodynamic parameter controlling particle number and occupation."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Identical means more than difficult to tell apart",
+      "paragraphs": [
+        "Two coins can be practically indistinguishable while still having separate classical identities and trajectories. Identical quantum particles require a different counting rule. Exchanging their labels does not create an independently distinguishable physical arrangement. In ordinary three-dimensional quantum theory, bosonic states are symmetric under exchange and fermionic states are antisymmetric. Satyendra Nath Bose’s counting of light quanta, Einstein’s extension to material particles, and the statistics developed by Fermi and Dirac established central parts of this subject. The connection between integer or half-integer spin and exchange behavior is the spin-statistics theorem, whose full derivation belongs to relativistic quantum field theory.",
+        "Examples help establish the categories. Photons are bosons; electrons are fermions. Some composite atoms can behave as bosons and others as fermions depending on their total spin. Treating a composite as a simple particle is an effective description valid when its internal structure is not being resolved or strongly disrupted. In two-dimensional systems, more general exchange behavior can occur, so the elementary two-category statement has a domain. That qualification does not invalidate the ordinary rules for photons and electrons used in this lesson."
+      ]
+    },
+    {
+      "title": "How the sign changes allowed occupation",
+      "paragraphs": [
+        "For two bosons in one-particle states a and b, a symmetric joint wavefunction adds the exchanged assignments. For fermions, the antisymmetric combination subtracts them. If the complete one-particle states are identical, the fermionic expression cancels to zero, producing the Pauli exclusion restriction. The bosonic expression does not cancel, so many bosons can occupy the same mode. This difference changes the number of available many-particle arrangements and consequently changes equilibrium distributions.",
+        "It is tempting to summarize the distinction by saying bosons attract and fermions repel. That is unreliable. Exchange effects can resemble bunching or avoidance in particular measurements, but they are not universal additional forces. Bosons can repel through ordinary interactions, and fermions can form bound pairs through effective attractive interactions. What exchange symmetry fixes is the structure of allowed joint states. The actual spatial arrangement and energy still depend on the Hamiltonian, temperature, density and experimental preparation."
+      ]
+    },
+    {
+      "title": "The occupation formulas",
+      "paragraphs": [
+        "For an ideal equilibrium gas, define x=(E−μ)/(k_BT), using mode energy E, chemical potential μ and temperature T. The mean fermionic occupation is 1/(exp(x)+1), while the bosonic expression is 1/(exp(x)−1) when the denominator is physically valid. At x=1, these are approximately 0.269 and 0.582. The fermionic mean cannot exceed one for a single fully specified state. The bosonic mean can exceed one; it is an average occupation count rather than the probability of one outcome.",
+        "When x is large and positive, exp(x) dominates either plus or minus one. Both distributions approach exp(−x), the classical dilute limit. At x=5, the fermionic occupation is about 0.00669 and the bosonic occupation about 0.00678. Their difference is small because states are rarely occupied. Quantum statistics becomes especially important when occupancy is not dilute. For bosons near the lowest mode, the limiting behavior requires care with chemical potential and particle-number constraints rather than blindly substituting zero into a denominator."
+      ]
+    },
+    {
+      "title": "Condensation and the limits of one curve",
+      "paragraphs": [
+        "Bose–Einstein condensation refers to macroscopic occupation of a mode under suitable conditions. It is not merely the statement that two bosons can share a state, nor does it automatically mean a material is frictionless. Superfluidity and condensation are related but distinct concepts that depend on interactions and dimensionality. Likewise, a degenerate fermion gas is not a collection of particles all in the same lowest mode. Exclusion forces occupation of a range of available states, creating a Fermi surface in the simplest momentum-space description.",
+        "The calculator compares the two mean-occupation formulas over positive x from 0.2 to 5. This keeps the bosonic denominator nonzero and avoids suggesting a calculation of a condensate at its singular limit. It does not determine chemical potential from density, include interactions, or produce a phase diagram. Its purpose is to display the effect of one sign in the denominator after the physical assumptions have been established. Compare the large-x agreement with the small-x separation, and explain why a bosonic occupation above one is allowed. That explanation connects abstract exchange symmetry to the statistical behavior of many-particle matter."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "n_F=1/(eˣ+1); n_B=1/(eˣ−1)",
+    "symbols": [
+      {
+        "symbol": "x",
+        "meaning": "(E−μ)/(k_BT), restricted here to positive values."
+      },
+      {
+        "symbol": "n_F,n_B",
+        "meaning": "Mean occupation of one mode, not outcome probability."
+      }
+    ],
+    "explanation": "Exchange symmetry changes how identical quantum particles occupy states.",
+    "example": "At x=1, n_F≈0.269 and n_B≈0.582."
+  },
+  "insight": "Mean occupation is a particle count, so bosons may have values above one.",
+  "misconceptions": [
+    {
+      "myth": "Every mean occupation is a probability bounded by one.",
+      "correction": "Mean occupation is a particle count, so bosons may have values above one."
+    },
+    {
+      "myth": "Bosons always attract and fermions always repel.",
+      "correction": "Exchange symmetry governs allowed states; actual forces and correlations also depend on interactions and preparation."
+    }
+  ],
+  "check": {
+    "question": "Can a bosonic mean mode occupation exceed one?",
+    "options": [
+      "Yes, it counts particles rather than being a probability",
+      "No, all averages are probabilities",
+      "Only if conservation of probability fails"
+    ],
+    "answer": 0,
+    "explanation": "Mean occupation is a particle count, so bosons may have values above one."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 4",
+      "url": "https://www.feynmanlectures.caltech.edu/III_04.html"
+    },
+    {
+      "title": "Feynman Lectures: Statistical Mechanics",
+      "url": "https://www.feynmanlectures.caltech.edu/I_40.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Bosons and fermions model",
+    "description": "Exchange symmetry changes how identical quantum particles occupy states.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Scaled mode energy",
+        "min": 0.2,
+        "max": 5,
+        "step": 0.05,
+        "initial": 1,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Fermion occupation",
+        "expression": [
+          "/",
+          1,
+          [
+            "+",
+            [
+              "exp",
+              "x"
+            ],
+            1
+          ]
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Boson occupation",
+        "expression": [
+          "/",
+          1,
+          [
+            "-",
+            [
+              "exp",
+              "x"
+            ],
+            1
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Ideal equilibrium occupations for one fully specified mode, x>0. No interactions, density constraint, condensate calculation or two-dimensional anyons."
+  }
+}
