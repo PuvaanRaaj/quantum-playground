@@ -14,8 +14,12 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const managedLinux = readExecutionProfile() === "managed-linux";
 
 const localBindingConfig = {
-  main: "vinext/server/fetch-handler",
+  main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
+  durable_objects: {
+    bindings: [{ name: "AUDIENCE", class_name: "AudienceRoom" }],
+  },
+  migrations: [{ tag: "v1-audience", new_sqlite_classes: ["AudienceRoom"] }],
   d1_databases: d1
     ? [
         {
