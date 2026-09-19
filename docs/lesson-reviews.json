@@ -334,5 +334,11 @@
     "sourceSha256": "1993b4f9dbaed79d8617672a93955d4e281427d5a8974bd13d0614a8aa9f6358",
     "reviewRecord": "batch-13.json",
     "status": "approved"
+  },
+  "conservation-momentum": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "ba18e041c3e6d293743a661b1c592656a69907360fbe8ede62e37d5635bc3dbb",
+    "reviewRecord": "batch-13.json",
+    "status": "approved"
   }
 }

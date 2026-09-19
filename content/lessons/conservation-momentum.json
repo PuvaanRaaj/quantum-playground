@@ -1,0 +1,211 @@
+{
+  "slug": "conservation-momentum",
+  "title": "Conservation of momentum",
+  "category": "Classical physics",
+  "subtitle": "Momentum conservation says the total momentum of a system stays constant when the net external force is zero, or across an interval when the net external impulse vanishes.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "teal",
+  "intro": "Momentum conservation says the total momentum of a system stays constant when the net external force is zero, or across an interval when the net external impulse vanishes. Individual objects can exchange momentum dramatically while the total remains unchanged. The statement requires a defined system boundary: a ball alone and the ball plus wall are different systems with different external interactions.",
+  "why": "Kinetic energy can become internal energy while the isolated system’s vector momentum stays constant.",
+  "prerequisites": [
+    "Algebra and vectors",
+    "Basic derivatives"
+  ],
+  "terms": [
+    {
+      "term": "Momentum",
+      "definition": "For a classical particle, the vector mv."
+    },
+    {
+      "term": "Impulse",
+      "definition": "The time integral of force, equal to momentum change."
+    },
+    {
+      "term": "Isolated system",
+      "definition": "A system with no net external impulse over the interval of interest."
+    },
+    {
+      "term": "Elastic collision",
+      "definition": "A collision conserving total kinetic energy as well as momentum."
+    },
+    {
+      "term": "Inelastic collision",
+      "definition": "A collision in which total kinetic energy of bulk motion is not conserved."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Track a system rather than one object",
+      "paragraphs": [
+        "Momentum conservation says the total momentum of a system stays constant when the net external force is zero, or across an interval when the net external impulse vanishes. Individual objects can exchange momentum dramatically while the total remains unchanged. The statement requires a defined system boundary: a ball alone and the ball plus wall are different systems with different external interactions.",
+        "Ideas about quantities of motion developed through work by Descartes, Huygens, Newton, and others. The modern vector definition distinguishes momentum from kinetic energy and from speed alone. Momentum has direction, so equal amounts moving oppositely can sum to zero even while both objects carry positive kinetic energy. This distinction is essential in collision problems."
+      ]
+    },
+    {
+      "title": "Derive conservation from force balance",
+      "paragraphs": [
+        "For two constant-mass particles, dp₁/dt equals the external force on particle one plus the force from particle two. The corresponding equation for particle two contains the opposite internal force. Add the equations. The internal pair cancels, leaving d(p₁ + p₂)/dt = F_external,total. If that total external force is zero, the derivative of total momentum is zero and total momentum is constant.",
+        "For a short collision with some external force present, integrate over time. The total change is the external impulse ∫F_external dt. If that impulse is negligible compared with the internal momentum exchange, conservation is a useful approximation even when the system is not perfectly isolated. A short interval alone does not guarantee negligibility; the force magnitude and required accuracy also matter."
+      ]
+    },
+    {
+      "title": "Calculate a sticking collision",
+      "paragraphs": [
+        "Consider a two-kilogram cart moving right at three metres per second and a one-kilogram cart moving left at one metre per second. Choose right as positive. The initial total momentum is 2·3 + 1·(−1) = 5 kilogram metres per second. If they stick together, their combined mass is three kilograms, so their common velocity is 5/3 metres per second to the right.",
+        "The initial kinetic energy is (1/2)·2·3² + (1/2)·1·1² = 9.5 joules. The final kinetic energy is (1/2)·3·(5/3)² = 25/6 joules, about 4.167 joules. The difference, about 5.333 joules, becomes internal energy, deformation, sound, or other forms. Momentum conservation does not imply conservation of kinetic energy, and total energy has not disappeared."
+      ]
+    },
+    {
+      "title": "Impulse explains force duration",
+      "paragraphs": [
+        "For a single object, impulse J = Δp. If a one-kilogram object changes velocity from four metres per second to zero, its momentum change is minus four kilogram metres per second. Spreading that change uniformly over 0.2 seconds requires an average force of minus twenty newtons. Over 0.02 seconds the average magnitude is two hundred newtons. The same momentum change can correspond to very different peak and average forces.",
+        "This is why cushioning can reduce forces while leaving the required stopping impulse unchanged. The force need not actually be constant; average force is impulse divided by duration. A force-time graph’s signed area gives impulse. Opposing force segments can cancel in that integral, so maximum force alone is not enough to determine momentum change."
+      ]
+    },
+    {
+      "title": "Center-of-mass motion and frame dependence",
+      "paragraphs": [
+        "For a fixed collection of particles, total momentum equals total mass times center-of-mass velocity. With no net external force, that center moves uniformly even while internal motions are complicated. An explosion can send fragments in many directions without accelerating the center of mass of the isolated collection. Internal energy can become kinetic energy, but the vector momentum balance still applies.",
+        "Momentum values depend on the inertial frame. A system with zero total momentum in its center-of-mass frame may have nonzero momentum in a moving laboratory frame. Conservation remains valid in both frames under the same Newtonian assumptions. Kinetic energy also changes with frame, so comparing energies requires keeping the reference frame consistent."
+      ]
+    },
+    {
+      "title": "Limits and the model boundary",
+      "paragraphs": [
+        "Electromagnetic fields can carry momentum, and a complete conservation statement must include them when relevant. Relativistic particles require relativistic momentum rather than mv. Variable-mass systems require tracking material crossing the boundary. These extensions preserve the importance of system accounting while changing the elementary formulas used for each contribution.",
+        "The calculator varies the first cart’s initial velocity and both positive masses, while the second cart begins at rest. It computes the common velocity after a perfectly inelastic collision and the lost bulk kinetic energy. The loss formula is nonnegative for the allowed inputs and can be derived by substituting the conserved-momentum velocity into the final kinetic energy. The diagram is a one-dimensional idealization with negligible external impulse; it does not model material deformation, collision duration, or the detailed force profile."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "m₁u₁ + m₂u₂ = (m₁+m₂)v",
+    "symbols": [
+      {
+        "symbol": "m₁,m₂",
+        "meaning": "Positive cart masses"
+      },
+      {
+        "symbol": "u₁,u₂",
+        "meaning": "Initial signed velocities"
+      },
+      {
+        "symbol": "v",
+        "meaning": "Common final velocity after sticking"
+      }
+    ],
+    "explanation": "Perfectly inelastic one-dimensional collision with second cart initially at rest and negligible external impulse.",
+    "example": "With m₁=2 kg, u₁=3 m/s, m₂=1 kg initially at rest, final speed is 2 m/s."
+  },
+  "insight": "Kinetic energy can become internal energy while the isolated system’s vector momentum stays constant.",
+  "misconceptions": [
+    {
+      "myth": "Momentum conservation means kinetic energy is conserved.",
+      "correction": "Inelastic collisions conserve momentum without conserving bulk kinetic energy."
+    },
+    {
+      "myth": "A force’s peak value determines impulse.",
+      "correction": "Impulse depends on its signed time integral, including duration."
+    }
+  ],
+  "check": {
+    "question": "In a sticking collision, which quantity can decrease while total momentum is conserved?",
+    "options": [
+      "Total bulk kinetic energy",
+      "Total mass in this model",
+      "Total momentum"
+    ],
+    "answer": 0,
+    "explanation": "Kinetic energy can become internal energy while the isolated system’s vector momentum stays constant."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: University Physics Volume 1",
+      "url": "https://openstax.org/details/books/university-physics-volume-1"
+    },
+    {
+      "title": "MIT OpenCourseWare: Classical Mechanics",
+      "url": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Conservation of momentum model",
+    "description": "With m₁=2 kg, u₁=3 m/s, m₂=1 kg initially at rest, final speed is 2 m/s.",
+    "inputs": [
+      {
+        "key": "velocity",
+        "label": "First cart velocity",
+        "unit": "m/s",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 3
+      },
+      {
+        "key": "m1",
+        "label": "First mass",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 2
+      },
+      {
+        "key": "m2",
+        "label": "Second mass",
+        "unit": "kg",
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 1
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Common final velocity",
+        "unit": "m/s",
+        "expression": [
+          "/",
+          [
+            "*",
+            "m1",
+            "velocity"
+          ],
+          [
+            "+",
+            "m1",
+            "m2"
+          ]
+        ]
+      },
+      {
+        "label": "Lost bulk kinetic energy",
+        "unit": "J",
+        "expression": [
+          "*",
+          0.5,
+          [
+            "/",
+            [
+              "*",
+              "m1",
+              "m2"
+            ],
+            [
+              "+",
+              "m1",
+              "m2"
+            ]
+          ],
+          [
+            "pow",
+            "velocity",
+            2
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Perfectly inelastic one-dimensional collision with second cart initially at rest and negligible external impulse."
+  }
+}
