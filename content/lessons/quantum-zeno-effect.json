@@ -1,0 +1,151 @@
+{
+  "slug": "quantum-zeno-effect",
+  "title": "The quantum Zeno effect",
+  "category": "Quantum mechanics",
+  "subtitle": "Repeated suitable measurements can suppress transitions in a controlled quantum model.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "The quantum Zeno effect concerns how sufficiently frequent suitable measurements can inhibit evolution away from a selected state.",
+  "why": "Repeated suitable measurements can suppress transitions in a controlled quantum model.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Survival probability",
+      "definition": "Probability of obtaining the initially selected state again."
+    },
+    {
+      "term": "Projection",
+      "definition": "Ideal state selection associated with a measurement result."
+    },
+    {
+      "term": "Measurement interval",
+      "definition": "Time between successive checks."
+    },
+    {
+      "term": "Anti-Zeno effect",
+      "definition": "Acceleration rather than suppression under certain measurement regimes."
+    }
+  ],
+  "sections": [
+    {
+      "title": "A physical measurement process",
+      "paragraphs": [
+        "The quantum Zeno effect concerns how sufficiently frequent suitable measurements can inhibit evolution away from a selected state. Baidyanath Misra and George Sudarshan gave a prominent theoretical treatment in 1977. Experiments involving trapped ions, including work by Itano, Heinzen, Bollinger and Wineland, explored related suppression in controlled driven systems. Observing refers to physical interactions and a specified measurement protocol. It does not mean a person staring with unusual concentration. The effect follows from quantum dynamics together with the relevant account of measurement.",
+        "The classical Zeno paradox asks how motion can occur through infinitely many subdivisions. A quantum Zeno calculation instead compares physically different experimental arrangements: uninterrupted evolution and evolution interrupted by measurements. Changing the arrangement changes the state or its correlations. It does not require declaring time unreal or all motion impossible. The useful question is whether the intervention timescale and dynamics put the system in a regime where repeated checks reduce the probability of the particular transition being studied. Without those details, the phrase frequent observation is too vague to calculate anything."
+      ]
+    },
+    {
+      "title": "The short-time quadratic law",
+      "paragraphs": [
+        "For an ideal coherently driven two-state system initially in zero, uninterrupted survival after time t is cos²(Ωt/2). At short times this is approximately one minus a term proportional to t². Divide total time T into N equal intervals and make ideal projective checks after each, selecting the branch that always returns the initial state. Every successful check prepares that state again. The probability of all N successes is [cos²(ΩT/(2N))]ᴺ. This follows by multiplying the same conditional survival probability for the repeated intervals.",
+        "For large N, each interval’s departure probability scales as (T/N)². Combining N small risks gives an overall scale proportional to T²/N, which tends to zero in the ideal limit. That reasoning explains suppression without consciousness or new forces. It also exposes the assumptions: the check must reset the relevant conditional state, and the quadratic short-time behavior must apply during the intervals. A purely exponential decay law assumed valid down to arbitrarily short times would not yield the same measurement-frequency dependence."
+      ]
+    },
+    {
+      "title": "Compare finite numbers of checks",
+      "paragraphs": [
+        "Choose a total resonant rotation ΩT=π. Without intermediate measurements, the system transfers fully to the other state, so initial-state survival is zero. With two equal intervals and a check after each, the probability of surviving every check is [cos²(π/4)]²=0.25. With ten intervals it is [cos²(π/20)]¹⁰, approximately 0.7805. With one hundred it is about 0.9756. These are finite, calculable probabilities, not claims that an infinitely fast apparatus can actually be built.",
+        "The event being calculated is specifically that every check returns the initial state. It is not automatically the same as final initial-state population if all intermediate outcomes are retained and allowed to evolve. A failed check changes the conditional branch. A full unconditioned measurement calculation must average over those branches. This distinction matters because two graphs described informally as survival can refer to different experimental questions. Specify the recorded event before comparing a model with data or concluding that one protocol has frozen a system more effectively."
+      ]
+    },
+    {
+      "title": "Limits of the ideal projection picture",
+      "paragraphs": [
+        "Real measurements take time, have finite strength and couple to additional degrees of freedom. Depending on the environment and schedule, interventions can accelerate a process, producing an anti-Zeno regime, or generate behavior not captured by sharp resets. A driven atomic experiment can also be modeled through coherent interactions with its apparatus. These alternative descriptions examine the physical mechanism; they do not insert a hidden requirement for mental awareness. Measurement is an experimentally defined interaction, and its implementation matters.",
+        "The calculator fixes the total rotation to π and varies an integer number of ideal checks. Its trigonometric base is nonnegative and it reports the all-success probability. It does not simulate radioactive decay, continuous monitoring, finite-duration apparatus or the distribution of failed branches. Increasing the number of ideal checks here changes a precisely stated protocol, not a universal property of every watched object. Compare N=2 with N=10 and explain the conditional preparation after each success. That explanation connects the result to ordinary quantum state evolution. It also identifies what a real experiment would need to approximate before the plotted curve could reasonably describe its measured statistics."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Psurvival=[cos²(π/(2N))]ᴺ",
+    "symbols": [
+      {
+        "symbol": "N",
+        "meaning": "Positive integer number of ideal checks."
+      },
+      {
+        "symbol": "π",
+        "meaning": "Fixed total coherent rotation."
+      }
+    ],
+    "explanation": "Repeated suitable measurements can suppress transitions in a controlled quantum model.",
+    "example": "N=2 gives 0.25; N=10 gives approximately 0.7805."
+  },
+  "insight": "Successful measurements repeatedly prepare the initial state and change subsequent evolution.",
+  "misconceptions": [
+    {
+      "myth": "Quantum Zeno suppression means time stops everywhere.",
+      "correction": "Successful measurements repeatedly prepare the initial state and change subsequent evolution."
+    },
+    {
+      "myth": "Every repeated measurement always slows every decay process.",
+      "correction": "The outcome depends on dynamics, timescales and measurement coupling; acceleration is possible in other regimes."
+    }
+  ],
+  "check": {
+    "question": "What distinguishes the repeated-check protocol?",
+    "options": [
+      "A person concentrates",
+      "Checks conditionally reprepare the initial state",
+      "Time stops everywhere"
+    ],
+    "answer": 1,
+    "explanation": "Successful measurements repeatedly prepare the initial state and change subsequent evolution."
+  },
+  "sources": [
+    {
+      "title": "NIST: The quantum Zeno paradox, 42 years on",
+      "url": "https://www.nist.gov/publications/quantum-zeno-paradox-42-years"
+    },
+    {
+      "title": "Itano and colleagues: Quantum Zeno effect",
+      "url": "https://tf.nist.gov/general/pdf/858.pdf"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "The quantum Zeno effect model",
+    "description": "Repeated suitable measurements can suppress transitions in a controlled quantum model.",
+    "inputs": [
+      {
+        "key": "n",
+        "label": "Ideal checks",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "initial": 10,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "All-success survival",
+        "expression": [
+          "pow",
+          [
+            "pow",
+            [
+              "cos",
+              [
+                "/",
+                3.141592653589793,
+                [
+                  "*",
+                  2,
+                  "n"
+                ]
+              ]
+            ],
+            2
+          ],
+          "n"
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Instantaneous ideal projective checks with a fixed total π rotation; event is every check returning the initial state. Not unconditioned final population or generic decay."
+  }
+}
