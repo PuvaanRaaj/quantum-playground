@@ -1,0 +1,226 @@
+{
+  "slug": "noether-symmetry",
+  "title": "Noether’s theorem",
+  "category": "Mathematics",
+  "subtitle": "Noether’s theorem connects continuous symmetries of an action to conserved quantities along the resulting equations of motion.",
+  "minutes": 16,
+  "level": "Go deeper",
+  "accent": "amber",
+  "intro": "Noether’s theorem connects continuous symmetries of an action to conserved quantities along the resulting equations of motion. Time-translation symmetry is associated with energy, spatial-translation symmetry with momentum, and rotational symmetry with angular momentum. The theorem explains a structural reason for conservation laws rather than treating them as unrelated rules discovered one at a time.",
+  "why": "A time-independent action yields a conserved energy function under the stated dynamical assumptions.",
+  "prerequisites": [
+    "Algebra and logical arguments",
+    "For Noether: differentiation and mechanics"
+  ],
+  "terms": [
+    {
+      "term": "Symmetry",
+      "definition": "A transformation that leaves the relevant physical action unchanged, possibly up to a boundary term."
+    },
+    {
+      "term": "Action",
+      "definition": "The time integral of a Lagrangian along a path."
+    },
+    {
+      "term": "Lagrangian",
+      "definition": "A function of coordinates, velocities, and time specifying dynamics through stationary action."
+    },
+    {
+      "term": "Conserved quantity",
+      "definition": "A quantity constant along a system’s allowed motion."
+    },
+    {
+      "term": "Continuous transformation",
+      "definition": "A transformation varied smoothly by a parameter, such as a small translation."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Connect symmetry with conservation",
+      "paragraphs": [
+        "Noether’s theorem connects continuous symmetries of an action to conserved quantities along the resulting equations of motion. Time-translation symmetry is associated with energy, spatial-translation symmetry with momentum, and rotational symmetry with angular momentum. The theorem explains a structural reason for conservation laws rather than treating them as unrelated rules discovered one at a time.",
+        "Emmy Noether proved her influential theorems in 1918 while working in the mathematical environment surrounding general relativity. Her work also transformed abstract algebra, and her achievements should not be reduced to one result. The theorem discussed here is a simplified finite-dimensional version of the first theorem. Gauge symmetries and field theories require broader statements, and global energy in general relativity has additional subtleties."
+      ]
+    },
+    {
+      "title": "Introduce the action carefully",
+      "paragraphs": [
+        "For coordinates q and velocities q̇, a Lagrangian L(q,q̇,t) defines the action S = ∫L dt. The actual path makes the action stationary under suitable small variations with fixed endpoints. Stationary does not necessarily mean a global minimum. Applying the calculus of variations yields the Euler–Lagrange equation d/dt(∂L/∂q̇) = ∂L/∂q for each coordinate.",
+        "For an ordinary particle with L = (1/2)m q̇² − V(q), the left side is m q̈ and the right side is −dV/dq. The equation therefore reproduces Newton’s force law for a conservative potential. The partial derivative ∂L/∂q̇ is the conjugate momentum. It equals mv in this simple model, but other Lagrangians can give a different expression, so that identification should not be made universally."
+      ]
+    },
+    {
+      "title": "Derive a conserved quantity from a small symmetry",
+      "paragraphs": [
+        "Consider an infinitesimal coordinate transformation δq = εf(q), with time unchanged and a constant small parameter ε. Its velocity variation is δq̇ = ε df/dt. If L is exactly invariant to first order, its variation divided by ε is (∂L/∂q)f + (∂L/∂q̇)df/dt = 0. Along a solution, replace ∂L/∂q by d/dt(∂L/∂q̇) using the Euler–Lagrange equation.",
+        "The expression becomes the product derivative d/dt[(∂L/∂q̇)f] = 0. Hence the quantity (∂L/∂q̇)f is conserved. With several coordinates, sum these contributions. If the Lagrangian changes by a total time derivative instead of exactly zero, the conserved expression includes a corresponding correction. This short derivation deliberately states its restricted assumptions rather than claiming to cover every form of Noether’s theorem."
+      ]
+    },
+    {
+      "title": "Apply translations and rotations",
+      "paragraphs": [
+        "For a free particle, L = (1/2)m q̇² does not depend on position. A translation q → q + ε has f = 1 and leaves L unchanged. The conserved quantity is therefore ∂L/∂q̇ = mq̇, ordinary momentum. If a potential depends on q, translation symmetry can be broken and momentum need not remain constant because the particle exchanges it with whatever creates the potential.",
+        "In two dimensions, a small rotation changes x by −εy and y by εx. For an isotropic kinetic term and a potential depending only on radius, rotational invariance gives the conserved combination −ypₓ + xpᵧ. This is the perpendicular component of angular momentum. A central force can change the direction of momentum while preserving angular momentum because it exerts no torque about the center."
+      ]
+    },
+    {
+      "title": "Energy needs time symmetry",
+      "paragraphs": [
+        "For a Lagrangian with no explicit time dependence, the energy function E = Σp_i q̇_i − L is conserved along solutions. In the simple kinetic-minus-potential case, this becomes kinetic plus potential energy. The derivation differentiates E, uses the Euler–Lagrange equations, and leaves dE/dt = −∂L/∂t. If an external parameter changes with time, that derivative need not vanish and the subsystem can exchange energy with the external driver.",
+        "Take a one-dimensional harmonic oscillator with mass two kilograms, spring constant eight newtons per metre, and amplitude 0.5 metres. Its angular frequency is √(k/m) = two radians per second. The total energy is (1/2)kA² = one joule. At the center the potential energy is zero and speed is one metre per second; at an endpoint the speed is zero and the energy is entirely spring potential."
+      ]
+    },
+    {
+      "title": "Distinguish symmetry of laws from a particular state",
+      "paragraphs": [
+        "A rotationally symmetric law does not require every individual trajectory or configuration to look rotationally symmetric. The symmetry concerns the action and transformed solutions, not whether one snapshot is visually round. Likewise, a conserved total quantity may move between interacting subsystems, so observing one part change does not refute a conservation law for the complete system.",
+        "The calculator evaluates kinetic and potential energy along the exact ideal oscillator solution x=A cos(ωt). Their sum remains constant because the chosen model has time-translation symmetry and no dissipation or driving. That numerical constancy illustrates the theorem’s consequences; it does not independently prove the theorem or establish that a real spring has no friction. The model fixes mass and stiffness to keep the parameter interpretation transparent and excludes relativistic, quantum, and field-theoretic complications."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "d/dt[(∂L/∂q̇)f] = 0",
+    "symbols": [
+      {
+        "symbol": "L",
+        "meaning": "Lagrangian with the stated infinitesimal coordinate symmetry"
+      },
+      {
+        "symbol": "q̇",
+        "meaning": "Time derivative of the generalized coordinate"
+      },
+      {
+        "symbol": "f",
+        "meaning": "Generator in δq=εf"
+      },
+      {
+        "symbol": "∂L/∂q̇",
+        "meaning": "Conjugate momentum"
+      }
+    ],
+    "explanation": "Exact undriven frictionless harmonic oscillator with mass 2 kg and spring constant 8 N/m; the equation above is a restricted Noether derivation, not the oscillator equation itself.",
+    "example": "For m=2 kg, k=8 N/m, A=0.5 m, oscillator energy stays 1 J."
+  },
+  "insight": "A time-independent action yields a conserved energy function under the stated dynamical assumptions.",
+  "misconceptions": [
+    {
+      "myth": "Any visual symmetry guarantees a conserved quantity.",
+      "correction": "The theorem requires a continuous symmetry of the action, with appropriate conditions."
+    },
+    {
+      "myth": "One subsystem’s changing energy disproves conservation.",
+      "correction": "Energy may transfer between subsystems; identify the complete system and external driving."
+    }
+  ],
+  "check": {
+    "question": "Which continuous symmetry is associated with energy conservation?",
+    "options": [
+      "Time translation",
+      "Changing the mass arbitrarily",
+      "Reflection alone"
+    ],
+    "answer": 0,
+    "explanation": "A time-independent action yields a conserved energy function under the stated dynamical assumptions."
+  },
+  "sources": [
+    {
+      "title": "David Tong, Cambridge: Classical Dynamics",
+      "url": "https://www.damtp.cam.ac.uk/user/dt281/dynamics/dynhtml/dyn.html"
+    },
+    {
+      "title": "University of St Andrews: Emmy Noether",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Noether_Emmy/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Noether’s theorem example",
+    "description": "For m=2 kg, k=8 N/m, A=0.5 m, oscillator energy stays 1 J.",
+    "inputs": [
+      {
+        "key": "t",
+        "label": "Elapsed time",
+        "unit": "s",
+        "min": 0,
+        "max": 10,
+        "step": 0.01,
+        "initial": 0
+      },
+      {
+        "key": "amplitude",
+        "label": "Oscillation amplitude",
+        "unit": "m",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "initial": 0.5
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Kinetic energy",
+        "unit": "J",
+        "expression": [
+          "*",
+          4,
+          [
+            "pow",
+            "amplitude",
+            2
+          ],
+          [
+            "pow",
+            [
+              "sin",
+              [
+                "*",
+                2,
+                "t"
+              ]
+            ],
+            2
+          ]
+        ]
+      },
+      {
+        "label": "Potential energy",
+        "unit": "J",
+        "expression": [
+          "*",
+          4,
+          [
+            "pow",
+            "amplitude",
+            2
+          ],
+          [
+            "pow",
+            [
+              "cos",
+              [
+                "*",
+                2,
+                "t"
+              ]
+            ],
+            2
+          ]
+        ]
+      },
+      {
+        "label": "Total energy",
+        "unit": "J",
+        "expression": [
+          "*",
+          4,
+          [
+            "pow",
+            "amplitude",
+            2
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Exact undriven frictionless harmonic oscillator with mass 2 kg and spring constant 8 N/m; the equation above is a restricted Noether derivation, not the oscillator equation itself."
+  }
+}
