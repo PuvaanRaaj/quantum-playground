@@ -1,1 +1,8 @@
-{}
+{
+  "special-relativity": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "ff3fd0228711faf8bbc7c0030e8f4cd17610382b5a4651009cd337221ff0a35a",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
+  }
+}
