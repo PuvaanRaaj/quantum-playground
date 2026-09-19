@@ -226,5 +226,11 @@
     "sourceSha256": "3e7158878a54d8e91121543a356d413d5de469beb0f99ced2ebf650cb555a3b6",
     "reviewRecord": "batch-6.json",
     "status": "approved"
+  },
+  "binomial-distribution": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "30d66c5b766342698ad7b29764116bbaeaa695337671a54bd78dfadca8aef091",
+    "reviewRecord": "batch-7.json",
+    "status": "approved"
   }
 }

@@ -1,0 +1,223 @@
+{
+  "slug": "binomial-distribution",
+  "title": "Binomial distribution",
+  "category": "Mathematics",
+  "subtitle": "The binomial distribution describes the number of successes in a fixed number of independent trials when every trial has the same success probability.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "The binomial distribution describes the number of successes in a fixed number of independent trials when every trial has the same success probability. Success is only a label; it need not mean a desirable outcome. A scratched tile could be called a success for counting purposes. The random variable X records how many of the n trials receive that label, so its possible values are the integers from zero through n.",
+  "why": "The binomial formula follows from independent trials sharing a fixed success probability.",
+  "prerequisites": [
+    "Fractions and probability",
+    "Sums and algebra"
+  ],
+  "terms": [
+    {
+      "term": "Bernoulli trial",
+      "definition": "A trial with two labeled outcomes, success and failure."
+    },
+    {
+      "term": "Success probability p",
+      "definition": "The probability assigned to success on each trial."
+    },
+    {
+      "term": "Binomial coefficient",
+      "definition": "The number of ways to choose k positions among n, without ordering the chosen positions."
+    },
+    {
+      "term": "Independent trials",
+      "definition": "Trials whose outcomes do not change the probabilities of one another."
+    },
+    {
+      "term": "Probability mass",
+      "definition": "The probability assigned to one discrete count."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Count successes under explicit assumptions",
+      "paragraphs": [
+        "The binomial distribution describes the number of successes in a fixed number of independent trials when every trial has the same success probability. Success is only a label; it need not mean a desirable outcome. A scratched tile could be called a success for counting purposes. The random variable X records how many of the n trials receive that label, so its possible values are the integers from zero through n.",
+        "The distribution is closely connected to the binomial theorem and the development of probability by Jacob Bernoulli and later mathematicians. Bernoulli’s work also helped establish why observed proportions can stabilize over repeated trials. These ideas belong together, but the distribution of a finite count and a theorem about long-run averages are different mathematical statements. A small experiment can be modeled binomially even when its observed proportion fluctuates substantially."
+      ]
+    },
+    {
+      "title": "Derive one sequence and then count sequences",
+      "paragraphs": [
+        "Consider n trials with success probability p and failure probability 1 − p. A particular ordered sequence containing k successes and n − k failures has probability pᵏ(1 − p)^(n−k), because independence permits multiplying the individual probabilities. The order does not affect that product, but many different orders produce the same total success count.",
+        "There are n!/[k!(n − k)!] ways to choose the k success positions. Multiplying that count by the probability of each sequence yields P(X = k) = C(n,k)pᵏ(1 − p)^(n−k). The division by k! removes the artificial ordering among chosen positions, and division by (n − k)! does the same for failures. The probabilities sum to one by expanding [p + (1 − p)]ⁿ with the binomial theorem."
+      ]
+    },
+    {
+      "title": "Calculate a complete probability",
+      "paragraphs": [
+        "Suppose a fictional component independently passes a stress test with probability 0.8, and five components are tested. The probability exactly four pass is C(5,4)·0.8⁴·0.2 = 5·0.4096·0.2 = 0.4096. The probability all five pass is 0.8⁵ = 0.32768. Therefore the probability at least four pass is 0.4096 + 0.32768 = 0.73728.",
+        "Do not multiply the probability of four passing by another factor for all possible totals. The binomial coefficient has already counted the positions of the one failure. For an event such as at least four, add the mutually exclusive count probabilities for four and five. An alternative event, at least one failure, is easier through its complement: one minus the probability all five pass, giving 0.67232."
+      ]
+    },
+    {
+      "title": "Find the center and spread",
+      "paragraphs": [
+        "Write the count as X = I₁ + … + Iₙ, where I_j equals one for success on trial j and zero otherwise. Each indicator has mean p, because one receives weight p and zero receives weight 1 − p. Linearity of expectation gives E[X] = np. Independence is not needed for that sum-of-means identity, but it is part of the binomial model.",
+        "Each indicator has variance p(1 − p). Independence makes all cross-covariance terms vanish, so Var(X) = np(1 − p), and the standard deviation is its square root. For n = 5 and p = 0.8, the expected count is four and the variance is 0.8. An expected count of four does not mean four occurs most of the time in the sense of probability exceeding one half; its probability here is only 0.4096."
+      ]
+    },
+    {
+      "title": "Recognize when the model fails",
+      "paragraphs": [
+        "Sampling without replacement from a small finite collection changes the success probability after each draw and introduces dependence. A hypergeometric model is appropriate for that situation. If independent trials have different success probabilities, their sum has a Poisson-binomial distribution rather than the simple binomial form. If components share a manufacturing defect, even apparently identical tests may be correlated.",
+        "A normal approximation can be useful for a binomial count when both expected successes and expected failures are sufficiently large for the required accuracy. There is no universally perfect small-sample cutoff, and tail probabilities deserve particular care. Exact finite-count probabilities remain available and avoid relying on a visually bell-shaped approximation.",
+        "The calculator fixes n at ten and varies p and the integer count k. It excludes p = 0 and p = 1 to avoid ambiguous zero-power expressions in the generic evaluator, though those endpoint distributions are mathematically well defined as deterministic counts. The factorials involve only integers from zero to ten, keeping arithmetic finite. The plotted probability for a selected k need not increase with p: increasing success probability can move mass past that count toward larger totals."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(X=k) = n!/[k!(n−k)!] · pᵏ(1−p)^(n−k)",
+    "symbols": [
+      {
+        "symbol": "n",
+        "meaning": "Fixed number of independent trials"
+      },
+      {
+        "symbol": "k",
+        "meaning": "Integer success count"
+      },
+      {
+        "symbol": "p",
+        "meaning": "Common success probability"
+      }
+    ],
+    "explanation": "Exactly ten independent identical Bernoulli trials; k is integer and p lies strictly between zero and one.",
+    "example": "For n=10, p=0.5, k=5, the probability is 252/1024 ≈ 0.24609."
+  },
+  "insight": "The binomial formula follows from independent trials sharing a fixed success probability.",
+  "misconceptions": [
+    {
+      "myth": "A mean count must be a possible observed count.",
+      "correction": "Expected values can be nonintegers even when observations are integers."
+    },
+    {
+      "myth": "Sampling without replacement is always binomial.",
+      "correction": "Small finite populations usually require a hypergeometric model because probabilities change."
+    }
+  ],
+  "check": {
+    "question": "Which assumption is required for this binomial model?",
+    "options": [
+      "Equal success probability and independent trials",
+      "Every trial must succeed",
+      "The expected count must be an integer"
+    ],
+    "answer": 0,
+    "explanation": "The binomial formula follows from independent trials sharing a fixed success probability."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Binomial distribution example",
+    "description": "For n=10, p=0.5, k=5, the probability is 252/1024 ≈ 0.24609.",
+    "inputs": [
+      {
+        "key": "p",
+        "label": "Success probability",
+        "unit": "",
+        "min": 0.01,
+        "max": 0.99,
+        "step": 0.01,
+        "initial": 0.5
+      },
+      {
+        "key": "k",
+        "label": "Success count",
+        "unit": "",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "initial": 5
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Probability of selected count",
+        "unit": "",
+        "expression": [
+          "*",
+          [
+            "/",
+            3628800,
+            [
+              "*",
+              [
+                "factorial",
+                "k"
+              ],
+              [
+                "factorial",
+                [
+                  "-",
+                  10,
+                  "k"
+                ]
+              ]
+            ]
+          ],
+          [
+            "pow",
+            "p",
+            "k"
+          ],
+          [
+            "pow",
+            [
+              "-",
+              1,
+              "p"
+            ],
+            [
+              "-",
+              10,
+              "k"
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Expected count",
+        "unit": "",
+        "expression": [
+          "*",
+          10,
+          "p"
+        ]
+      },
+      {
+        "label": "Count standard deviation",
+        "unit": "",
+        "expression": [
+          "sqrt",
+          [
+            "*",
+            10,
+            "p",
+            [
+              "-",
+              1,
+              "p"
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Exactly ten independent identical Bernoulli trials; k is integer and p lies strictly between zero and one."
+  }
+}
