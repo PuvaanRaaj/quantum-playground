@@ -1,0 +1,166 @@
+{
+  "slug": "hydrogen-atom",
+  "title": "The hydrogen atom",
+  "category": "Quantum mechanics",
+  "subtitle": "A Coulomb potential gives quantized bound states for one electron and one nucleus.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Hydrogen has one proton and one electron, making it the simplest ordinary atom to model.",
+  "why": "A Coulomb potential gives quantized bound states for one electron and one nucleus.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Orbital",
+      "definition": "A one-electron spatial wavefunction, not a classical trajectory."
+    },
+    {
+      "term": "Principal quantum number",
+      "definition": "The positive integer n labeling energy in the simplest hydrogen model."
+    },
+    {
+      "term": "Bohr radius",
+      "definition": "The characteristic length a₀≈0.0529 nanometers for hydrogen."
+    },
+    {
+      "term": "Ionization",
+      "definition": "Removing a bound electron to the continuum."
+    }
+  ],
+  "sections": [
+    {
+      "title": "A simple atom that exposed a serious problem",
+      "paragraphs": [
+        "Hydrogen has one proton and one electron, making it the simplest ordinary atom to model. Classical pictures of an orbiting charged electron could not account satisfactorily for atomic stability and discrete spectral lines. Niels Bohr’s 1913 model introduced quantized orbits and captured important hydrogen energies. Schrödinger’s later wave mechanics replaced prescribed orbital paths with wavefunctions governed by the Coulomb potential. The historical sequence matters: the useful energy formula does not validate every image from the earlier orbit model. Modern orbitals describe measurement probabilities rather than miniature planetary tracks.",
+        "In the simplest approximation, a pointlike proton is held fixed and the electron is treated nonrelativistically. Its potential energy is negative and proportional to −1/r, taking zero at infinite separation. Negative total energies describe bound states; positive energies belong to unbound scattering states. The exact two-body problem can improve the fixed-proton approximation by using the reduced mass. Further corrections account for relativity, spin, quantum electrodynamics and nuclear structure. The elementary model is powerful because it captures the main structure while making these omitted refinements identifiable."
+      ]
+    },
+    {
+      "title": "Why energies are discrete but positions are not orbits",
+      "paragraphs": [
+        "Solving the Schrödinger equation requires wavefunctions that are normalizable and behave properly at the origin and infinity. Only particular negative energies satisfy those conditions. The resulting energies are approximately Eₙ=−13.6 eV/n². The principal number n takes positive integer values. For each n there are additional angular labels, usually called l and m, specifying different spatial shapes and orientations. In the simplest Coulomb model, several such states share the same energy. More refined physical effects can remove parts of this degeneracy.",
+        "An electron in a stationary orbital does not have a sharply defined radius at all times. The orbital supplies a probability density over space. For the ground state that density is largest at the origin, while the radial probability distribution is largest at the Bohr radius. These statements differ because a spherical shell farther out contains more volume. Multiplying density by the shell factor 4πr² changes the location of the peak. Confusing density with radial probability is a common reason seemingly contradictory textbook illustrations arise."
+      ]
+    },
+    {
+      "title": "Energy differences predict spectral photons",
+      "paragraphs": [
+        "The ground level n=1 has energy about −13.6 eV. The n=2 level has energy −3.4 eV. Moving from the ground state to n=2 requires an energy input of 10.2 eV. Returning between those levels can emit a photon of that energy when the transition is allowed. Its wavelength is approximately 1240 divided by 10.2 nanometers, about 121.6 nanometers in the ultraviolet. Ionizing an initially ground-state hydrogen atom requires at least 13.6 eV in this approximation. A negative binding energy is not a negative mass or a negative photon energy.",
+        "As n increases, the energies approach zero from below and the spacing between neighboring levels becomes smaller. This means highly excited bound states require relatively little additional energy to ionize. It does not mean their electrons occupy infinitely thin circular rings. The full state, including angular labels and possible superpositions, determines the position distribution. Selection rules also matter for radiative transitions. Knowing two energy levels provides a possible photon energy, but does not by itself tell you the transition rate or guarantee that a particular one-photon process is allowed."
+      ]
+    },
+    {
+      "title": "Reading the model at the right level",
+      "paragraphs": [
+        "The calculator reports the first three binding energies scaled for a hydrogen-like one-electron ion with nuclear charge Z. In the fixed-nucleus nonrelativistic Coulomb approximation they scale as Z². Thus the ground energy for Z=2 is approximately −54.4 eV, four times the magnitude of hydrogen’s. This is a one-electron helium ion, not neutral helium with its additional electron and interactions. Keeping the distinction explicit prevents a compact formula from being misapplied to every element in the periodic table.",
+        "The chosen range keeps Z small, where the elementary approximation remains a reasonable starting point. The display excludes reduced-mass shifts, fine structure, Lamb shifts, external fields and finite nuclear size. It does not solve a general many-electron atom or animate a real trajectory. Its purpose is to connect a specified attractive potential and boundary conditions with discrete negative energies. Compare the n=1 and n=2 values, compute their difference, and explain why a photon carries the positive difference rather than either level’s negative energy. That calculation links the abstract wave equation to a concrete astronomical and laboratory observable."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Eₙ≈−13.6 Z²/n² eV",
+    "symbols": [
+      {
+        "symbol": "Z",
+        "meaning": "Nuclear charge number for a one-electron ion."
+      },
+      {
+        "symbol": "n",
+        "meaning": "Positive integer principal quantum number."
+      }
+    ],
+    "explanation": "A Coulomb potential gives quantized bound states for one electron and one nucleus.",
+    "example": "Hydrogen has E₁≈−13.6 eV and E₂≈−3.4 eV; the separation is 10.2 eV."
+  },
+  "insight": "The one-electron Coulomb energy magnitude scales as Z².",
+  "misconceptions": [
+    {
+      "myth": "Doubling nuclear charge only doubles the one-electron binding-energy magnitude.",
+      "correction": "The one-electron Coulomb energy magnitude scales as Z²."
+    },
+    {
+      "myth": "A hydrogen orbital is a thin planetary path.",
+      "correction": "It is a wavefunction describing position probabilities throughout space."
+    }
+  ],
+  "check": {
+    "question": "Increasing Z from one to two does what to ground binding-energy magnitude?",
+    "options": [
+      "Doubles it",
+      "Quadruples it",
+      "Halves it"
+    ],
+    "answer": 1,
+    "explanation": "The one-electron Coulomb energy magnitude scales as Z²."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 19",
+      "url": "https://www.feynmanlectures.caltech.edu/III_19.html"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 16",
+      "url": "https://www.feynmanlectures.caltech.edu/III_16.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "The hydrogen atom model",
+    "description": "A Coulomb potential gives quantized bound states for one electron and one nucleus.",
+    "inputs": [
+      {
+        "key": "z",
+        "label": "Nuclear charge",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "initial": 1,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Ground energy",
+        "expression": [
+          "*",
+          -13.6,
+          [
+            "pow",
+            "z",
+            2
+          ]
+        ],
+        "unit": "eV"
+      },
+      {
+        "label": "n = 2 energy",
+        "expression": [
+          "*",
+          -3.4,
+          [
+            "pow",
+            "z",
+            2
+          ]
+        ],
+        "unit": "eV"
+      },
+      {
+        "label": "n = 3 energy",
+        "expression": [
+          "*",
+          -1.5111111111,
+          [
+            "pow",
+            "z",
+            2
+          ]
+        ],
+        "unit": "eV"
+      }
+    ],
+    "assumptions": "One electron, fixed point nucleus, nonrelativistic Coulomb potential. Not neutral multi-electron atoms; excludes fine structure and radiative corrections."
+  }
+}

@@ -172,5 +172,11 @@
     "sourceSha256": "8fb4fa29846790112d0cef15e504fadfbd3f2fd8218c44786cd48e3fa97fbbb0",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "hydrogen-atom": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "02ffdc089b03c996ef8fa099cb5219c6f5dbfb52cabf801eaa8d5c6a96ea7bb3",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }
