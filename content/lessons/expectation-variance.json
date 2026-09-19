@@ -1,0 +1,207 @@
+{
+  "slug": "expectation-variance",
+  "title": "Expectation and variance",
+  "category": "Mathematics",
+  "subtitle": "Expectation describes the probability-weighted center of a distribution, while variance describes its squared spread around that center.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Expectation describes the probability-weighted center of a distribution, while variance describes its squared spread around that center. Neither summary tells you the full distribution. Two systems can have the same average output but very different variability, and two distributions can share both mean and variance while differing in symmetry or tail behavior. The summaries are useful precisely because they compress information, but compression also discards information.",
+  "why": "A constant shifts all values and the mean equally, leaving deviations from the mean unchanged.",
+  "prerequisites": [
+    "Fractions and probability",
+    "Sums and algebra"
+  ],
+  "terms": [
+    {
+      "term": "Expectation",
+      "definition": "A probability-weighted average of a random variable."
+    },
+    {
+      "term": "Variance",
+      "definition": "The expected squared deviation from the mean."
+    },
+    {
+      "term": "Standard deviation",
+      "definition": "The nonnegative square root of variance, in the original units."
+    },
+    {
+      "term": "Covariance",
+      "definition": "A measure of joint centered variation between two variables."
+    },
+    {
+      "term": "Indicator",
+      "definition": "A variable taking value one when an event occurs and zero otherwise."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Two summaries answer different questions",
+      "paragraphs": [
+        "Expectation describes the probability-weighted center of a distribution, while variance describes its squared spread around that center. Neither summary tells you the full distribution. Two systems can have the same average output but very different variability, and two distributions can share both mean and variance while differing in symmetry or tail behavior. The summaries are useful precisely because they compress information, but compression also discards information.",
+        "Expectation developed from early probability calculations about fair values of games. The study of errors and statistical variation gradually made squared deviations central, with contributions from many mathematicians and statisticians rather than a single inventor. Variance is especially convenient algebraically because square expansions connect it to second moments and covariance. Its usefulness does not mean squared error is always the best practical measure of uncertainty."
+      ]
+    },
+    {
+      "title": "Compute the weighted average",
+      "paragraphs": [
+        "For discrete values x_j with probabilities p_j, E[X] = Σx_jp_j, provided the expectation is well defined. Suppose a device yields zero units with probability 0.2, two units with probability 0.5, and five units with probability 0.3. Its mean output is zero times 0.2 plus two times 0.5 plus five times 0.3, giving 2.5 units. The device never produces exactly 2.5 in one operation.",
+        "For continuous variables, replace the sum by an integral of x times the density. The mathematical expectation is a property of the probability model. A sample average is calculated from actual observations and varies from sample to sample. Under suitable assumptions, larger samples can estimate the expectation more precisely, but a finite observed average need not equal it exactly."
+      ]
+    },
+    {
+      "title": "Derive a convenient variance formula",
+      "paragraphs": [
+        "Let μ = E[X]. By definition, Var(X) = E[(X − μ)²]. Expand the square to get E[X² − 2μX + μ²]. Linearity of expectation gives E[X²] − 2μE[X] + μ². Since E[X] = μ, this simplifies to E[X²] − μ². The identity assumes the necessary second moment is finite.",
+        "For the device example, E[X²] = 0²·0.2 + 2²·0.5 + 5²·0.3 = 9.5. Subtracting 2.5² = 6.25 gives variance 3.25 square units. The standard deviation is √3.25, approximately 1.803 units. Variance is never negative in exact mathematics because it averages nonnegative squared deviations. A tiny negative computer result from subtracting nearly equal approximations indicates numerical error, not negative physical spread."
+      ]
+    },
+    {
+      "title": "Understand transformations and combinations",
+      "paragraphs": [
+        "Adding a constant c shifts the mean by c but leaves variance unchanged, because deviations from the new mean remain the same. Multiplying by a scales the mean by a and the variance by a². Thus changing metres to centimetres multiplies variance by ten thousand, while standard deviation multiplies by one hundred. This explains why standard deviation is often easier to interpret in physical units.",
+        "Expectation is linear even for dependent variables: E[X + Y] = E[X] + E[Y], when the expectations exist. Variance requires more care: Var(X + Y) = Var(X) + Var(Y) + 2Cov(X,Y). Independence implies zero covariance when the moments exist, allowing variances to add. Zero covariance does not generally imply independence, so the converse cannot be assumed."
+      ]
+    },
+    {
+      "title": "An indicator makes a useful calculator",
+      "paragraphs": [
+        "Let X equal an amount A with probability p and zero otherwise. Then E[X] = Ap and E[X²] = A²p, so Var(X) = A²p(1 − p). With A = 10 units and p = 0.3, the mean is three units, variance is 21 square units, and standard deviation is about 4.583 units. The spread can exceed the mean without any contradiction because the outcomes are concentrated at zero and ten.",
+        "For fixed A, variance is largest at p = 1/2. This follows from p(1 − p) = 1/4 − (p − 1/2)². At p = 0 or one, the outcome is certain and variance is zero. The calculator displays this two-outcome model, not a normal distribution; standard deviation alone does not make the familiar normal percentages applicable."
+      ]
+    },
+    {
+      "title": "Limits of the summaries",
+      "paragraphs": [
+        "Some distributions do not have finite means or variances, so formulas that assume them must not be applied automatically. Even when variance exists, extreme observations can dominate its estimate. Median and quantiles can be more informative for skewed distributions or questions about typical outcomes. The right summary depends on the question being asked, not on which statistic is easiest to calculate.",
+        "A narrow distribution around a biased value can have small variance while consistently missing the truth. Accuracy and precision are therefore distinct. When comparing a model with data, examine both systematic offsets and random spread. Reporting only an average and a standard deviation should not hide multimodal behavior, dependence, missing observations, or a sampling process that selected an unrepresentative subset."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Var(X) = E[X²] − E[X]²",
+    "symbols": [
+      {
+        "symbol": "X",
+        "meaning": "Random variable"
+      },
+      {
+        "symbol": "E",
+        "meaning": "Expectation under its distribution"
+      },
+      {
+        "symbol": "Var",
+        "meaning": "Variance, assuming a finite second moment"
+      }
+    ],
+    "explanation": "Two-outcome random variable equal to A with probability p and zero otherwise; A is nonnegative.",
+    "example": "For a 10-unit outcome with probability 0.3 and zero otherwise, mean=3 and variance=21."
+  },
+  "insight": "A constant shifts all values and the mean equally, leaving deviations from the mean unchanged.",
+  "misconceptions": [
+    {
+      "myth": "An expected value must occur in a single trial.",
+      "correction": "Expectation is a weighted average and need not be a possible outcome."
+    },
+    {
+      "myth": "Variances always add.",
+      "correction": "Covariance terms are needed unless the relevant variables are uncorrelated."
+    }
+  ],
+  "check": {
+    "question": "What happens to variance when a constant is added?",
+    "options": [
+      "It increases by that constant",
+      "It stays unchanged",
+      "It becomes zero"
+    ],
+    "answer": 1,
+    "explanation": "A constant shifts all values and the mean equally, leaving deviations from the mean unchanged."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Expectation and variance example",
+    "description": "For a 10-unit outcome with probability 0.3 and zero otherwise, mean=3 and variance=21.",
+    "inputs": [
+      {
+        "key": "p",
+        "label": "Probability of nonzero outcome",
+        "unit": "",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "initial": 0.3
+      },
+      {
+        "key": "amount",
+        "label": "Nonzero outcome",
+        "unit": "units",
+        "min": 0,
+        "max": 20,
+        "step": 0.1,
+        "initial": 10
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Mean",
+        "unit": "units",
+        "expression": [
+          "*",
+          "amount",
+          "p"
+        ]
+      },
+      {
+        "label": "Variance",
+        "unit": "units²",
+        "expression": [
+          "*",
+          [
+            "pow",
+            "amount",
+            2
+          ],
+          "p",
+          [
+            "-",
+            1,
+            "p"
+          ]
+        ]
+      },
+      {
+        "label": "Standard deviation",
+        "unit": "units",
+        "expression": [
+          "sqrt",
+          [
+            "*",
+            [
+              "pow",
+              "amount",
+              2
+            ],
+            "p",
+            [
+              "-",
+              1,
+              "p"
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Two-outcome random variable equal to A with probability p and zero otherwise; A is nonnegative."
+  }
+}
