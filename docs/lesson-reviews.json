@@ -64,5 +64,11 @@
     "sourceSha256": "47de9b77dac2760c1f46dfd7362a85ef24894c393231b4f8635d3ee632e1697b",
     "reviewRecord": "existing-corrected.json",
     "status": "approved"
+  },
+  "bayes": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "97e8bf222dfefd8e01d6357f5cdb78ea075ef4c70c4b7a16809b2e71573e9dc2",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
   }
 }

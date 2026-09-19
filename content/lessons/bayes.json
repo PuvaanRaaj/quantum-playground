@@ -1,0 +1,147 @@
+{
+  "slug": "bayes",
+  "title": "Bayes’ theorem",
+  "category": "Mathematics",
+  "subtitle": "Why a convincing signal is not the same as a certain conclusion.",
+  "minutes": 13,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Bayes’ theorem is a rule for updating probabilities when evidence arrives. It relates the probability of evidence under a hypothesis to the probability of the hypothesis given that evidence. Those sound similar, but they answer different questions. Once you learn to separate them, you can reason more clearly about noisy sensors, scientific observations, classification systems, and everyday uncertainty.",
+  "why": "Scientific learning combines existing information with new observations. Bayes’ theorem makes that bookkeeping explicit, while also exposing the assumptions and base rates that an impressive-sounding accuracy number can hide.",
+  "prerequisites": [
+    "Fractions and percentages",
+    "Probability as a number between zero and one",
+    "Multiplication and addition"
+  ],
+  "terms": [
+    {
+      "term": "Prior",
+      "definition": "The probability assigned to a hypothesis before incorporating the evidence currently under discussion."
+    },
+    {
+      "term": "Likelihood",
+      "definition": "The probability of the observed evidence if a particular hypothesis is true."
+    },
+    {
+      "term": "Posterior",
+      "definition": "The updated probability of the hypothesis after conditioning on the evidence."
+    },
+    {
+      "term": "Conditional probability",
+      "definition": "Probability evaluated within the cases where another event holds."
+    },
+    {
+      "term": "Base rate",
+      "definition": "The overall frequency or probability of a condition before selecting cases by a signal."
+    },
+    {
+      "term": "False positive",
+      "definition": "A positive signal when the condition it is supposed to indicate is absent."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Two questions that are easy to confuse",
+      "paragraphs": [
+        "Imagine a fictional factory sensor checking whether a ceramic tile has a crack. One question asks: among cracked tiles, how often does the sensor raise an alert? Another asks: among alerted tiles, how many are cracked? The first starts by selecting cracked tiles; the second starts by selecting alerts. Since those are different groups, their fractions need not agree.",
+        "This is the reason conditional probability uses an ordering. P(A | B) means the probability of A given B, with B specifying the restricted group. The vertical bar can be read as “among cases where.” That reading is often more useful than treating the notation as an opaque formula. An alert changes which group we are looking at; it does not magically remove mistakes made by the sensor."
+      ]
+    },
+    {
+      "title": "The historical idea",
+      "paragraphs": [
+        "Thomas Bayes studied an inverse probability problem: reasoning from observed outcomes toward an unknown underlying probability. His work was published after his death through Richard Price in 1763. Pierre-Simon Laplace subsequently made major contributions to the broader development of inverse probability. Modern Bayesian statistics extends these ideas into a large framework, rather than being identical to one historical essay.",
+        "The theorem itself follows from the basic rules of probability. Using it in a real problem requires more than substituting numbers: you need a justified model for the prior and the likelihood. Different modeling choices can produce different answers even when everybody performs the arithmetic correctly. Making those choices visible is part of the method."
+      ]
+    },
+    {
+      "title": "Derive it by counting the same overlap twice",
+      "paragraphs": [
+        "Let H denote a hypothesis and E an evidence event. Assume P(H) > 0 and P(E) > 0 so the conditional probabilities in this derivation are defined. By definition, P(H | E) = P(H and E)/P(E). This says that within the evidence group, the proportion also satisfying the hypothesis is the overlap divided by the whole evidence group.",
+        "We can count the same overlap in the other direction: P(E | H) = P(H and E)/P(H). Multiply by P(H) to obtain P(H and E) = P(E | H)P(H). Substitute into the first expression. The result is Bayes’ theorem: P(H | E) = P(E | H)P(H)/P(E). No assumption of independence between H and E was used.",
+        "For the following binary decomposition, also assume 0 < P(H) < 1, so both conditional likelihoods are defined. The evidence can arise either with H or without H. These cases are disjoint and exhaustive, so P(E) = P(E | H)P(H) + P(E | not H)P(not H). This denominator matters. It counts every route to the observed evidence, including false alarms, and normalizes the hypothesis weight into a probability."
+      ]
+    },
+    {
+      "title": "Work through a fictional factory",
+      "paragraphs": [
+        "Suppose exactly 2% of tiles in our illustrative model are cracked. The sensor alerts on 90% of cracked tiles and also on 5% of intact tiles. Consider an imagined batch of 10,000 tiles at those proportions. There are 200 cracked tiles and 9,800 intact ones. Of the cracked tiles, 180 trigger an alert; of the intact tiles, 490 trigger an alert. Altogether there are 670 alerts.",
+        "Select a tile from the alert group. Only 180 of those 670 are cracked, so the updated probability is 180/670, approximately 26.9%. Algebra gives the same result: (0.90 × 0.02)/[(0.90 × 0.02) + (0.05 × 0.98)]. The alert is useful: it raises the probability from 2% to about 27%. But useful evidence is not certainty, and the 90% detection rate is not the answer to the reversed question.",
+        "These counts are an illustrative expected-frequency construction, not a report of a measured factory. In a random real batch, the observed counts would fluctuate. The probability model describes those uncertainties; it does not promise that every batch contains precisely the expected number of cracked tiles or sensor mistakes."
+      ]
+    },
+    {
+      "title": "How evidence changes belief",
+      "paragraphs": [
+        "Here an alert is 18 times as likely under the cracked hypothesis as under the intact hypothesis, because 0.90/0.05 = 18. This likelihood ratio multiplies the prior odds. Before the alert the odds are 2 to 98; afterward they become 36 to 98, equivalent to 180 to 490. Converting odds back to probability means dividing the hypothesis weight by the total weight, not simply multiplying the prior probability by 18.",
+        "Changing the base rate changes the answer even if the sensor stays identical. In a batch from a damaged production line, cracks might be more common; the same alert would then be stronger grounds for expecting a crack. In the visualization, keep detection and false-alarm rates fixed while changing the prior. Watch how the composition of the alerted group changes. That group, rather than the sensor’s marketing headline, is the answer you need."
+      ]
+    },
+    {
+      "title": "Applications and limits",
+      "paragraphs": [
+        "Astronomers compare models of observations, classifiers combine evidence about categories, and engineers interpret unreliable measurements. In each case the quality of the result depends on the model and data. A prior is not automatically an arbitrary guess: it can come from previous measurements, a population frequency, or a stated modeling assumption. Sensitivity analysis asks whether reasonable alternative priors materially change the conclusion.",
+        "Be careful when updating repeatedly. Two copies of the same alert are not two independent pieces of evidence. To multiply likelihoods as separate contributions, you need the relevant conditional-independence assumption, or a joint model that accounts for dependence. Bayes’ theorem also does not establish causation by itself. It organizes uncertainty within assumptions; it cannot rescue inaccurate rates, omitted hypotheses, or biased observations."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(H | E) = P(E | H) P(H) / P(E)",
+    "symbols": [
+      {
+        "symbol": "H",
+        "meaning": "A hypothesis, such as a tile being cracked"
+      },
+      {
+        "symbol": "E",
+        "meaning": "Observed evidence, such as a sensor alert"
+      },
+      {
+        "symbol": "P(H)",
+        "meaning": "Prior probability before this evidence"
+      },
+      {
+        "symbol": "P(E | H)",
+        "meaning": "Likelihood of the evidence under the hypothesis"
+      },
+      {
+        "symbol": "P(H | E)",
+        "meaning": "Posterior probability after the evidence"
+      }
+    ],
+    "explanation": "Weight the hypothesis by how well it predicts the evidence, then divide by the total probability of that evidence. P(E) must be positive.",
+    "example": "With a 2% crack rate, 90% detection, and 5% false alerts, P(crack | alert) = 0.018/0.067 ≈ 26.9%."
+  },
+  "insight": "Ask what fraction of the evidence group supports the hypothesis, not just how often the hypothesis produces the evidence.",
+  "misconceptions": [
+    {
+      "myth": "90% detection means an alert is 90% likely to be correct.",
+      "correction": "That reverses the conditional. The posterior also depends on the base rate and false-positive rate."
+    },
+    {
+      "myth": "Repeated identical evidence always multiplies confidence.",
+      "correction": "Correlated or duplicated evidence requires a joint model; independence cannot be assumed automatically."
+    }
+  ],
+  "check": {
+    "question": "If cracks become rarer while sensor behavior stays the same, what happens to P(crack | alert)?",
+    "options": [
+      "It increases",
+      "It stays fixed at the detection rate",
+      "It decreases"
+    ],
+    "answer": 2,
+    "explanation": "With fewer actual cracks, a larger fraction of alerts come from intact tiles. The posterior falls even though detection performance is unchanged."
+  },
+  "sources": [
+    {
+      "title": "UC Berkeley: conditional probability and Bayes’ rule",
+      "url": "https://www.stat.berkeley.edu/pub/users/stark/SticiGui/Text/probabilityAxioms.htm"
+    },
+    {
+      "title": "University of St Andrews: Thomas Bayes",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Bayes/"
+    }
+  ],
+  "visual": "bayes"
+}
