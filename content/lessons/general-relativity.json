@@ -1,0 +1,136 @@
+{
+  "slug": "general-relativity",
+  "title": "General relativity",
+  "category": "Space & relativity",
+  "subtitle": "Einstein’s discovery that gravity is a relationship between matter and spacetime geometry.",
+  "minutes": 13,
+  "level": "Build intuition",
+  "accent": "blue",
+  "visual": "gravity",
+  "intro": "General relativity, completed by Einstein in 1915, is a theory of gravity. It describes how matter, radiation, pressure, and energy flow relate to the geometry of spacetime, and how freely falling objects travel through that geometry. Space and time become part of the physical system, rather than a fixed stage on which everything else happens.",
+  "why": "This is the conceptual foundation of black holes, gravitational waves, and modern cosmology. The first step is understanding why free fall is special.",
+  "prerequisites": [
+    "Read special relativity for the meaning of proper time.",
+    "An acceleration is a change in velocity."
+  ],
+  "terms": [
+    {
+      "term": "Spacetime",
+      "definition": "The combined description of events using three spatial coordinates and one time coordinate."
+    },
+    {
+      "term": "Geodesic",
+      "definition": "The locally straightest path in curved spacetime, followed by a freely falling test object."
+    },
+    {
+      "term": "Curvature",
+      "definition": "A geometric property revealed by effects such as relative acceleration between nearby freely falling objects."
+    },
+    {
+      "term": "Metric",
+      "definition": "The mathematical rule for calculating spacetime intervals, including clock readings and spatial distances."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What changed from Newton?",
+      "paragraphs": [
+        "Newton’s theory describes a gravitational force between masses, and remains extraordinarily useful when speeds and gravitational fields are modest. Einstein did not make bridge calculations or planetary approximations obsolete. He provided a deeper framework that recovers Newton’s predictions in their successful regime and makes additional predictions where higher precision or stronger gravity matters.",
+        "A conceptual difficulty was that Newtonian gravity used a universal time and instantaneous gravitational influence, while special relativity had removed universal simultaneity. Einstein needed more than a small correction to a force formula. With help from mathematical developments and collaborators including Marcel Grossmann, he pursued a description that could express physical laws in general coordinates and account for gravity through geometry."
+      ]
+    },
+    {
+      "title": "The falling elevator",
+      "paragraphs": [
+        "Imagine a sealed elevator with a person and a floating ball inside. If the elevator, person, and ball are all freely falling together, the person does not feel the usual support force from the floor. Over a sufficiently small region and brief interval, local experiments resemble those in an unaccelerated laboratory far from gravitating bodies. Conversely, a rocket accelerating through empty space presses its floor against its passengers, producing a sensation like weight.",
+        "This is the starting intuition of the equivalence principle. The qualification local is essential. Two balls dropped on opposite sides of a large falling laboratory can approach each other because both are falling toward Earth’s center. Those tidal differences distinguish an extended gravitational field from an ideal uniformly accelerating room. You can remove the apparent gravitational force locally by choosing free-fall coordinates, but you cannot remove spacetime curvature throughout a finite region that way."
+      ]
+    },
+    {
+      "title": "What it means to fall along geometry",
+      "paragraphs": [
+        "On a globe, two people walking north from different points on the equator eventually meet, even if each follows a straightest available surface path. Their changing separation reflects the surface geometry. Spacetime geometry is more subtle because time has a different role from spatial directions, but the analogy explains why changing separation need not imply a conventional force pushing each traveler sideways.",
+        "An orbiting satellite continually falls along a spacetime geodesic. A person standing on Earth is prevented from doing so by the ground. That support force is what a scale measures. The familiar rubber-sheet picture can hint at curvature, but its downward sag relies on an external gravity and an extra visual dimension. Real spacetime does not require a hidden room into which it bends, and the picture leaves out the crucial role of time."
+      ]
+    },
+    {
+      "title": "Reading Einstein’s equation without solving it",
+      "paragraphs": [
+        "The field equation is Gμν + Λgμν = (8πG/c⁴)Tμν. The left side describes aspects of spacetime geometry; the right side describes energy, momentum, and stresses. The Greek subscripts label components of mathematical objects called tensors. This compact notation represents a coupled system of equations, not a single arithmetic instruction. The cosmological constant Λ is an allowed term that also matters in cosmology.",
+        "To make a prediction, specify a physical situation, choose appropriate assumptions and boundary conditions, and solve for the metric. Then calculate how clocks, light, or freely falling objects behave. The simulator below does not perform that general calculation. It uses one established consequence of the Schwarzschild solution: the clock rate outside an isolated, spherical, nonrotating, uncharged mass. That restriction lets us explore one effect accurately without pretending to solve arbitrary spacetime."
+      ]
+    },
+    {
+      "title": "A worked comparison of clocks",
+      "paragraphs": [
+        "For a clock held stationary at radius r outside that idealized body, its rate relative to a reference clock infinitely far away is √(1 − rs/r), where rs = 2GM/c². At r = 4rs, the factor is √0.75, about 0.866. When the distant reference advances by 100 seconds, the stationary nearby clock advances by about 86.6 seconds. Each observer still experiences their own local seconds normally.",
+        "The stationary condition matters: a freely falling or orbiting clock also has motion to consider. The formula applies only outside the body in the Schwarzschild exterior and above r = rs; a massive observer cannot hover on the horizon. For an ordinary star, being outside the horizon is insufficient if the selected radius is inside the star. Treat the control as an exterior compact-object thought experiment, not a model of Earth’s interior."
+      ]
+    },
+    {
+      "title": "Evidence and open questions",
+      "paragraphs": [
+        "Relativity accounts for the extra precession of Mercury’s orbit and predicts light deflection, gravitational frequency shifts, and propagating gravitational waves. These are different observational consequences, tested in different settings. A successful illustration is not itself evidence: the illustration was programmed from the equations. Evidence comes from comparing quantitative predictions with independent measurements and their uncertainties.",
+        "General relativity is a classical theory. It does not by itself provide a quantum description of spacetime or resolve the extreme conditions suggested by singularities. You can admire Einstein’s achievement while recognizing those limits. Before using the controls, ask what the two clocks measure, which one is held fixed, and which comparison is being made. Those questions prevent the misleading claim that time simply stops everywhere near a massive object."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Gμν + Λgμν = (8πG/c⁴)Tμν; dτ/dt = √(1 − rs/r)",
+    "symbols": [
+      {
+        "symbol": "Gμν",
+        "meaning": "Einstein tensor describing aspects of spacetime curvature."
+      },
+      {
+        "symbol": "Tμν",
+        "meaning": "Stress-energy tensor describing energy, momentum, and stresses."
+      },
+      {
+        "symbol": "Λgμν",
+        "meaning": "Cosmological-constant contribution to the field equation."
+      },
+      {
+        "symbol": "rs",
+        "meaning": "Schwarzschild radius 2GM/c²."
+      },
+      {
+        "symbol": "dτ/dt",
+        "meaning": "Stationary exterior clock rate relative to time at infinity, in the Schwarzschild model."
+      }
+    ],
+    "explanation": "The first equation is the theory’s field equation. The second is a restricted consequence used by this visualization, not a general solution engine.",
+    "example": "At r = 4rs, dτ/dt = √(3/4) ≈ 0.866. A 100-second distant interval corresponds to 86.6 seconds locally."
+  },
+  "insight": "Gravity changes the geometry used to compare clocks and trajectories; it is not merely a force added to otherwise fixed spacetime.",
+  "misconceptions": [
+    {
+      "myth": "A rubber sheet is literally what spacetime looks like.",
+      "correction": "It is a limited analogy, with misleading external gravity and missing time geometry."
+    },
+    {
+      "myth": "An astronaut in orbit is beyond Earth’s gravity.",
+      "correction": "The astronaut and spacecraft are freely falling together; gravity is what sustains the orbit."
+    }
+  ],
+  "check": {
+    "question": "What does the clock visualization calculate?",
+    "options": [
+      "Every possible solution of Einstein’s equations",
+      "A stationary clock comparison in the ideal Schwarzschild exterior",
+      "The quantum structure inside a black hole"
+    ],
+    "answer": 1,
+    "explanation": "It uses a known special-case expression for static exterior clocks. Rotation, interior structure, and quantum effects are excluded."
+  },
+  "sources": [
+    {
+      "title": "Einstein Online: equivalence principle",
+      "url": "https://www.einstein-online.info/en/explandict/equivalence-principle/"
+    },
+    {
+      "title": "Einstein Online: foundations of general relativity",
+      "url": "https://www.einstein-online.info/en/spotlights/gr/gr-sub01/"
+    }
+  ]
+}
