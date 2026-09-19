@@ -1,0 +1,145 @@
+{
+  "slug": "atomic-spectra",
+  "title": "Atomic spectra",
+  "category": "Quantum mechanics",
+  "subtitle": "Photon frequencies reveal energy differences between atomic states.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Pass the light from a heated dilute gas through a spectrometer and it can appear as a set of lines rather than a smooth rainbow.",
+  "why": "Photon frequencies reveal energy differences between atomic states.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Emission line",
+      "definition": "A narrow range of wavelengths emitted in a transition."
+    },
+    {
+      "term": "Absorption line",
+      "definition": "A reduction in light intensity where atoms absorb selected photon energies."
+    },
+    {
+      "term": "Transition",
+      "definition": "A change between quantum states."
+    },
+    {
+      "term": "Selection rule",
+      "definition": "A constraint on which transitions a specified interaction can efficiently produce."
+    }
+  ],
+  "sections": [
+    {
+      "title": "From colored lines to atomic structure",
+      "paragraphs": [
+        "Pass the light from a heated dilute gas through a spectrometer and it can appear as a set of lines rather than a smooth rainbow. Different elements show different patterns. Before modern quantum mechanics, Johann Balmer and Johannes Rydberg found mathematical regularities in hydrogen’s lines. Bohr connected such regularities to quantized atomic energies, and wave mechanics later supplied a more general description. Spectroscopy became a way to study matter without opening an atom or visiting a distant star. The measured quantities are wavelengths, intensities and line shapes; interpreting them requires a physical model.",
+        "An isolated atom has particular stationary states with particular energies. A photon absorbed or emitted during a transition carries the energy difference, not the absolute energy of either state. Because photon energy equals frequency times Planck’s constant, discrete differences produce selected frequencies. An energy level can be negative relative to a chosen zero while every emitted photon has positive energy. The zero convention cancels when subtracting levels. This is why a spectrum can test energy differences without directly measuring an atom’s absolute energy relative to every possible reference."
+      ]
+    },
+    {
+      "title": "Calculating hydrogen wavelengths",
+      "paragraphs": [
+        "In the elementary hydrogen model, Eₙ≈−13.6 eV/n². A transition from upper level nᵤ to lower level nₗ releases 13.6(1/nₗ²−1/nᵤ²) electronvolts. The bracket is positive because the lower index is smaller. For a transition from three to two, the difference is about 1.889 eV. Using hc≈1239.84 eV nanometers, the wavelength is about 656.4 nanometers. This is the familiar red Balmer-alpha region. More precise constants and reduced-mass effects refine the value; the rounded calculation captures the physical relationship.",
+        "Increasing the upper level while keeping the lower level fixed does not produce arbitrarily large photon energies. The upper bound approaches zero from below, so the transition energy approaches the binding-energy magnitude of the fixed lower level. For the Balmer series, the limit is 3.4 eV and the corresponding wavelength about 364.7 nanometers in this approximation. Lines become more closely spaced near that limit. The pattern is a consequence of levels converging toward ionization, not of the spectrometer becoming unable to assign distinct colors in principle."
+      ]
+    },
+    {
+      "title": "Why a possible energy difference is not the whole prediction",
+      "paragraphs": [
+        "Not every pair of atomic states produces an equally likely optical transition. The interaction with the electromagnetic field couples particular state properties. Electric-dipole selection rules constrain angular momentum changes and parity, while other processes can permit much weaker transitions. Populations also matter: an upper state must be occupied to emit through a transition. Temperature, collisions and illumination affect which states are populated. A list of energy levels therefore predicts possible frequencies but not a complete intensity spectrum without additional information.",
+        "Real spectral lines have finite widths. Thermal motion shifts frequencies through the Doppler effect, collisions perturb energies, and finite excited-state lifetimes contribute natural broadening. Instrument resolution adds another layer. Bulk motion can shift all lines, while magnetic fields can split particular features through the Zeeman effect. These effects are useful signals rather than merely imperfections. Astronomers infer temperature, velocity and magnetic properties by combining many line measurements with appropriate models. A broad or shifted line should not automatically be interpreted as a failure of energy quantization."
+      ]
+    },
+    {
+      "title": "Emission, absorption and the bounded calculation",
+      "paragraphs": [
+        "A cool gas in front of a bright background can absorb photons at energies corresponding to upward transitions from populated states. The removed photons may later be re-emitted in other directions, so the original line of sight shows a deficit. Emission and absorption features can therefore identify the same species while appearing differently depending on geometry and excitation conditions. Dense matter often produces a continuum with superimposed features; not every luminous object resembles an isolated dilute gas tube.",
+        "The calculator keeps the hydrogen transition fixed from n=3 to n=2 and allows a small fractional frequency shift representing a separate observed shift. It returns the approximate rest wavelength and the shifted wavelength using the supplied frequency factor. This is not a complete relativistic Doppler or expanding-universe model, and it does not compute line strengths or profiles. It separates the atomic rest-frame prediction from the propagation or motion correction. Begin by calculating the 1.889 eV difference yourself and converting it to wavelength. That chain from quantum levels to measurable light is the essential reasoning, while the additional spectral detail belongs to more advanced models."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "ΔE=13.6(1/2²−1/3²) eV; λ=hc/ΔE",
+    "symbols": [
+      {
+        "symbol": "ΔE",
+        "meaning": "Hydrogen n=3 to n=2 energy difference."
+      },
+      {
+        "symbol": "λ",
+        "meaning": "Vacuum wavelength."
+      },
+      {
+        "symbol": "hc",
+        "meaning": "Approximately 1239.84 eV nm."
+      }
+    ],
+    "explanation": "Photon frequencies reveal energy differences between atomic states.",
+    "example": "ΔE≈1.889 eV gives λ≈656.4 nm using the rounded hydrogen energy scale."
+  },
+  "insight": "Photon energy is the positive difference between initial and final atomic energies.",
+  "misconceptions": [
+    {
+      "myth": "The photon frequency is set by the lower level’s energy alone.",
+      "correction": "Photon energy is the positive difference between initial and final atomic energies."
+    },
+    {
+      "myth": "Every possible energy difference produces an equally strong spectral line.",
+      "correction": "Selection rules, populations and transition matrix elements determine which lines are strong or suppressed."
+    }
+  ],
+  "check": {
+    "question": "Which energy determines an emitted photon’s frequency?",
+    "options": [
+      "The difference between the levels",
+      "The lower level alone",
+      "The upper principal number alone"
+    ],
+    "answer": 0,
+    "explanation": "Photon energy is the positive difference between initial and final atomic energies."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 19",
+      "url": "https://www.feynmanlectures.caltech.edu/III_19.html"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 10",
+      "url": "https://www.feynmanlectures.caltech.edu/III_10.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Atomic spectra model",
+    "description": "Photon frequencies reveal energy differences between atomic states.",
+    "inputs": [
+      {
+        "key": "factor",
+        "label": "Observed/rest frequency ratio",
+        "min": 0.9,
+        "max": 1.1,
+        "step": 0.005,
+        "initial": 1,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Observed wavelength",
+        "expression": [
+          "/",
+          656.386,
+          "factor"
+        ],
+        "unit": "nm"
+      },
+      {
+        "label": "Rest wavelength",
+        "expression": 656.386,
+        "unit": "nm"
+      }
+    ],
+    "assumptions": "Rounded hydrogen n=3→2 transition. Frequency ratio is an input, not a derived Doppler law. No line strengths, widths, fine structure or medium effects."
+  }
+}

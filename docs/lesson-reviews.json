@@ -202,5 +202,11 @@
     "sourceSha256": "46166c28f328739a217483189b50cf90d672a38b3d49d95b034e0304069a50ce",
     "reviewRecord": "batch-5.json",
     "status": "approved"
+  },
+  "atomic-spectra": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "039eeda2d1815a67b74da7f311c4cfb4a6925880f025de9aab6b02da11fffa20",
+    "reviewRecord": "batch-5.json",
+    "status": "approved"
   }
 }
