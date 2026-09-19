@@ -1,0 +1,123 @@
+{
+  "slug": "pythagoras",
+  "title": "Pythagorean theorem",
+  "category": "Mathematics",
+  "subtitle": "Why two perpendicular journeys determine one diagonal.",
+  "minutes": 12,
+  "level": "Start here",
+  "accent": "amber",
+  "intro": "The Pythagorean theorem says that, in a flat plane, a right triangle has a precise relationship between its three side lengths: the square of the longest side equals the sum of the squares of the other two. It is a statement about areas that also becomes a machine for calculating distances. Understanding its proof is a first experience of something central to mathematics: a convincing pattern can be replaced by an argument that covers every allowed case.",
+  "why": "This relationship connects a drawing on paper to computer graphics, navigation, vectors, and the geometry underlying physical models. You will learn both how to use it and how to recognize when its assumptions are missing.",
+  "prerequisites": [
+    "Multiplication and square roots",
+    "Area of a square and a triangle",
+    "A right angle is 90 degrees"
+  ],
+  "terms": [
+    {
+      "term": "Right triangle",
+      "definition": "A triangle with one angle exactly equal to 90 degrees."
+    },
+    {
+      "term": "Hypotenuse",
+      "definition": "The side opposite the right angle; it is the longest side."
+    },
+    {
+      "term": "Legs",
+      "definition": "The two sides that meet at the right angle."
+    },
+    {
+      "term": "Theorem",
+      "definition": "A mathematical statement established by a logical proof from stated assumptions."
+    },
+    {
+      "term": "Euclidean plane",
+      "definition": "The ordinary flat geometry in which straight lines and distances behave as they do on an ideal sheet of paper."
+    }
+  ],
+  "sections": [
+    {
+      "title": "The idea before the symbols",
+      "paragraphs": [
+        "Imagine walking east and then north. The total length of your walk is the sum of the two segments. But a straight path from your starting point to your destination is shorter. The theorem calculates that straight distance because east and north are perpendicular. It does not say that distances add as squares in every situation: the right angle is doing essential work.",
+        "Draw a square outward from each side of a right triangle. If the legs have lengths a and b, their square areas are a² and b². If the diagonal has length c, its square has area c². The claim is that the two smaller areas together exactly fill an area equal to the larger square. Notice the units: metres become square metres when squared, then taking a square root returns a length."
+      ]
+    },
+    {
+      "title": "A name with a much longer history",
+      "paragraphs": [
+        "The theorem carries the name of Pythagoras, the ancient Greek thinker, but the relationship was known in Babylonian mathematics long before his lifetime. Surviving tablets show sophisticated work with right-triangle relationships. Historical evidence does not justify a simple story in which one person suddenly invented the entire idea. Euclid later presented a proof in his Elements, within a systematic framework of geometry.",
+        "There is an important distinction between knowing particular numerical examples, possessing a useful computational rule, and presenting a general proof. A list of successful triangles is evidence of a pattern, but it cannot establish what happens for every positive length. This lesson uses a rearrangement argument; it is a modern teaching route, not a claim to reconstruct exactly what Pythagoras personally did."
+      ]
+    },
+    {
+      "title": "A proof by keeping track of area",
+      "paragraphs": [
+        "Step 1: take any right triangle with positive legs a and b and hypotenuse c. Make four identical copies. Arrange them inside a square of side a + b, placing their right angles at the four outer corners and their hypotenuses around an empty central region. Each outer edge is divided into segments of lengths a and b, so the proposed outer square really has the claimed side length.",
+        "Step 2: establish what the central region is. Its four edges are copies of the hypotenuse, so all have length c. At each central corner the adjacent acute triangle angles add to 90 degrees, because the two acute angles of a right triangle sum to 90 degrees. The remaining central angle is therefore 180 − 90 = 90 degrees. Equal edges and right angles make the central region a square, not merely a shape that looks like one.",
+        "Step 3: count the outer area in two ways. Directly, it is (a + b)². By its pieces, it is four triangle areas plus the central square: 4(ab/2) + c². Thus a² + 2ab + b² = 2ab + c². Subtract the common 2ab from both sides and obtain a² + b² = c². The lengths were arbitrary, which is why this proves a general theorem instead of one diagram."
+      ]
+    },
+    {
+      "title": "Calculate, interpret, and check",
+      "paragraphs": [
+        "Suppose a rectangular garden is 8 metres wide and 15 metres long. Its diagonal splits it into two right triangles. Compute c² = 8² + 15² = 64 + 225 = 289, then c = 17 metres. We take the positive square root because c denotes a length. A quick sanity check helps: 17 is longer than either side, but shorter than walking along both edges, which would take 23 metres.",
+        "You can also work backward. If a 13-unit hypotenuse belongs to a right triangle with one 5-unit leg, the other leg satisfies b² = 169 − 25 = 144, so b = 12. In coordinates, the legs become horizontal and vertical differences: between (2, 1) and (10, 16), those differences are 8 and 15. The same computation gives 17. Repeating the idea with a third perpendicular direction gives the familiar three-dimensional distance formula."
+      ]
+    },
+    {
+      "title": "Where the theorem stops",
+      "paragraphs": [
+        "A triangle with an angle of 60 degrees between two sides needs a different relationship, the law of cosines. A large triangle drawn on the curved surface of Earth also requires care: distances along its surface are not straight distances through a flat plane. And the spacetime interval of relativity uses a different geometric structure, including a sign difference between time and space terms. Recognizing these boundaries makes the theorem more useful, not less.",
+        "In the interactive diagram, change both legs and compare the three square areas. The picture helps you see what the equation describes. Floating-point calculations and a finite number of slider positions cannot themselves prove the theorem; the area argument above supplies the general reason. Try explaining why the central shape is a square without pointing at the screen. That is the moment the animation becomes understanding."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "a² + b² = c²",
+    "symbols": [
+      {
+        "symbol": "a, b",
+        "meaning": "Perpendicular leg lengths, in the same units"
+      },
+      {
+        "symbol": "c",
+        "meaning": "Hypotenuse length"
+      }
+    ],
+    "explanation": "The areas of the two leg squares add to the area of the hypotenuse square, assuming Euclidean geometry and a right angle.",
+    "example": "For legs 8 and 15: c = √(64 + 225) = √289 = 17."
+  },
+  "insight": "A proof explains why every allowed triangle works; a visualization makes the relationship easier to notice.",
+  "misconceptions": [
+    {
+      "myth": "The formula applies to any triangle.",
+      "correction": "The two legs must meet at a right angle in Euclidean geometry."
+    },
+    {
+      "myth": "Pythagoras was certainly the first person to know it.",
+      "correction": "Babylonian evidence predates him; the familiar name does not settle historical priority."
+    }
+  ],
+  "check": {
+    "question": "A right triangle has legs 6 and 8. What is its hypotenuse?",
+    "options": [
+      "14",
+      "10",
+      "100"
+    ],
+    "answer": 1,
+    "explanation": "6² + 8² = 36 + 64 = 100. The hypotenuse is √100 = 10, not the squared length 100."
+  },
+  "sources": [
+    {
+      "title": "University of St Andrews: Babylonian Pythagoras",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Babylonian_Pythagoras/"
+    },
+    {
+      "title": "Wolfram MathWorld: Pythagorean theorem and proofs",
+      "url": "https://mathworld.wolfram.com/PythagoreanTheorem.html"
+    }
+  ],
+  "visual": "pythagoras"
+}
