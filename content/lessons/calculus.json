@@ -1,0 +1,133 @@
+{
+  "slug": "calculus",
+  "title": "Calculus",
+  "category": "Mathematics",
+  "subtitle": "The surprising bridge between a speedometer and an odometer.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Calculus studies two questions: how quickly is a quantity changing right now, and how much has accumulated over an interval? Differentiation answers the first; integration answers the second. Their relationship is the fundamental theorem of calculus. This is not a list of formulas to memorize. It is a language for connecting local behavior, such as your velocity at one moment, to global behavior, such as your total change in position.",
+  "why": "Physics describes motion and fields through rates of change. Quantum mechanics uses differential equations for state evolution. Learning this bridge makes many intimidating equations feel like statements about change and totals.",
+  "prerequisites": [
+    "Basic algebra and functions",
+    "Slope as rise divided by run",
+    "Area of a rectangle"
+  ],
+  "terms": [
+    {
+      "term": "Function",
+      "definition": "A rule assigning an output to each permitted input."
+    },
+    {
+      "term": "Limit",
+      "definition": "A precise description of what values approach as the input approaches a chosen value."
+    },
+    {
+      "term": "Derivative",
+      "definition": "The limiting rate of change of a function, where that limit exists."
+    },
+    {
+      "term": "Definite integral",
+      "definition": "A signed accumulation over an interval, defined here through a limit of sums."
+    },
+    {
+      "term": "Antiderivative",
+      "definition": "A function whose derivative equals the function you started with."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why a single instant is a problem",
+      "paragraphs": [
+        "If a cyclist moves 20 metres in 4 seconds, the average velocity is 5 metres per second. That does not tell us whether the cyclist accelerated, stopped, or changed direction. To ask about velocity at a particular time, compare positions over a shorter interval around it. The quotient still needs two different times. Calculus asks whether those average velocities approach one stable value as the interval shrinks toward zero.",
+        "We never divide by a time interval equal to zero. Instead, we calculate with nonzero intervals and examine their limiting behavior. This distinction matters: replacing a small number by zero too early produces an undefined fraction. A derivative is not a rough measurement over a very small interval; it is an exact limit when the mathematical model has that limit."
+      ]
+    },
+    {
+      "title": "The people behind the language",
+      "paragraphs": [
+        "Isaac Newton and Gottfried Wilhelm Leibniz developed powerful forms of calculus in the seventeenth century, drawing on a much longer history of area, tangent, and motion problems. Newton emphasized changing quantities and motion; Leibniz developed notation whose descendants remain standard. Earlier contributors included Fermat, Cavalieri, and Barrow. Later mathematicians refined the foundations using precise definitions of limits.",
+        "This history is useful because the subject did not begin as symbol manipulation. People wanted to calculate tangents, areas, and moving trajectories. The notation became a compact way to preserve those ideas. When an expression looks intimidating, translate it back into a question: am I asking for a rate at a point, or a total across an interval?"
+      ]
+    },
+    {
+      "title": "Derive one derivative yourself",
+      "paragraphs": [
+        "Let f(x) = x². Step 1: compare the outputs at x and x + h, where h is nonzero. The average slope is [f(x + h) − f(x)]/h. Step 2: expand the square to obtain [(x² + 2xh + h²) − x²]/h. The x² terms cancel, leaving (2xh + h²)/h = 2x + h.",
+        "Step 3: let h approach zero. The remaining expression approaches 2x, so f′(x) = 2x. At x = 3, the instantaneous slope is 6. This does not mean f(3) is 6: its value is 9. A function value and its derivative answer different questions. With physical units, the difference is even clearer: position might be measured in metres while its time derivative is measured in metres per second."
+      ]
+    },
+    {
+      "title": "Build an integral from small pieces",
+      "paragraphs": [
+        "Suppose water enters a tank at a changing rate r(t). Divide the time interval into short pieces. For each piece, multiply a sampled flow rate by the duration. Add those approximate volumes. As the maximum piece width tends to zero, a continuous rate function produces a definite integral. This construction explains both the multiplication inside each contribution and the addition across contributions.",
+        "An integral is signed accumulation. If r(t) becomes negative, water is leaving, and that contribution reduces the total change. Similarly, integrating velocity gives displacement, not automatically total distance traveled. For distance, integrate speed, the magnitude of velocity. Areas below a horizontal axis count negatively in a signed integral, even though ordinary geometric area is never negative."
+      ]
+    },
+    {
+      "title": "Why the two operations undo each other",
+      "paragraphs": [
+        "Assume f is continuous on an interval and define A(x) as its integral from a fixed starting point a to x. Step 1: A(x + h) − A(x) is precisely the accumulation over the short interval from x to x + h. Step 2: dividing that accumulation by h gives the average value of f over that interval. Step 3: continuity means nearby values approach f(x), so their average also approaches f(x). Therefore A′(x) = f(x) at interior points.",
+        "Now let F be any antiderivative of f. Since both F and A have derivative f, their difference has derivative zero. By the mean value theorem that difference is constant on the interval. Evaluating at the endpoints gives ∫ₐᵇ f(x) dx = F(b) − F(a). This is the bridge: an accumulation defined by many tiny contributions can be computed using an antiderivative and two endpoint values."
+      ]
+    },
+    {
+      "title": "A worked example and practical boundaries",
+      "paragraphs": [
+        "Take the flow rate r(t) = 2t litres per second, with t measured numerically in seconds, from t = 0 to t = 3. An antiderivative is t² with the corresponding volume units. The accumulated volume is 3² − 0² = 9 litres. A graph gives the same answer: the region is a triangle of base 3 seconds and height 6 litres per second. Its area is one half times 3 times 6, again 9 litres.",
+        "Our continuity assumptions are sufficient for this version of the theorem; more advanced versions allow broader cases. Corners can prevent a derivative from existing, and sampled data introduces approximation and noise. In the visualization, compare a smooth curve with its local slope or rectangle approximation. Increasing resolution can improve an estimate, but a computer plot does not replace checking the mathematical conditions or the physical model."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "f′(x) = limₕ→₀ [f(x + h) − f(x)] / h",
+    "symbols": [
+      {
+        "symbol": "f′(x)",
+        "meaning": "Instantaneous rate of change at x"
+      },
+      {
+        "symbol": "h",
+        "meaning": "A nonzero input change that approaches zero"
+      }
+    ],
+    "explanation": "Average changes become a derivative if their limit exists. The fundamental theorem connects this local operation to integration.",
+    "example": "For f(x) = x², the quotient simplifies to 2x + h, whose limit is 2x."
+  },
+  "insight": "Differentiation reads a local rate; integration gathers rates into a total change.",
+  "misconceptions": [
+    {
+      "myth": "An integral always gives positive area.",
+      "correction": "A definite integral gives signed accumulation; contributions can cancel."
+    },
+    {
+      "myth": "A derivative means divide by zero.",
+      "correction": "The difference quotient uses nonzero increments; only afterward do we take a limit."
+    }
+  ],
+  "check": {
+    "question": "If position is s(t) = t² metres, what is velocity at t = 3 seconds?",
+    "options": [
+      "9 metres per second",
+      "6 metres per second",
+      "3 metres per second"
+    ],
+    "answer": 1,
+    "explanation": "The derivative of t² is 2t, so the instantaneous velocity is 6 metres per second."
+  },
+  "sources": [
+    {
+      "title": "University of St Andrews: the rise of calculus",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/The_rise_of_calculus/"
+    },
+    {
+      "title": "UBC CLP textbook: the fundamental theorem",
+      "url": "https://math.libretexts.org/Bookshelves/Calculus/CLP-2_Integral_Calculus_%28Feldman_Rechnitzer_and_Yeager%29/01%3A_Integration/1.03%3A_The_Fundamental_Theorem_of_Calculus"
+    },
+    {
+      "title": "OpenStax: Calculus Volume 1",
+      "url": "https://assets.openstax.org/oscms-prodcms/media/documents/CalculusVolume1-OP.pdf"
+    }
+  ],
+  "visual": "calculus"
+}

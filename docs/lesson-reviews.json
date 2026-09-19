@@ -52,5 +52,11 @@
     "sourceSha256": "54117f74ae2b5d4ab9844867571e5b53c38fddadc0bcc6b97f571af9181b3353",
     "reviewRecord": "existing-corrected.json",
     "status": "approved"
+  },
+  "calculus": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "0a970138f72b0081c101f1c06c06ede81e666f1d0c993f920a5da23e73234a35",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
   }
 }
