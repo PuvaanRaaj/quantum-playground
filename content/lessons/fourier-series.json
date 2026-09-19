@@ -1,0 +1,258 @@
+{
+  "slug": "fourier-series",
+  "title": "Fourier series",
+  "category": "Mathematics",
+  "subtitle": "A Fourier series represents a periodic function using sine and cosine waves at integer multiples of a fundamental frequency.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A Fourier series represents a periodic function using sine and cosine waves at integer multiples of a fundamental frequency. The components add; they do not take turns. A complicated waveform can therefore be described by a collection of amplitudes and phases rather than by a list of values at individual times. This is particularly useful when a physical system responds differently to different frequencies.",
+  "why": "For this piecewise smooth function, the series converges to the midpoint of the two one-sided limits at a jump.",
+  "prerequisites": [
+    "Algebra and functions",
+    "Basic integrals or probability"
+  ],
+  "terms": [
+    {
+      "term": "Harmonic",
+      "definition": "An oscillation whose frequency is an integer multiple of a fundamental frequency."
+    },
+    {
+      "term": "Fourier coefficient",
+      "definition": "A weight specifying how much of a sine or cosine component is present."
+    },
+    {
+      "term": "Orthogonality",
+      "definition": "Zero average product between distinct basis functions over a full period."
+    },
+    {
+      "term": "Partial sum",
+      "definition": "A finite collection of terms from an infinite series."
+    },
+    {
+      "term": "Gibbs phenomenon",
+      "definition": "Persistent overshoot near a jump in Fourier partial sums."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Resolve a periodic function into components",
+      "paragraphs": [
+        "A Fourier series represents a periodic function using sine and cosine waves at integer multiples of a fundamental frequency. The components add; they do not take turns. A complicated waveform can therefore be described by a collection of amplitudes and phases rather than by a list of values at individual times. This is particularly useful when a physical system responds differently to different frequencies.",
+        "Joseph Fourier developed these methods in studying heat conduction in the early nineteenth century. Earlier work on vibrating strings by mathematicians including Euler, d’Alembert, and Bernoulli supplied important context. Fourier’s claims about representing functions stimulated later work on convergence and the meaning of a function. The modern theory is more precise than saying that every imaginable curve equals a sine-wave sum at every point."
+      ]
+    },
+    {
+      "title": "Orthogonality separates the coefficients",
+      "paragraphs": [
+        "For period 2π, write a proposed expansion f(x) = a₀/2 + Σ[aₙ cos(nx) + bₙ sin(nx)]. Integrate the product of two different sine harmonics over a complete period and the positive and negative contributions cancel. The same happens for different cosine harmonics and for sine-cosine cross terms. Matching nonzero harmonics have squared integral π over the interval from −π to π.",
+        "Multiply the expansion by sin(mx) and integrate. Orthogonality eliminates every term except b_m sin²(mx), leaving b_m = (1/π)∫₋π^π f(x)sin(mx) dx. The cosine formula follows similarly, and the constant coefficient comes from the average. This resembles taking dot products with perpendicular basis vectors: each projection extracts one independent component. Interchanging an infinite sum and an integral requires suitable convergence justification; the finite-sum argument itself is immediate."
+      ]
+    },
+    {
+      "title": "Derive a square-wave approximation",
+      "paragraphs": [
+        "Consider the periodic function equal to one between zero and π and minus one between −π and zero. It is odd, so every cosine coefficient and the average vanish. For sine coefficients, symmetry gives bₙ = (2/π)∫₀^π sin(nx) dx = 2[1 − cos(nπ)]/(πn). Even n gives zero, while odd n gives 4/(πn). Thus only odd sine harmonics remain.",
+        "Keeping three nonzero terms produces S(x) = (4/π)[sin x + sin(3x)/3 + sin(5x)/5]. At x = π/2 the three sine values are one, minus one, and one. The result is (4/π)(1 − 1/3 + 1/5), approximately 1.1035, although the target function equals one. A finite approximation can overshoot; its terms are not constrained to remain within the target’s range."
+      ]
+    },
+    {
+      "title": "Interpret convergence carefully",
+      "paragraphs": [
+        "For a sufficiently well-behaved piecewise smooth periodic function, the Fourier series converges to the function at continuity points and to the midpoint of the left and right limits at a jump. At the square wave’s jump at zero, that midpoint is zero. No continuous finite sum can reproduce an instantaneous discontinuity exactly. As more terms are included, the transition becomes narrower but the nearby overshoot does not simply vanish in height.",
+        "This Gibbs behavior is not random numerical noise. It is a property of the approximation scheme. Alternative smoothing or summation methods can reduce ringing, usually at the cost of a broader transition. Distinguish pointwise convergence, which concerns each fixed input, from uniform convergence, which controls the largest error over a whole interval. A discontinuous target cannot be the uniform limit of continuous partial sums."
+      ]
+    },
+    {
+      "title": "Applications and finite-data limits",
+      "paragraphs": [
+        "A musical note contains a fundamental and overtones; their relative strengths shape timbre. A linear heat equation evolves spatial Fourier modes at different decay rates. In quantum mechanics, decomposing a wavefunction into momentum components uses a related transform framework. The mathematics organizes different scales of variation, but the physical meaning of a coefficient depends on the quantity being expanded and its normalization.",
+        "A Fourier series describes periodic functions, while a Fourier transform addresses a related continuous-frequency setting. A discrete Fourier transform works with a finite sampled sequence. Sampling can confuse different continuous frequencies through aliasing, and observing only a finite window can spread spectral energy. These are separate issues from whether the infinite mathematical series converges.",
+        "The calculator compares one, three, and five odd harmonics of the square-wave series. Its angle input is dimensionless and periodic. More terms sharpen the transition but do not establish a physical mechanism for any observed waveform. When interpreting the display, compare errors both far from and close to a jump. A visually good fit over most of a period can coexist with a systematic local overshoot, which is why a single average error measure may conceal an important feature."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "S(x) = (4/π)[sin x + sin(3x)/3 + sin(5x)/5]",
+    "symbols": [
+      {
+        "symbol": "x",
+        "meaning": "Dimensionless phase in radians"
+      },
+      {
+        "symbol": "π",
+        "meaning": "Half the angle of a full turn"
+      },
+      {
+        "symbol": "S",
+        "meaning": "Three-odd-harmonic square-wave approximation"
+      }
+    ],
+    "explanation": "Finite partial sums of a dimensionless periodic square wave; jumps and Gibbs overshoot are expected.",
+    "example": "At phase π/2, the three-term approximation is approximately 1.1035."
+  },
+  "insight": "For this piecewise smooth function, the series converges to the midpoint of the two one-sided limits at a jump.",
+  "misconceptions": [
+    {
+      "myth": "Every finite Fourier sum stays within the target range.",
+      "correction": "Partial sums can overshoot, especially near discontinuities."
+    },
+    {
+      "myth": "Fourier series and sampled transforms are identical objects.",
+      "correction": "A Fourier series describes periodic functions; a discrete transform operates on finite sampled data."
+    }
+  ],
+  "check": {
+    "question": "At a jump from −1 to +1, where does this Fourier series converge?",
+    "options": [
+      "−1",
+      "0",
+      "+1"
+    ],
+    "answer": 1,
+    "explanation": "For this piecewise smooth function, the series converges to the midpoint of the two one-sided limits at a jump."
+  },
+  "sources": [
+    {
+      "title": "Jiří Lebl: Notes on Diffy Qs",
+      "url": "https://www.jirka.org/diffyqs/"
+    },
+    {
+      "title": "University of St Andrews: Joseph Fourier",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Fourier series example",
+    "description": "At phase π/2, the three-term approximation is approximately 1.1035.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Phase",
+        "unit": "rad",
+        "min": -3.141592653589793,
+        "max": 3.141592653589793,
+        "step": 0.01,
+        "initial": 1.5707963267948966
+      }
+    ],
+    "outputs": [
+      {
+        "label": "One harmonic",
+        "unit": "",
+        "expression": [
+          "*",
+          1.2732395447351628,
+          [
+            "sin",
+            "x"
+          ]
+        ]
+      },
+      {
+        "label": "Three odd harmonics",
+        "unit": "",
+        "expression": [
+          "*",
+          1.2732395447351628,
+          [
+            "+",
+            [
+              "sin",
+              "x"
+            ],
+            [
+              "/",
+              [
+                "sin",
+                [
+                  "*",
+                  3,
+                  "x"
+                ]
+              ],
+              3
+            ],
+            [
+              "/",
+              [
+                "sin",
+                [
+                  "*",
+                  5,
+                  "x"
+                ]
+              ],
+              5
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Five odd harmonics",
+        "unit": "",
+        "expression": [
+          "*",
+          1.2732395447351628,
+          [
+            "+",
+            [
+              "sin",
+              "x"
+            ],
+            [
+              "/",
+              [
+                "sin",
+                [
+                  "*",
+                  3,
+                  "x"
+                ]
+              ],
+              3
+            ],
+            [
+              "/",
+              [
+                "sin",
+                [
+                  "*",
+                  5,
+                  "x"
+                ]
+              ],
+              5
+            ],
+            [
+              "/",
+              [
+                "sin",
+                [
+                  "*",
+                  7,
+                  "x"
+                ]
+              ],
+              7
+            ],
+            [
+              "/",
+              [
+                "sin",
+                [
+                  "*",
+                  9,
+                  "x"
+                ]
+              ],
+              9
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Finite partial sums of a dimensionless periodic square wave; jumps and Gibbs overshoot are expected."
+  }
+}

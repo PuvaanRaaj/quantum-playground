@@ -184,5 +184,11 @@
     "sourceSha256": "b2baf141eda8a6915a02fec167582f0c62ddfb2e560d6cf598d326e8a82d0eea",
     "reviewRecord": "batch-5.json",
     "status": "approved"
+  },
+  "fourier-series": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "ca078d3e98b11251e8e4dda9b3582cbaf9c9106c8001b386704fbb84d7c805c3",
+    "reviewRecord": "batch-5.json",
+    "status": "approved"
   }
 }
