@@ -1,0 +1,191 @@
+{
+  "slug": "central-limit-theorem",
+  "title": "Central limit theorem",
+  "category": "Mathematics",
+  "subtitle": "The central limit theorem describes how standardized sums or averages approach a normal distribution under suitable conditions.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "The central limit theorem describes how standardized sums or averages approach a normal distribution under suitable conditions. It concerns the distribution across repeated samples, not the shape of the individual observations inside one sample. A collection of strongly skewed measurements can remain skewed no matter how many you collect, while the averages of many such independent collections become approximately normal.",
+  "why": "The theorem concerns standardized sampling fluctuations, not the individual-data distribution.",
+  "prerequisites": [
+    "Algebra and finite sums",
+    "Basic probability or logical implication"
+  ],
+  "terms": [
+    {
+      "term": "Standardization",
+      "definition": "Subtracting a mean and dividing by a positive standard deviation."
+    },
+    {
+      "term": "Sampling distribution",
+      "definition": "The distribution of a statistic across repeated samples."
+    },
+    {
+      "term": "Convergence in distribution",
+      "definition": "Convergence of cumulative probabilities at continuity points of the limiting distribution."
+    },
+    {
+      "term": "Standard error",
+      "definition": "The standard deviation of an estimator’s sampling distribution."
+    },
+    {
+      "term": "Finite variance",
+      "definition": "A finite expected squared deviation from the mean."
+    }
+  ],
+  "sections": [
+    {
+      "title": "The distribution of averages changes shape",
+      "paragraphs": [
+        "The central limit theorem describes how standardized sums or averages approach a normal distribution under suitable conditions. It concerns the distribution across repeated samples, not the shape of the individual observations inside one sample. A collection of strongly skewed measurements can remain skewed no matter how many you collect, while the averages of many such independent collections become approximately normal.",
+        "De Moivre found an early normal approximation to binomial probabilities, and Laplace broadened the theory. Later results clarified conditions involving independence, unequal distributions, and tail behavior. There is no single slogan that covers every version. Here we use the classical independent identically distributed version with a finite positive variance, so the assumptions and normalization can be stated explicitly."
+      ]
+    },
+    {
+      "title": "State the quantity that converges",
+      "paragraphs": [
+        "Let X₁ through Xₙ be independent observations from the same distribution, with mean μ and variance σ² strictly between zero and infinity. Their average Mₙ has mean μ and standard deviation σ/√n. Define Zₙ = (Mₙ − μ)/(σ/√n). The theorem says Zₙ converges in distribution to the standard normal as n grows. Equivalently, subtract nμ from the sum and divide by σ√n.",
+        "The standardization is essential. Without it, the average simply concentrates around μ under the law of large numbers. Dividing by its shrinking standard deviation reveals a stable limiting shape. The two theorems answer related but distinct questions: one says the average approaches its expectation; the other describes the scaled fluctuations around that expectation."
+      ]
+    },
+    {
+      "title": "Why a normal shape emerges",
+      "paragraphs": [
+        "A proof route uses characteristic functions, which encode a distribution through expectations of complex exponentials. For a centered variable with unit variance, the characteristic function near zero has expansion 1 − t²/2 + o(t²). Independence means the characteristic function of a sum is the product of the individual characteristic functions. Evaluating at t/√n gives [1 − t²/(2n) + o(1/n)]ⁿ.",
+        "As n tends to infinity, that expression approaches exp(−t²/2), the characteristic function of a standard normal. A continuity theorem then converts this characteristic-function convergence into convergence in distribution. This is a proof outline rather than a complete development: it relies on the small-input expansion under finite variance and on the continuity theorem. It explains the role of independence and variance while naming the additional analytical results being used."
+      ]
+    },
+    {
+      "title": "Calculate a sampling approximation",
+      "paragraphs": [
+        "Suppose individual waiting times follow an exponential model with mean ten minutes and standard deviation ten minutes. For n = 100 independent waits, the average has mean ten minutes and standard error one minute. The central limit theorem suggests approximately 95.45% probability that the average lies between eight and twelve minutes, because that interval spans two standard errors on each side.",
+        "This is an approximation, not an exact normal claim about the individual waits. An exponential wait is nonnegative and skewed. Its sample average is also nonnegative, although the normal approximation has a tiny negative tail. In this example the average’s exact distribution is a scaled gamma distribution. An exact calculation could assess the approximation error rather than relying only on the rough size of n."
+      ]
+    },
+    {
+      "title": "There is no universal sample-size threshold",
+      "paragraphs": [
+        "The often-repeated rule that thirty observations are enough is not a theorem guaranteeing a desired accuracy. Convergence can be fast for some distributions and slow for others, particularly when rare large values matter. Berry–Esseen bounds quantify rates under an additional finite third absolute moment, but their constants and moment ratios show why distributional shape matters. Tail-event approximations may require more care than probabilities near the center.",
+        "Some heavy-tailed distributions have infinite variance and fall outside this version of the theorem. Strong dependence can also prevent the usual √n scaling. More advanced central limit theorems handle certain dependent or nonidentical sequences, but their conditions must be checked rather than presumed. Collecting more data is not a substitute for understanding how observations were generated."
+      ]
+    },
+    {
+      "title": "Read the demonstration correctly",
+      "paragraphs": [
+        "The calculator varies sample size and the individual standard deviation, showing the predicted standard error σ/√n. It also evaluates the height at the center of the approximating normal distribution for a zero-centered average. That height grows as the distribution narrows, while its area remains one. The output is a density, not the probability that the average equals its mean.",
+        "The display deliberately does not generate a fake data set and declare the theorem proved by a bell-shaped histogram. It computes consequences of the finite-variance independent model. In actual inference, the population standard deviation may be unknown and must be estimated; for normal observations, this leads to Student’s t procedures rather than blindly substituting a normal critical value. The theorem is a powerful justification for approximations, but the approximation, parameter estimation, and sampling design remain separate parts of the argument."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Zₙ = (Mₙ−μ)/(σ/√n) ⇒ N(0,1)",
+    "symbols": [
+      {
+        "symbol": "Mₙ",
+        "meaning": "Sample mean"
+      },
+      {
+        "symbol": "μ, σ",
+        "meaning": "Population mean and positive finite standard deviation"
+      },
+      {
+        "symbol": "n",
+        "meaning": "Independent identically distributed sample size"
+      },
+      {
+        "symbol": "⇒",
+        "meaning": "Convergence in distribution"
+      }
+    ],
+    "explanation": "Independent identically distributed observations with finite positive variance; normal approximation may be inaccurate for small samples or heavy tails.",
+    "example": "If σ=10 and n=100, the standard error is 1."
+  },
+  "insight": "The theorem concerns standardized sampling fluctuations, not the individual-data distribution.",
+  "misconceptions": [
+    {
+      "myth": "Thirty observations always guarantee accuracy.",
+      "correction": "Required sample size depends on the source distribution and the probability being approximated."
+    },
+    {
+      "myth": "The theorem permits any infinite-variance population.",
+      "correction": "The classical version here requires finite positive variance."
+    }
+  ],
+  "check": {
+    "question": "What becomes approximately normal under this theorem?",
+    "options": [
+      "Every original observation",
+      "The standardized sum or mean across repeated samples",
+      "Every histogram with thirty points"
+    ],
+    "answer": 1,
+    "explanation": "The theorem concerns standardized sampling fluctuations, not the individual-data distribution."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Central limit theorem example",
+    "description": "If σ=10 and n=100, the standard error is 1.",
+    "inputs": [
+      {
+        "key": "n",
+        "label": "Sample size",
+        "unit": "",
+        "min": 1,
+        "max": 1000,
+        "step": 1,
+        "initial": 100
+      },
+      {
+        "key": "sigma",
+        "label": "Individual standard deviation",
+        "unit": "units",
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1,
+        "initial": 10
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Standard error",
+        "unit": "units",
+        "expression": [
+          "/",
+          "sigma",
+          [
+            "sqrt",
+            "n"
+          ]
+        ]
+      },
+      {
+        "label": "Approximating density at mean",
+        "unit": "units⁻¹",
+        "expression": [
+          "/",
+          [
+            "sqrt",
+            "n"
+          ],
+          [
+            "*",
+            "sigma",
+            2.5066282746310002
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Independent identically distributed observations with finite positive variance; normal approximation may be inaccurate for small samples or heavy tails."
+  }
+}

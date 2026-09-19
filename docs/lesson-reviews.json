@@ -256,5 +256,11 @@
     "sourceSha256": "f6ba83d9b0fbe86983d63a69768f9672036b24e8866f4a80e0487bc8286c3676",
     "reviewRecord": "batch-8.json",
     "status": "approved"
+  },
+  "central-limit-theorem": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "83ebee791754ea5321999fd9809ea8119010a2db0f982a7390926ef993be5fc7",
+    "reviewRecord": "batch-8.json",
+    "status": "approved"
   }
 }
