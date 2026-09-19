@@ -1,0 +1,215 @@
+{
+  "slug": "normal-distribution",
+  "title": "Normal distribution",
+  "category": "Mathematics",
+  "subtitle": "The normal distribution is a continuous probability model with a symmetric bell-shaped density.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "The normal distribution is a continuous probability model with a symmetric bell-shaped density. It is specified by a mean μ and a positive standard deviation σ. Changing μ shifts the curve; changing σ spreads it while reducing its peak so the total area remains one. The shape is common in statistical approximations, but a symmetric histogram is not automatically normal and many scientific variables have strongly nonnormal behavior.",
+  "why": "A probability density must be integrated over the requested interval to obtain probability.",
+  "prerequisites": [
+    "Algebra and functions",
+    "Basic integrals or probability"
+  ],
+  "terms": [
+    {
+      "term": "Mean μ",
+      "definition": "The center and expected value of the normal distribution."
+    },
+    {
+      "term": "Standard deviation σ",
+      "definition": "A positive scale parameter measuring spread in the original units."
+    },
+    {
+      "term": "Density",
+      "definition": "A function whose interval area is probability."
+    },
+    {
+      "term": "Standard score",
+      "definition": "The dimensionless quantity z = (x − μ)/σ."
+    },
+    {
+      "term": "Tail",
+      "definition": "A region far from the distribution center."
+    }
+  ],
+  "sections": [
+    {
+      "title": "A specific bell-shaped model",
+      "paragraphs": [
+        "The normal distribution is a continuous probability model with a symmetric bell-shaped density. It is specified by a mean μ and a positive standard deviation σ. Changing μ shifts the curve; changing σ spreads it while reducing its peak so the total area remains one. The shape is common in statistical approximations, but a symmetric histogram is not automatically normal and many scientific variables have strongly nonnormal behavior.",
+        "De Moivre obtained an early normal approximation to binomial probabilities. Laplace developed important limit results, and Gauss’s work on measurement errors helped establish the distribution’s association with his name. These contributions explain why both normal and Gaussian are used. Its importance comes partly from the central limit theorem, under which suitably standardized sums of many independent contributions can approach this distribution."
+      ]
+    },
+    {
+      "title": "Understand every part of the density",
+      "paragraphs": [
+        "The density is f(x) = exp[−(x − μ)²/(2σ²)]/(σ√(2π)). Squaring the deviation makes the shape symmetric. Dividing by σ² sets the width. The negative sign makes density decrease away from the center, and the prefactor normalizes the total area. Since x and σ share units, the exponent is dimensionless and the density has reciprocal units.",
+        "At the mean, the exponential factor equals one, so the maximum density is 1/(σ√(2π)). A smaller σ makes this peak taller, potentially greater than one. That is allowed because probability is area, not height. At any one exact point the probability is zero in the continuous model. To ask for a nonzero probability, specify an interval or a cumulative threshold."
+      ]
+    },
+    {
+      "title": "Why the normalization contains π",
+      "paragraphs": [
+        "For the standard case μ = 0 and σ = 1, let I be the integral of exp(−x²/2) over the whole real line. The integrand is nonnegative, so its squared integral can be written as the double integral of exp[−(x² + y²)/2] over the plane. Changing to polar coordinates introduces the area factor r, giving I² = ∫₀^(2π)dθ ∫₀^∞ r exp(−r²/2)dr.",
+        "The radial integral equals one by the substitution u = r²/2, and the angular integral equals 2π. Therefore I² = 2π and I = √(2π), taking the positive root. Dividing the original density by this value makes its total integral one. Scaling and shifting the variable then produces the general normalization factor σ√(2π). This derivation explains the constant rather than presenting it as an arbitrary adjustment."
+      ]
+    },
+    {
+      "title": "Standardize a concrete measurement",
+      "paragraphs": [
+        "Suppose an illustrative manufacturing dimension follows a normal model with mean 50 millimetres and standard deviation two millimetres. A measured value of 54 millimetres has standard score z = (54 − 50)/2 = 2. It lies two standard deviations above the mean. The probability between 46 and 54 millimetres corresponds to the standard-normal interval from −2 to +2, approximately 95.45%.",
+        "The familiar approximate percentages are 68.27% within one standard deviation, 95.45% within two, and 99.73% within three. These percentages are properties of the normal distribution, not universal facts about all distributions. A data set with heavy tails can place substantially more observations beyond three standard deviations. The same standard score does not carry the same tail probability without specifying the distribution."
+      ]
+    },
+    {
+      "title": "What the model does not establish",
+      "paragraphs": [
+        "The normal curve extends over the entire real line. Modeling a necessarily positive quantity with it may be reasonable when the mean is many standard deviations above zero, but it can assign appreciable impossible negative values when the spread is large. In such cases a different distribution or a transformation may better reflect the mechanism. Outliers, mixtures of populations, and skewness can also invalidate a convenient normal approximation.",
+        "Independent normal variables add to another normal variable, with means adding and variances adding. Independence is important for the variance statement; correlated contributions require covariance terms. Conversely, observing a roughly normal sum does not imply each underlying contribution was normal. The central limit theorem gives conditions for an approximation, not a guarantee for every small collection of variables.",
+        "The calculator evaluates a normal density and a standard score, not a cumulative probability. The area under a graph segment would require integration; reading the curve’s height as the chance of that value would be incorrect. The positive lower bound on σ prevents a singular zero-width distribution. Use the controls to separate shifting the center from widening the spread, while remembering that the graph displays the consequences of an assumed model rather than evidence that a particular real measurement process is Gaussian."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "f(x) = exp[−(x−μ)²/(2σ²)]/(σ√(2π))",
+    "symbols": [
+      {
+        "symbol": "μ",
+        "meaning": "Mean"
+      },
+      {
+        "symbol": "σ",
+        "meaning": "Positive standard deviation"
+      },
+      {
+        "symbol": "x",
+        "meaning": "Observed value"
+      },
+      {
+        "symbol": "f(x)",
+        "meaning": "Probability density at x"
+      }
+    ],
+    "explanation": "Normal density with strictly positive standard deviation; outputs are density and z-score, not interval probabilities.",
+    "example": "At μ=0, σ=1, x=0, the density is approximately 0.39894."
+  },
+  "insight": "A probability density must be integrated over the requested interval to obtain probability.",
+  "misconceptions": [
+    {
+      "myth": "Every bell-shaped data set is normal.",
+      "correction": "Symmetry and a central peak do not establish the exact normal shape or tail behavior."
+    },
+    {
+      "myth": "About 95% always lie within two standard deviations.",
+      "correction": "That percentage is specific to a normal model, not every distribution."
+    }
+  ],
+  "check": {
+    "question": "What gives a normal interval probability?",
+    "options": [
+      "Height at its midpoint",
+      "Area under the density over that interval",
+      "The mean alone"
+    ],
+    "answer": 1,
+    "explanation": "A probability density must be integrated over the requested interval to obtain probability."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Introductory Statistics 2e",
+      "url": "https://openstax.org/details/books/introductory-statistics-2e"
+    },
+    {
+      "title": "Hossein Pishro-Nik: Introduction to Probability",
+      "url": "https://www.probabilitycourse.com/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Normal distribution example",
+    "description": "At μ=0, σ=1, x=0, the density is approximately 0.39894.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Observed value",
+        "unit": "",
+        "min": -6,
+        "max": 6,
+        "step": 0.05,
+        "initial": 0
+      },
+      {
+        "key": "mean",
+        "label": "Mean",
+        "unit": "",
+        "min": -3,
+        "max": 3,
+        "step": 0.05,
+        "initial": 0
+      },
+      {
+        "key": "sigma",
+        "label": "Standard deviation",
+        "unit": "",
+        "min": 0.2,
+        "max": 3,
+        "step": 0.05,
+        "initial": 1
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Density",
+        "unit": "",
+        "expression": [
+          "/",
+          [
+            "exp",
+            [
+              "/",
+              [
+                "*",
+                -0.5,
+                [
+                  "pow",
+                  [
+                    "-",
+                    "x",
+                    "mean"
+                  ],
+                  2
+                ]
+              ],
+              [
+                "pow",
+                "sigma",
+                2
+              ]
+            ]
+          ],
+          [
+            "*",
+            "sigma",
+            2.5066282746310002
+          ]
+        ]
+      },
+      {
+        "label": "Standard score",
+        "unit": "",
+        "expression": [
+          "/",
+          [
+            "-",
+            "x",
+            "mean"
+          ],
+          "sigma"
+        ]
+      }
+    ],
+    "assumptions": "Normal density with strictly positive standard deviation; outputs are density and z-score, not interval probabilities."
+  }
+}
