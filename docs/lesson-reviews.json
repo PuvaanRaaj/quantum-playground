@@ -148,5 +148,11 @@
     "sourceSha256": "356bc40f47b8194093be262a24d8e696595aa64d0c2214d944e8b1bafe9e5944",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "decoherence": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "ba59734448354779545c8df806096f208939686db01b70dc2d24ca186232ae53",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }

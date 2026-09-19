@@ -1,0 +1,180 @@
+{
+  "slug": "decoherence",
+  "title": "Quantum decoherence",
+  "category": "Quantum mechanics",
+  "subtitle": "Interactions can make a subsystem lose accessible phase coherence.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Interference requires controlled phase relationships.",
+  "why": "Interactions can make a subsystem lose accessible phase coherence.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Environment",
+      "definition": "Degrees of freedom outside the system explicitly tracked."
+    },
+    {
+      "term": "Reduced state",
+      "definition": "The state predicting measurements on a subsystem when its surroundings are ignored."
+    },
+    {
+      "term": "Coherence",
+      "definition": "Phase-sensitive relations between alternatives in a chosen basis."
+    },
+    {
+      "term": "Dephasing time",
+      "definition": "A timescale characterizing loss of phase contrast in a specified noise model."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why isolated quantum behavior is difficult to maintain",
+      "paragraphs": [
+        "Interference requires controlled phase relationships. A carefully isolated atom can exhibit them, while an everyday object interacting with air, light and its surroundings usually does not show obvious interference between widely separated alternatives. Decoherence describes how interactions transfer phase-sensitive information into correlations with other degrees of freedom. H. Dieter Zeh and Wojciech Zurek made major contributions to its modern development. The central idea is not that large objects obey an unrelated mathematics, but that treating a subsystem while ignoring its environment can produce predictions very different from those of an isolated pure state.",
+        "Suppose a particle has two possible paths. If both paths leave the environment in the same state, the environment provides no distinguishing record. Interference can remain visible. If the paths leave orthogonal environmental states, a sufficiently capable measurement of the environment could distinguish them. When that record is ignored, interference between the paths disappears from the particle’s local statistics. Partial distinguishability gives partial contrast. The relevant quantity is the overlap of the environmental states, rather than whether a person actually reads a path label."
+      ]
+    },
+    {
+      "title": "How entanglement changes the local description",
+      "paragraphs": [
+        "Write an initial path superposition with equal coefficients and one common environment state. An interaction can turn it into a joint superposition of path zero with environment record zero and path one with environment record one. The whole can still evolve coherently under quantum mechanics. Nevertheless, predictions for measurements only on the path system involve a reduced density matrix. Its off-diagonal terms, which carry phase information in this basis, are multiplied by the overlap between the environmental records. Distinguishable records reduce those terms.",
+        "This resolves an apparent contradiction. Saying that local coherence decreased does not necessarily mean all information was fundamentally destroyed in the combined system. Some of it became distributed across correlations that the local experiment does not control. Reversing a precisely controlled small interaction can recover interference. Reversing interactions with an enormous uncontrolled environment is generally impractical. A simplified exponential decay law summarizes the local effect without tracing every scattered photon or vibrating molecule. It should not be mistaken for an exact universal microscopic history of all environments."
+      ]
+    },
+    {
+      "title": "A decay model and a numerical prediction",
+      "paragraphs": [
+        "A common phenomenological dephasing model assigns a visibility V(t)=exp(−t/T₂), where T₂ is a positive coherence timescale. After time T₂, visibility is one divided by e, about 0.368. After twice that time it is about 0.135. This is a statement about contrast, not the survival probability of the particle. In a balanced interferometer at a fixed constructive phase, detector-zero probability becomes (1+V)/2. As visibility declines, the probability approaches one half rather than zero because the remaining incoherent alternatives still reach the detectors.",
+        "For T₂ equal to ten microseconds and an elapsed time of five microseconds, visibility is exp(−0.5), about 0.607. At constructive phase the corresponding probability is about 0.803. The complementary output has probability about 0.197. This example separates three ideas: the particle still exists, its total detection probability is conserved in the ideal model, and the phase-dependent contrast has weakened. A real apparatus might also lose particles, but that requires an additional model of loss rather than silently folding every experimental imperfection into dephasing."
+      ]
+    },
+    {
+      "title": "What decoherence does and does not settle",
+      "paragraphs": [
+        "Dephasing is often distinguished from energy relaxation. A system can lose relative phase coherence without changing its populations in the selected energy basis. Energy relaxation changes populations and usually contributes to coherence loss as well. The common laboratory labels T₁ and T₂ depend on the measurement protocol and physical model. Some environments produce Gaussian decay, oscillatory behavior or revivals rather than a simple exponential. A single timescale is therefore useful only after identifying the regime and observable it summarizes.",
+        "The calculator assumes exponential pure dephasing of a balanced two-path state. Its inputs are elapsed time and a positive decay time; it returns contrast and one constructive-phase output probability. It does not model a microscopic bath, energy exchange, detector inefficiency or the interpretation of individual outcomes. Decoherence helps explain the suppression of observable interference in certain bases, but saying it completely solves every version of the measurement problem overstates the calculation. To use the lesson precisely, ask which system is being tracked, which environmental information is ignored, and which interference experiment has lost contrast. These questions turn an intimidating term into a concrete relationship among interactions, correlations and accessible measurements."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "V(t)=exp(−t/T₂); P(0)=(1+V)/2",
+    "symbols": [
+      {
+        "symbol": "t",
+        "meaning": "Elapsed time."
+      },
+      {
+        "symbol": "T₂",
+        "meaning": "Positive phase-coherence decay time."
+      },
+      {
+        "symbol": "V",
+        "meaning": "Interference visibility."
+      }
+    ],
+    "explanation": "Interactions can make a subsystem lose accessible phase coherence.",
+    "example": "For t=5 μs and T₂=10 μs, V≈0.607 and P(0)≈0.803."
+  },
+  "insight": "Losing phase contrast does not remove the particle; the balanced output probabilities approach one half.",
+  "misconceptions": [
+    {
+      "myth": "Decoherence requires a conscious observer.",
+      "correction": "An unobserved physical environment can acquire information and reduce local phase coherence."
+    },
+    {
+      "myth": "Decoherence necessarily destroys the particle.",
+      "correction": "Pure dephasing suppresses interference while preserving total probability and populations in its selected basis."
+    }
+  ],
+  "check": {
+    "question": "When visibility tends to zero in this lossless balanced model, what happens?",
+    "options": [
+      "The particle disappears",
+      "Both output probabilities approach one half",
+      "Conscious observation becomes necessary"
+    ],
+    "answer": 1,
+    "explanation": "Losing phase contrast does not remove the particle; the balanced output probabilities approach one half."
+  },
+  "sources": [
+    {
+      "title": "Zurek: Decoherence, einselection, and quantum origins of the classical",
+      "url": "https://arxiv.org/abs/quant-ph/0105127"
+    },
+    {
+      "title": "IBM: Coherence characterization and qubit benchmarking",
+      "url": "https://quantum.cloud.ibm.com/docs/en/tutorials/real-time-benchmarking-for-qubit-selection"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Quantum decoherence model",
+    "description": "Interactions can make a subsystem lose accessible phase coherence.",
+    "inputs": [
+      {
+        "key": "t",
+        "label": "Elapsed time",
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "initial": 5,
+        "unit": "μs"
+      },
+      {
+        "key": "tau",
+        "label": "Coherence time",
+        "min": 1,
+        "max": 50,
+        "step": 0.5,
+        "initial": 10,
+        "unit": "μs"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Visibility",
+        "expression": [
+          "exp",
+          [
+            "/",
+            [
+              "-",
+              0,
+              "t"
+            ],
+            "tau"
+          ]
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Constructive output probability",
+        "expression": [
+          "/",
+          [
+            "+",
+            1,
+            [
+              "exp",
+              [
+                "/",
+                [
+                  "-",
+                  0,
+                  "t"
+                ],
+                "tau"
+              ]
+            ]
+          ],
+          2
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Phenomenological exponential pure dephasing, balanced paths, no loss or energy relaxation. A plot is not a microscopic environmental simulation."
+  }
+}
