@@ -1,0 +1,179 @@
+{
+  "slug": "relativistic-momentum",
+  "title": "Relativistic momentum",
+  "category": "Space & relativity",
+  "subtitle": "Momentum grows as \u03b3mv and approaches the classical expression at low speeds.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "blue",
+  "intro": "Newtonian momentum mv works extremely well when speeds are small compared with light speed.",
+  "why": "Momentum grows as \u03b3mv and approaches the classical expression at low speeds.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Momentum",
+      "definition": "The conserved motion quantity p=\u03b3mv for a free massive particle."
+    },
+    {
+      "term": "Invariant mass",
+      "definition": "The rest mass m, unchanged by selecting another inertial frame."
+    },
+    {
+      "term": "Lorentz factor",
+      "definition": "\u03b3=1/\u221a(1\u2212v\u00b2/c\u00b2)."
+    },
+    {
+      "term": "Four-momentum",
+      "definition": "The spacetime combination of energy and three-momentum."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why mv needs an extension",
+      "paragraphs": [
+        "Newtonian momentum mv works extremely well when speeds are small compared with light speed. Special relativity requires a modified expression if conservation laws are to agree between inertial frames connected by Lorentz transformations. The result is p=\u03b3mv. Einstein\u2019s theory and subsequent work on relativistic dynamics connected this momentum with energy in one consistent framework. The modification is not introduced merely to make a curve grow steeply near c. It ensures that collisions described in different inertial frames obey compatible energy and momentum accounting.",
+        "The symbol m here means invariant mass, often called rest mass. Some older presentations use velocity-dependent relativistic mass, but keeping mass invariant avoids confusion. As speed increases, energy and momentum increase while m stays fixed. The distinction matters when comparing particles in accelerators: the particle has not changed species because an observer assigns it a larger momentum. Different observers can disagree about energy and momentum while agreeing on the invariant combination E\u00b2\u2212p\u00b2c\u00b2=m\u00b2c\u2074."
+      ]
+    },
+    {
+      "title": "The low-speed limit and the large-speed behavior",
+      "paragraphs": [
+        "For \u03b2=v/c much smaller than one, \u03b3 is approximately 1+\u03b2\u00b2/2. Therefore p\u2248mv with a small correction. At \u03b2=0.1, \u03b3 is about 1.005, so the momentum exceeds mv by only about half a percent. At \u03b2=0.8, \u03b3 is five thirds, and p/(mc)=\u03b3\u03b2 is four thirds. The corresponding classical estimate would be 0.8. The difference is substantial because the assumptions underlying the low-speed approximation no longer hold accurately.",
+        "As \u03b2 approaches one from below, \u03b3 grows without bound. A massive particle needs unbounded momentum and kinetic energy to reach c within this framework. This is not a claim that a finite engine can keep accelerating at the same ordinary coordinate rate indefinitely. Force, proper acceleration, coordinate acceleration and delivered power must be distinguished. A constant applied force changes momentum linearly with time in a selected frame, but the resulting velocity approaches rather than crosses the speed of light."
+      ]
+    },
+    {
+      "title": "Energy and momentum fit together",
+      "paragraphs": [
+        "Total energy is E=\u03b3mc\u00b2, while kinetic energy is K=(\u03b3\u22121)mc\u00b2. Squaring E and subtracting p\u00b2c\u00b2 cancels the velocity dependence, leaving m\u00b2c\u2074. This identity provides a useful check on algebra and units. For massless particles, the invariant relation becomes E=pc; they do not use p=\u03b3mv with m set to zero at a finite \u03b3. A photon has momentum despite having zero rest mass. Treating every momentum formula as mv would therefore miss both relativistic massive-particle behavior and the massless case.",
+        "For a particle with rest energy one gigaelectronvolt moving at 0.8c, total energy is about 1.667 gigaelectronvolts and momentum about 1.333 gigaelectronvolts divided by c. Kinetic energy is about 0.667 gigaelectronvolts. These numbers satisfy 1.667\u00b2\u22121.333\u00b2\u22481 in squared rest-energy units, allowing for rounding. The compact units used in particle physics are convenient, but the factors of c still explain the different dimensions of energy and momentum."
+      ]
+    },
+    {
+      "title": "What the model calculates",
+      "paragraphs": [
+        "The calculator reports momentum in units of mc and kinetic energy in units of mc\u00b2 as speed varies below c. These dimensionless outputs apply to any fixed positive rest mass; multiply by the appropriate scales for a physical particle. It assumes one-dimensional speed magnitude and does not simulate a collision or an electromagnetic accelerator. Momentum direction would need to be included for vector conservation in a multi-particle process.",
+        "At speed zero, momentum and kinetic energy vanish while total rest energy remains. At high speed, the normalized momentum rises rapidly. The plot does not demonstrate the theory experimentally; accelerator measurements and other observations provide that evidence. Its role is to make the conservation-compatible formulas transparent. Compare the 0.1c and 0.8c cases before deciding whether a classical approximation is adequate. A useful engineering habit is to calculate the size of the correction rather than treating relativity as either universally negligible or automatically dominant whenever a system moves at all. Conservation also applies to the total momentum of a closed interacting system, not to each particle separately during a collision. One particle may slow while another speeds up or radiation carries momentum away. A consistent calculation includes those contributions before comparing initial and final totals; otherwise even the correct relativistic formula can appear to violate conservation."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "p=\u03b3mv; K=(\u03b3\u22121)mc\u00b2",
+    "symbols": [
+      {
+        "symbol": "\u03b3",
+        "meaning": "Lorentz factor."
+      },
+      {
+        "symbol": "m",
+        "meaning": "Invariant mass."
+      },
+      {
+        "symbol": "v",
+        "meaning": "Speed."
+      },
+      {
+        "symbol": "K",
+        "meaning": "Kinetic energy."
+      }
+    ],
+    "explanation": "Momentum grows as \u03b3mv and approaches the classical expression at low speeds.",
+    "example": "At v=0.8c, p/(mc)=4/3 and K/(mc\u00b2)=2/3."
+  },
+  "insight": "\u03b3=5/3, so \u03b3\u03b2=(5/3)(4/5)=4/3.",
+  "misconceptions": [
+    {
+      "myth": "Momentum remains exactly mv at 0.8c.",
+      "correction": "\u03b3=5/3, so \u03b3\u03b2=(5/3)(4/5)=4/3."
+    },
+    {
+      "myth": "A photon has no momentum because its rest mass is zero.",
+      "correction": "Massless particles obey E=pc and can carry momentum."
+    }
+  ],
+  "check": {
+    "question": "At 0.8c, what is p/(mc)?",
+    "options": [
+      "0.8",
+      "4/3",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "\u03b3=5/3, so \u03b3\u03b2=(5/3)(4/5)=4/3."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume I, chapter 16",
+      "url": "https://www.feynmanlectures.caltech.edu/I_16.html"
+    },
+    {
+      "title": "Feynman Lectures, volume I, chapter 17",
+      "url": "https://www.feynmanlectures.caltech.edu/I_17.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Relativistic momentum model",
+    "description": "Momentum grows as \u03b3mv and approaches the classical expression at low speeds.",
+    "inputs": [
+      {
+        "key": "beta",
+        "label": "Speed / c",
+        "min": 0,
+        "max": 0.99,
+        "step": 0.01,
+        "initial": 0.8,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Momentum / mc",
+        "expression": [
+          "/",
+          "beta",
+          [
+            "sqrt",
+            [
+              "-",
+              1,
+              [
+                "pow",
+                "beta",
+                2
+              ]
+            ]
+          ]
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Kinetic energy / mc\u00b2",
+        "expression": [
+          "-",
+          [
+            "/",
+            1,
+            [
+              "sqrt",
+              [
+                "-",
+                1,
+                [
+                  "pow",
+                  "beta",
+                  2
+                ]
+              ]
+            ]
+          ],
+          1
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "A free massive particle in special relativity. Dimensionless values assume fixed positive rest mass; no force, collision or accelerator model."
+  }
+}

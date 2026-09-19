@@ -340,5 +340,11 @@
     "sourceSha256": "ba18e041c3e6d293743a661b1c592656a69907360fbe8ede62e37d5635bc3dbb",
     "reviewRecord": "batch-13.json",
     "status": "approved"
+  },
+  "relativistic-momentum": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "722680ee386c2b77166866b4dc854a40f5b2fe20dd390c70107c1eaf2db82f21",
+    "reviewRecord": "batch-15.json",
+    "status": "approved"
   }
 }
