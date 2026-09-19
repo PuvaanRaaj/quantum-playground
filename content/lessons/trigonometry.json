@@ -1,0 +1,182 @@
+{
+  "slug": "trigonometry",
+  "title": "Trigonometry",
+  "category": "Mathematics",
+  "subtitle": "Trigonometry connects angles with ratios of lengths, then extends those relationships into functions describing periodic behavior.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Trigonometry connects angles with ratios of lengths, then extends those relationships into functions describing periodic behavior. In a right triangle, the sine of an acute angle is opposite side divided by hypotenuse; cosine is adjacent side divided by hypotenuse. Similar triangles have the same ratios, so these quantities depend on angle rather than the overall size of the triangle. Doubling every side does not double its sine.",
+  "why": "Trigonometry connects angular measurements to lengths and provides the mathematical functions describing periodic motion.",
+  "prerequisites": [
+    "Basic algebra",
+    "Multiplication and fractions"
+  ],
+  "terms": [
+    {
+      "term": "Sine",
+      "definition": "The vertical coordinate of a point at a given angle on the unit circle."
+    },
+    {
+      "term": "Cosine",
+      "definition": "The horizontal coordinate of a point at a given angle on the unit circle."
+    },
+    {
+      "term": "Radian",
+      "definition": "Angle measured as arc length divided by radius."
+    },
+    {
+      "term": "Period",
+      "definition": "An input interval after which a function repeats its values."
+    },
+    {
+      "term": "Amplitude",
+      "definition": "The largest displacement from the central value of a sinusoid."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Ratios that become functions",
+      "paragraphs": [
+        "Trigonometry connects angles with ratios of lengths, then extends those relationships into functions describing periodic behavior. In a right triangle, the sine of an acute angle is opposite side divided by hypotenuse; cosine is adjacent side divided by hypotenuse. Similar triangles have the same ratios, so these quantities depend on angle rather than the overall size of the triangle. Doubling every side does not double its sine.",
+        "Ancient astronomers developed trigonometric methods to calculate positions and distances. Greek chord tables, Indian sine methods, and work by Islamic mathematicians all contributed to the subject’s development. Modern notation arrived much later. This history helps explain why a topic introduced through triangles becomes indispensable for astronomy and waves: measuring angles and describing repeating motion were practical motivations from the beginning."
+      ]
+    },
+    {
+      "title": "Use the unit circle to remove restrictions",
+      "paragraphs": [
+        "Place a point on a circle of radius one, starting at (1, 0), and rotate counterclockwise by θ. Define its coordinates as (cos θ, sin θ). For an acute angle, dropping a perpendicular to the horizontal axis recovers the triangle definitions. But the circle also handles obtuse angles, negative angles, and rotations beyond one full turn without needing negative side lengths in a triangle.",
+        "A radian is the angle subtended by an arc whose length equals the radius. A full circle has circumference 2πr, so one full turn is 2π radians. Thus 180 degrees equals π radians and 90 degrees equals π/2. Radians make arc length equal to rθ and give the simplest calculus identities. When software expects radians, supplying the number 90 produces 90 radians, not a right angle."
+      ]
+    },
+    {
+      "title": "Derive the central identity",
+      "paragraphs": [
+        "Every point (x, y) on the unit circle satisfies x² + y² = 1 by the Pythagorean theorem. Substituting x = cos θ and y = sin θ gives cos² θ + sin² θ = 1. This holds for all real θ because the unit-circle definition includes every angle. It does not mean cos θ + sin θ = 1: the squares are essential.",
+        "Rotating a point by angle φ applies the matrix with rows (cos φ, −sin φ) and (sin φ, cos φ). Apply that matrix to (cos θ, sin θ). The resulting horizontal coordinate is cos φ cos θ − sin φ sin θ, and the vertical coordinate is sin φ cos θ + cos φ sin θ. Since the new angle is θ + φ, these are the cosine and sine addition formulas. This provides a geometric derivation instead of treating each formula as an unrelated identity."
+      ]
+    },
+    {
+      "title": "Measure a height and describe a wave",
+      "paragraphs": [
+        "Suppose you stand 20 metres horizontally from a vertical tower on level ground, and the angle of elevation to its top is 30 degrees. Ignoring the height of your eye for the moment, the tower height is 20 tan(30 degrees) = 20/√3, approximately 11.55 metres. Tangent equals sine divided by cosine. If your eye is 1.6 metres above the ground, add that height to obtain about 13.15 metres. The geometry and measurement reference matter as much as the arithmetic.",
+        "For periodic motion, write y(t) = A sin(ωt + φ). A is amplitude, ω is angular frequency, and φ specifies starting phase. One full cycle requires the argument to increase by 2π, so the period is T = 2π/ω when ω is positive. If A = 2 metres and the ordinary frequency is 0.5 hertz, then ω = 2πf = π radians per second. At t = 0.5 seconds with φ = 0, the displacement is two metres."
+      ]
+    },
+    {
+      "title": "Domain and measurement boundaries",
+      "paragraphs": [
+        "Tangent is undefined when cosine vanishes, such as at π/2. Inverse trigonometric functions also need restricted output ranges because a repeating function cannot have a unique inverse over all real inputs. A calculator returning one angle for a sine value is selecting a principal answer; other angles can give the same sine. Solving an equation may require all solutions in the requested interval.",
+        "The demonstration plots sine and cosine for a real angle and shows their squared sum. Its outputs are dimensionless because they are ratios. A visual near-equality on screen is a numerical check of the identity, not its proof. In a physical wave, amplitude may carry metres, pressure units, or electrical units; the trigonometric factor itself remains dimensionless. Keeping the factor separate from the quantity it multiplies avoids confusing an angle, a frequency, and a displacement."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "sin² θ + cos² θ = 1",
+    "symbols": [
+      {
+        "symbol": "θ",
+        "meaning": "Angle in radians"
+      },
+      {
+        "symbol": "sin θ",
+        "meaning": "Vertical unit-circle coordinate"
+      },
+      {
+        "symbol": "cos θ",
+        "meaning": "Horizontal unit-circle coordinate"
+      }
+    ],
+    "explanation": "Unit-circle definitions with angles in radians; this calculator excludes tangent singularities.",
+    "example": "At θ = π/6, sine is 1/2 and cosine is √3/2."
+  },
+  "insight": "A full circle has circumference 2π times its radius, giving 2π radians.",
+  "misconceptions": [
+    {
+      "myth": "Sine and cosine have length units.",
+      "correction": "They are dimensionless ratios; a physical amplitude can carry units."
+    },
+    {
+      "myth": "A calculator angle is automatically in degrees.",
+      "correction": "Trigonometric software often expects radians, requiring conversion from degrees."
+    }
+  ],
+  "check": {
+    "question": "How many radians are in a full turn?",
+    "options": [
+      "π",
+      "2π",
+      "360"
+    ],
+    "answer": 1,
+    "explanation": "A full circle has circumference 2π times its radius, giving 2π radians."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Precalculus 2e",
+      "url": "https://openstax.org/details/books/precalculus-2e"
+    },
+    {
+      "title": "University of St Andrews: trigonometric functions",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Trigonometry calculation",
+    "description": "At θ = π/6, sine is 1/2 and cosine is √3/2.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Angle",
+        "unit": "rad",
+        "min": -6.283185307179586,
+        "max": 6.283185307179586,
+        "step": 0.01,
+        "initial": 0.5235987755982988
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Sine",
+        "unit": "",
+        "expression": [
+          "sin",
+          "x"
+        ]
+      },
+      {
+        "label": "Cosine",
+        "unit": "",
+        "expression": [
+          "cos",
+          "x"
+        ]
+      },
+      {
+        "label": "Squared sum",
+        "unit": "",
+        "expression": [
+          "+",
+          [
+            "pow",
+            [
+              "sin",
+              "x"
+            ],
+            2
+          ],
+          [
+            "pow",
+            [
+              "cos",
+              "x"
+            ],
+            2
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Unit-circle definitions with angles in radians; this calculator excludes tangent singularities."
+  }
+}
