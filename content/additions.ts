@@ -3,5 +3,6 @@ import type { Topic } from './types';
 import lesson0 from './lessons/black-holes.json' with { type: 'json' };
 import lesson1 from './lessons/expanding-universe.json' with { type: 'json' };
 import lesson2 from './lessons/general-relativity.json' with { type: 'json' };
-import lesson3 from './lessons/special-relativity.json' with { type: 'json' };
-export const additions: Topic[] = [lesson0, lesson1, lesson2, lesson3] as unknown as Topic[];
+import lesson3 from './lessons/interference.json' with { type: 'json' };
+import lesson4 from './lessons/special-relativity.json' with { type: 'json' };
+export const additions: Topic[] = [lesson0, lesson1, lesson2, lesson3, lesson4] as unknown as Topic[];

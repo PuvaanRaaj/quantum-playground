@@ -22,5 +22,11 @@
     "sourceSha256": "1b928c2034c1565255a246b18716f1772c61a91c936870ae5cf120feebffe4bd",
     "reviewRecord": "existing-corrected.json",
     "status": "approved"
+  },
+  "interference": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "636760a94dbc7eeeb0b3894f4bbb26d234f59e2c1a40710c32200bda23325d0d",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
   }
 }

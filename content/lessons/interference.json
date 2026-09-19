@@ -1,0 +1,118 @@
+{
+  "slug": "interference",
+  "title": "Quantum interference",
+  "category": "Quantum mechanics",
+  "subtitle": "Why two possible paths can make an outcome disappear.",
+  "minutes": 12,
+  "level": "Start here",
+  "accent": "violet",
+  "intro": "Quantum mechanics predicts the results of experiments using probability amplitudes. Interference is what happens when amplitudes for indistinguishable alternatives combine: some outcomes become more likely and others become less likely.",
+  "why": "Interference is the first useful bridge from familiar waves to quantum physics. It explains why a superposition is more than ordinary uncertainty, and supplies the mechanism behind many quantum algorithms.",
+  "prerequisites": [
+    "Probabilities run from 0 to 1.",
+    "A wave has a size and a phase: where it is in its cycle."
+  ],
+  "terms": [
+    {
+      "term": "Amplitude",
+      "definition": "A complex number used to calculate a measurement probability. It is not itself a probability."
+    },
+    {
+      "term": "Phase",
+      "definition": "The angle of an amplitude, like the direction of an arrow in a plane. Relative phase can change interference."
+    },
+    {
+      "term": "Superposition",
+      "definition": "A state expressed as a weighted sum of other states, with amplitudes that can interfere when measured appropriately."
+    },
+    {
+      "term": "Coherence",
+      "definition": "A stable phase relationship between alternatives that allows interference to remain visible."
+    },
+    {
+      "term": "Born rule",
+      "definition": "The rule that converts an amplitude into a probability by taking its squared magnitude."
+    }
+  ],
+  "sections": [
+    {
+      "title": "The problem that ordinary particles could not explain",
+      "paragraphs": [
+        "Imagine throwing individual pebbles toward a wall with two openings. Count arrivals behind each opening separately, then open both. For ordinary independent pebbles, the two contributions simply add. Light does something more surprising: opening a second route can make certain locations darker. Thomas Young’s work helped establish the wave account of light. Later quantum experiments made the puzzle sharper: detections arrive as individual localized events, yet repeated events build an interference pattern. The challenge is to predict both the discrete detections and the organized pattern without pretending that an electron is a tiny water wave.",
+        "Quantum theory developed through contributions from many people, including Planck, Einstein, de Broglie, Heisenberg, Schrödinger and Born. Einstein’s light-quantum proposal was important to its history; he was not simply an opponent of everything quantum. Born supplied the probabilistic interpretation of the wavefunction. The central practical move is to calculate amplitudes for experimental alternatives, combine them when those alternatives are indistinguishable, and only then calculate a detection probability. This reverses the ordinary habit of calculating separate probabilities first and adding them. The order matters because amplitudes possess phase, whereas probabilities do not."
+      ]
+    },
+    {
+      "title": "An arrow picture you can calculate with",
+      "paragraphs": [
+        "Picture an amplitude as an arrow drawn on paper. Its length describes its magnitude; its direction describes its phase. Two arrows pointing the same way produce a longer arrow when added. Two equal arrows pointing in opposite directions cancel. Neither arrow has a negative probability: probability is calculated afterward from the length of their sum, squared. The cancellation means that a particular detector outcome has zero probability in that ideal arrangement. It does not mean the particle has been destroyed. In a complete lossless apparatus, probability is redistributed to other possible outcomes, and the probabilities still sum to one.",
+        "A two-path interferometer turns this picture into an experiment. A first beam splitter prepares alternatives associated with two paths. One path accumulates a controllable phase relative to the other. A second beam splitter recombines them so each output can receive contributions from both paths. The detector probabilities then depend on the relative phase. If you remove the recombination step and simply measure the path, changing the phase alone does not change the path probabilities. This distinction is crucial: phase is not a hidden extra amount of particle. It matters through the way a later measurement combines alternatives."
+      ]
+    },
+    {
+      "title": "From one click to a trustworthy pattern",
+      "paragraphs": [
+        "Set an ideal balanced interferometer to a relative phase of zero using this lab’s output convention. Detector zero is certain. At half a cycle, detector one is certain. At a quarter cycle, the detectors are equally likely. A single click cannot establish a fifty-fifty distribution; it is only one sample. Run a hundred trials and you might get 47 and 53 rather than exactly 50 and 50. Run more trials and the relative frequencies generally settle toward the predicted probabilities. This is sampling variation, not necessarily a fault in the theory or an unexpected interaction with the device.",
+        "Now imagine the environment records which route was taken. A path can become correlated with a detector, a scattered photon, or some other physical degree of freedom. When those records make the routes distinguishable and we ignore the record, the original interference is reduced or lost. A human does not need to look at a screen. In this lab, coherence is summarized by one visibility parameter. Lowering it softens the contrast between bright and dark outputs. That parameter can represent several different practical effects; it does not identify the microscopic cause of decoherence in a particular experiment."
+      ]
+    },
+    {
+      "title": "What this model teaches—and what it leaves out",
+      "paragraphs": [
+        "Interference has been observed with light and material particles. The agreement concerns statistics from specified experimental arrangements, rather than an animation of an objectively observed path between source and detector. Interpretations of quantum mechanics disagree about what deeper description, if any, should accompany those predictions. The calculation you learn here does not require choosing an interpretation. Be especially cautious with phrases such as “the particle knows both paths are open.” They replace a mathematical rule with an imagined intention. A better question is which alternatives the apparatus preserves coherently and which measurement it eventually performs.",
+        "Our visualization is a balanced two-mode model, not a spatial solution for an actual double-slit screen. It omits diffraction envelopes, detailed optical components, detector efficiency, losses, and the full state of the environment. Animated dots illustrate trials; they are not reconstructed particle trajectories. Start by predicting an output before moving a control, then explain the result using amplitude addition. Once you can distinguish phase from probability and distinguish a coherent superposition from a random mixture, you have the foundation needed for more realistic wave mechanics, quantum circuits, and the question of why measuring a system can alter what happens next."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(0) = (1 + V cos φ) / 2;   P(1) = 1 − P(0)",
+    "symbols": [
+      {
+        "symbol": "P(0)",
+        "meaning": "Probability of detector zero in this output convention."
+      },
+      {
+        "symbol": "V",
+        "meaning": "Visibility from 0 to 1; 1 preserves full interference contrast."
+      },
+      {
+        "symbol": "φ",
+        "meaning": "Relative phase between the two paths, in radians."
+      }
+    ],
+    "explanation": "For balanced paths, amplitude addition produces a cosine dependence. The visibility factor reduces the interference term without changing the total probability.",
+    "example": "With V = 0.8 and φ = π/3, cos φ = 0.5, so P(0) = (1 + 0.4)/2 = 0.7. In 100 trials the expected count is 70 at detector zero, but the observed count can fluctuate."
+  },
+  "insight": "Add amplitudes before squaring when alternatives remain indistinguishable. Add probabilities for alternatives recorded as distinguishable.",
+  "misconceptions": [
+    {
+      "myth": "Interference requires a conscious observer.",
+      "correction": "A physical interaction that records path information can change interference without anyone inspecting it."
+    },
+    {
+      "myth": "A 70% probability guarantees exactly 70 clicks out of 100.",
+      "correction": "It gives an expected count. Finite samples fluctuate."
+    }
+  ],
+  "check": {
+    "question": "The phase changes, but the paths are measured before recombination. What should you expect in this balanced model?",
+    "options": [
+      "The path probabilities stay equal.",
+      "All particles disappear.",
+      "The most likely path must alternate."
+    ],
+    "answer": 0,
+    "explanation": "Relative phase becomes visible through interference in an appropriate measurement. Direct path measurement does not recombine the amplitudes."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures: Quantum Behavior",
+      "url": "https://www.feynmanlectures.caltech.edu/III_01.html"
+    },
+    {
+      "title": "Feynman Lectures: Probability Amplitudes",
+      "url": "https://www.feynmanlectures.caltech.edu/III_03.html"
+    }
+  ],
+  "visual": "interference"
+}
