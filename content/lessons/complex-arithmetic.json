@@ -1,0 +1,223 @@
+{
+  "slug": "complex-arithmetic",
+  "title": "Complex arithmetic",
+  "category": "Mathematics",
+  "subtitle": "Complex arithmetic extends real arithmetic by introducing a number i whose square is −1.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Complex arithmetic extends real arithmetic by introducing a number i whose square is −1. An expression a + ib has two real components, but it behaves as one number with well-defined addition and multiplication. The extension allows equations such as x² + 1 = 0 to have solutions without changing how ordinary real numbers add or multiply. The new rules must remain consistent with distributivity and the familiar identities of algebra.",
+  "why": "Complex multiplication combines scaling and rotation, making it useful for phase, oscillations, and quantum amplitudes.",
+  "prerequisites": [
+    "Basic algebra",
+    "Multiplication and fractions"
+  ],
+  "terms": [
+    {
+      "term": "Complex number",
+      "definition": "A number a + ib, with real components a and b and i² = −1."
+    },
+    {
+      "term": "Conjugate",
+      "definition": "The number a − ib corresponding to a + ib."
+    },
+    {
+      "term": "Modulus",
+      "definition": "The nonnegative length √(a² + b²)."
+    },
+    {
+      "term": "Argument",
+      "definition": "An angle specifying direction in the complex plane, defined modulo a full turn."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Extend arithmetic consistently",
+      "paragraphs": [
+        "Complex arithmetic extends real arithmetic by introducing a number i whose square is −1. An expression a + ib has two real components, but it behaves as one number with well-defined addition and multiplication. The extension allows equations such as x² + 1 = 0 to have solutions without changing how ordinary real numbers add or multiply. The new rules must remain consistent with distributivity and the familiar identities of algebra.",
+        "Complex numbers emerged from Renaissance algebra, including work associated with Cardano and Bombelli on polynomial equations. Later geometric interpretations by Argand, Wessel, and Gauss helped clarify their meaning. The development was gradual: expressions that first appeared troublesome became useful objects once their operations and interpretation were understood. Their use today in waves and quantum mechanics does not mean that physical measurements must display imaginary values."
+      ]
+    },
+    {
+      "title": "Add and multiply step by step",
+      "paragraphs": [
+        "Addition combines like components: (a + ib) + (c + id) = (a + c) + i(b + d). For example, (2 + 3i) + (4 − i) = 6 + 2i. Subtraction works the same way with signs reversed. Geometrically this is the same componentwise addition used for two-dimensional vectors. That correspondence is useful, although complex multiplication provides extra structure beyond ordinary vector addition.",
+        "To multiply, distribute every term: (a + ib)(c + id) = ac + iad + ibc + i²bd. Replace i² by −1 and collect real and imaginary parts, obtaining (ac − bd) + i(ad + bc). As a numerical example, (2 + 3i)(4 − i) = 8 − 2i + 12i − 3i² = 11 + 10i. The sign change in the final term is essential. Treating i as an ordinary variable without using its defining square would leave the calculation unfinished."
+      ]
+    },
+    {
+      "title": "Conjugation makes division possible",
+      "paragraphs": [
+        "The conjugate reflects a number across the real axis: z = a + ib becomes z̄ = a − ib. Multiplying the pair gives z z̄ = a² + b², because the cross terms cancel and −i²b² becomes +b². This real nonnegative result is the squared modulus. It vanishes only when both components vanish, which identifies exactly when division would fail.",
+        "To divide z by a nonzero w, multiply numerator and denominator by the conjugate of w. For (2 + 3i)/(4 − i), use 4 + i. The numerator becomes 8 + 2i + 12i + 3i² = 5 + 14i. The denominator becomes 16 + 1 = 17. The quotient is therefore 5/17 + (14/17)i. Multiplying this answer by 4 − i recovers 2 + 3i, providing a direct check rather than relying on appearance."
+      ]
+    },
+    {
+      "title": "Magnitude and phase explain multiplication",
+      "paragraphs": [
+        "A nonzero complex number can be described by magnitude r and angle θ: z = r(cos θ + i sin θ). Euler’s formula abbreviates this as r e^(iθ). Multiplying two such numbers multiplies their magnitudes and adds their angles. This follows either from the trigonometric addition formulas or from the corresponding exponential identity. Division divides magnitudes and subtracts angles, provided the divisor is nonzero.",
+        "Multiplying by i has magnitude factor one and angle π/2, so it rotates a number by a quarter turn. Multiplying by −1 gives a half turn. Multiplying by 2i doubles the magnitude and rotates through a quarter turn simultaneously. These geometric actions explain why a complex representation is convenient for oscillations: changing a phase can be represented by multiplication instead of rewriting separate sine and cosine components."
+      ]
+    },
+    {
+      "title": "Branches and physical interpretation",
+      "paragraphs": [
+        "An argument is not unique: θ and θ + 2π describe the same direction. Choosing a principal angle restricts the range, but introduces a discontinuity where that range wraps around. Complex square roots and logarithms therefore need care about branches. For instance, both i and −i square to −1. A numerical library’s preferred root is a convention, not evidence that the other root disappeared.",
+        "In quantum mechanics a complex amplitude is not itself a probability. If an amplitude is 0.6 + 0.8i, its squared modulus is 0.36 + 0.64 = 1. Relative phases affect how amplitudes add before their magnitudes are squared. The calculator shows multiplication by a chosen phase factor: it preserves modulus while changing components. It assumes the angle is measured in radians and does not implement branch-sensitive complex logarithms. Observe that a changing real component need not imply a changing total magnitude; the imaginary component participates equally in the length."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "(a + ib)(c + id) = (ac − bd) + i(ad + bc)",
+    "symbols": [
+      {
+        "symbol": "a, b",
+        "meaning": "Real and imaginary components of the first number"
+      },
+      {
+        "symbol": "c, d",
+        "meaning": "Real and imaginary components of the second number"
+      },
+      {
+        "symbol": "i",
+        "meaning": "Imaginary unit satisfying i² = −1"
+      }
+    ],
+    "explanation": "This equation multiplies any two complex numbers. The calculator uses the special second factor cos θ + i sin θ, whose unit modulus makes the operation a rotation preserving magnitude.",
+    "example": "Rotate 3 + 4i by π/2 to obtain −4 + 3i."
+  },
+  "insight": "The defining identity i² = −1 determines the sign in complex multiplication.",
+  "misconceptions": [
+    {
+      "myth": "Imaginary means mathematically inconsistent.",
+      "correction": "Complex arithmetic is a consistent extension of real arithmetic."
+    },
+    {
+      "myth": "The imaginary part is a probability.",
+      "correction": "Complex amplitudes produce probabilities through squared magnitudes, with appropriate normalization."
+    }
+  ],
+  "check": {
+    "question": "What is i²?",
+    "options": [
+      "1",
+      "−1",
+      "i"
+    ],
+    "answer": 1,
+    "explanation": "The defining identity i² = −1 determines the sign in complex multiplication."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Precalculus 2e",
+      "url": "https://openstax.org/details/books/precalculus-2e"
+    },
+    {
+      "title": "Georgia Tech: Interactive Linear Algebra",
+      "url": "https://textbooks.math.gatech.edu/ila/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Complex arithmetic calculation",
+    "description": "Rotate 3 + 4i by π/2 to obtain −4 + 3i.",
+    "inputs": [
+      {
+        "key": "theta",
+        "label": "Rotation angle",
+        "unit": "rad",
+        "min": -3.141592653589793,
+        "max": 3.141592653589793,
+        "step": 0.01,
+        "initial": 1.5707963267948966
+      },
+      {
+        "key": "a",
+        "label": "Real component",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 3
+      },
+      {
+        "key": "b",
+        "label": "Imaginary component",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 4
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Rotated real part",
+        "unit": "",
+        "expression": [
+          "-",
+          [
+            "*",
+            "a",
+            [
+              "cos",
+              "theta"
+            ]
+          ],
+          [
+            "*",
+            "b",
+            [
+              "sin",
+              "theta"
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Rotated imaginary part",
+        "unit": "",
+        "expression": [
+          "+",
+          [
+            "*",
+            "a",
+            [
+              "sin",
+              "theta"
+            ]
+          ],
+          [
+            "*",
+            "b",
+            [
+              "cos",
+              "theta"
+            ]
+          ]
+        ]
+      },
+      {
+        "label": "Modulus",
+        "unit": "",
+        "expression": [
+          "sqrt",
+          [
+            "+",
+            [
+              "pow",
+              "a",
+              2
+            ],
+            [
+              "pow",
+              "b",
+              2
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Multiplication by a unit complex exponential; angle in radians and modulus preserved."
+  }
+}

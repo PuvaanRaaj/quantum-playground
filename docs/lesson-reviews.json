@@ -178,5 +178,11 @@
     "sourceSha256": "02ffdc089b03c996ef8fa099cb5219c6f5dbfb52cabf801eaa8d5c6a96ea7bb3",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "complex-arithmetic": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "b2baf141eda8a6915a02fec167582f0c62ddfb2e560d6cf598d326e8a82d0eea",
+    "reviewRecord": "batch-5.json",
+    "status": "approved"
   }
 }
