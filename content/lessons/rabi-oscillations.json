@@ -1,0 +1,208 @@
+{
+  "slug": "rabi-oscillations",
+  "title": "Rabi oscillations",
+  "category": "Quantum mechanics",
+  "subtitle": "A coherent near-resonant drive transfers population repeatedly between two quantum levels.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "A field oscillating near an atomic or spin transition can move probability amplitude between two levels repeatedly.",
+  "why": "A coherent near-resonant drive transfers population repeatedly between two quantum levels.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Drive",
+      "definition": "An applied oscillating field coupling two states."
+    },
+    {
+      "term": "Rabi frequency",
+      "definition": "The rate Ω determined by coherent coupling strength."
+    },
+    {
+      "term": "Detuning",
+      "definition": "Difference Δ between drive and transition angular frequencies."
+    },
+    {
+      "term": "Pulse area",
+      "definition": "Accumulated rotation angle, equal to Ωt for a constant resonant drive."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Controlled transitions rather than irreversible heating",
+      "paragraphs": [
+        "A field oscillating near an atomic or spin transition can move probability amplitude between two levels repeatedly. These are Rabi oscillations, named after Isidor Rabi, whose magnetic-resonance work established important methods for studying quantum systems. The phenomenon matters in spectroscopy, atomic clocks and qubit operations because pulse duration and strength determine the final state. Driving longer does not simply add irreversible excitation forever. Under coherent conditions, probability can return to the initial level after having moved completely into the other level.",
+        "Begin with a system in its lower state. An ideal resonant field couples it to an upper state. The amplitudes evolve coherently, so the excited probability rises, reaches one and falls again. A full return does not imply nothing happened at intermediate times. A measurement partway through would sample a different distribution and could alter subsequent evolution. This differs from random absorption followed by uncontrolled spontaneous decay. The calculation concerns a carefully prepared system under an applied field, not an arbitrary atom illuminated by broadband thermal radiation."
+      ]
+    },
+    {
+      "title": "Pulse area and the resonant equation",
+      "paragraphs": [
+        "For a constant resonant drive in the two-level rotating-wave approximation, excited probability is sin²(Ωt/2). A pulse satisfying Ωt=π transfers the initially lower population completely to the upper state. This is a pi pulse. A pulse with Ωt=π/2 prepares equal populations with a relative phase determined by the field. Equal populations alone do not specify a complete coherent state. The drive phase determines the rotation axis in a Bloch-sphere description, while the pulse area determines the rotation angle.",
+        "For Ω=2π radians per microsecond, a pi pulse lasts half a microsecond. At one quarter microsecond the excited probability is one half; at one microsecond it returns to zero. Angular frequency differs from cycles per second by a factor of 2π, so confusing those units changes every inferred duration. A laboratory can scan pulse duration or amplitude, fit the observed oscillations and identify useful settings. The ideal sinusoid provides a starting calibration model, while deviations can reveal drift, noise or additional levels."
+      ]
+    },
+    {
+      "title": "Detuning affects both rate and contrast",
+      "paragraphs": [
+        "If the drive is detuned by Δ, the generalized oscillation rate becomes √(Ω²+Δ²). The excited probability is Ω²/(Ω²+Δ²) multiplied by sin²(√(Ω²+Δ²)t/2). Its prefactor limits transfer. When Δ=Ω, that prefactor is one half, so no duration reaches unit excitation with this constant drive. The oscillations become faster while their contrast decreases. A faster curve is therefore not automatically evidence of stronger useful resonant control. Coupling strength and detuning have different physical roles even though both enter the generalized frequency.",
+        "Take Ω=2 radians per microsecond and Δ=2 in the same units. The generalized rate is √8, approximately 2.828 radians per microsecond. The first maximum occurs at π/√8, about 1.111 microseconds, and has probability 0.5. On resonance with Ω=2, the first maximum instead occurs at π/2, about 1.571 microseconds, and reaches one. The comparison supplies a numerical check for both the oscillation period and the prefactor. Calculating only the sine argument would miss the reduced maximum entirely."
+      ]
+    },
+    {
+      "title": "Reading an idealized drive model",
+      "paragraphs": [
+        "Actual oscillations can decay because of dephasing, relaxation, field inhomogeneity or imperfect preparation. Additional physical levels can permit leakage when pulses are too strong. The rotating-wave approximation also has a regime: coupling and detuning should be small compared with the underlying transition frequency. Time-dependent pulse shapes require more general evolution than the constant coefficients used here. None of these effects invalidates coherent control, but each changes how a measured curve should be interpreted or fitted.",
+        "The calculator uses positive Ω, bounded detuning and nonnegative time. Its denominator stays positive because Ω never reaches zero. It reports ideal excited probability without fitting data, simulating a detector or calibrating hardware. First compare the resonant curve with the equal-detuning case, then explain the change in maximum and timing separately. This model also assumes every trial starts in the lower state; reusing an already driven state without resetting would change the preparation. That explicit preparation requirement is important because the formula describes an ensemble of identically initialized trials, not a guarantee that a single evolving qubit supplies a complete probability curve when repeatedly measured."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Pₑ=Ω²/(Ω²+Δ²) × sin²(√(Ω²+Δ²)t/2)",
+    "symbols": [
+      {
+        "symbol": "Ω",
+        "meaning": "Coupling angular frequency."
+      },
+      {
+        "symbol": "Δ",
+        "meaning": "Drive detuning."
+      },
+      {
+        "symbol": "t",
+        "meaning": "Pulse duration."
+      }
+    ],
+    "explanation": "A coherent near-resonant drive transfers population repeatedly between two quantum levels.",
+    "example": "With Ω=Δ=2 rad/μs, the first maximum is 0.5 at approximately 1.111 μs."
+  },
+  "insight": "The prefactor becomes Ω²/(2Ω²)=1/2.",
+  "misconceptions": [
+    {
+      "myth": "Equal detuning and coupling still allow complete transfer with a longer constant pulse.",
+      "correction": "The prefactor becomes Ω²/(2Ω²)=1/2."
+    },
+    {
+      "myth": "Longer coherent driving always increases excitation.",
+      "correction": "Population oscillates and can return to the initial state."
+    }
+  ],
+  "check": {
+    "question": "If detuning equals Ω, what is the maximum excited probability?",
+    "options": [
+      "1",
+      "1/2",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "The prefactor becomes Ω²/(2Ω²)=1/2."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 9",
+      "url": "https://www.feynmanlectures.caltech.edu/III_09.html"
+    },
+    {
+      "title": "IBM: Rabi oscillations and pulse control",
+      "url": "https://www.ibm.com/quantum/blog/qiskit-openpulse"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Rabi oscillations model",
+    "description": "A coherent near-resonant drive transfers population repeatedly between two quantum levels.",
+    "inputs": [
+      {
+        "key": "t",
+        "label": "Pulse duration",
+        "min": 0,
+        "max": 10,
+        "step": 0.05,
+        "initial": 1.1,
+        "unit": "μs"
+      },
+      {
+        "key": "omega",
+        "label": "Rabi frequency",
+        "min": 0.2,
+        "max": 5,
+        "step": 0.1,
+        "initial": 2,
+        "unit": "rad/μs"
+      },
+      {
+        "key": "delta",
+        "label": "Detuning",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 2,
+        "unit": "rad/μs"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Excited probability",
+        "expression": [
+          "*",
+          [
+            "/",
+            [
+              "pow",
+              "omega",
+              2
+            ],
+            [
+              "+",
+              [
+                "pow",
+                "omega",
+                2
+              ],
+              [
+                "pow",
+                "delta",
+                2
+              ]
+            ]
+          ],
+          [
+            "pow",
+            [
+              "sin",
+              [
+                "/",
+                [
+                  "*",
+                  [
+                    "sqrt",
+                    [
+                      "+",
+                      [
+                        "pow",
+                        "omega",
+                        2
+                      ],
+                      [
+                        "pow",
+                        "delta",
+                        2
+                      ]
+                    ]
+                  ],
+                  "t"
+                ],
+                2
+              ]
+            ],
+            2
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Constant coherent two-level drive in the rotating-wave approximation, initially in the lower state. No relaxation, dephasing, leakage or pulse shaping."
+  }
+}

@@ -298,5 +298,11 @@
     "sourceSha256": "06b4461dc3a09c8b2f8b937e1b6138099a0592cf1a0908760277270dccd7db4a",
     "reviewRecord": "batch-10.json",
     "status": "approved"
+  },
+  "rabi-oscillations": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "5fa5f47267a2b88090a46dbd400b511c6d964404db1a4699a076e55b595f8599",
+    "reviewRecord": "batch-11.json",
+    "status": "approved"
   }
 }
