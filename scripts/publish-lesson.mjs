@@ -23,7 +23,7 @@ const reviewPath='docs/lesson-reviews.json';const ledger=existsSync(reviewPath)?
 ledger[slug]={reviewer:'gpt-6-astra',sourceSha256:hash,reviewRecord:approval.file,status:'approved'};
 writeFileSync(reviewPath,JSON.stringify(ledger,null,2)+'\n');
 run('npm',['test']);run('npm',['run','typecheck']);
-run('git',['add',dest,'content/additions.ts',reviewPath]);
+run('git',['add',dest,'content/additions.ts','content/library.ts',reviewPath]);
 run('git',['diff','--cached','--check']);
 run('git',['commit','-m',`feat(lesson): publish ${slug}`,'--trailer','Risk-Level: low','--trailer','AI-Agent: Codex (exact author model ID unavailable)','--trailer','Reviewed-By: gpt-6-astra']);
 const commit=run('git',['rev-parse','HEAD'],true);

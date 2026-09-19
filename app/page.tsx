@@ -15,7 +15,7 @@ import {
   Sun,
   X,
 } from "lucide-react";
-import { topics } from "../content";
+import { topics, loadTopic } from "../content/library";
 import type { Topic } from "../content/types";
 import TopicVisual from "../components/topic-visual";
 const categories = [
@@ -34,6 +34,8 @@ export default function Academy() {
     [labOpen, setLabOpen] = useState(false),
     [answer, setAnswer] = useState<number | null>(null),
     [glossary, setGlossary] = useState(false);
+  const [loadedTopic, setLoadedTopic] = useState<Topic | null>(null);
+  const [loadError, setLoadError] = useState(false);
   useEffect(() => {
     const sync = () => {
       const q = new URLSearchParams(location.search);
@@ -48,7 +50,23 @@ export default function Academy() {
     setTheme(document.documentElement.dataset.theme || "light");
     return () => window.removeEventListener("popstate", sync);
   }, []);
-  const topic = topics.find((t) => t.slug === slug);
+  const selected = topics.find((t) => t.slug === slug);
+  const topic = loadedTopic?.slug === slug ? loadedTopic : undefined;
+  useEffect(() => {
+    let cancelled = false;
+    setLoadError(false);
+    if (slug && selected)
+      loadTopic(slug)
+        .then((t) => {
+          if (!cancelled) setLoadedTopic(t);
+        })
+        .catch(() => {
+          if (!cancelled) setLoadError(true);
+        });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, selected]);
   const visible = topics.filter(
     (t) =>
       (category === "All subjects" || t.category === category) &&
@@ -201,7 +219,14 @@ export default function Academy() {
                   <div className="lesson-kicker">
                     <span className="label-caps">{topic.category}</span>
                     <span>
-                      {topic.level} · {topic.minutes} min read
+                      {
+                        {
+                          "Start here": "Introductory",
+                          "Build intuition": "Intermediate",
+                          "Go deeper": "Advanced",
+                        }[topic.level]
+                      }{" "}
+                      · {topic.minutes} min read
                     </span>
                   </div>
                   <h1>{topic.title}</h1>
@@ -396,18 +421,34 @@ export default function Academy() {
                   <button
                     onClick={() =>
                       navigate(
-                        topics[(topics.indexOf(topic) + 1) % topics.length]
-                          .slug,
+                        topics[
+                          (topics.findIndex((t) => t.slug === topic.slug) + 1) %
+                            topics.length
+                        ].slug,
                       )
                     }
                   >
                     Explore{" "}
-                    {topics[(topics.indexOf(topic) + 1) % topics.length].title}
+                    {
+                      topics[
+                        (topics.findIndex((t) => t.slug === topic.slug) + 1) %
+                          topics.length
+                      ].title
+                    }
                     <ArrowRight size={16} />
                   </button>
                 </div>
               </article>
             </>
+          ) : selected ? (
+            <section className="lesson-loading" role="status">
+              <h1>{selected.title}</h1>
+              <p>
+                {loadError
+                  ? "The lesson could not load. Please reload the page."
+                  : "Loading lesson…"}
+              </p>
+            </section>
           ) : glossary ? (
             <section className="glossary-page">
               <p className="label-caps"></p>
@@ -492,7 +533,14 @@ export default function Academy() {
                         <p>{t.subtitle}</p>
                         <div className="card-bottom">
                           <span>
-                            {t.minutes} min · {t.level}
+                            {t.minutes} min ·{" "}
+                            {
+                              {
+                                "Start here": "Introductory",
+                                "Build intuition": "Intermediate",
+                                "Go deeper": "Advanced",
+                              }[t.level]
+                            }
                           </span>
                           <ArrowRight size={17} />
                         </div>

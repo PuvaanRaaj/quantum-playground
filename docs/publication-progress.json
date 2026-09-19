@@ -253,6 +253,76 @@
       "pushed": true,
       "reviewer": "gpt-6-astra",
       "sourceSha256": "53183dc55df6eb40f0c7a4be95bea4103dd1b7147a0700e25a9b793645b04d60"
+    },
+    {
+      "slug": "pauli-exclusion",
+      "commit": "d6865a62c71d0931e66a90e838fe0439570b47c7",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "0087872052033e0193da86e38a2c0ff26a02b714806581e8ac359c639cef9ffb"
+    },
+    {
+      "slug": "bosons-fermions",
+      "commit": "a450cfc3b693b01fab891af09dcc3fd75c2ef1fe",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "3e7158878a54d8e91121543a356d413d5de469beb0f99ced2ebf650cb555a3b6"
+    },
+    {
+      "slug": "binomial-distribution",
+      "commit": "1a8b5f871ce0a88d3cf9cefb79a0047bac600d69",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "30d66c5b766342698ad7b29764116bbaeaa695337671a54bd78dfadca8aef091"
+    },
+    {
+      "slug": "law-large-numbers",
+      "commit": "fcad960d829579f048474fc8042ce82ee2ba2d1f",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "cf830f5174d8dc720af61167d741832226a3e39d8da4b4868c405ed2b5441b0f"
+    },
+    {
+      "slug": "photoelectric-effect",
+      "commit": "44c4ce76cc23e59daf4300d66dfabfcd479d3258",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "33a38d0899a9242e271e743f260b98d85b2db8ebc7713a20f7eb3838e97d799a"
+    },
+    {
+      "slug": "compton-scattering",
+      "commit": "decbacd879c2bc0357da8f36bc6322939b8139e7",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "d93812a569ea5cfeb7b7fe3c51e574e45fc763f760c34e18855fc1c2c4192d45"
+    },
+    {
+      "slug": "expectation-variance",
+      "commit": "f7027d607caaf9abce76faa531867f2f6c2376ce",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "f6ba83d9b0fbe86983d63a69768f9672036b24e8866f4a80e0487bc8286c3676"
+    },
+    {
+      "slug": "central-limit-theorem",
+      "commit": "2a8875855e120c6ff3d5d65c6002c874c7f0a5b0",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "83ebee791754ea5321999fd9809ea8119010a2db0f982a7390926ef993be5fc7"
+    },
+    {
+      "slug": "combinatorics",
+      "commit": "c5ca3dc51cf1d6387614c575925cd46764fa47a9",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "4be2b6f6ec3e20b8dc082f9bacc7cb4a1875680cf8e9da61c986a904309b68ff"
+    },
+    {
+      "slug": "mathematical-induction",
+      "commit": "4f7c3a4d3b36432461b8867a436088c4a94aae5c",
+      "pushed": true,
+      "reviewer": "gpt-6-astra",
+      "sourceSha256": "ca616ba9e981ff10a1a7915ffda680f302cb1b5b016fbb7bbb096c2b175311cb"
     }
   ],
   "infrastructure": "ready",
