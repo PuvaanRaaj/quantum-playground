@@ -1,0 +1,179 @@
+{
+  "slug": "mathematical-induction",
+  "title": "Mathematical induction",
+  "category": "Mathematics",
+  "subtitle": "Mathematical induction proves statements indexed by integers by establishing a starting case and a rule that carries truth from one case to the next.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Mathematical induction proves statements indexed by integers by establishing a starting case and a rule that carries truth from one case to the next. It is not empirical induction, where a pattern is inferred from many observations. Testing a thousand integers leaves infinitely many untested; a valid inductive implication covers every transition at once. The logical structure supplies the reach that computation alone cannot provide.",
+  "why": "The base starts the chain and the arbitrary transition establishes every subsequent integer case.",
+  "prerequisites": [
+    "Algebra and finite sums",
+    "Basic probability or logical implication"
+  ],
+  "terms": [
+    {
+      "term": "Proposition P(n)",
+      "definition": "A statement depending on an integer n."
+    },
+    {
+      "term": "Base case",
+      "definition": "The first case proved directly."
+    },
+    {
+      "term": "Induction hypothesis",
+      "definition": "The temporary assumption that P(k) holds for an arbitrary permitted k."
+    },
+    {
+      "term": "Inductive step",
+      "definition": "A proof that P(k) implies P(k+1)."
+    },
+    {
+      "term": "Strong induction",
+      "definition": "A form allowing all earlier cases to be assumed when proving the next case."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Prove an infinite family with a finite argument",
+      "paragraphs": [
+        "Mathematical induction proves statements indexed by integers by establishing a starting case and a rule that carries truth from one case to the next. It is not empirical induction, where a pattern is inferred from many observations. Testing a thousand integers leaves infinitely many untested; a valid inductive implication covers every transition at once. The logical structure supplies the reach that computation alone cannot provide.",
+        "Inductive arguments appeared in different forms before their modern formal presentation. Pascal used related reasoning, and later developments in the foundations of arithmetic made the principle explicit. Historical credit depends on what form of induction is being considered, so it is misleading to attribute every instance to one inventor. The method is now fundamental in number theory, combinatorics, and proofs about recursive algorithms."
+      ]
+    },
+    {
+      "title": "Why the two parts are both necessary",
+      "paragraphs": [
+        "Suppose P(1) is true and, for every integer k ≥ 1, P(k) implies P(k + 1). The base starts the chain. Applying the implication to k = 1 gives P(2), then applying it to k = 2 gives P(3), and the same reasoning continues. A formal justification can use the well-ordering property: if a false case existed, there would be a smallest one, whose predecessor would be true and force it to be true, a contradiction.",
+        "An implication without a base case proves no starting point. For example, the statement that if one integer were negative then the next had some related property may preserve a condition that never begins. Conversely, checking a base case without proving the transition covers only that one input. Both obligations must refer to the same domain, including its actual starting integer."
+      ]
+    },
+    {
+      "title": "Prove the sum formula completely",
+      "paragraphs": [
+        "We claim 1 + 2 + … + n = n(n + 1)/2 for every integer n ≥ 1. Base case: at n = 1, both sides equal one. For the inductive step, fix an arbitrary k ≥ 1 and assume 1 + … + k = k(k + 1)/2. This is a temporary assumption used to prove the next case, not an assumption that the final theorem is already known.",
+        "Add k + 1 to both sides of the assumed identity. The new sum is k(k + 1)/2 + (k + 1) = [k(k + 1) + 2(k + 1)]/2. Factor out k + 1 to obtain (k + 1)(k + 2)/2. This is exactly the claimed formula with n replaced by k + 1. Since the base and transition are proved, induction establishes every positive integer case.",
+        "For n = 10 the formula gives 10·11/2 = 55. Direct addition confirms this instance but is not the proof of all instances. The calculator can display the formula for chosen n; it cannot certify the logical implication merely by agreeing at a finite number of values."
+      ]
+    },
+    {
+      "title": "Use stronger hypotheses when needed",
+      "paragraphs": [
+        "Strong induction allows the step for n to assume all earlier cases in the relevant range, rather than just the immediately preceding case. For example, to prove every integer n ≥ 2 factors into primes, start with two. For a larger n, either n is prime already or n = ab with integers 2 ≤ a,b < n. The strong hypothesis supplies prime factorizations of both smaller factors, whose product factors n.",
+        "This argument establishes existence, not uniqueness, of prime factorization. Uniqueness needs additional reasoning, such as Euclid’s lemma. Strong and ordinary induction are equivalent in proving power over the natural numbers, but one formulation can make a particular argument much cleaner. A recurrence depending on two previous terms often needs two base cases or a carefully formulated stronger statement."
+      ]
+    },
+    {
+      "title": "Recognize invalid steps",
+      "paragraphs": [
+        "A common error is proving P(k + 1) only for a particular k instead of an arbitrary one. Another is assuming the desired next case during the algebra, making the proof circular. The induction hypothesis must be clearly identified, and each subsequent equality must follow from it or an already established rule. Rearranging the conclusion can help discover a proof, but the final argument must justify the direction of implication.",
+        "The classic false claim that every group of horses has the same color illustrates a hidden gap: overlapping subgroups work only when there is an overlap. The transition from one horse to two has none, so the proposed general step fails exactly where it needs to start. Boundary cases are not administrative details; they can determine whether the proof works.",
+        "In software, induction often proves correctness of loops or recursive functions. The base corresponds to initialization or termination cases, while the step shows that one operation preserves the invariant. Such reasoning requires a precise specification of the program’s state and termination behavior. The numerical model here demonstrates a finite sum identity only; no formal proof checker or automated program verification is implemented."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "1 + 2 + … + n = n(n+1)/2",
+    "symbols": [
+      {
+        "symbol": "n",
+        "meaning": "Positive integer upper limit"
+      },
+      {
+        "symbol": "P(n)",
+        "meaning": "The sum identity to be proved for that integer"
+      }
+    ],
+    "explanation": "Positive integer n; calculator evaluates closed forms and does not formally verify the inductive proof.",
+    "example": "For n=10, the first ten positive integers sum to 55."
+  },
+  "insight": "The base starts the chain and the arbitrary transition establishes every subsequent integer case.",
+  "misconceptions": [
+    {
+      "myth": "Testing enough integers proves the theorem.",
+      "correction": "Finite testing cannot establish a statement about all natural numbers."
+    },
+    {
+      "myth": "The induction hypothesis assumes the whole conclusion.",
+      "correction": "It assumes one case temporarily to establish the next, after a separate base case."
+    }
+  ],
+  "check": {
+    "question": "Which pair is required for induction?",
+    "options": [
+      "Many examples and a graph",
+      "A base case and a general inductive step",
+      "Only the next case"
+    ],
+    "answer": 1,
+    "explanation": "The base starts the chain and the arbitrary transition establishes every subsequent integer case."
+  },
+  "sources": [
+    {
+      "title": "Oscar Levin: Discrete Mathematics, an Open Introduction",
+      "url": "https://discrete.openmathbooks.org/dmoi3.html"
+    },
+    {
+      "title": "MIT OpenCourseWare: Mathematics for Computer Science",
+      "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Mathematical induction example",
+    "description": "For n=10, the first ten positive integers sum to 55.",
+    "inputs": [
+      {
+        "key": "n",
+        "label": "Upper integer",
+        "unit": "",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "initial": 10
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Sum of first n integers",
+        "unit": "",
+        "expression": [
+          "/",
+          [
+            "*",
+            "n",
+            [
+              "+",
+              "n",
+              1
+            ]
+          ],
+          2
+        ]
+      },
+      {
+        "label": "Next sum",
+        "unit": "",
+        "expression": [
+          "/",
+          [
+            "*",
+            [
+              "+",
+              "n",
+              1
+            ],
+            [
+              "+",
+              "n",
+              2
+            ]
+          ],
+          2
+        ]
+      }
+    ],
+    "assumptions": "Positive integer n; calculator evaluates closed forms and does not formally verify the inductive proof."
+  }
+}
