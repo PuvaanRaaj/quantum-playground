@@ -1,0 +1,138 @@
+{
+  "slug": "schrodinger",
+  "title": "Schrödinger equation",
+  "category": "Quantum mechanics",
+  "subtitle": "The rule that turns a quantum state now into a quantum state later.",
+  "minutes": 14,
+  "level": "Go deeper",
+  "accent": "violet",
+  "intro": "The Schrödinger equation describes how a quantum state evolves in time when its Hamiltonian is specified. For a simple particle, it connects the changing wavefunction to kinetic and potential energy.",
+  "why": "It connects interference and probability to a predictive theory of motion, bound states, atomic energy levels and tunneling.",
+  "prerequisites": [
+    "A derivative describes a rate of change.",
+    "The squared magnitude of a wavefunction gives a probability density."
+  ],
+  "terms": [
+    {
+      "term": "Wavefunction ψ",
+      "definition": "A complex-valued representation of the state; for one particle in one dimension it assigns an amplitude to each position."
+    },
+    {
+      "term": "Hamiltonian Ĥ",
+      "definition": "The energy operator that generates time evolution."
+    },
+    {
+      "term": "Potential energy V",
+      "definition": "Energy associated with the particle’s location or configuration in the specified model."
+    },
+    {
+      "term": "Eigenstate",
+      "definition": "A state that an operator maps to a multiple of itself. An energy eigenstate has a definite energy."
+    },
+    {
+      "term": "Probability density",
+      "definition": "Probability per unit length, area or volume. Integrating over a region gives its probability."
+    }
+  ],
+  "sections": [
+    {
+      "title": "From atomic puzzles to wave mechanics",
+      "paragraphs": [
+        "Atoms emit and absorb particular colors instead of an arbitrary continuum. Early quantum models introduced discrete energies, but a more general framework was needed to predict them and to handle situations beyond the simplest atom. Building on the emerging idea of matter waves, Erwin Schrödinger developed wave mechanics in 1926. Werner Heisenberg had developed a different mathematical formulation, and the approaches were shown to be connected. Max Born’s probabilistic interpretation clarified how the wavefunction relates to observed outcomes. No single equation appeared in isolation: the modern framework grew from several contributions, competing pictures, and detailed comparison with experiments.",
+        "The equation’s task is easier to understand if you separate preparation, evolution and measurement. First describe an initial state. Next specify the Hamiltonian, which encodes the model’s energy and interactions. The Schrödinger equation predicts the later state. Finally use the measurement rules to calculate outcome probabilities. For an isolated system with a specified Hamiltonian, state evolution is deterministic: the same initial state produces the same later state. That does not imply that every individual measurement result is predetermined by the state. Deterministic evolution of amplitudes and probabilistic measurement predictions coexist in the same framework."
+      ]
+    },
+    {
+      "title": "Reading the equation one piece at a time",
+      "paragraphs": [
+        "In compact form, iħ ∂ψ/∂t = Ĥψ. The derivative on the left describes the rate at which the state changes. The Hamiltonian on the right acts on that state. The imaginary unit i is not decorative: complex phases are essential to the evolution and its interference effects. For a single nonrelativistic particle in one spatial dimension, the Hamiltonian can be written as a term involving the second spatial derivative plus the potential V(x). The second derivative measures spatial curvature of the wavefunction. This kinetic-energy term is why differently shaped wavefunctions can evolve differently even in empty space.",
+        "The wavefunction itself is not a graph of a particle’s material height. Its real and imaginary parts are components of a probability amplitude. The squared magnitude |ψ(x,t)|² is a probability density. To find the probability of detection between two positions, integrate that density over the interval. At one exact mathematical point the probability is normally zero for a smooth continuous distribution; a detector measures a finite region. Normalization requires the total probability over all positions to be one. When the Hamiltonian has the required mathematical properties, the equation preserves that normalization during the ideal closed-system evolution."
+      ]
+    },
+    {
+      "title": "Why a box has discrete energy levels",
+      "paragraphs": [
+        "Place an ideal particle in a one-dimensional box with infinitely high walls. The allowed stationary wavefunctions vanish at the boundaries. Like standing waves on a string fixed at both ends, only certain spatial patterns fit: one half-wave, two half-waves, and so on. Each corresponds to a different energy. The analogy is mathematical, not a claim that an electron is a vibrating string. In this ideal model the energy grows as the square of the mode number. The lowest allowed energy is not zero because a completely flat, nonzero wavefunction cannot satisfy both the boundary conditions and normalization.",
+        "For an electron in a box one nanometer wide, the lowest energy is about 0.376 electronvolts. The second level is four times as large, about 1.504 electronvolts. Their difference is about 1.128 electronvolts. These values follow from the ideal boundaries, the electron’s mass and Planck’s constant; changing the width changes the spectrum. Doubling the width divides every level’s energy by four. This gives you a useful prediction to make before adjusting a control. Real atoms have different potentials and three spatial dimensions, so these box numbers are not a hydrogen spectrum."
+      ]
+    },
+    {
+      "title": "Stationary does not mean the mathematics stops",
+      "paragraphs": [
+        "An energy eigenstate gains a time-dependent overall phase, while its probability density stays unchanged. This is why it is called stationary: measurable position statistics can remain fixed even though the complex wavefunction evolves. A superposition of different energies acquires changing relative phases, so its probability density can change with time. If an animation shows a real-part wave oscillating, do not automatically interpret those oscillations as probability moving back and forth. Compare the density as well. Distinguishing an overall phase from relative phase connects this lesson directly to what you learned about interference in the two-path experiment.",
+        "The visual model should be read as a small selection of analytic states in an ideal potential, not a general solver for arbitrary chemistry. Infinite walls are an approximation; finite barriers allow tails and sometimes tunneling. The simple nonrelativistic equation omits relativistic corrections, particle creation and a full description of quantum fields. Interactions with an environment also require more than isolated pure-state evolution if you only track the subsystem. The equation does not by itself settle the interpretation of measurement. Its success is practical and precise: within its domain, an initial state and an energy model yield testable predictions that connect a mathematical wavefunction to laboratory statistics."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "iħ ∂ψ/∂t = Ĥψ;   Eₙ = n²π²ħ² / (2mL²)",
+    "symbols": [
+      {
+        "symbol": "ψ",
+        "meaning": "The quantum state’s wavefunction."
+      },
+      {
+        "symbol": "i",
+        "meaning": "The imaginary unit, with i² = −1."
+      },
+      {
+        "symbol": "Ĥ",
+        "meaning": "The Hamiltonian energy operator."
+      },
+      {
+        "symbol": "Eₙ",
+        "meaning": "Energy of mode n in the ideal infinite box."
+      },
+      {
+        "symbol": "n",
+        "meaning": "A positive integer: 1, 2, 3 and so on."
+      },
+      {
+        "symbol": "m, L",
+        "meaning": "Particle mass and box width."
+      },
+      {
+        "symbol": "ħ",
+        "meaning": "Reduced Planck constant."
+      }
+    ],
+    "explanation": "The first equation governs state evolution generally. The second is one solution for the allowed energies in a one-dimensional infinite square well, not a universal energy formula.",
+    "example": "For an electron and L = 1 nm, E₁ ≈ 0.376 eV and E₂ = 4E₁ ≈ 1.504 eV. Doubling L gives E₁ ≈ 0.094 eV because energy scales as 1/L²."
+  },
+  "insight": "A stationary probability density can hide a changing phase. Different energy components become visible through their changing relative phases.",
+  "misconceptions": [
+    {
+      "myth": "The wavefunction is the physical outline of an electron.",
+      "correction": "It represents probability amplitudes. Its interpretation is not the same as a material wave height."
+    },
+    {
+      "myth": "A stationary state has no time dependence at all.",
+      "correction": "Its overall phase evolves while its probability density remains fixed."
+    }
+  ],
+  "check": {
+    "question": "If the ideal box width doubles, what happens to its ground-state energy?",
+    "options": [
+      "It doubles.",
+      "It becomes one quarter as large.",
+      "It stays the same."
+    ],
+    "answer": 1,
+    "explanation": "The ideal-box spectrum is proportional to 1/L². Doubling L multiplies the energy by 1/4."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures: Amplitudes and Position",
+      "url": "https://www.feynmanlectures.caltech.edu/III_16.html"
+    },
+    {
+      "title": "Schrödinger’s Nobel Lecture",
+      "url": "https://www.nobelprize.org/uploads/2017/07/schrodinger-lecture.pdf"
+    },
+    {
+      "title": "Feynman Lectures: The Hydrogen Atom",
+      "url": "https://www.feynmanlectures.caltech.edu/III_19.html"
+    }
+  ],
+  "visual": "schrodinger"
+}

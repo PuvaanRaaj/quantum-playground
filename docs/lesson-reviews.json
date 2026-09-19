@@ -40,5 +40,11 @@
     "sourceSha256": "69c85d84971d196ffbddd555ae47613e44936668bcd806766ef13b8577c83ea5",
     "reviewRecord": "existing-corrected.json",
     "status": "approved"
+  },
+  "schrodinger": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "5e39b1529542036ed980357d4853d1316f439e6910c60cdb19811239c410b52a",
+    "reviewRecord": "existing-corrected.json",
+    "status": "approved"
   }
 }
