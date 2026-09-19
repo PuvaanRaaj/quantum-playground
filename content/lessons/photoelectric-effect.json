@@ -1,0 +1,166 @@
+{
+  "slug": "photoelectric-effect",
+  "title": "The photoelectric effect",
+  "category": "Quantum mechanics",
+  "subtitle": "Above a threshold frequency, absorbed light can release electrons from a material.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Experiments on light striking surfaces showed that electrons could be emitted, but their energies did not follow the simplest expectation that brighter light should continuously supply more energy to each electron.",
+  "why": "Above a threshold frequency, absorbed light can release electrons from a material.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Photon",
+      "definition": "A quantum of electromagnetic energy with energy hf."
+    },
+    {
+      "term": "Work function",
+      "definition": "The minimum energy needed to remove an electron from a specified surface."
+    },
+    {
+      "term": "Threshold frequency",
+      "definition": "The minimum frequency for single-photon emission in the elementary model."
+    },
+    {
+      "term": "Stopping potential",
+      "definition": "A reverse voltage sufficient to stop the most energetic emitted electrons."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What Einstein contributed",
+      "paragraphs": [
+        "Experiments on light striking surfaces showed that electrons could be emitted, but their energies did not follow the simplest expectation that brighter light should continuously supply more energy to each electron. Albert Einstein proposed in 1905 that light energy could be transferred in localized quanta proportional to frequency. This connected Planck’s constant with a new explanation of the photoelectric law. His Nobel recognition specifically highlighted that law. The contribution belongs to quantum physics as well as to Einstein’s broader scientific legacy; admiring relativity should not obscure his role in establishing quantum ideas.",
+        "The elementary model describes one photon transferring energy to one electron. Part of that energy is required to remove the electron from the material. The maximum remaining kinetic energy is hf−Φ, where Φ is the work function. Below the threshold, a single photon does not have enough energy for emission in this model. Increasing the number of below-threshold photons does not change the energy of each one. At very high intensities, multiphoton and other effects can occur, so the familiar threshold statement must retain its single-photon, ordinary-intensity qualification."
+      ]
+    },
+    {
+      "title": "Frequency and brightness do different jobs",
+      "paragraphs": [
+        "Frequency determines photon energy. Intensity describes energy delivered per unit area per unit time. At a fixed frequency above threshold, raising intensity usually increases the number of incident photons and can increase the emitted-electron rate under suitable conditions. It does not increase the ideal maximum kinetic energy of each photoelectron. Changing frequency instead changes that maximum. This distinction is central to the experiment because it separates the amount of illumination from the energy carried in an individual absorption event.",
+        "A metal does not release every electron with exactly the maximum kinetic energy. Electrons begin in different states, and some lose energy before reaching the surface. The work function is also a surface property influenced by material and surface condition. The simple formula describes an upper limit in an idealized energy-balance model. Real measured distributions, collection efficiency and current depend on additional details. A straight-line relation between maximum kinetic energy and frequency is therefore more specific than a universal prediction for every measured electron count."
+      ]
+    },
+    {
+      "title": "A numerical energy balance",
+      "paragraphs": [
+        "Use hc≈1240 electronvolt nanometers. Light with wavelength 400 nanometers has photon energy about 3.10 electronvolts. For a surface with work function 2.00 electronvolts, the maximum kinetic energy is 1.10 electronvolts. A stopping potential of about 1.10 volts can oppose that kinetic energy for an electron in the ideal arrangement. With wavelength 700 nanometers, photon energy is about 1.77 electronvolts, below the chosen work function. The single-photon model predicts no emitted photoelectrons, not electrons with negative kinetic energy.",
+        "The threshold wavelength is hc/Φ. For the two-electronvolt surface, it is about 620 nanometers. Shorter wavelengths have higher frequency and more energetic photons, so they are above the energy threshold. This can be counterintuitive if the word above is confused with a larger wavelength. Always specify whether the threshold refers to energy, frequency or wavelength. Plotting the maximum kinetic energy against frequency produces a line above threshold, while plotting against wavelength produces a reciprocal curve."
+      ]
+    },
+    {
+      "title": "Evidence and the calculator’s limits",
+      "paragraphs": [
+        "Careful photoelectric experiments, including work by Robert Millikan, tested the frequency dependence and helped establish the quantitative rule. The full modern account of light and matter goes beyond a classical wave receiving occasional labels, but this energy balance remains a useful introductory connection between measurable voltage and Planck’s constant. It does not remove the wave description of optical propagation or interference. Different experiments reveal different aspects of a theory that predicts both localized energy transfer and coherent amplitude effects.",
+        "The calculator takes wavelength and work function, computes photon energy and reports the nonnegative maximum kinetic-energy value. A zero output combines threshold and below-threshold settings; in the latter case it means emission is forbidden within this model, not that a stream of stationary electrons necessarily emerges. No current is predicted. Surface band structure, temperature, collection geometry, multiphoton absorption and space-charge effects are omitted. Use the controls to compare doubling intensity conceptually with halving wavelength mathematically. Only the latter changes the per-photon energy in this calculation. This is the concrete reasoning that made the photoelectric effect such an important clue in the development of quantum physics."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Kmax=hf−Φ=hc/λ−Φ (when hf≥Φ)",
+    "symbols": [
+      {
+        "symbol": "Φ",
+        "meaning": "Work function."
+      },
+      {
+        "symbol": "λ",
+        "meaning": "Incident wavelength."
+      },
+      {
+        "symbol": "Kmax",
+        "meaning": "Maximum photoelectron kinetic energy above threshold."
+      }
+    ],
+    "explanation": "Above a threshold frequency, absorbed light can release electrons from a material.",
+    "example": "At λ=400 nm and Φ=2 eV, photon energy≈3.10 eV and Kmax≈1.10 eV."
+  },
+  "insight": "Intensity changes photon flux at fixed frequency; each photon still carries hf.",
+  "misconceptions": [
+    {
+      "myth": "Increasing brightness at fixed frequency increases each photon’s energy.",
+      "correction": "Intensity changes photon flux at fixed frequency; each photon still carries hf."
+    },
+    {
+      "myth": "Below threshold the formula predicts emitted electrons with negative kinetic energy.",
+      "correction": "Below threshold there is no single-photon emission; the negative algebraic remainder is not a physical kinetic energy."
+    }
+  ],
+  "check": {
+    "question": "At fixed frequency above threshold, brighter light primarily changes what in the elementary model?",
+    "options": [
+      "Photon number arriving per time",
+      "Energy of each photon",
+      "Planck’s constant"
+    ],
+    "answer": 0,
+    "explanation": "Intensity changes photon flux at fixed frequency; each photon still carries hf."
+  },
+  "sources": [
+    {
+      "title": "Nobel Prize: The dual nature of light",
+      "url": "https://www.nobelprize.org/prizes/physics/the-dual-nature-of-light-as-reflected-in-the-nobel-archives/"
+    },
+    {
+      "title": "Nobel Prize: The photoelectric effect",
+      "url": "https://educationalgames.nobelprize.org/educational/physics/quantised_world/waves-particles-1.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "The photoelectric effect model",
+    "description": "Above a threshold frequency, absorbed light can release electrons from a material.",
+    "inputs": [
+      {
+        "key": "lambda",
+        "label": "Wavelength",
+        "min": 200,
+        "max": 900,
+        "step": 5,
+        "initial": 400,
+        "unit": "nm"
+      },
+      {
+        "key": "work",
+        "label": "Work function",
+        "min": 1,
+        "max": 5,
+        "step": 0.1,
+        "initial": 2,
+        "unit": "eV"
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Photon energy",
+        "expression": [
+          "/",
+          1239.841984,
+          "lambda"
+        ],
+        "unit": "eV"
+      },
+      {
+        "label": "Maximum kinetic energy if emission allowed",
+        "expression": [
+          "max",
+          0,
+          [
+            "-",
+            [
+              "/",
+              1239.841984,
+              "lambda"
+            ],
+            "work"
+          ]
+        ],
+        "unit": "eV"
+      }
+    ],
+    "assumptions": "Single-photon surface energy balance. A zero clipped output below threshold means no emission in the model. No photocurrent, multiphoton effects or surface band structure."
+  }
+}

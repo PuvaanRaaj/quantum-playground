@@ -238,5 +238,11 @@
     "sourceSha256": "cf830f5174d8dc720af61167d741832226a3e39d8da4b4868c405ed2b5441b0f",
     "reviewRecord": "batch-7.json",
     "status": "approved"
+  },
+  "photoelectric-effect": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "33a38d0899a9242e271e743f260b98d85b2db8ebc7713a20f7eb3838e97d799a",
+    "reviewRecord": "batch-7.json",
+    "status": "approved"
   }
 }
