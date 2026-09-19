@@ -1,0 +1,170 @@
+{
+  "slug": "quantum-cryptography",
+  "title": "Quantum key distribution",
+  "category": "Quantum mechanics",
+  "subtitle": "Quantum measurements can reveal disturbance while two parties establish a shared secret key.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "Quantum key distribution aims to establish shared secret random bits between parties connected by quantum and classical communication channels.",
+  "why": "Quantum measurements can reveal disturbance while two parties establish a shared secret key.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "BB84",
+      "definition": "A prepare-and-measure key-distribution protocol introduced by Bennett and Brassard in 1984."
+    },
+    {
+      "term": "Sifting",
+      "definition": "Keeping data for which sender and receiver used compatible bases."
+    },
+    {
+      "term": "Error rate",
+      "definition": "The fraction of compared retained bits that disagree."
+    },
+    {
+      "term": "Privacy amplification",
+      "definition": "Compression that reduces an adversary’s possible knowledge of a reconciled key."
+    }
+  ],
+  "sections": [
+    {
+      "title": "The problem is key agreement, not magical encryption",
+      "paragraphs": [
+        "Quantum key distribution aims to establish shared secret random bits between parties connected by quantum and classical communication channels. Charles Bennett and Gilles Brassard introduced the BB84 protocol in 1984, building on earlier quantum-information ideas including Stephen Wiesner’s work. The resulting key can later be used in an encryption scheme, but sending a quantum state is not itself a complete secure messaging system. Authentication, endpoint security, implementation behavior and the selected security proof remain essential. A simple classroom disturbance calculation illustrates one mechanism, not unconditional security of any hardware bearing a quantum label.",
+        "In BB84, Alice randomly chooses a bit and one of two incompatible measurement bases, then prepares the corresponding quantum state. Bob independently chooses a basis for measurement. After transmission, they publicly compare their basis choices and retain compatible cases. They do not publicly reveal every retained bit. With balanced independent basis choices, about half the ideal detections remain after this sifting step. A subset is then compared to estimate errors, sacrificing those bits rather than using them as secret material."
+      ]
+    },
+    {
+      "title": "Why a simple intercept-resend attack causes errors",
+      "paragraphs": [
+        "Suppose Eve intercepts every signal, randomly chooses one of the two bases, measures, and sends a new state consistent with her result. Among the retained cases where Alice and Bob used the same basis, Eve chose the wrong basis half the time. When she did, Bob’s outcome is wrong with probability one half. Multiplying these factors gives a one-quarter error rate in the sifted key. When Eve chose the correct basis she need not introduce an error in this ideal attack. The calculation therefore depends on the attack and basis rules explicitly stated.",
+        "If Eve performs this attack on only a fraction f of signals, while the rest pass perfectly, the expected sifted error rate is f/4. At f=0.4, the rate is 0.1. This is a useful example because it derives a visible disturbance from a concrete sequence of incompatible measurements. It does not show that all adversaries must use intercept-resend or that every observed error identifies an attacker. Ordinary device noise also creates errors, and more sophisticated quantum attacks require a security analysis beyond this counting argument."
+      ]
+    },
+    {
+      "title": "Sampling and what a clean sample means",
+      "paragraphs": [
+        "Assume retained-bit errors are independent with fixed probability q. The probability that a sample of n compared bits contains no errors is (1−q)ⁿ. Thus the chance of seeing at least one error is 1−(1−q)ⁿ. At q=0.25 and n=20, the detection chance is about 0.9968. This probability concerns the chosen model and sampling event. It is not the probability that a key is secure or the probability that Eve exists after observing an error; those are different inference questions requiring additional assumptions.",
+        "A sample with no errors does not logically prove that the remaining bits have no errors. Finite-size security analysis accounts for uncertainty in parameter estimation. Alice and Bob must reconcile residual discrepancies and apply privacy amplification according to a justified bound on possible adversary information. Public reconciliation leaks some information and must be included in that accounting. Treating every sifted bit as automatically secret would skip essential protocol stages and overstate what the quantum portion alone accomplishes."
+      ]
+    },
+    {
+      "title": "Authentication and implementation boundaries",
+      "paragraphs": [
+        "The classical channel must be authenticated so an adversary cannot impersonate Alice to Bob and Bob to Alice. It need not keep basis announcements secret, but their integrity and origin matter. Sources and detectors also have real imperfections that can differ from the ideal single-qubit assumptions. Practical protocols and security proofs must match those characteristics. Quantum mechanics does not protect compromised endpoints or correct arbitrary software errors, and a plot of an error rate cannot certify a deployed system.",
+        "The calculator varies the attacked fraction and number of compared sifted bits in the ideal independent intercept-resend model. It reports expected error rate and the chance of at least one sampled error. It assumes no background noise and does not implement a key exchange, authentication, reconciliation or privacy amplification. Counts are integral and the bases of the powers remain nonnegative. Use the f=0.4 example to derive the ten-percent error rate, then see how sample size affects discovery. The lesson is a precise information-disturbance relationship within a protocol, not a claim that uncertainty alone makes every communication channel invulnerable."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "q=f/4; P(at least one sampled error)=1−(1−q)ⁿ",
+    "symbols": [
+      {
+        "symbol": "f",
+        "meaning": "Fraction attacked by random-basis intercept-resend."
+      },
+      {
+        "symbol": "q",
+        "meaning": "Expected sifted-bit error rate."
+      },
+      {
+        "symbol": "n",
+        "meaning": "Number of independently compared sifted bits."
+      }
+    ],
+    "explanation": "Quantum measurements can reveal disturbance while two parties establish a shared secret key.",
+    "example": "At f=1 and n=20, detection probability=1−0.75²⁰≈0.9968."
+  },
+  "insight": "Wrong basis occurs half the time and then causes an error half the time: 1/2×1/2=1/4.",
+  "misconceptions": [
+    {
+      "myth": "Every intercepted retained bit must be wrong.",
+      "correction": "Wrong basis occurs half the time and then causes an error half the time: 1/2×1/2=1/4."
+    },
+    {
+      "myth": "A clean finite sample proves that the remaining key is perfectly secure.",
+      "correction": "Finite sampling, authentication, reconciliation and privacy amplification require explicit security analysis."
+    }
+  ],
+  "check": {
+    "question": "Full random-basis intercept-resend creates what sifted error rate?",
+    "options": [
+      "25%",
+      "50%",
+      "100%"
+    ],
+    "answer": 0,
+    "explanation": "Wrong basis occurs half the time and then causes an error half the time: 1/2×1/2=1/4."
+  },
+  "sources": [
+    {
+      "title": "Bennett and Brassard: Original protocol",
+      "url": "https://arxiv.org/abs/2003.06557"
+    },
+    {
+      "title": "Shor and Preskill: BB84 security proof",
+      "url": "https://arxiv.org/abs/quant-ph/0003004"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Quantum key distribution model",
+    "description": "Quantum measurements can reveal disturbance while two parties establish a shared secret key.",
+    "inputs": [
+      {
+        "key": "f",
+        "label": "Intercepted fraction",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "initial": 1,
+        "unit": ""
+      },
+      {
+        "key": "n",
+        "label": "Compared sifted bits",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "initial": 20,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Sifted error probability",
+        "expression": [
+          "/",
+          "f",
+          4
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Chance of at least one error",
+        "expression": [
+          "-",
+          1,
+          [
+            "pow",
+            [
+              "-",
+              1,
+              [
+                "/",
+                "f",
+                4
+              ]
+            ],
+            "n"
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Independent random-basis intercept-resend on ideal BB84 signals with no background noise. Not a security proof, secret-key-rate estimate or deployed cryptographic implementation."
+  }
+}
