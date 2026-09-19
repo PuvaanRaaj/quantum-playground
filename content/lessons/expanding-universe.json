@@ -1,0 +1,140 @@
+{
+  "slug": "expanding-universe",
+  "title": "The expanding universe",
+  "category": "Space & relativity",
+  "subtitle": "Why distant galaxies separate without Earth being the center.",
+  "minutes": 12,
+  "level": "Build intuition",
+  "accent": "blue",
+  "visual": "expansion",
+  "intro": "Cosmic expansion describes the changing large-scale distances between locations carried with the cosmic flow. In a simple homogeneous cosmological model, one time-dependent scale factor multiplies those distances. It does not mean every atom, person, solar system, or galaxy stretches at the same rate. Understanding that distinction makes the Big Bang much less like an ordinary explosion.",
+  "why": "This connects Einstein’s spacetime geometry with observations of galaxies and the history of the universe, while showing how scientists distinguish a mathematical model from its evidence.",
+  "prerequisites": [
+    "Ratios compare one size with another.",
+    "A light spectrum contains wavelengths that can be measured."
+  ],
+  "terms": [
+    {
+      "term": "Scale factor",
+      "definition": "A dimensionless quantity a(t) describing relative changes in large-scale cosmic distances; its present value is often set to one."
+    },
+    {
+      "term": "Comoving coordinate",
+      "definition": "A position label that stays fixed for an ideal observer following the smooth cosmic flow."
+    },
+    {
+      "term": "Redshift",
+      "definition": "The fractional increase of an observed wavelength relative to its emitted wavelength."
+    },
+    {
+      "term": "Hubble parameter",
+      "definition": "The fractional expansion rate H = ȧ/a at a particular cosmic time."
+    }
+  ],
+  "sections": [
+    {
+      "title": "A discovery with many authors",
+      "paragraphs": [
+        "General relativity made it possible to model the universe as a dynamical spacetime. Einstein initially favored a static cosmological model. Alexander Friedmann found evolving solutions, and Georges Lemaître connected expansion with astronomical observations. Observational work by Vesto Slipher, Edwin Hubble, Henrietta Leavitt, and others helped establish the velocities and distance measurements needed for the emerging picture. This history is richer than a single person looking through a telescope and announcing everything.",
+        "The modern Big Bang model describes an earlier hot, dense phase followed by expansion and cooling. It is not, by itself, a complete account of why anything exists or what happened at an absolute first instant. Extrapolating equations beyond the regime where their physics is reliable does not transform that extrapolation into an observation. A useful learning habit is to separate well-tested thermal history from unresolved questions about the earliest conditions."
+      ]
+    },
+    {
+      "title": "An experiment with dots",
+      "paragraphs": [
+        "Place several dots on an imaginary transparent coordinate sheet. Increase every separation by the same factor. A dot initially two units from your chosen origin moves to four units when the scale doubles; one initially five units away moves to ten. The more distant dot gains more distance during the same interval, even though the same scaling rule applies everywhere.",
+        "Now choose a different dot as the origin and measure all separations again. The same pattern holds. This is why observing distant galaxies receding does not select Earth as a cosmic center. The drawing’s outer boundary is an artifact of the page, not evidence for a wall around the universe. A two-dimensional display also cannot decide whether the actual universe is spatially finite or infinite."
+      ]
+    },
+    {
+      "title": "From a picture to an equation",
+      "paragraphs": [
+        "Write a physical distance as D(t) = a(t)χ, where χ is a fixed comoving separation. Differentiate with respect to time: dD/dt = ȧχ. Substitute χ = D/a to obtain dD/dt = (ȧ/a)D = HD. This simple derivation explains the proportional relationship between recession rate and distance in a homogeneous expanding model. The units work: an inverse time multiplied by distance gives speed.",
+        "For an illustrative H value of 70 kilometers per second per megaparsec, a separation of 10 megaparsecs corresponds to 700 kilometers per second of recession in the simple relation. At 20 megaparsecs it corresponds to 1,400 kilometers per second. This is a teaching value, not a claim to settle current measurements of the expansion rate. Actual galaxies also have local motions, and inferring distances from large redshifts needs the full expansion history."
+      ]
+    },
+    {
+      "title": "How expansion leaves a mark on light",
+      "paragraphs": [
+        "Light emitted when the scale factor was smaller reaches us with a longer wavelength in the homogeneous cosmological model. The relation is 1 + z = a(now)/a(emission). If the universe’s scale has doubled during the journey, then z = 1. A spectral feature emitted at 500 nanometers would be received at 1,000 nanometers in this example. Matching recognizable spectral features lets astronomers measure redshift.",
+        "Cosmological redshift is related to the changing geometry along the light’s journey. Treating every large redshift as a simple special-relativistic Doppler speed can mislead. Likewise, sufficiently distant comoving locations can have recession rates greater than c without an object locally overtaking a neighboring light beam. Special relativity’s local speed limit still holds. Comparing distant locations in curved spacetime requires stating which distance and time conventions are being used."
+      ]
+    },
+    {
+      "title": "Why galaxies and people do not swell",
+      "paragraphs": [
+        "The smooth expansion model describes the universe after averaging over sufficiently large scales. Inside gravitationally bound systems, local dynamics matter. The Solar System does not steadily expand in proportion to the cosmic scale factor, and electromagnetic forces keep atoms and everyday objects bound. An animation that simply scales every drawn shape would therefore teach the wrong lesson. Separate dots can move apart while the symbolic galaxies themselves keep their size.",
+        "A raisin-bread or balloon analogy helps with separation but introduces its own baggage. Bread has an oven outside it; a balloon has an obvious center in surrounding space. Neither feature is required by the cosmological model. Use an analogy only for the mathematical relationship it illustrates. Asking what the universe expands into assumes it behaves like an object growing inside a larger pre-existing container, which is not necessary in general relativity."
+      ]
+    },
+    {
+      "title": "Evidence, acceleration, and limits of this lab",
+      "paragraphs": [
+        "The expansion picture is supported by galaxy observations together with the cosmic microwave background and primordial light-element abundances. These observations constrain more than a moving-dot animation can express. Measurements of distant supernovae and other probes support accelerated expansion at late times. Dark energy names the component used to describe that behavior in standard cosmological models; its underlying physical nature is not established merely by giving it a name.",
+        "In this lab you choose the scale factor yourself. The visualization illustrates relative separations, not a forecast computed from matter density, radiation, curvature, and dark energy. Predict which pair of dots will gain the most separation, change the scale, and compare the ratios. Then choose another reference dot mentally. You have understood the core geometric idea when changing the observer does not create a privileged center, while doubling the scale doubles every comoving pair’s distance."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "D(t) = a(t)χ; H = ȧ/a; 1 + z = a(now)/a(emission)",
+    "symbols": [
+      {
+        "symbol": "D(t)",
+        "meaning": "Proper separation on a chosen constant-cosmic-time slice."
+      },
+      {
+        "symbol": "a(t)",
+        "meaning": "Dimensionless scale factor."
+      },
+      {
+        "symbol": "χ",
+        "meaning": "Fixed comoving separation."
+      },
+      {
+        "symbol": "H",
+        "meaning": "Fractional expansion rate at that time."
+      },
+      {
+        "symbol": "z",
+        "meaning": "Cosmological redshift."
+      }
+    ],
+    "explanation": "These relationships describe homogeneous expansion and wavelength stretching. They do not determine a(t); a physical cosmological model is needed for that.",
+    "example": "If a grows from 0.5 to 1, a fixed comoving pair doubles its proper separation, and light emitted at a = 0.5 has z = 1 when received at a = 1."
+  },
+  "insight": "Expansion can give every typical observer the same recession pattern without assigning anyone a special central position.",
+  "misconceptions": [
+    {
+      "myth": "The Big Bang was an explosion from one point into empty space.",
+      "correction": "The hot Big Bang model describes an evolving universe; it does not require a central explosion site or surrounding empty container."
+    },
+    {
+      "myth": "The scale slider predicts the future universe.",
+      "correction": "It demonstrates a geometric relationship. Predicting expansion requires dynamical equations and measured cosmological parameters."
+    }
+  ],
+  "check": {
+    "question": "The scale factor increases from 1 to 1.5. Two comoving points began 8 units apart. What is their new separation?",
+    "options": [
+      "8 units",
+      "9.5 units",
+      "12 units"
+    ],
+    "answer": 2,
+    "explanation": "Their comoving separation is fixed, so the proper separation is multiplied by 1.5: 8 × 1.5 = 12."
+  },
+  "sources": [
+    {
+      "title": "NASA: the Big Bang with John Mather",
+      "url": "https://www.nasa.gov/universe/nasas-james-webb-space-telescope-and-the-big-bang-a-short-qa-with-nobel-laureate-dr-john-mather/"
+    },
+    {
+      "title": "NASA: universe overview",
+      "url": "https://science.nasa.gov/universe/overview/"
+    },
+    {
+      "title": "NASA: dark energy and accelerated expansion",
+      "url": "https://science.nasa.gov/dark-energy/"
+    }
+  ]
+}
