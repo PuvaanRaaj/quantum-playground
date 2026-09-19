@@ -1,0 +1,219 @@
+{
+  "slug": "taylor-series",
+  "title": "Taylor series",
+  "category": "Mathematics",
+  "subtitle": "A Taylor polynomial approximates a function near a chosen input by matching its value, slope, curvature, and further derivatives.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A Taylor polynomial approximates a function near a chosen input by matching its value, slope, curvature, and further derivatives. A constant approximation matches only height. A linear approximation also matches slope. Higher-degree terms encode additional local behavior. Polynomials are easy to evaluate and differentiate, so this construction converts difficult functions into manageable local models while retaining a way to discuss approximation error.",
+  "why": "Taylor polynomials turn local derivative information into approximations with quantifiable error.",
+  "prerequisites": [
+    "Functions and algebra",
+    "Basic differentiation"
+  ],
+  "terms": [
+    {
+      "term": "Taylor polynomial",
+      "definition": "A polynomial matching a function and several derivatives at a chosen center."
+    },
+    {
+      "term": "Expansion center",
+      "definition": "The input around which the approximation is constructed."
+    },
+    {
+      "term": "Remainder",
+      "definition": "The difference between the exact function and its finite Taylor polynomial."
+    },
+    {
+      "term": "Convergence radius",
+      "definition": "The range of distances from the center where a power series converges."
+    },
+    {
+      "term": "Analytic function",
+      "definition": "A function locally equal to a convergent power series."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Replace a function locally by a polynomial",
+      "paragraphs": [
+        "A Taylor polynomial approximates a function near a chosen input by matching its value, slope, curvature, and further derivatives. A constant approximation matches only height. A linear approximation also matches slope. Higher-degree terms encode additional local behavior. Polynomials are easy to evaluate and differentiate, so this construction converts difficult functions into manageable local models while retaining a way to discuss approximation error.",
+        "Brook Taylor published a general expansion formula in the eighteenth century, and Colin Maclaurin’s name is associated with expansions centered at zero. Earlier mathematicians, including Newton and Gregory, developed important series for particular functions. The history illustrates the distinction between finding isolated useful expansions and organizing them into a general method based on derivatives. A Maclaurin series is therefore a special case of a Taylor series, not a competing technique."
+      ]
+    },
+    {
+      "title": "Derive the coefficients",
+      "paragraphs": [
+        "Suppose we seek P(x) = c₀ + c₁(x − a) + c₂(x − a)² + … + cₙ(x − a)ⁿ. Evaluating at x = a leaves only c₀, so matching f(a) requires c₀ = f(a). Differentiating once and evaluating at a leaves c₁, which must equal f′(a). Differentiating twice leaves 2c₂, so c₂ = f″(a)/2.",
+        "After k derivatives, the kth power contributes k!c_k at the center, while higher powers still contain a factor x − a and lower powers have vanished. Thus c_k = f^(k)(a)/k!. This explains the factorial denominators. The construction guarantees matching derivatives through order n, but it does not automatically guarantee a small error far from the center. That requires additional information about the function and the interval."
+      ]
+    },
+    {
+      "title": "Compute an exponential approximation",
+      "paragraphs": [
+        "Every derivative of eˣ is eˣ, so at a = 0 every derivative equals one. The third-degree polynomial is P₃(x) = 1 + x + x²/2 + x³/6. At x = 0.5 it gives 1 + 0.5 + 0.125 + 0.0208333 = 1.6458333. The exact exponential is approximately 1.6487213, leaving an error of about 0.002888. A higher degree improves this example, but that claim should be justified rather than inferred from a general hope.",
+        "Taylor’s theorem provides a remainder bound when the required derivative exists and is bounded on the interval. For this cubic approximation, |R₃(x)| ≤ M|x|⁴/4!, where M bounds the fourth derivative between zero and x. On the interval from zero to 0.5, M = e^0.5 < 1.65. Therefore the error is below 1.65·0.5⁴/24, approximately 0.004297. The actual error satisfies that bound, as it must."
+      ]
+    },
+    {
+      "title": "An infinite series needs another argument",
+      "paragraphs": [
+        "A Taylor series is the infinite sum of all these terms. To conclude that it equals the original function, the remainder must tend to zero as the degree grows. Having derivatives of every order is not sufficient by itself. There are smooth functions whose Taylor series at a point fails to reproduce them away from that point. Analyticity is the additional local equality property.",
+        "The geometric series offers a clear domain example. For |x| < 1, 1/(1 − x) = 1 + x + x² + … . The finite sum through xⁿ differs from the function by x^(n+1)/(1 − x), which tends to zero only under the appropriate condition. At x = 2 the terms grow, so adding more terms makes no convergent approximation. An expansion’s center and convergence range are part of the statement, not optional qualifications."
+      ]
+    },
+    {
+      "title": "Why approximation error matters in physics",
+      "paragraphs": [
+        "For small angles in radians, sin θ ≈ θ because the next nonzero term is −θ³/6. This approximation simplifies pendulum motion, but its error grows as the angle grows. At θ = 0.1, the correction has magnitude about 0.000167; at θ = 1, it is about 0.167 before further terms are included. The same formula can be excellent in one regime and poor in another.",
+        "The calculator compares eˣ with its cubic polynomial over a deliberately bounded interval. The difference is an absolute error, not a proof that every Taylor approximation behaves similarly. Near zero, matching more derivatives gives excellent local agreement; away from zero, the missing terms become important. When using a series in a model, state the retained order, input range, and desired tolerance. Those choices determine whether the approximation is adequate for the question, rather than whether the curves happen to look close at a particular zoom level."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "Pₙ(x) = Σₖ₌₀ⁿ f^(k)(a)(x−a)ᵏ/k!",
+    "symbols": [
+      {
+        "symbol": "a",
+        "meaning": "Expansion center"
+      },
+      {
+        "symbol": "n",
+        "meaning": "Highest retained polynomial degree"
+      },
+      {
+        "symbol": "f^(k)(a)",
+        "meaning": "Kth derivative evaluated at the center"
+      },
+      {
+        "symbol": "k!",
+        "meaning": "Factorial determining the coefficient normalization"
+      }
+    ],
+    "explanation": "Maclaurin cubic for eˣ on a finite interval; comparison does not establish convergence for other functions.",
+    "example": "The cubic approximation to e^0.5 is 1.6458333."
+  },
+  "insight": "Derivative matching constructs the polynomial; vanishing remainder establishes equality with the infinite series.",
+  "misconceptions": [
+    {
+      "myth": "Every smooth function equals its Taylor series.",
+      "correction": "Smoothness alone does not guarantee that the remainder tends to zero."
+    },
+    {
+      "myth": "More terms always improve the approximation everywhere.",
+      "correction": "A series has a convergence range; outside it, adding terms may not converge."
+    }
+  ],
+  "check": {
+    "question": "What must happen for a Taylor series to equal its function?",
+    "options": [
+      "The remainder must tend to zero",
+      "The first two terms must match",
+      "The graph must look smooth"
+    ],
+    "answer": 0,
+    "explanation": "Derivative matching constructs the polynomial; vanishing remainder establishes equality with the infinite series."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Calculus Volume 2",
+      "url": "https://openstax.org/details/books/calculus-volume-2"
+    },
+    {
+      "title": "University of St Andrews: Brook Taylor",
+      "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Taylor/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Taylor series example",
+    "description": "The cubic approximation to e^0.5 is 1.6458333.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Input",
+        "unit": "",
+        "min": -2,
+        "max": 2,
+        "step": 0.01,
+        "initial": 0.5
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Exact exponential",
+        "unit": "",
+        "expression": [
+          "exp",
+          "x"
+        ]
+      },
+      {
+        "label": "Cubic polynomial",
+        "unit": "",
+        "expression": [
+          "+",
+          1,
+          "x",
+          [
+            "/",
+            [
+              "pow",
+              "x",
+              2
+            ],
+            2
+          ],
+          [
+            "/",
+            [
+              "pow",
+              "x",
+              3
+            ],
+            6
+          ]
+        ]
+      },
+      {
+        "label": "Absolute error",
+        "unit": "",
+        "expression": [
+          "abs",
+          [
+            "-",
+            [
+              "exp",
+              "x"
+            ],
+            [
+              "+",
+              1,
+              "x",
+              [
+                "/",
+                [
+                  "pow",
+                  "x",
+                  2
+                ],
+                2
+              ],
+              [
+                "/",
+                [
+                  "pow",
+                  "x",
+                  3
+                ],
+                6
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Maclaurin cubic for eˣ on a finite interval; comparison does not establish convergence for other functions."
+  }
+}

@@ -106,5 +106,11 @@
     "sourceSha256": "1dec8738e0b991113fca14154e43d149416a6d3abba6b459ec665217df464bd8",
     "reviewRecord": "batch-3.json",
     "status": "approved"
+  },
+  "taylor-series": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "8cf1f9470b792690fb035d2ac4b6ebf5094aa1632329856442b4897384c4e9cc",
+    "reviewRecord": "batch-3.json",
+    "status": "approved"
   }
 }
