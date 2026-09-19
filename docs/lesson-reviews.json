@@ -142,5 +142,11 @@
     "sourceSha256": "3bdee1ed558141e5650ba6bdb96823d588cf271bc396c69e81dcf87fb11f7da8",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "quantum-measurement": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "356bc40f47b8194093be262a24d8e696595aa64d0c2214d944e8b1bafe9e5944",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }

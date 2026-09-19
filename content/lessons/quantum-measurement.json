@@ -1,0 +1,172 @@
+{
+  "slug": "quantum-measurement",
+  "title": "Quantum measurement",
+  "category": "Quantum mechanics",
+  "subtitle": "A measurement connects a prepared state to outcome probabilities and a conditional later state.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "In everyday language, measuring suggests uncovering a value that was already there without affecting anything else.",
+  "why": "A measurement connects a prepared state to outcome probabilities and a conditional later state.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Observable",
+      "definition": "A mathematical operator representing a measurable quantity in the ideal projective framework."
+    },
+    {
+      "term": "Eigenstate",
+      "definition": "A state with a definite result for the corresponding observable."
+    },
+    {
+      "term": "Projection",
+      "definition": "Selection of the component associated with a measurement outcome."
+    },
+    {
+      "term": "Conditional state",
+      "definition": "The state used for later predictions after a particular result is recorded."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What a measurement description must include",
+      "paragraphs": [
+        "In everyday language, measuring suggests uncovering a value that was already there without affecting anything else. Quantum measurement requires a more careful description. You specify the prepared state, which observable the apparatus measures, the possible records, and how the system changes conditional on each record. The framework developed through contributions from Born, Dirac and von Neumann, among others. An ideal projective measurement provides a useful starting model, but real laboratory measurements can be weaker, noisy, destructive or incomplete. The simple textbook rule is a precisely defined case rather than an exhaustive mechanical description of every instrument.",
+        "A qubit initially in an equal superposition of zero and one gives either result with probability one half when measured in that basis. Once result zero is recorded in an ideal repeatable measurement, an immediate repetition in the same basis returns zero with certainty, provided nothing intervenes. This is a conditional prediction about the later experiment. It does not mean every measurement reveals a pre-existing classical label that also supplies definite answers for every other basis. The distinction becomes testable when different measurements are inserted between repetitions."
+      ]
+    },
+    {
+      "title": "Why measurement order changes predictions",
+      "paragraphs": [
+        "Prepare a spin-like qubit in the plus state along the Z axis. Measure Z again and the plus outcome is certain. Now insert an X measurement before that final Z measurement. The X result is plus or minus with equal probabilities. Whichever result occurs, the conditional X eigenstate gives equal probabilities in the subsequent Z measurement. The original certainty has been lost. This is not because the experimenter became distracted or failed to record the X result. Even retaining that result does not restore a definite Z outcome for the prepared X eigenstate.",
+        "The calculation uses overlaps between states. The Z-plus state equals an equal superposition of X-plus and X-minus. Each amplitude has magnitude one over the square root of two, so each probability is one half. After selecting either X result, expand that eigenstate back in the Z basis and obtain equal magnitudes again. This algebra explains the sequence without assigning a tiny arrow definite components along all axes. For a classical vector, learning one component need not erase a previously definite other component. Quantum observables represented by noncommuting operators need not share that classical property."
+      ]
+    },
+    {
+      "title": "Records, correlations and interpretation",
+      "paragraphs": [
+        "A physical measurement involves interaction. The system becomes correlated with a detector or another degree of freedom that can serve as a record. If the detector responds differently to distinguishable alternatives, the joint system can become entangled. Looking only at the original system may then require a mixed-state description. Decoherence explains why certain interference effects become inaccessible when records spread into the environment. It does not, by itself, settle every interpretive question about why a particular observer experiences one definite outcome. Different interpretations organize those deeper questions differently while often agreeing on the operational probabilities.",
+        "The word observer therefore need not refer to a human mind. A photodetector, an atom carrying path information, or an automated measurement apparatus can play the relevant physical role. A human may read the saved record much later. Nor is all disturbance a quantum measurement: a known unitary rotation can change a state coherently without creating an outcome record. Conversely, a measurement of an already matching eigenstate can leave that state unchanged in the ideal model. Asking what information is recorded and what later statistics result is more useful than saying that every act of looking always knocks a particle unpredictably."
+      ]
+    },
+    {
+      "title": "A controllable measurement axis",
+      "paragraphs": [
+        "For a qubit prepared along a reference axis, an ideal measurement axis tilted by angle θ returns the corresponding plus result with probability cos²(θ/2). At sixty degrees, this is three quarters. For 200 independent preparations, the expected number of plus results is 150, though an actual finite sample fluctuates. At ninety degrees the outcomes are balanced. At one hundred eighty degrees the outcome label is reversed with certainty. Notice the half-angle: using cos²θ would incorrectly predict zero probability at ninety degrees.",
+        "The calculator reports these ideal probabilities and an expected count for a selected number of trials. It does not generate detector records, model measurement duration, or estimate the systematic errors of a real device. Its angle describes the relation between preparation and measurement axes, not an electron’s classical orientation in space. A successful use of the model is to predict a three-step measurement sequence with conditional states. Keep the initial preparation, intermediate outcome, and final measurement separate. That discipline makes measurement an explicit calculation rather than a vague statement that a wavefunction simply disappears whenever someone asks a question."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "P(+) = cos²(θ/2)",
+    "symbols": [
+      {
+        "symbol": "θ",
+        "meaning": "Angle between preparation and measurement axes."
+      },
+      {
+        "symbol": "P(+)",
+        "meaning": "Probability of the plus outcome."
+      }
+    ],
+    "explanation": "A measurement connects a prepared state to outcome probabilities and a conditional later state.",
+    "example": "At θ=π/3, P(+)=3/4; 200 trials have an expected 150 plus outcomes."
+  },
+  "insight": "An ideal repeatable measurement prepares the corresponding eigenstate, so the same measurement is certain.",
+  "misconceptions": [
+    {
+      "myth": "Every repeated measurement is necessarily random.",
+      "correction": "An immediate ideal measurement in the same basis repeats the recorded eigenstate outcome."
+    },
+    {
+      "myth": "Only a human reading a detector makes an interaction a measurement.",
+      "correction": "Physical records and their conditional statistics do not require conscious attention."
+    }
+  ],
+  "check": {
+    "question": "After an ideal Z measurement gives plus, what does an immediate repeated Z measurement give?",
+    "options": [
+      "Plus with certainty if nothing intervenes",
+      "A necessarily random outcome",
+      "A result determined by human attention"
+    ],
+    "answer": 0,
+    "explanation": "An ideal repeatable measurement prepares the corresponding eigenstate, so the same measurement is certain."
+  },
+  "sources": [
+    {
+      "title": "Feynman Lectures, volume III, chapter 5",
+      "url": "https://www.feynmanlectures.caltech.edu/III_05.html"
+    },
+    {
+      "title": "Feynman Lectures, volume III, chapter 6",
+      "url": "https://www.feynmanlectures.caltech.edu/III_06.html"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Quantum measurement model",
+    "description": "A measurement connects a prepared state to outcome probabilities and a conditional later state.",
+    "inputs": [
+      {
+        "key": "theta",
+        "label": "Axis angle",
+        "min": 0,
+        "max": 3.141592653589793,
+        "step": 0.05,
+        "initial": 1.0471975511965976,
+        "unit": "rad"
+      },
+      {
+        "key": "trials",
+        "label": "Prepared systems",
+        "min": 1,
+        "max": 1000,
+        "step": 1,
+        "initial": 200,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Plus probability",
+        "expression": [
+          "pow",
+          [
+            "cos",
+            [
+              "/",
+              "theta",
+              2
+            ]
+          ],
+          2
+        ],
+        "unit": ""
+      },
+      {
+        "label": "Expected plus count",
+        "expression": [
+          "*",
+          "trials",
+          [
+            "pow",
+            [
+              "cos",
+              [
+                "/",
+                "theta",
+                2
+              ]
+            ],
+            2
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Ideal projective measurement of independently prepared pure qubits; expected counts are not actual records. No noise, state evolution or detector dynamics."
+  }
+}
