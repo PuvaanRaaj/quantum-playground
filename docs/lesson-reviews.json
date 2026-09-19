@@ -154,5 +154,11 @@
     "sourceSha256": "ba59734448354779545c8df806096f208939686db01b70dc2d24ca186232ae53",
     "reviewRecord": "batch-4.json",
     "status": "approved"
+  },
+  "density-matrices": {
+    "reviewer": "gpt-6-astra",
+    "sourceSha256": "d5391b153560d2d63e0e6c4426f025804518060ddcbced92954fe7a3383f75a6",
+    "reviewRecord": "batch-4.json",
+    "status": "approved"
   }
 }

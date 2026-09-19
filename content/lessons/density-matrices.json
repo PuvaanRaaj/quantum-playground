@@ -1,0 +1,152 @@
+{
+  "slug": "density-matrices",
+  "title": "Density matrices",
+  "category": "Quantum mechanics",
+  "subtitle": "A matrix describes both pure quantum states and statistical mixtures.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "violet",
+  "intro": "A state vector describes a pure quantum preparation, but many practical situations require more information about uncertainty or correlations.",
+  "why": "A matrix describes both pure quantum states and statistical mixtures.",
+  "prerequisites": [
+    "Probability and elementary algebra."
+  ],
+  "terms": [
+    {
+      "term": "Density matrix",
+      "definition": "An operator encoding every measurement probability for a quantum system."
+    },
+    {
+      "term": "Pure state",
+      "definition": "A state representable by one normalized state vector."
+    },
+    {
+      "term": "Mixed state",
+      "definition": "A state not representable by a single state vector for the system being described."
+    },
+    {
+      "term": "Trace",
+      "definition": "The sum of a matrix’s diagonal entries."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Why one state vector is sometimes insufficient",
+      "paragraphs": [
+        "A state vector describes a pure quantum preparation, but many practical situations require more information about uncertainty or correlations. A source might randomly prepare different states, or a qubit might be entangled with another system we do not measure. Density matrices provide a common mathematical description for both cases. The formalism was developed in early quantum statistical mechanics, with important contributions from John von Neumann and Lev Landau. It extends the predictive framework without replacing the Born rule. Instead of calculating every outcome from one vector, we calculate it from an operator that summarizes the relevant preparation.",
+        "For a pure state |ψ⟩, the density matrix is |ψ⟩⟨ψ|. In a basis, multiply each amplitude by the conjugate of each other amplitude to build its entries. For a statistical preparation that chooses states with probabilities pⱼ, average their pure-state matrices with those weights. Averaging matrices rather than amplitudes is essential. The choices in an ordinary classical lottery are not coherent alternatives within one pure state. Adding their amplitudes would introduce phase relations that the preparation never established."
+      ]
+    },
+    {
+      "title": "What the matrix entries tell you",
+      "paragraphs": [
+        "For a qubit, the density matrix has two rows and two columns. Its diagonal entries are the zero and one probabilities in the selected basis. Its off-diagonal entries describe coherence in that basis. The matrix must be Hermitian, have trace one and be positive semidefinite. Hermitian means it equals its conjugate transpose. Positivity means every physically allowed measurement probability is nonnegative. Merely filling a table with diagonal probabilities summing to one is therefore insufficient: arbitrary off-diagonal numbers can make the table unphysical.",
+        "Compare the coherent plus state with an equal mixture of zero and one. Both have diagonal entries one half. The plus state has off-diagonal entries one half as well, while the mixture has zeros there. Direct zero–one measurement cannot distinguish the states. An X-basis measurement can: the pure plus state gives plus with certainty, while the equal mixture gives equal outcomes. This illustrates how the matrix retains the same phase-sensitive information that previously appeared in amplitude addition. An off-diagonal entry is not a hidden extra detector outcome; it affects measurements in other bases."
+      ]
+    },
+    {
+      "title": "Purity measures one specific property",
+      "paragraphs": [
+        "The quantity Tr(ρ²) is called purity. It equals one for a pure state and is smaller for a mixed state. For a two-level system it ranges from one half to one. Consider a diagonal mixture with zero probability p and one probability 1−p. Squaring the matrix squares these entries, giving purity p²+(1−p)². At p=0.8, the result is 0.64+0.04=0.68. At p=0.5 it is 0.5. At either endpoint it is one, because the preparation is then a definite basis state.",
+        "Purity does not tell you the complete state or the unique physical cause of mixing. Many different states have the same purity. The same density matrix can also be decomposed into different mixtures of pure states. The maximally mixed qubit can be described as equal zero and one preparations or as equal plus and minus preparations. No measurement on that qubit alone distinguishes those preparation stories when the resulting density matrices are identical. Additional records or correlations outside the qubit can distinguish them, so the scope of the system description matters."
+      ]
+    },
+    {
+      "title": "Subsets of a larger system",
+      "paragraphs": [
+        "If two qubits form an entangled Bell state, their joint density matrix is pure. Ignoring one qubit gives the other a maximally mixed reduced state. There is no contradiction: joint purity and local purity refer to different systems. The reduction operation is called a partial trace. It preserves all predictions for measurements restricted to the retained subsystem while discarding access to joint correlations. This is why a mixed local state does not always mean the entire laboratory lacks a definite pure-state description in the theoretical model.",
+        "The calculator restricts itself to diagonal qubit mixtures and plots purity against the probability p. It cannot represent arbitrary coherence, reconstruct a state from experimental data, or diagnose entanglement from local purity alone. A low local purity could come from a classical random preparation or from entanglement with another system. Use the graph to check symmetry under p becoming 1−p and to locate its minimum. That exercise makes the matrix calculation tangible while preserving the important limitation: purity is one summary statistic, not a complete account of quantum information or a measurement of how correct a theory is."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "ρ=diag(p,1−p); Tr(ρ²)=p²+(1−p)²",
+    "symbols": [
+      {
+        "symbol": "ρ",
+        "meaning": "Qubit density matrix."
+      },
+      {
+        "symbol": "p",
+        "meaning": "Probability of zero in a diagonal mixture."
+      },
+      {
+        "symbol": "Tr",
+        "meaning": "Matrix trace."
+      }
+    ],
+    "explanation": "A matrix describes both pure quantum states and statistical mixtures.",
+    "example": "At p=0.8, purity=0.8²+0.2²=0.68."
+  },
+  "insight": "Its squared diagonal entries sum to 1/4+1/4=1/2.",
+  "misconceptions": [
+    {
+      "myth": "A mixed local state proves that the entire joint system is mixed.",
+      "correction": "A globally pure entangled state can have mixed reduced states for its parts."
+    },
+    {
+      "myth": "Equal diagonal entries guarantee two density matrices are identical.",
+      "correction": "Off-diagonal coherence can differ and affect measurements in another basis."
+    }
+  ],
+  "check": {
+    "question": "What is the purity of the equal diagonal qubit mixture?",
+    "options": [
+      "1",
+      "1/2",
+      "0"
+    ],
+    "answer": 1,
+    "explanation": "Its squared diagonal entries sum to 1/4+1/4=1/2."
+  },
+  "sources": [
+    {
+      "title": "IBM: Density matrices",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/general-formulation-of-quantum-information/density-matrices/introduction"
+    },
+    {
+      "title": "IBM: Multiple systems and reduced states",
+      "url": "https://quantum.cloud.ibm.com/learning/en/courses/general-formulation-of-quantum-information/density-matrices/multiple-systems"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Density matrices model",
+    "description": "A matrix describes both pure quantum states and statistical mixtures.",
+    "inputs": [
+      {
+        "key": "p",
+        "label": "Probability zero",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "initial": 0.8,
+        "unit": ""
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Purity",
+        "expression": [
+          "+",
+          [
+            "pow",
+            "p",
+            2
+          ],
+          [
+            "pow",
+            [
+              "-",
+              1,
+              "p"
+            ],
+            2
+          ]
+        ],
+        "unit": ""
+      }
+    ],
+    "assumptions": "Diagonal one-qubit statistical mixtures only. Local purity neither reconstructs a general state nor distinguishes classical mixing from entanglement."
+  }
+}
