@@ -1,0 +1,174 @@
+{
+  "slug": "limits-continuity",
+  "title": "Limits and continuity",
+  "category": "Mathematics",
+  "subtitle": "A limit describes nearby behavior, which need not equal the value at the point itself.",
+  "minutes": 15,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A limit describes nearby behavior, which need not equal the value at the point itself. Consider f(x) = (x² − 1)/(x − 1) for x different from one. The expression is undefined at one because its denominator is zero. Yet factoring its numerator gives (x − 1)(x + 1), so for every permitted input it equals x + 1. As x approaches one, the outputs approach two. The missing value does not prevent that limit from existing.",
+  "why": "Limits distinguish local behavior from point values and make derivatives and approximation claims precise.",
+  "prerequisites": [
+    "Functions and algebra",
+    "Basic differentiation"
+  ],
+  "terms": [
+    {
+      "term": "Limit",
+      "definition": "A value approached by function outputs as inputs approach a specified point."
+    },
+    {
+      "term": "Continuity",
+      "definition": "Agreement between a function value and its limit at the point."
+    },
+    {
+      "term": "One-sided limit",
+      "definition": "A limit with inputs approaching from only one direction."
+    },
+    {
+      "term": "Epsilon",
+      "definition": "A positive tolerance on output error."
+    },
+    {
+      "term": "Delta",
+      "definition": "A positive input-distance bound chosen to guarantee the output tolerance."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Separate approaching from arriving",
+      "paragraphs": [
+        "A limit describes nearby behavior, which need not equal the value at the point itself. Consider f(x) = (x² − 1)/(x − 1) for x different from one. The expression is undefined at one because its denominator is zero. Yet factoring its numerator gives (x − 1)(x + 1), so for every permitted input it equals x + 1. As x approaches one, the outputs approach two. The missing value does not prevent that limit from existing.",
+        "Precise limit concepts developed gradually as calculus foundations were clarified. Cauchy and Weierstrass are important figures in nineteenth-century analysis, building on earlier work rather than introducing all ideas from nothing. Their emphasis helped replace informal appeals to quantities being infinitely small with conditions that could be checked in proofs. The purpose of precision is to distinguish genuinely stable approaching behavior from a picture that merely seems smooth."
+      ]
+    },
+    {
+      "title": "What the formal definition asks",
+      "paragraphs": [
+        "To say f(x) approaches L as x approaches a means this: for every positive output tolerance ε, there is a positive input tolerance δ such that 0 < |x − a| < δ guarantees |f(x) − L| < ε. The exclusion of x = a isolates nearby behavior. The order matters: someone chooses how accurate the output must be, and we must provide an input neighborhood that guarantees that accuracy.",
+        "For f(x) = 3x + 2 at a = 4, the proposed limit is 14. Since |f(x) − 14| = 3|x − 4|, choosing δ = ε/3 works. If the desired output error is below 0.03, restricting the input error below 0.01 guarantees it. This is a complete proof for arbitrary positive ε, not merely a collection of close numerical values. More complicated functions require more careful bounds, but the logic is the same."
+      ]
+    },
+    {
+      "title": "Continuity adds the actual point",
+      "paragraphs": [
+        "A function is continuous at a when it is defined there, its limit there exists, and that limit equals f(a). Returning to the rational example, defining f(1) = 2 fills the hole continuously. Defining f(1) = 100 leaves the nearby limit unchanged but creates a discontinuity. This shows exactly why continuity contains more information than a limit: it connects nearby behavior to the assigned value at the point.",
+        "A jump is different from a removable hole. Suppose g(x) = 0 for x < 0 and g(x) = 1 for x ≥ 0. Approaching zero from the left gives zero; approaching from the right gives one. Because the two one-sided limits differ, no single two-sided limit exists there. No choice of g(0) can repair this discrepancy between the neighboring regions."
+      ]
+    },
+    {
+      "title": "Use limits without dividing by zero",
+      "paragraphs": [
+        "The derivative of x² at x = a is defined by the limit of [(a + h)² − a²]/h as h approaches zero through nonzero values. Expand and cancel to obtain 2a + h, then take the limit to get 2a. The algebraic cancellation was legal because h was nonzero during that step. Substituting zero into the original quotient would instead give an undefined expression and would not compute the derivative.",
+        "For a numerical illustration at a = 3, increments h = 0.1, 0.01, and −0.01 produce slopes 6.1, 6.01, and 5.99. These calculations suggest the limit six. The simplified expression proves it. They also show why approaching from both sides can be informative, though even many samples cannot rule out unusual behavior between sampled values."
+      ]
+    },
+    {
+      "title": "Continuity is not smoothness",
+      "paragraphs": [
+        "The function |x| is continuous at zero because its values approach zero from either side. However, its left-hand slope is −1 and its right-hand slope is +1, so it is not differentiable there. Continuity rules out a break in values, not a corner. Differentiability implies continuity, but the converse fails, and more advanced examples show that continuous functions can be much rougher than simple corners suggest.",
+        "Continuous functions on a closed bounded interval attain maxima and minima, and they take every intermediate value between two outputs. These theorems require their hypotheses. A function on an open interval can approach a largest value without reaching it; a discontinuous function can skip values entirely. The calculator displays the difference quotient for x² through its algebraically simplified form 2a + h, including its continuous extension at h = 0. It explicitly evaluates that extension rather than pretending the original quotient is defined at zero. This preserves finite outputs while making the distinction between a formula’s domain and its limit visible."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "limₕ→₀ [(a+h)² − a²]/h = 2a",
+    "symbols": [
+      {
+        "symbol": "a",
+        "meaning": "Reference input"
+      },
+      {
+        "symbol": "h",
+        "meaning": "Nonzero increment approaching zero"
+      },
+      {
+        "symbol": "lim",
+        "meaning": "Limiting value of nearby outputs"
+      }
+    ],
+    "explanation": "The displayed polynomial 2a+h equals the quotient only for h≠0 and supplies its continuous extension at zero.",
+    "example": "At a = 3 and h = 0.1 the secant slope is 6.1; its limit is 6."
+  },
+  "insight": "A limit concerns nearby inputs; continuity additionally requires the value at the point to agree.",
+  "misconceptions": [
+    {
+      "myth": "A limit equals the value at the point.",
+      "correction": "They agree only if the function is continuous there."
+    },
+    {
+      "myth": "Continuity implies differentiability.",
+      "correction": "A continuous function can have a corner, such as absolute value at zero."
+    }
+  ],
+  "check": {
+    "question": "Can a limit exist where the function is undefined?",
+    "options": [
+      "Yes",
+      "No",
+      "Only if the limit is zero"
+    ],
+    "answer": 0,
+    "explanation": "A limit concerns nearby inputs; continuity additionally requires the value at the point to agree."
+  },
+  "sources": [
+    {
+      "title": "OpenStax: Calculus Volume 1",
+      "url": "https://openstax.org/details/books/calculus-volume-1"
+    },
+    {
+      "title": "University of St Andrews: the rise of calculus",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/The_rise_of_calculus/"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Limits and continuity example",
+    "description": "At a = 3 and h = 0.1 the secant slope is 6.1; its limit is 6.",
+    "inputs": [
+      {
+        "key": "h",
+        "label": "Input increment",
+        "unit": "",
+        "min": -1,
+        "max": 1,
+        "step": 0.01,
+        "initial": 0.1
+      },
+      {
+        "key": "a",
+        "label": "Reference input",
+        "unit": "",
+        "min": -5,
+        "max": 5,
+        "step": 0.1,
+        "initial": 3
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Extended difference quotient",
+        "unit": "",
+        "expression": [
+          "+",
+          [
+            "*",
+            2,
+            "a"
+          ],
+          "h"
+        ]
+      },
+      {
+        "label": "Limiting derivative",
+        "unit": "",
+        "expression": [
+          "*",
+          2,
+          "a"
+        ]
+      }
+    ],
+    "assumptions": "The displayed polynomial 2a+h equals the quotient only for h≠0 and supplies its continuous extension at zero."
+  }
+}
