@@ -1,0 +1,169 @@
+{
+  "slug": "vectors",
+  "title": "Vectors",
+  "category": "Mathematics",
+  "subtitle": "A vector describes an amount together with a direction, or an ordered collection of components.",
+  "minutes": 14,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "A vector describes an amount together with a direction, or an ordered collection of components.",
+  "why": "Vectors connect coordinate calculations to directed physical quantities such as displacement, force, and velocity.",
+  "prerequisites": [
+    "Basic algebra",
+    "Coordinates and arithmetic"
+  ],
+  "terms": [
+    {
+      "term": "Scalar",
+      "definition": "A single numerical quantity, such as a mass or temperature."
+    },
+    {
+      "term": "Component",
+      "definition": "The coefficient of a vector along one chosen basis direction."
+    },
+    {
+      "term": "Basis",
+      "definition": "An independent set of directions used to describe every vector in a space."
+    },
+    {
+      "term": "Magnitude",
+      "definition": "The length of a vector in the chosen geometry."
+    },
+    {
+      "term": "Dot product",
+      "definition": "A scalar measuring the alignment of two vectors."
+    }
+  ],
+  "sections": [
+    {
+      "title": "From displacement to coordinates",
+      "paragraphs": [
+        "Suppose a robot moves three metres east and four metres north. Its displacement is neither the number three nor the distance seven. It is a directed change from one location to another. Representing that change as (3, 4) records two independent components. A second robot that starts elsewhere and makes the same change has the same displacement vector, despite finishing at a different point. A point locates something; a vector can describe the change between points.",
+        "Nineteenth-century work by Hamilton and Grassmann helped develop algebraic descriptions of geometric quantities. Gibbs and Heaviside subsequently shaped the vector methods widely used in physics. The modern concept extends beyond arrows: a list of coefficients of a polynomial or sampled measurements can form a vector when addition and scalar multiplication obey the relevant rules. The geometric arrow remains a particularly useful first example, but it is not the complete definition."
+      ]
+    },
+    {
+      "title": "Addition and scaling have meanings",
+      "paragraphs": [
+        "To add two displacements, perform one journey and then the other. If u = (3, 4) and v = (2, −1), the combined displacement is (5, 3). Each coordinate adds because eastward changes combine with eastward changes and northward changes combine with northward changes. Placing the second arrow at the end of the first is the geometric version of componentwise addition. Reversing the order produces the same endpoint in this setting.",
+        "Multiplying u by a scalar s multiplies both components: su = (3s, 4s). Positive s keeps the direction; negative s reverses it; zero gives the zero vector, which has no unique direction. Scaling by two doubles the length, but doubling both coordinates does not merely add two units to the length. This distinction becomes important when vectors represent velocities or forces with physical units attached."
+      ]
+    },
+    {
+      "title": "Derive length and projection",
+      "paragraphs": [
+        "In a rectangular coordinate system whose basis directions are perpendicular unit vectors, the Pythagorean theorem gives |u|² = uₓ² + uᵧ². Thus the length of (3, 4) is five. In three dimensions, first find the length of the projection into the horizontal plane, then combine that length with the perpendicular vertical component. Applying the theorem twice produces |u|² = uₓ² + uᵧ² + u_z².",
+        "The dot product u·v equals uₓvₓ + uᵧvᵧ in an orthonormal basis. Its geometric expression is |u||v| cos θ. One derivation compares two formulas for |u − v|²: expanding components gives |u|² + |v|² − 2u·v, while the law of cosines gives |u|² + |v|² − 2|u||v| cos θ. Equating the results establishes the connection. A zero dot product between nonzero vectors therefore means the directions are perpendicular.",
+        "To project u onto a unit direction n, take u·n. This is a signed component, not always a positive distance. The full projected vector is (u·n)n. If n is not a unit vector, divide by n·n instead: the projection is [(u·n)/(n·n)]n. The denominator requires a nonzero direction vector."
+      ]
+    },
+    {
+      "title": "Work a physical example",
+      "paragraphs": [
+        "A constant force F = (6, 2) newtons moves an object through displacement d = (3, 4) metres. The work is F·d = 18 + 8 = 26 joules. Multiplying the two magnitudes would overestimate the work unless force and displacement aligned. The dot product automatically selects the component of force along motion. A perpendicular force has zero work for that instantaneous displacement even though it can change the motion’s direction.",
+        "For a second example, normalize the displacement (3, 4): dividing by its magnitude five yields the unit vector (0.6, 0.8). Multiplying that direction by a speed of ten metres per second produces velocity (6, 8) metres per second. This separates direction from size and explains why normalizing is common in graphics and mechanics."
+      ]
+    },
+    {
+      "title": "Coordinate choices and boundaries",
+      "paragraphs": [
+        "Components depend on the coordinate system, while the underlying displacement does not. Rotating axes changes the component numbers but preserves Euclidean length and dot products when the transformation is orthogonal. Changing to an oblique basis requires more careful length formulas: simply summing squared components is no longer sufficient. Coordinates are descriptions, not intrinsic labels attached to the arrow.",
+        "The calculator varies two perpendicular components and computes Euclidean magnitude. Negative components are allowed because they indicate direction. It does not calculate curved-space distances or relativistic spacetime intervals, which use different geometric structures. Ask whether your components share units and whether your axes are perpendicular before treating this elementary formula as a universal definition of distance."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "|v| = √(x² + y²)",
+    "symbols": [
+      {
+        "symbol": "|v|",
+        "meaning": "Euclidean vector magnitude"
+      },
+      {
+        "symbol": "x, y",
+        "meaning": "Components along perpendicular unit axes"
+      }
+    ],
+    "explanation": "Two-dimensional Euclidean vectors in perpendicular unit directions; both components use metres.",
+    "example": "Components 3 m and 4 m produce magnitude 5 m."
+  },
+  "insight": "Squared perpendicular components add; the positive square root gives the length.",
+  "misconceptions": [
+    {
+      "myth": "Components are intrinsic properties.",
+      "correction": "Components change when the basis changes; the geometric vector remains the same."
+    },
+    {
+      "myth": "Magnitudes add when vectors add.",
+      "correction": "Only aligned vectors in the same direction have magnitudes that add directly."
+    }
+  ],
+  "check": {
+    "question": "What is the magnitude of (3, 4)?",
+    "options": [
+      "7",
+      "5",
+      "25"
+    ],
+    "answer": 1,
+    "explanation": "Squared perpendicular components add; the positive square root gives the length."
+  },
+  "sources": [
+    {
+      "title": "Georgia Tech: Interactive Linear Algebra",
+      "url": "https://textbooks.math.gatech.edu/ila/"
+    },
+    {
+      "title": "OpenStax: Calculus Volume 3",
+      "url": "https://openstax.org/details/books/calculus-volume-3"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Vectors example",
+    "description": "Components 3 m and 4 m produce magnitude 5 m.",
+    "inputs": [
+      {
+        "key": "x",
+        "label": "Horizontal component",
+        "unit": "m",
+        "min": -10,
+        "max": 10,
+        "step": 0.1,
+        "initial": 3
+      },
+      {
+        "key": "y",
+        "label": "Vertical component",
+        "unit": "m",
+        "min": -10,
+        "max": 10,
+        "step": 0.1,
+        "initial": 4
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Magnitude",
+        "unit": "m",
+        "expression": [
+          "sqrt",
+          [
+            "+",
+            [
+              "pow",
+              "x",
+              2
+            ],
+            [
+              "pow",
+              "y",
+              2
+            ]
+          ]
+        ]
+      }
+    ],
+    "assumptions": "Two-dimensional Euclidean vectors in perpendicular unit directions; both components use metres."
+  }
+}

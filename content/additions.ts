@@ -12,4 +12,5 @@ import lesson8 from './lessons/pythagoras.json' with { type: 'json' };
 import lesson9 from './lessons/schrodinger.json' with { type: 'json' };
 import lesson10 from './lessons/special-relativity.json' with { type: 'json' };
 import lesson11 from './lessons/uncertainty.json' with { type: 'json' };
-export const additions: Topic[] = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, lesson10, lesson11] as unknown as Topic[];
+import lesson12 from './lessons/vectors.json' with { type: 'json' };
+export const additions: Topic[] = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8, lesson9, lesson10, lesson11, lesson12] as unknown as Topic[];
