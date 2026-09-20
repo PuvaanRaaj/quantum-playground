@@ -1940,6 +1940,8 @@ body {
   inset: 24px 18px 54px;
 }
 .expand-galaxy {
+  --expand-x: 0px;
+  --expand-y: 0px;
   position: absolute;
   width: 10px;
   height: 10px;
@@ -1948,17 +1950,17 @@ body {
   animation: expand-out 5.5s ease-in-out infinite alternate;
 }
 .expand-galaxy.g-0 { left: 50%; top: 50%; }
-.expand-galaxy.g-1 { left: 42%; top: 40%; animation-delay: 0.1s; }
-.expand-galaxy.g-2 { left: 58%; top: 38%; animation-delay: 0.15s; }
-.expand-galaxy.g-3 { left: 35%; top: 55%; animation-delay: 0.2s; }
-.expand-galaxy.g-4 { left: 64%; top: 56%; animation-delay: 0.25s; }
-.expand-galaxy.g-5 { left: 48%; top: 28%; animation-delay: 0.3s; }
-.expand-galaxy.g-6 { left: 28%; top: 34%; animation-delay: 0.35s; }
-.expand-galaxy.g-7 { left: 72%; top: 42%; animation-delay: 0.4s; }
-.expand-galaxy.g-8 { left: 33%; top: 68%; animation-delay: 0.45s; }
-.expand-galaxy.g-9 { left: 67%; top: 70%; animation-delay: 0.5s; }
-.expand-galaxy.g-10 { left: 20%; top: 50%; animation-delay: 0.55s; }
-.expand-galaxy.g-11 { left: 80%; top: 52%; animation-delay: 0.6s; }
+.expand-galaxy.g-1 { --expand-x: -12px; --expand-y: -10px; left: 42%; top: 40%; animation-delay: 0.1s; }
+.expand-galaxy.g-2 { --expand-x: 12px; --expand-y: -12px; left: 58%; top: 38%; animation-delay: 0.15s; }
+.expand-galaxy.g-3 { --expand-x: -22px; --expand-y: 5px; left: 35%; top: 55%; animation-delay: 0.2s; }
+.expand-galaxy.g-4 { --expand-x: 21px; --expand-y: 6px; left: 64%; top: 56%; animation-delay: 0.25s; }
+.expand-galaxy.g-5 { --expand-x: -3px; --expand-y: -22px; left: 48%; top: 28%; animation-delay: 0.3s; }
+.expand-galaxy.g-6 { --expand-x: -32px; --expand-y: -16px; left: 28%; top: 34%; animation-delay: 0.35s; }
+.expand-galaxy.g-7 { --expand-x: 32px; --expand-y: -8px; left: 72%; top: 42%; animation-delay: 0.4s; }
+.expand-galaxy.g-8 { --expand-x: -25px; --expand-y: 18px; left: 33%; top: 68%; animation-delay: 0.45s; }
+.expand-galaxy.g-9 { --expand-x: 25px; --expand-y: 20px; left: 67%; top: 70%; animation-delay: 0.5s; }
+.expand-galaxy.g-10 { --expand-x: -42px; left: 20%; top: 50%; animation-delay: 0.55s; }
+.expand-galaxy.g-11 { --expand-x: 42px; --expand-y: 2px; left: 80%; top: 52%; animation-delay: 0.6s; }
 .qm-stage {
   position: absolute;
   inset: 36px 24px 60px;
@@ -2322,13 +2324,16 @@ body {
 }
 @keyframes fly-by {
   0% {
+    left: -18%;
     transform: translate3d(0, 8px, 0) rotateY(-8deg);
   }
   50% {
-    transform: translate3d(42%, -6px, 40px) rotateY(8deg);
+    left: 42%;
+    transform: translate3d(0, -6px, 40px) rotateY(8deg);
   }
   100% {
-    transform: translate3d(108%, 10px, 0) rotateY(-4deg);
+    left: 108%;
+    transform: translate3d(0, 10px, 0) rotateY(-4deg);
   }
 }
 @keyframes flicker {
@@ -2374,7 +2379,7 @@ body {
     transform: translate(-50%, -50%) scale(0.55);
   }
   to {
-    transform: translate(-50%, -50%) scale(1.35);
+    transform: translate(calc(-50% + var(--expand-x)), calc(-50% + var(--expand-y))) scale(1.35);
   }
 }
 @keyframes path-pulse {

@@ -34,7 +34,7 @@ function Stage({
 function RelativityScene({ speed = 0.6, compact }: { speed?: number; compact?: boolean }) {
   const beta = Math.min(0.99, Math.max(0, speed));
   const gamma = 1 / Math.sqrt(1 - beta * beta);
-  const duration = `${Math.max(0.55, 2.4 / Math.max(gamma, 0.8))}s`;
+  const duration = `${2.4 * gamma}s`;
   return (
     <Stage
       compact={compact}
