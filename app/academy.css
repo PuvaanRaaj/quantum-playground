@@ -9,6 +9,9 @@
   --accent-soft: #eaf0ff;
   --reading: #34435c;
   --shadow: 0 8px 28px #20345508;
+  --font-sans: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-math: "STIX Two Text", "Noto Sans Math", "Cambria Math", "Source Serif 4", Georgia, serif;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
@@ -29,7 +32,7 @@ body {
   color: var(--ink);
 }
 .academy {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   color: var(--ink);
   --border: var(--line);
   --text: var(--ink);
@@ -251,8 +254,7 @@ body {
 .sidebar-note p {
   color: var(--text-secondary);
   font:
-    italic 16px/1.6 Georgia,
-    serif;
+    italic 16px/1.6 var(--font-serif);
   margin: 10px 0;
 }
 .academy-main {
@@ -269,7 +271,7 @@ body {
   color: var(--accent);
 }
 .academy h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   letter-spacing: -1.5px;
   font-size: clamp(36px, 3.5vw, 55px);
   line-height: 1.12;
@@ -322,7 +324,7 @@ body {
   color: var(--accent);
 }
 .academy h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-weight: 400;
   color: var(--ink);
   font-size: 28px;
@@ -455,6 +457,7 @@ body {
   --accent-soft: #3a3022;
 }
 .topic-card {
+  position: relative;
   display: block;
   text-align: left;
   padding: 0;
@@ -481,9 +484,7 @@ body {
   background-size: 13px 13px;
 }
 .card-formula {
-  font:
-    italic 24px Georgia,
-    serif;
+  font: italic 24px var(--font-math);
   color: var(--accent);
   padding: 5px 8px;
   background: var(--accent-soft);
@@ -507,9 +508,7 @@ body {
   font-weight: 700;
 }
 .card-copy h3 {
-  font:
-    24px/1.2 Georgia,
-    serif;
+  font: 24px/1.2 var(--font-serif);
   letter-spacing: -0.5px;
   margin: 9px 0 10px;
 }
@@ -636,9 +635,7 @@ body {
   max-width: 850px;
 }
 .lesson-subtitle {
-  font:
-    20px/1.6 Georgia,
-    serif;
+  font: 20px/1.6 var(--font-serif);
   color: var(--text-secondary);
   max-width: 720px;
 }
@@ -674,9 +671,7 @@ body {
   margin: 15px 0;
 }
 .lesson-prose .lead-paragraph {
-  font:
-    22px/1.75 Georgia,
-    serif;
+  font: 22px/1.75 var(--font-serif);
   color: var(--ink);
   margin-top: 0;
 }
@@ -706,9 +701,7 @@ body {
 .section-number {
   display: block;
   color: var(--accent);
-  font:
-    10px/1.6 Arial,
-    sans-serif;
+  font: 10px/1.6 var(--font-sans);
   font-weight: 700;
   letter-spacing: 1.6px;
   margin-bottom: 13px;
@@ -808,9 +801,7 @@ body {
   color: var(--accent);
 }
 .key-insight p {
-  font:
-    20px/1.7 Georgia,
-    serif;
+  font: 20px/1.7 var(--font-serif);
   color: var(--ink);
   margin: 8px 0 0;
 }
@@ -818,17 +809,54 @@ body {
   margin: 40px 0;
 }
 .equation-display {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
   text-align: center;
-  font:
-    25px/1.9 Georgia,
-    serif;
-  padding: 25px 15px;
+  font-family: var(--font-math);
+  font-size: clamp(20px, 2.3vw, 28px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  padding: 22px 18px;
+  margin: 18px 0;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.equation-display code,
+.equation-line,
+.eq-inline {
+  font-family: inherit;
+}
+.equation-line {
+  display: block;
+  font-size: inherit;
+  font-style: italic;
+  font-weight: 500;
+  color: inherit;
+  background: none;
+  white-space: pre;
+}
+.eq-inline {
+  font-family: var(--font-math);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.08em;
+  color: var(--ink);
   background: var(--accent-soft);
-  border-radius: 10px;
-  margin: 22px 0;
-  color: var(--accent);
+  border-radius: 6px;
+  padding: 0.04em 0.38em;
+  white-space: nowrap;
+}
+.lesson-prose .equation-display {
+  margin: 16px 0 18px;
 }
 .symbol-list > div {
   display: grid;
@@ -839,9 +867,7 @@ body {
   font-size: 14px;
 }
 .symbol-list dt {
-  font:
-    18px Georgia,
-    serif;
+  font: 18px var(--font-math);
   overflow-wrap: anywhere;
 }
 .symbol-list dd {
@@ -1014,9 +1040,7 @@ body {
   min-width: 0;
 }
 .model-svg text {
-  font:
-    13px Arial,
-    sans-serif;
+  font: 13px var(--font-sans);
   fill: var(--text-secondary);
 }
 .plot-grid {
@@ -1044,9 +1068,7 @@ body {
 .model-metric strong {
   display: block;
   color: var(--accent);
-  font:
-    25px/1.3 Georgia,
-    serif;
+  font: 25px/1.3 var(--font-serif);
   overflow-wrap: anywhere;
 }
 .model-metric span {
@@ -1625,7 +1647,7 @@ body {
   }
 }
 .academy .nav-group h2 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;
   line-height: 1.5;
@@ -1636,9 +1658,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font:
-    600 13px/1.5 Arial,
-    sans-serif;
+  font: 600 13px/1.5 var(--font-sans);
   color: var(--text-secondary);
   cursor: pointer;
   padding: 8px 12px;
@@ -1655,9 +1675,7 @@ body {
   margin-top: 12px;
 }
 .academy .library-intro h1 {
-  font:
-    400 clamp(30px, 3vw, 43px) / 1.2 Georgia,
-    serif;
+  font: 400 clamp(30px, 3vw, 43px) / 1.2 var(--font-serif);
   letter-spacing: -0.8px;
   margin: 0 0 14px;
 }
@@ -1701,6 +1719,152 @@ body {
 .calculator-model .model-slider {
   margin-bottom: 24px;
 }
-.calculator-model .model-metrics {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+.equation-display code {
+  white-space: pre;
+  background: transparent;
+  padding: 0;
+}
+.audience-counts,
+.card-audience {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.audience-counts span,
+.card-audience span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2f9e67;
+  box-shadow: 0 0 0 0 #2f9e6788;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .live-dot {
+    animation: live-pulse 1.8s ease-out infinite;
+  }
+}
+@keyframes live-pulse {
+  70% {
+    box-shadow: 0 0 0 6px #2f9e6700;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #2f9e6700;
+  }
+}
+.star-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 13px !important;
+  font-weight: 600;
+}
+.star-button.is-on {
+  color: #b8860b;
+  border-color: #e2c56a;
+  background: #fff8e8;
+}
+[data-theme="dark"] .star-button.is-on {
+  color: #f3d48a;
+  border-color: #8a6a2b;
+  background: #3a311c;
+}
+.star-button.is-compact {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 7px;
+  border-radius: 999px;
+}
+.card-main {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+  border-radius: inherit;
+}
+.card-main:hover,
+.star-button:hover {
+  filter: none;
+}
+.title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.title-row h1 {
+  flex: 1;
+}
+.favorites-section {
+  margin: 8px 0 36px;
+}
+.favorites-page > p,
+.favorites-empty {
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+.sidebar-favorites {
+  margin: 8px 0 18px;
+}
+.sidebar-favorites .label-caps {
+  margin: 0 12px 8px;
+}
+.sidebar-favorites button {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px !important;
+  text-align: left;
+}
+.sidebar-favorites button.selected,
+.sidebar-favorites button:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.sidebar-favorites p {
+  margin: 0 12px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.sidebar-favorites button span {
+  margin-left: auto;
+  font-size: 11px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0 5px;
+}
+.experiment-heading .title-row {
+  align-items: center;
+}
+.experiment-heading h2,
+.title-row h1 {
+  margin-top: 0;
 }

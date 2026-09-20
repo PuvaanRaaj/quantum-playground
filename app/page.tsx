@@ -12,12 +12,14 @@ import {
   Menu,
   Moon,
   Search,
+  Star,
   Sun,
   X,
 } from "lucide-react";
 import { topics, loadTopic } from "../content/library";
 import type { Topic } from "../content/types";
 import TopicVisual from "../components/topic-visual";
+import { EquationBlock, MathProse, MathSpan } from "../components/math-text";
 const categories = [
   "All subjects",
   "Space & relativity",
@@ -33,7 +35,13 @@ export default function Academy() {
     [mobileNav, setMobileNav] = useState(false),
     [labOpen, setLabOpen] = useState(false),
     [answer, setAnswer] = useState<number | null>(null),
-    [glossary, setGlossary] = useState(false);
+    [glossary, setGlossary] = useState(false),
+    [favoritesPage, setFavoritesPage] = useState(false);
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [stats, setStats] = useState<
+    Record<string, { views: number; live: number }>
+  >({});
+  const [statsReady, setStatsReady] = useState(false);
   const [loadedTopic, setLoadedTopic] = useState<Topic | null>(null);
   const [loadError, setLoadError] = useState(false);
   useEffect(() => {
@@ -43,11 +51,17 @@ export default function Academy() {
       setSlug(q.get("topic") ?? (legacyExperiment ? "interference" : null));
       setLabOpen(q.get("lab") === "1" || legacyExperiment);
       setGlossary(false);
+      setFavoritesPage(q.get("view") === "favorites" && !q.get("topic"));
       setAnswer(null);
     };
     sync();
     window.addEventListener("popstate", sync);
     setTheme(document.documentElement.dataset.theme || "light");
+    try {
+      const saved = JSON.parse(localStorage.getItem("quantum-favorites") || "[]");
+      if (Array.isArray(saved))
+        setFavorites(saved.filter((item) => typeof item === "string"));
+    } catch {}
     return () => window.removeEventListener("popstate", sync);
   }, []);
   const selected = topics.find((t) => t.slug === slug);
@@ -86,6 +100,7 @@ export default function Academy() {
     setLabOpen(false);
     setAnswer(null);
     setGlossary(false);
+    setFavoritesPage(false);
     setMobileNav(false);
     const url = new URL(location.href);
     url.search = next ? new URLSearchParams({ topic: next }).toString() : "";
@@ -101,6 +116,157 @@ export default function Academy() {
       localStorage.setItem("quantum-theme", next);
     } catch {}
   }
+  function toggleFavorite(nextSlug: string) {
+    setFavorites((current) => {
+      const next = current.includes(nextSlug)
+        ? current.filter((item) => item !== nextSlug)
+        : [nextSlug, ...current];
+      try {
+        localStorage.setItem("quantum-favorites", JSON.stringify(next));
+      } catch {}
+      return next;
+    });
+  }
+  function showFavorites() {
+    setSlug(null);
+    setLabOpen(false);
+    setAnswer(null);
+    setGlossary(false);
+    setFavoritesPage(true);
+    setMobileNav(false);
+    const url = new URL(location.href);
+    url.search = "view=favorites";
+    url.hash = "";
+    history.pushState({}, "", url);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+  useEffect(() => {
+    let visitor = "";
+    try {
+      visitor = localStorage.getItem("quantum-visitor") || "";
+      if (!/^[A-Za-z0-9_-]{8,80}$/.test(visitor)) {
+        visitor = crypto.randomUUID().replace(/-/g, "").slice(0, 32);
+        localStorage.setItem("quantum-visitor", visitor);
+      }
+    } catch {
+      return;
+    }
+    let cancelled = false;
+    const refresh = () =>
+      fetch("/api/audience", { cache: "no-store" })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((data: unknown) => {
+          if (!cancelled && data && typeof data === "object" && !Array.isArray(data)) {
+            setStats(data as Record<string, { views: number; live: number }>);
+            setStatsReady(true);
+          }
+        })
+        .catch(() => {});
+    refresh();
+    const poll = window.setInterval(refresh, 20000);
+    if (!slug) {
+      return () => {
+        cancelled = true;
+        window.clearInterval(poll);
+      };
+    }
+    const send = (action: "enter" | "ping" | "leave") =>
+      fetch("/api/audience", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: action === "leave",
+        body: JSON.stringify({ action, slug, visitor }),
+      })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((data: unknown) => {
+          if (!cancelled && data && typeof data === "object" && !Array.isArray(data)) {
+            setStats(data as Record<string, { views: number; live: number }>);
+            setStatsReady(true);
+          }
+        })
+        .catch(() => {});
+    send("enter");
+    const ping = window.setInterval(() => send("ping"), 15000);
+    const leave = () => {
+      send("leave");
+    };
+    window.addEventListener("pagehide", leave);
+    return () => {
+      cancelled = true;
+      window.clearInterval(poll);
+      window.clearInterval(ping);
+      window.removeEventListener("pagehide", leave);
+      send("leave");
+    };
+  }, [slug]);
+  function StarToggle({
+    itemSlug,
+    title,
+    compact = false,
+  }: {
+    itemSlug: string;
+    title: string;
+    compact?: boolean;
+  }) {
+    const on = favorites.includes(itemSlug);
+    return (
+      <button
+        className={`star-button${on ? " is-on" : ""}${compact ? " is-compact" : ""}`}
+        aria-pressed={on}
+        aria-label={
+          on ? `Remove ${title} from favorites` : `Star ${title}`
+        }
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleFavorite(itemSlug);
+        }}
+      >
+        <Star size={compact ? 15 : 16} fill={on ? "currentColor" : "none"} />
+        {!compact && <span>{on ? "Starred" : "Star"}</span>}
+      </button>
+    );
+  }
+  function LessonCard({ item }: { item: (typeof topics)[number] }) {
+    const itemStats = stats[item.slug];
+    return (
+      <article className={`topic-card accent-${item.accent}`}>
+        <StarToggle itemSlug={item.slug} title={item.title} compact />
+        <button className="card-main" onClick={() => navigate(item.slug)}>
+          <div className="card-copy">
+            <span className="card-category">{item.category}</span>
+            <h3>{item.title}</h3>
+            <p>{item.subtitle}</p>
+            <div className="card-bottom">
+              <span>
+                {item.minutes} min ·{" "}
+                {
+                  {
+                    "Start here": "Introductory",
+                    "Build intuition": "Intermediate",
+                    "Go deeper": "Advanced",
+                  }[item.level]
+                }
+                {statsReady && itemStats ? (
+                  <>
+                    {" "}
+                    · {itemStats.views.toLocaleString("en-US")} views
+                    {itemStats.live > 0
+                      ? ` · ${itemStats.live.toLocaleString("en-US")} live`
+                      : ""}
+                  </>
+                ) : null}
+              </span>
+              <ArrowRight size={17} />
+            </div>
+          </div>
+        </button>
+      </article>
+    );
+  }
+  const favoriteTopics = favorites
+    .map((item) => topics.find((topicItem) => topicItem.slug === item))
+    .filter((item) => item !== undefined);
   function openLab() {
     setLabOpen(true);
     requestAnimationFrame(() =>
@@ -136,13 +302,19 @@ export default function Academy() {
         </button>
         <nav className="header-links">
           <button
-            className={!topic && !glossary ? "active" : ""}
+            className={!topic && !glossary && !favoritesPage ? "active" : ""}
             onClick={() => {
               navigate(null);
               setSearch("");
             }}
           >
             Library
+          </button>
+          <button
+            className={favoritesPage ? "active" : ""}
+            onClick={showFavorites}
+          >
+            Favorites
           </button>
           <button className={glossary ? "active" : ""} onClick={showGlossary}>
             Glossary
@@ -169,7 +341,7 @@ export default function Academy() {
         <aside className={`library-sidebar ${mobileNav ? "is-open" : ""}`}>
           <p className="label-caps">SUBJECTS</p>
           <button
-            className={`sidebar-home ${!topic && !glossary ? "selected" : ""}`}
+            className={`sidebar-home ${!topic && !glossary && !favoritesPage ? "selected" : ""}`}
             onClick={() => {
               navigate(null);
               setSearch("");
@@ -177,6 +349,28 @@ export default function Academy() {
           >
             <BookOpen size={17} /> The library <span>{topics.length}</span>
           </button>
+          <div className="sidebar-favorites">
+            <p className="label-caps">FAVORITES</p>
+            <button
+              className={favoritesPage ? "selected" : ""}
+              onClick={showFavorites}
+            >
+              <Star size={15} fill={favorites.length ? "currentColor" : "none"} />
+              Starred lessons <span>{favorites.length}</span>
+            </button>
+            {favoriteTopics.slice(0, 6).map((item) => (
+              <button
+                key={item.slug}
+                className={topic?.slug === item.slug ? "selected" : ""}
+                onClick={() => navigate(item.slug)}
+              >
+                {item.title}
+              </button>
+            ))}
+            {!favoriteTopics.length && (
+              <p>Star a lesson and it stays at the top of your library.</p>
+            )}
+          </div>
           {categories.slice(1).map((group, gi) => (
             <details
               className="nav-group"
@@ -229,7 +423,23 @@ export default function Academy() {
                       · {topic.minutes} min read
                     </span>
                   </div>
-                  <h1>{topic.title}</h1>
+                  <div className="title-row">
+                    <h1>{topic.title}</h1>
+                    <StarToggle itemSlug={topic.slug} title={topic.title} />
+                  </div>
+                  <p className="audience-counts">
+                    <span>
+                      <span className="live-dot" aria-hidden="true" />
+                      {statsReady
+                        ? `${(stats[topic.slug]?.live ?? 0).toLocaleString("en-US")} live`
+                        : "— live"}
+                    </span>
+                    <span>
+                      {statsReady
+                        ? `${(stats[topic.slug]?.views ?? 0).toLocaleString("en-US")} views`
+                        : "— views"}
+                    </span>
+                  </p>
                   <p className="lesson-subtitle">{topic.subtitle}</p>
                   <div className="lesson-actions">
                     <a href="#understand">
@@ -243,10 +453,14 @@ export default function Academy() {
                 <div className="lesson-layout">
                   <div className="lesson-prose">
                     <section id="understand" className="opening-explanation">
-                      <p className="lead-paragraph">{topic.intro}</p>
+                      <p className="lead-paragraph">
+                        <MathSpan text={topic.intro} />
+                      </p>
                       <div className="why-it-matters">
                         <span className="label-caps">CONTEXT</span>
-                        <p>{topic.why}</p>
+                        <p>
+                          <MathSpan text={topic.why} />
+                        </p>
                       </div>
                       <p className="prerequisites">
                         <strong>Prerequisites:</strong>{" "}
@@ -264,7 +478,9 @@ export default function Academy() {
                         {topic.terms.map((t) => (
                           <div key={t.term}>
                             <dt>{t.term}</dt>
-                            <dd>{t.definition}</dd>
+                            <dd>
+                              <MathSpan text={t.definition} />
+                            </dd>
                           </div>
                         ))}
                       </dl>
@@ -279,7 +495,7 @@ export default function Academy() {
                         >
                           <h2>{s.title}</h2>
                           {s.paragraphs.map((p, j) => (
-                            <p key={j}>{p}</p>
+                            <MathProse key={j} text={p} />
                           ))}
                         </section>
                       ))}
@@ -287,27 +503,29 @@ export default function Academy() {
                     <aside className="key-insight">
                       <div>
                         <span className="label-caps">KEY POINT</span>
-                        <p>{topic.insight}</p>
+                        <p>
+                          <MathSpan text={topic.insight} />
+                        </p>
                       </div>
                     </aside>
                     <section id="mathematics" className="equation-section">
                       <span className="section-number">03 / MATHEMATICS</span>
                       <h2>Equation and worked example</h2>
-                      <div className="equation-display">
-                        {topic.equation.expression}
-                      </div>
+                      <EquationBlock expression={topic.equation.expression} />
                       <dl className="symbol-list">
                         {topic.equation.symbols.map((s) => (
                           <div key={s.symbol}>
                             <dt>{s.symbol}</dt>
-                            <dd>{s.meaning}</dd>
+                            <dd>
+                              <MathSpan text={s.meaning} />
+                            </dd>
                           </div>
                         ))}
                       </dl>
-                      <p>{topic.equation.explanation}</p>
+                      <MathProse text={topic.equation.explanation} />
                       <div className="worked-example">
                         <span className="label-caps">A WORKED EXAMPLE</span>
-                        <p>{topic.equation.example}</p>
+                        <MathProse text={topic.equation.example} />
                       </div>
                     </section>
                     <section id="misconceptions">
@@ -317,8 +535,10 @@ export default function Academy() {
                       <h2>Common misconceptions</h2>
                       {topic.misconceptions.map((m) => (
                         <div className="misconception" key={m.myth}>
-                          <h3>{m.myth}</h3>
-                          <p>{m.correction}</p>
+                          <h3>
+                            <MathSpan text={m.myth} />
+                          </h3>
+                          <MathProse text={m.correction} />
                         </div>
                       ))}
                     </section>
@@ -326,7 +546,9 @@ export default function Academy() {
                       <span className="label-caps">
                         CHECK YOUR UNDERSTANDING
                       </span>
-                      <h2>{topic.check.question}</h2>
+                      <h2>
+                        <MathSpan text={topic.check.question} />
+                      </h2>
                       <fieldset>
                         <legend className="sr-only">Choose your answer</legend>
                         {topic.check.options.map((option, i) => (
@@ -351,7 +573,9 @@ export default function Academy() {
                               ? "That’s right."
                               : "Let’s reason it through."}
                           </strong>
-                          <p>{topic.check.explanation}</p>
+                          <p>
+                            <MathSpan text={topic.check.explanation} />
+                          </p>
                         </div>
                       )}
                     </section>
@@ -375,11 +599,14 @@ export default function Academy() {
                   </aside>
                 </div>
                 <section id="experiment" className="lesson-experiment">
-                  <div>
+                  <div className="experiment-heading">
                     <span className="section-number">
                       05 / INTERACTIVE MODEL
                     </span>
-                    <h2>Interactive model</h2>
+                    <div className="title-row">
+                      <h2>Interactive model</h2>
+                      <StarToggle itemSlug={topic.slug} title={topic.title} />
+                    </div>
                   </div>
                   {!labOpen ? (
                     <button
@@ -470,7 +697,9 @@ export default function Academy() {
                 {allTerms.map((term, i) => (
                   <article key={`${term.slug}-${i}`}>
                     <h2>{term.term}</h2>
-                    <p>{term.definition}</p>
+                    <p>
+                      <MathSpan text={term.definition} />
+                    </p>
                     <button onClick={() => navigate(term.slug)}>
                       {term.topic}
                       <ArrowRight size={14} />
@@ -482,6 +711,34 @@ export default function Academy() {
                 <p role="status">No matching terms. Try another word.</p>
               )}
             </section>
+          ) : favoritesPage ? (
+            <section className="favorites-page">
+              <p className="label-caps">YOUR LIBRARY</p>
+              <h1>Favorites</h1>
+              <p>
+                Lessons you star stay here, on this browser, and also appear at
+                the top of the library.
+              </p>
+              {favoriteTopics.length ? (
+                <div className="topic-grid">
+                  {favoriteTopics.map((item) => (
+                    <LessonCard key={item.slug} item={item} />
+                  ))}
+                </div>
+              ) : (
+                <div className="empty-results">
+                  <p>No starred lessons yet.</p>
+                  <button
+                    onClick={() => {
+                      setFavoritesPage(false);
+                      setSearch("");
+                    }}
+                  >
+                    Browse the library
+                  </button>
+                </div>
+              )}
+            </section>
           ) : (
             <>
               <section className="library-intro">
@@ -489,8 +746,25 @@ export default function Academy() {
                 <p>
                   {topics.length} lessons with explanations, worked examples,
                   and interactive models.
+                  {statsReady &&
+                  Object.values(stats).reduce((sum, item) => sum + item.live, 0) >
+                    0
+                    ? ` ${Object.values(stats).reduce((sum, item) => sum + item.live, 0).toLocaleString("en-US")} reading now.`
+                    : ""}
                 </p>
               </section>
+              {favoriteTopics.length > 0 && (
+                <section id="favorites" className="favorites-section">
+                  <div className="catalog-heading">
+                    <h2>Favorites</h2>
+                  </div>
+                  <div className="topic-grid">
+                    {favoriteTopics.map((item) => (
+                      <LessonCard key={item.slug} item={item} />
+                    ))}
+                  </div>
+                </section>
+              )}
               <section className="catalog">
                 <div className="catalog-heading">
                   <div>
@@ -521,31 +795,8 @@ export default function Academy() {
                   ))}
                 </div>
                 <div className="topic-grid">
-                  {visible.map((t, i) => (
-                    <button
-                      className={`topic-card accent-${t.accent}`}
-                      key={t.slug}
-                      onClick={() => navigate(t.slug)}
-                    >
-                      <div className="card-copy">
-                        <span className="card-category">{t.category}</span>
-                        <h3>{t.title}</h3>
-                        <p>{t.subtitle}</p>
-                        <div className="card-bottom">
-                          <span>
-                            {t.minutes} min ·{" "}
-                            {
-                              {
-                                "Start here": "Introductory",
-                                "Build intuition": "Intermediate",
-                                "Go deeper": "Advanced",
-                              }[t.level]
-                            }
-                          </span>
-                          <ArrowRight size={17} />
-                        </div>
-                      </div>
-                    </button>
+                  {visible.map((item) => (
+                    <LessonCard key={item.slug} item={item} />
                   ))}
                 </div>
                 {!visible.length && (
