@@ -20,6 +20,7 @@ import { topics, loadTopic } from "../content/library";
 import type { Topic } from "../content/types";
 import TopicVisual from "../components/topic-visual";
 import { EquationBlock, MathProse, MathSpan } from "../components/math-text";
+import LessonScene from "../components/animated-scenes";
 const categories = [
   "All subjects",
   "Space & relativity",
@@ -450,6 +451,9 @@ export default function Academy() {
                     </button>
                   </div>
                 </header>
+                <div className="lesson-hero-scene">
+                  <LessonScene topic={topic} />
+                </div>
                 <div className="lesson-layout">
                   <div className="lesson-prose">
                     <section id="understand" className="opening-explanation">
