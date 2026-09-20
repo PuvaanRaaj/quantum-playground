@@ -12,6 +12,7 @@ import {
 } from "../lib/models";
 import InterferenceLab from "./interference-lab";
 import CalculatorModel from "./calculator-model";
+import LessonScene, { RelativityScene } from "./animated-scenes";
 function Slider({
   label,
   value,
@@ -186,38 +187,41 @@ export default function TopicVisual({ topic }: { topic: Topic }) {
         />
       );
       diagram = (
-        <svg
-          viewBox="0 0 600 275"
-          className="model-svg"
-          role="img"
-          aria-label="Light-clock right triangle: the diagonal light path grows with relative speed"
-        >
-          <path
-            d={`M70 230H540M70 ${230 - mirrorGap}H540`}
-            className="mirror"
-          />
-          <path
-            d={`M90 230L${90 + displacement} ${230 - mirrorGap}L${90 + 2 * displacement} 230`}
-            fill="none"
-            stroke="var(--accent)"
-            strokeWidth="3"
-          />
-          <path
-            d={`M90 230V${230 - mirrorGap}H${90 + displacement}`}
-            className="plot-grid"
-            strokeDasharray="5 5"
-          />
-          <circle cx="90" cy="230" r="7" fill="var(--accent)" />
-          <text x="85" y={215 - mirrorGap}>
-            upper mirror
-          </text>
-          <text x="115" y="260">
-            lower mirror
-          </text>
-          <text x="280" y="32">
-            longer path, same light speed
-          </text>
-        </svg>
+        <div className="relativity-model-stack">
+          <RelativityScene speed={x} compact />
+          <svg
+            viewBox="0 0 600 200"
+            className="model-svg"
+            role="img"
+            aria-label="Light-clock right triangle: the diagonal light path grows with relative speed"
+          >
+            <path
+              d={`M70 170H540M70 ${170 - mirrorGap * 0.75}H540`}
+              className="mirror"
+            />
+            <path
+              d={`M90 170L${90 + displacement * 0.75} ${170 - mirrorGap * 0.75}L${90 + 2 * displacement * 0.75} 170`}
+              fill="none"
+              stroke="var(--accent)"
+              strokeWidth="3"
+            />
+            <path
+              d={`M90 170V${170 - mirrorGap * 0.75}H${90 + displacement * 0.75}`}
+              className="plot-grid"
+              strokeDasharray="5 5"
+            />
+            <circle cx="90" cy="170" r="6" fill="var(--accent)" />
+            <text x="85" y={155 - mirrorGap * 0.75}>
+              upper mirror
+            </text>
+            <text x="115" y="192">
+              lower mirror
+            </text>
+            <text x="280" y="28">
+              longer path, same light speed
+            </text>
+          </svg>
+        </div>
       );
       metrics = (
         <>
@@ -247,15 +251,18 @@ export default function TopicVisual({ topic }: { topic: Topic }) {
         />
       );
       diagram = (
-        <Plot
-          min={1.05}
-          max={20}
-          fn={gravitationalClock}
-          marker={x}
-          xLabel="radius r / rₛ"
-          yLabel="clock rate dτ / dt"
-          label="Static clock rate increases with distance from a Schwarzschild mass"
-        />
+        <div className="relativity-model-stack">
+          <LessonScene topic={topic} compact />
+          <Plot
+            min={1.05}
+            max={20}
+            fn={gravitationalClock}
+            marker={x}
+            xLabel="radius r / rₛ"
+            yLabel="clock rate dτ / dt"
+            label="Static clock rate increases with distance from a Schwarzschild mass"
+          />
+        </div>
       );
       metrics = (
         <>
@@ -288,23 +295,26 @@ export default function TopicVisual({ topic }: { topic: Topic }) {
         />
       );
       diagram = (
-        <svg
-          viewBox="0 0 600 280"
-          className="model-svg"
-          role="img"
-          aria-label={`A Schwarzschild black hole of ${x} solar masses has horizon radius ${radius.toFixed(1)} kilometres`}
-        >
-          <circle cx="300" cy="140" r={8 + x * 2} className="horizon-halo" />
-          <circle cx="300" cy="140" r={x * 2} fill="var(--ink)" />
-          <path
-            d={`M300 140H${300 + x * 2}`}
-            stroke="var(--accent)"
-            strokeWidth="3"
-          />
-          <text x="300" y="270" textAnchor="middle">
-            event horizon — a boundary in spacetime
-          </text>
-        </svg>
+        <div className="relativity-model-stack">
+          <LessonScene topic={topic} compact />
+          <svg
+            viewBox="0 0 600 220"
+            className="model-svg"
+            role="img"
+            aria-label={`A Schwarzschild black hole of ${x} solar masses has horizon radius ${radius.toFixed(1)} kilometres`}
+          >
+            <circle cx="300" cy="110" r={8 + x * 2} className="horizon-halo" />
+            <circle cx="300" cy="110" r={x * 2} fill="var(--ink)" />
+            <path
+              d={`M300 110H${300 + x * 2}`}
+              stroke="var(--accent)"
+              strokeWidth="3"
+            />
+            <text x="300" y="205" textAnchor="middle">
+              event horizon — a boundary in spacetime
+            </text>
+          </svg>
+        </div>
       );
       metrics = (
         <>
@@ -336,34 +346,37 @@ export default function TopicVisual({ topic }: { topic: Topic }) {
         />
       );
       diagram = (
-        <svg
-          viewBox="0 0 600 290"
-          className="model-svg"
-          role="img"
-          aria-label="Comoving galaxy separations grow with a uniform scale factor"
-        >
-          {Array.from({ length: 25 }, (_, i) => {
-            const col = (i % 5) - 2,
-              row = Math.floor(i / 5) - 2;
-            return (
-              <circle
-                key={i}
-                cx={300 + col * 50 * x}
-                cy={145 + row * 30 * x}
-                r={i === 12 ? 7 : 4}
-                fill={i === 12 ? "var(--accent)" : "var(--text-secondary)"}
-              />
-            );
-          })}
-          <path
-            d={`M300 145H${300 + 100 * x}`}
-            stroke="var(--accent)"
-            strokeWidth="2"
-          />
-          <text x="300" y="280" textAnchor="middle">
-            chosen observer in a small comoving patch
-          </text>
-        </svg>
+        <div className="relativity-model-stack">
+          <LessonScene topic={topic} compact />
+          <svg
+            viewBox="0 0 600 220"
+            className="model-svg"
+            role="img"
+            aria-label="Comoving galaxy separations grow with a uniform scale factor"
+          >
+            {Array.from({ length: 25 }, (_, i) => {
+              const col = (i % 5) - 2,
+                row = Math.floor(i / 5) - 2;
+              return (
+                <circle
+                  key={i}
+                  cx={300 + col * 50 * x}
+                  cy={100 + row * 24 * x}
+                  r={i === 12 ? 7 : 4}
+                  fill={i === 12 ? "var(--accent)" : "var(--text-secondary)"}
+                />
+              );
+            })}
+            <path
+              d={`M300 100H${300 + 100 * x}`}
+              stroke="var(--accent)"
+              strokeWidth="2"
+            />
+            <text x="300" y="205" textAnchor="middle">
+              chosen observer in a small comoving patch
+            </text>
+          </svg>
+        </div>
       );
       metrics = (
         <>
