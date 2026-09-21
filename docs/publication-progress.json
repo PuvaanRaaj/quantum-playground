@@ -424,7 +424,7 @@
     }
   ],
   "infrastructure": "ready",
-  "note": "User explicitly requested stop at 60 lessons. Resume toward100 only on a new user instruction.",
-  "stopAt": 60,
+  "note": "Paused after the requested Jevons paradox lesson. Catalog size is 61. The original 40 unpublished curriculum slugs remain. Resume the planned series only on a new user instruction, and reconcile the old target of 100 before treating it as an exact final count.",
+  "stopAt": 61,
   "status": "paused-at-user-request"
 }

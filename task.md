@@ -1,21 +1,23 @@
-# Quantum Playground — stopped at 60 lessons
+# Quantum Playground — paused after 61 lessons
 
 ## Current instruction: stop
 
 The user explicitly requested: **“update the task.md and stop at 60 lesson, commit and push.”**
 
-That instruction supersedes the earlier request to keep expanding in this session. Exactly 60 lessons are published. Writers have been interrupted and Astra has finished. **Do not generate, review, or publish more lessons automatically.** Resume toward 100 only after the user explicitly asks to continue.
+That instruction supersedes the earlier request to keep expanding in this session. Writers have been interrupted and Astra has finished. **Do not generate, review, or publish more lessons automatically.** Resume toward 100 only after the user explicitly asks to continue.
+
+A later request added one lesson outside that plan: **jevons-paradox** (mathematics). The catalog now has 61 published lessons. The 40 slugs in `docs/remaining-lessons.json` are still unpublished. Publishing all of them would make 101 lessons, so a future resume should reconcile the target before treating 100 as an exact final count.
 
 ## Completed state
 
 - Public repository: https://github.com/PuvaanRaaj/quantum-playground
 - Checkout: ~/programming/quantum-playground; branch main.
 - Local preview: http://localhost:5173 — verify whether the existing server is still running before starting another.
-- Exactly 60 independently reviewed lesson files under `content/lessons/`.
+- 61 lesson files under `content/lessons/`. The original 60 were independently reviewed by gpt-6-astra. `jevons-paradox` was reviewed separately; its reviewer is recorded in `docs/lesson-reviews.json`.
 - Each of the 60 was committed and pushed individually, including the revised original 12. Additional infrastructure/checkpoint commits are separate. Do not squash or rewrite this history.
 - Last lesson commit: `5b604d9b3f6e25b0709bbe61c518606b36c623dc` (relativistic-doppler).
 - `docs/publication-progress.json` contains every lesson’s commit SHA and push result; `docs/lesson-reviews.json` records the exact content hashes approved by **gpt-6-astra**.
-- Subjects: 25 quantum mechanics, 25 mathematics, 9 space/relativity, 1 classical physics.
+- Subjects: 25 quantum mechanics, 26 mathematics, 9 space/relativity, 1 classical physics.
 - Removed slogans/promotional copy, simplified headings and cards, retained light/dark modes, glossary, search, theory-first reading, quizzes, and models.
 - Catalog loads lightweight metadata first, then imports the selected chapter separately. Original aggregate lesson files have been removed; the independent JSON files are canonical.
 - The original Rust/WebAssembly interference lab and old experiment links remain supported.

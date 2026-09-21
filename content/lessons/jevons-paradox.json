@@ -1,0 +1,190 @@
+{
+  "slug": "jevons-paradox",
+  "title": "Jevons paradox",
+  "category": "Mathematics",
+  "subtitle": "A constant-elasticity calculation of when higher efficiency raises total resource use.",
+  "minutes": 16,
+  "level": "Build intuition",
+  "accent": "amber",
+  "intro": "Jevons paradox is the claim that a more efficient way of using a resource can raise the total amount of that resource consumed. The name comes from William Stanley Jevons, who argued in The Coal Question (1865) that more economical steam engines had expanded Britain’s use of coal. The mathematical content of this lesson is narrower than that historical claim: if the price of a service falls in proportion to the resource used per unit of service, a constant-elasticity demand curve tells you whether total resource use falls, stays put, or rises.",
+  "why": "The same efficiency ratio can cut resource use or increase it, depending on how strongly demand responds to the cheaper service.",
+  "prerequisites": [
+    "Exponents and roots",
+    "The idea of a percentage change"
+  ],
+  "terms": [
+    {
+      "term": "Efficiency ratio",
+      "definition": "The factor r by which a new method increases service delivered per unit of resource. Resource use per unit of service therefore falls by the factor r."
+    },
+    {
+      "term": "Price elasticity",
+      "definition": "The percentage change in quantity demanded divided by the percentage change in price, for a small price change. For ordinary goods the ratio is negative."
+    },
+    {
+      "term": "Rebound effect",
+      "definition": "The share of an engineering saving that is taken back because people or firms use more of the now-cheaper service, or spend the saved money on other resource-using goods."
+    },
+    {
+      "term": "Backfire",
+      "definition": "The case in which total resource use rises after an efficiency improvement. Jevons paradox, in the strict sense used here, is backfire."
+    },
+    {
+      "term": "Engineering saving",
+      "definition": "The reduction in resource use that would occur if the amount of service stayed fixed while resource use per unit of service fell."
+    }
+  ],
+  "sections": [
+    {
+      "title": "What Jevons argued about coal",
+      "paragraphs": [
+        "In 1865 Jevons was worried about Britain’s dependence on coal, not about a general theorem of mathematics. The Coal Question asked how long cheap coal could support the country’s industry. One comforting reply was that better engines would use less coal for the same work, so the mines would last longer. Jevons rejected that comfort. He looked at the history of the steam engine, from Newcomen’s atmospheric engines through Watt’s separate condenser and later high-pressure designs, and argued that each improvement made steam power cheaper and therefore worth using in more places. Total coal consumption rose with the improvements.",
+        "His point separates two quantities that are easy to mix up. Resource use per unit of service can fall while total resource use rises, because the number of units of service is not fixed. A furnace that extracts more work from each tonne of coal lowers the cost of a given task. Tasks that were previously too expensive become worth doing, and tasks already done may be done on a larger scale. Jevons treated that expansion as a historical tendency of fuel-using industry, not as a result he had derived from a demand equation. Later writers named the strong version of the claim after him: efficiency improvements can increase the consumption of the resource they save.",
+        "The nineteenth-century evidence was the growth of coal use alongside more efficient engines. That correlation does not by itself isolate efficiency as the cause. Population, trade, new industries, and cheaper extraction all moved at the same time. The lesson uses Jevons’s distinction, then replaces the historical argument with an explicit demand calculation whose assumptions you can see."
+      ]
+    },
+    {
+      "title": "From a cheaper service to a demand response",
+      "paragraphs": [
+        "Call the service whatever the resource is being used to produce: horsepower-hours of mechanical work, lumen-hours of light, or passenger-kilometres of travel. Let the old technology use a certain amount of resource per unit of that service. The new technology delivers r times as much service per unit of resource, with r greater than 1. Resource intensity, the resource per unit of service, is divided by r.",
+        "Suppose the price of the service is proportional to that resource intensity, and that the price of the resource itself does not change. Then the effective price of the service is also divided by r. This is an idealization. A real device has a capital cost, and a large shift in demand can move the market price of the resource. The calculation below holds those complications fixed so that the demand response can be written in one exponent.",
+        "Price elasticity measures how quantity responds. If a small percentage fall in price produces a percentage rise in quantity demanded, the ratio of those two percentage changes is the elasticity. For a good people buy less of when it becomes more expensive, the elasticity is negative. It is easier to carry the positive magnitude η, equal to the elasticity with its sign flipped. η = 0 means the quantity of service does not respond at all. η = 1 means a 1 percent price cut raises quantity by 1 percent. η greater than 1 means quantity responds more than proportionally."
+      ]
+    },
+    {
+      "title": "Where the resource-use ratio comes from",
+      "paragraphs": [
+        "A constant-elasticity demand curve has a fixed elasticity at every price. If the price is multiplied by 1/r, the quantity of service Q is multiplied by r to the power η. That is the integrated form of “percentage change in quantity equals η times the percentage change in price, with the price change entered as a fall.” Starting from Q₂/Q₁ = (P₂/P₁)^(−η) and substituting P₂/P₁ = 1/r gives Q₂/Q₁ = r^η.",
+        "Resource use is resource intensity times quantity of service. Intensity is multiplied by 1/r and quantity is multiplied by r^η, so the ratio of new resource use to old resource use is r^(η − 1). The two exponents compete. The −1 is the engineering reduction. The η is the demand increase. Whichever is larger decides the sign of the change in total use.",
+        "The cases sit on that single exponent. If η = 0, the ratio is 1/r: the full engineering reduction survives. If η is between 0 and 1, the ratio is still below 1, so total use falls, but it falls by less than the engineering estimate. That gap is a partial rebound. If η = 1, the ratio is r^0 = 1 for every r greater than 0, and total resource use is unchanged. If η is greater than 1, the ratio is greater than 1 and total use rises. That last case is backfire, which is Jevons paradox inside this model.",
+        "The identity can be checked by logarithms. The natural log of the resource ratio is (η − 1) times the natural log of r. Because r is greater than 1, its logarithm is positive, so the resource ratio is greater than 1 exactly when η − 1 is positive. Nothing in the algebra forces η above 1. The formula says when backfire would occur. It does not say that a particular market has that elasticity."
+      ]
+    },
+    {
+      "title": "Two numerical cases",
+      "paragraphs": [
+        "Take an efficiency ratio r = 2, so each unit of resource now yields twice as much service, and the effective price of the service is halved if the proportionality assumption holds. First let η = 1.5. The resource ratio is 2^(1.5 − 1) = 2^0.5, which is the square root of 2, about 1.414. Total resource use rises by about 41 percent. The engineering-only forecast, holding the quantity of service fixed, would have cut resource use to half. The demand response more than uses up that cut.",
+        "Now keep r = 2 but set η = 0.4, a milder response. The resource ratio is 2^(0.4 − 1) = 2^(−0.6). Since 2^0.6 is about 1.516, the ratio is about 1/1.516, or 0.660. Resource use falls to roughly 66 percent of its old level. The engineering forecast was a fall to 50 percent. Actual use is higher than that forecast, but it is still lower than the original use. This is partial rebound, not Jevons paradox.",
+        "The rebound fraction makes the comparison explicit. The engineering saving is the fraction 1 − 1/r of the original resource use. For r = 2 that fraction is 0.5. The actual saving fraction is 1 minus the resource ratio. In the mild case it is 1 − 0.660 = 0.340. The rebound fraction is (engineering saving − actual saving) / engineering saving = (0.5 − 0.340) / 0.5 = 0.32, or 32 percent. In the backfire case the actual “saving” is negative, about 1 − 1.414 = −0.414, and the rebound fraction is (0.5 − (−0.414)) / 0.5 = 1.83, or 183 percent. A rebound above 100 percent means the saving reversed.",
+        "These two numbers use the same machine and the same price rule. Only the elasticity changes. Quoting a single efficiency percentage, such as “this engine uses half the fuel,” does not determine total fuel use until the demand response is stated."
+      ]
+    },
+    {
+      "title": "Direct, indirect, and economy-wide effects",
+      "paragraphs": [
+        "Economists split rebound into pieces that this one-service formula only partly captures. Direct rebound is the extra use of the same service: a more efficient car makes a kilometre cheaper, so people may drive more. The constant-elasticity ratio above is a direct-rebound calculation, with income effects bundled into η rather than written as a separate term.",
+        "Indirect rebound appears when money saved on the efficient service is spent on other goods that also use resources. A household that spends less on petrol may spend more on heating, flights, or manufactured goods. Those extra purchases are absent from a model with only one service. Economy-wide rebound goes further. Cheaper energy can change which industries expand, how much capital is built, and which later inventions are worth pursuing. Daniel Khazzoom and Len Brookes each argued, in different ways, that energy-efficiency gains at the scale of a whole economy could raise energy use. That macroeconomic claim is sometimes called the Khazzoom–Brookes postulate. It is related to Jevons’s coal argument, and it is not settled by the single exponent η.",
+        "Reviews of the empirical literature, including Steve Sorrell’s 2009 survey and the later review by Kenneth Gillingham, David Rapson, and Gernot Wagner, treat backfire as a hypothesis that has to be measured, not as an identity. Many estimates of direct rebound for household energy services are well below 100 percent. Economy-wide effects are harder to identify because efficiency, prices, income, and technology move together. A calculator that returns a number for a chosen η is not a measurement of any of those effects."
+      ]
+    },
+    {
+      "title": "Limits of the model",
+      "paragraphs": [
+        "Several idealizations are doing quiet work. The elasticity is constant over a price change that may be large; halving a price is not a small percentage change, and a demand curve measured near the old price may not keep the same elasticity all the way to the new one. The price of the service was assumed proportional to resource intensity. If the device costs more to buy, or if the resource price rises because everyone wants more of it, the effective price does not fall by the full factor r. The model also has one resource and one service. It cannot represent a shift from coal to oil, or the energy used to manufacture the efficient equipment.",
+        "There is a policy distinction hiding in the same formula. If the goal is a particular amount of service at lower resource cost, and the quantity of service is limited by something other than price, the engineering reduction is the relevant one. If the goal is a lower total of resource use and people are free to buy more of the cheaper service, the resource ratio r^(η − 1) is the relevant one. Efficiency can succeed at the first goal and fail at the second. The formula does not say which goal a person or a government has.",
+        "The plot in this lesson graphs the resource-use ratio against the efficiency ratio, with elasticity held at the value you set. At the opening value η = 1.5 the curve is a square-root function and it rises. Lower the elasticity below 1 and the same plot falls. The shape is a power of r, not a statement about steam engines. Changing the sliders explores the identity. It does not test whether nineteenth-century coal demand, or any present market, had an elasticity above one."
+      ]
+    }
+  ],
+  "equation": {
+    "expression": "R₂ / R₁ = r^(η − 1)",
+    "symbols": [
+      {
+        "symbol": "r",
+        "meaning": "Efficiency ratio, greater than 1: service per unit of resource, relative to the old technology"
+      },
+      {
+        "symbol": "η",
+        "meaning": "Magnitude of the price elasticity of demand for the service; a positive number"
+      },
+      {
+        "symbol": "R₂ / R₁",
+        "meaning": "New total resource use divided by old total resource use"
+      }
+    ],
+    "explanation": "The price of the service is assumed proportional to resource use per unit of service, so an efficiency ratio r divides that price by r. Constant elasticity of magnitude η then multiplies the quantity of service by r^η. Multiplying by the new resource intensity, which is the old intensity divided by r, leaves the factor r^(η − 1).",
+    "example": "If r = 2 and η = 1.5, then R₂/R₁ = 2^0.5 ≈ 1.414, about a 41 percent increase. If r = 2 and η = 0.4, then R₂/R₁ = 2^(−0.6) ≈ 0.660, about a 34 percent decrease rather than the 50 percent decrease of a fixed quantity of service."
+  },
+  "insight": "Total resource use rises with efficiency only when the magnitude of demand elasticity exceeds 1; otherwise the engineering reduction still wins, in whole or in part.",
+  "misconceptions": [
+    {
+      "myth": "Any efficiency improvement increases total consumption of the resource.",
+      "correction": "In this model, total use rises only when η > 1. When η = 0.4 and efficiency doubles, resource use falls to about 66 percent of its previous level."
+    },
+    {
+      "myth": "If total use rises, the efficiency improvement produced no real saving per task.",
+      "correction": "Resource use per unit of service still falls by the factor r. Backfire means more units of service are bought, enough to outweigh that fall."
+    },
+    {
+      "myth": "Jevons derived a theorem that every fuel-saving invention must increase fuel use.",
+      "correction": "The Coal Question gives a historical and economic argument about steam and coal. The elasticity threshold is a later way to state when backfire would happen, and it depends on a number the invention itself does not supply."
+    }
+  ],
+  "check": {
+    "question": "A new process doubles service per unit of resource, and the magnitude of the price elasticity of demand for that service is 0.4. In this constant-elasticity model, what happens to total resource use?",
+    "options": [
+      "It falls, but by less than half",
+      "It doubles",
+      "It stays exactly the same"
+    ],
+    "answer": 0,
+    "explanation": "The resource ratio is 2^(0.4 − 1) ≈ 0.660, so use falls to about 66 percent of the old level. A fixed quantity of service would have cut use in half, and only η = 1 would leave total use unchanged."
+  },
+  "sources": [
+    {
+      "title": "William Stanley Jevons, The Coal Question (Online Library of Liberty)",
+      "url": "https://oll.libertyfund.org/titles/jevons-the-coal-question"
+    },
+    {
+      "title": "Steve Sorrell, Jevons’ Paradox revisited, Energy Policy 37 (2009)",
+      "url": "https://doi.org/10.1016/j.enpol.2008.12.003"
+    },
+    {
+      "title": "Gillingham, Rapson, and Wagner, The Rebound Effect and Energy Efficiency Policy (RFF discussion paper)",
+      "url": "https://media.rff.org/documents/RFF-DP-14-39.pdf"
+    }
+  ],
+  "visual": "calculator",
+  "model": {
+    "title": "Resource use after an efficiency gain",
+    "description": "Computes the resource-use ratio r^(η − 1). At r = 2 and η = 1.5 the ratio is about 1.414; the engineering-only ratio 1/r is 0.5.",
+    "inputs": [
+      {
+        "key": "r",
+        "label": "Efficiency ratio",
+        "unit": "×",
+        "min": 1,
+        "max": 4,
+        "step": 0.1,
+        "initial": 2
+      },
+      {
+        "key": "eta",
+        "label": "Elasticity magnitude",
+        "unit": "",
+        "min": 0,
+        "max": 2,
+        "step": 0.1,
+        "initial": 1.5
+      }
+    ],
+    "outputs": [
+      {
+        "label": "Resource-use ratio",
+        "unit": "×",
+        "expression": ["pow", "r", ["-", "eta", 1]]
+      },
+      {
+        "label": "Engineering-only ratio",
+        "unit": "×",
+        "expression": ["/", 1, "r"]
+      },
+      {
+        "label": "Change in resource use",
+        "unit": "%",
+        "expression": ["*", ["-", ["pow", "r", ["-", "eta", 1]], 1], 100]
+      }
+    ],
+    "assumptions": "One service, constant elasticity, and a service price proportional to resource intensity. The resource’s own price, capital cost, and other spending are held fixed. Slider values illustrate the identity; they are not a measurement of coal demand or of any modern market, and they do not establish Jevons’s historical claim."
+  }
+}

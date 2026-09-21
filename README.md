@@ -2,9 +2,9 @@
 
 Physics and mathematics lessons with explanations, worked examples, and interactive models.
 
-The library contains 60 lessons across quantum mechanics, relativity, astronomy, and mathematics. Every lesson teaches the theory **before** showing its interactive model. This is a curated foundation, not an encyclopedia of every theory or a promise of complete mastery.
+The library contains 61 lessons across quantum mechanics, relativity, astronomy, and mathematics. Every lesson teaches the theory **before** showing its interactive model. This is a curated foundation, not an encyclopedia of every theory or a promise of complete mastery.
 
-Work is intentionally stopped at **60 published lessons**, as requested. [task.md](task.md) contains the continuation instructions for the remaining 40; [publication progress](docs/publication-progress.json) records each individual commit and push.
+The original run stopped at 60 lessons. A later request added one mathematics lesson, Jevons paradox. [task.md](task.md) contains the continuation instructions for the remaining planned lessons; [publication progress](docs/publication-progress.json) records each individual commit and push.
 
 ## Learn before experimenting
 
@@ -14,9 +14,9 @@ Each lesson includes substantial original explanations (650+ words in the theory
 | ------------------ | ---------------------------------------------------------------------------------- |
 | Space & relativity | Special relativity, general relativity, black holes, the expanding universe        |
 | Quantum mechanics  | Interference, uncertainty, entanglement & Bell’s theorem, the Schrödinger equation |
-| Mathematics        | Pythagoras, calculus, Euler’s formula, Bayes’ theorem                              |
+| Mathematics        | Pythagoras, calculus, Euler’s formula, Bayes’ theorem, Jevons paradox              |
 
-The subject counts are 25 quantum mechanics, 25 mathematics, 9 space/relativity, and 1 classical physics lesson. The original 12 models remain, with additional bounded calculators and plots for the newer lessons.
+The subject counts are 25 quantum mechanics, 26 mathematics, 9 space/relativity, and 1 classical physics lesson. The original 12 models remain, with additional bounded calculators and plots for the newer lessons.
 
 The reading library includes subject navigation, lesson search, a searchable cross-lesson glossary, direct lesson URLs (`?topic=general-relativity`), browser back/forward navigation, and a persistent light/dark preference. The default theme is light. Experiments are opened explicitly after the explanation, with a shortcut for returning readers.
 
@@ -129,7 +129,7 @@ Configure runtime secrets on that Worker to enable AI; leave them absent for gui
 
 ## Scope
 
-The 60 lessons provide a substantial beginner foundation. The entanglement visualization shows singlet correlations; it does not perform a full CHSH experiment. The GR visualization calculates one Schwarzschild clock-rate relation, not arbitrary spacetime curvature. Lean-checked proofs, actual quantum hardware, and cosmological parameter fitting are not implemented. The AI tutor is still limited to interference.
+The lessons provide a substantial beginner foundation. The entanglement visualization shows singlet correlations; it does not perform a full CHSH experiment. The GR visualization calculates one Schwarzschild clock-rate relation, not arbitrary spacetime curvature. Lean-checked proofs, actual quantum hardware, and cosmological parameter fitting are not implemented. The AI tutor is still limited to interference.
 
 ## License
 

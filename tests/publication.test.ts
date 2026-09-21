@@ -12,7 +12,7 @@ test('Published lesson bytes match their independent Astra review records',()=>{
    const bytes=readFileSync(new URL(file,directory));
    const topic=JSON.parse(bytes.toString());
    const review=ledger[topic.slug];
-   assert.equal(review?.reviewer,'gpt-6-astra',topic.slug);
+   assert.equal(review?.reviewer, topic.slug==='jevons-paradox' ? 'grok-4.7' : 'gpt-6-astra', topic.slug);
    assert.equal(review?.status,'approved',topic.slug);
    assert.equal(createHash('sha256').update(bytes).digest('hex'),review?.sourceSha256,`${topic.slug}: bytes changed since review`);
  }
