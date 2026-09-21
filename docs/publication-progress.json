@@ -421,6 +421,13 @@
       "pushed": true,
       "reviewer": "gpt-6-astra",
       "sourceSha256": "b208688307a247e4476aae2ddfaa06d359e2f250e7f3d6dbb52b720bfec6ed18"
+    },
+    {
+      "slug": "jevons-paradox",
+      "commit": "deb1c8a289202556ed2043b62725080fa81ef4bc",
+      "pushed": true,
+      "reviewer": "grok-4.7",
+      "sourceSha256": "5f5f7fc05e9945312b6cf8da4d927fcd9097ec7d56f87679b01ecc0c9d70be7b"
     }
   ],
   "infrastructure": "ready",
